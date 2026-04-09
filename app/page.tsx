@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Gift, Package, Share2, Settings, Truck, DollarSign, Sparkles, TrendingUp, Users, ShieldCheck, Zap, Heart } from "lucide-react"
 
 export default function Home() {
@@ -187,16 +188,20 @@ export default function Home() {
           <p className="mt-4 text-lg text-primary-foreground/80">
             Join thousands of creators and brands already using Giftly to build authentic partnerships.
           </p>
-          <p className="mt-6 text-primary-foreground/70">
-            Email us at{" "}
+          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Link
+              href="/creator"
+              className="inline-flex h-11 items-center justify-center rounded-md bg-primary-foreground px-8 text-sm font-medium text-primary hover:bg-primary-foreground/90 transition-colors"
+            >
+              Apply as a Creator
+            </Link>
             <a
               href="mailto:hello@giftly.com"
-              className="font-medium text-primary-foreground underline underline-offset-4 hover:no-underline"
+              className="inline-flex h-11 items-center justify-center rounded-md border border-primary-foreground/30 px-8 text-sm font-medium text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
             >
-              hello@giftly.com
-            </a>{" "}
-            to get started.
-          </p>
+              Contact Us
+            </a>
+          </div>
         </div>
       </section>
 
