@@ -196,7 +196,7 @@ export default function Home() {
               Apply as a Creator
             </Link>
             <a
-              href="mailto:hello@giftly.com"
+              href="mailto:samarjit.deshmukh.29@dartmouth.edu"
               className="inline-flex h-11 items-center justify-center rounded-md border border-primary-foreground/30 px-8 text-sm font-medium text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
             >
               Contact Us
