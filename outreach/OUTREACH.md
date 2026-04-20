@@ -12,7 +12,7 @@ pre-vetted creator profiles for their specific brand.
 ## Targets
 
 DTC consumer brands already opted into creator-affiliate infrastructure
-(e.g. Throne, Social Snowball, Levanta, LTK, Shopify Collabs merchant lists).
+(Throne, Social Snowball, Levanta, LTK, Shopify Collabs merchant lists).
 They've raised their hand — highest reply potential.
 
 - Physical product: food/bev, supplements, beauty, skincare, apparel, home,
@@ -43,7 +43,7 @@ in-house creator teams, pre-revenue brands.
 - Sign off `Thanks,\nArmaan`. Plain text only.
 - No em dashes, no exclamation marks, no buzzwords, no flattery.
 - Brand-name normalization: all-caps brands → Title Case; strip `By ` prefix.
-  See `normalize_brand()` in `send-throne-batch.py`.
+  See `normalize_brand()` in `send-batch.py`.
 
 ### Example
 
@@ -62,30 +62,63 @@ Armaan
 
 ## Workflow
 
-For a list of target brands (e.g. merchants scraped from a creator-platform
-directory):
+For a list of target brands (e.g. merchants scraped/screenshotted from a
+creator-platform directory):
 
-1. **Resolve domains** — one `brand,domain` line per target. A research
-   subagent with WebSearch access is the fastest way to turn a name list
-   into a `brand-batch.csv`.
-2. **Scrape contact emails** — `python3 scrape-throne-batch.py <batch.csv>`
-   fetches root, `/contact`, `/pages/contact*`, `/about*` on each brand's
-   domain, extracts emails whose root domain matches, rewrites the CSV with
-   `email` and `email_source` columns. Fall back to `scrape-curl.py` only if
-   urllib hangs (note: curl gets Cloudflare 429s on Shopify-hosted sites).
-3. **Only send to rows with `email_source` starting with `https://`.** Never
-   send to `hello@{domain}` fallbacks — they bounce at high rates. No
-   Hunter, no guessed patterns, no generic mailboxes.
-4. **Dedupe** — `send-throne-batch.py` drops any brand already in
-   `outreach-log.csv` by exact brand-column match before sending.
-5. **Send** — `GOG_KEYRING_PASSWORD=... GOG_ACCOUNT=<sender> python3
-   send-throne-batch.py <batch.csv>`. 3–8s randomized spacing per send.
-   Appends each send to `outreach-log.csv` with
-   `verified=sent,llm_evidence=throne-merchant` (retag per source).
-6. **Bounce check** — after the batch, search
-   `gog gmail messages search 'from:mailer-daemon@googlemail.com newer_than:1h'`,
-   correlate message IDs back to brands, mark those rows `BOUNCED` in the
-   log, and trash the DSN messages.
+### 1. Resolve domains — Haiku subagent
+
+Spawn a Haiku subagent with the brand list; request `brand,domain` CSV
+output. Never use Opus WebSearch for this — it's the single biggest token
+sink and Haiku handles it fine.
+
+```
+Resolve the canonical root domain for each brand below. Return one line
+per brand in `brand,domain` CSV format, no header. If a brand is
+ambiguous or you can't resolve it, emit `brand,UNKNOWN`.
+
+Brands:
+- Alpinestars
+- FOTOFOTO
+- ...
+```
+
+Drop any `UNKNOWN` rows (or resolve manually) before moving on. Save the
+result as `batch.csv`.
+
+### 2. Run the batch — one command
+
+```bash
+GOG_KEYRING_PASSWORD=... ./run-batch.sh batch.csv <account-email>
+```
+
+`run-batch.sh` chains the three stages and prints one summary line per stage:
+
+- **scrape** — `scrape-batch.py` fetches root, `/contact*`, `/about*` on each
+  domain, extracts emails whose root domain matches, rewrites the CSV with
+  `email` and `email_source`. Only `email_source` starting with `https://`
+  counts as verified.
+- **send** — `send-batch.py` filters to verified rows, dedupes against
+  `outreach-log.csv` by exact brand match, sends each via `gog gmail send`
+  with 3–8s jitter, appends to the log.
+- **bounce** — `process-bounces.py` searches for DSNs from the last 30
+  minutes, parses `X-Failed-Recipients:`, marks matching log rows `BOUNCED`,
+  trashes the DSNs.
+
+Per-row detail is written to `logs/scrape-<stem>.log`,
+`logs/send-<stem>.log`, and `logs/bounces-<date>.log`. Only read those if the
+summary looks off.
+
+### 3. Driving this as Claude (Opus)
+
+- **Read only the summary.** Don't `cat` the logs or invoke the underlying
+  scripts manually. The whole point of this pipeline is to keep per-row
+  output out of the Opus context window.
+- **Delegate brand→domain to Haiku.** Every time, no exceptions.
+- **Don't hand-edit outreach-log.csv** for bounces. `process-bounces.py` owns
+  the bounce column.
+- If a summary flags something (high fallback, non-zero send failures, an
+  unexpectedly large DSN count), then read the matching `logs/*.log` —
+  targeted, not wholesale.
 
 ## Sending accounts
 
@@ -95,15 +128,18 @@ directory):
 
 Both are authed via `gog`. Always pass `--account <email>` (or
 `GOG_ACCOUNT`) explicitly — `gog` refuses to default when multiple accounts
-are stored.
+are stored. `run-batch.sh` handles this via its second argument.
 
 ## Hard rules
 
 - **Only verified-scraped emails.** `email_source` must start with `https://`.
-- **No duplicate sends.** Check `outreach-log.csv` before queuing.
+- **No duplicate sends.** `send-batch.py` dedupes against `outreach-log.csv`;
+  trust it.
 - **Subject is always exactly** `Stanford Student Inquiry`.
 - **No em dashes, exclamation marks, buzzwords, flattery.**
-- Pace so no single account exceeds ~200 cold emails/day. Split across
-  accounts and days for larger lists.
-- Record bounces as `BOUNCED` in `outreach-log.csv` (don't retry guessed
-  patterns — we only send to scraped addresses).
+- No single account exceeds ~200 cold emails/day. Split across accounts and
+  days for larger lists.
+- Bounces are owned by `process-bounces.py` — don't retry guessed patterns
+  and don't hand-edit the `verified` column.
+- No Hunter, no pattern-guessing. Only addresses extracted from the brand's
+  own contact page.

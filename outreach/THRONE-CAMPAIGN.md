@@ -1,5 +1,12 @@
 # Throne Merchants Outreach Campaign
 
+> **Historical.** This campaign used the pre-redesign flow. See
+> `OUTREACH.md` for the current pipeline (`run-batch.sh`, Haiku for
+> brand→domain, summary-only output). Script names in this doc
+> (`scrape-throne-batch.py`, `send-throne-batch.py`) have since been
+> renamed to `scrape-batch.py` and `send-batch.py`, and `scrape-curl.py`
+> has been removed.
+
 Campaign sent 2026-04-19 / 2026-04-20 to Throne.com merchants, pitching
 Stanford/Dartmouth creator-matching (commission-paid, no-contract creators).
 

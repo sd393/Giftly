@@ -1,92 +1,100 @@
 # Giftly Outreach
 
-Cold-email tooling for the Stanford/Dartmouth creator-matching pitch
-(Giftly). Scrapes brand contact pages, sends from authenticated Gmail
-accounts via the `gog` CLI, logs results.
+Cold-email tooling for the Stanford/Dartmouth creator-matching pitch.
+Scrapes brand contact pages, sends from authenticated Gmail accounts via the
+`gog` CLI, logs results, sweeps bounces.
+
+Built to be cheap in Claude/Opus tokens: one command per batch, summary-only
+stdout, per-row detail in `logs/`, brand-to-domain lookup deferred to a Haiku
+subagent.
 
 ## Setup
 
-### 1. Environment variables
-
-Set in your shell rc or per-session:
-
 ```bash
 export GOG_KEYRING_PASSWORD="<your gog keyring password>"
-export GOG_ACCOUNT="armaan.priyadarshan.29@dartmouth.edu"   # or armaanp4423@gmail.com
+# One of:
+export GOG_ACCOUNT="armaan.priyadarshan.29@dartmouth.edu"
+export GOG_ACCOUNT="armaanp4423@gmail.com"
 ```
 
-### 2. gog authentication
-
-Two accounts should be stored:
-
-```bash
-gog auth list
-```
-
-If re-auth is needed:
+Both accounts should already be authed (`gog auth list`). To re-auth:
 
 ```bash
 gog auth add armaan.priyadarshan.29@dartmouth.edu --services gmail --force-consent
 gog auth add armaanp4423@gmail.com --services gmail --force-consent
 ```
 
-When more than one account is stored, `gog` requires `--account <email>` on
-every call (or `GOG_ACCOUNT` in env) — the scripts here pass it explicitly.
+With multiple accounts stored, every `gog` call needs `--account <email>` —
+the scripts pass it through from `GOG_ACCOUNT`.
 
 ## Files
 
 | File | Purpose |
 | ---- | ------- |
-| `OUTREACH.md` | playbook: pitch, email template, workflow, hard rules |
-| `THRONE-CAMPAIGN.md` | retrospective of the 712-send Throne campaign on 2026-04-19/20 |
-| `outreach-log.csv` | canonical log, schema: `name,role,brand,domain,email,date_sent,verified,llm_evidence` |
-| `throne-batch-*.csv` | per-batch inputs (brand, domain, email, email_source) for the Throne campaign |
-| `scrape-throne-batch.py` | urllib contact-page scraper (primary) |
-| `scrape-curl.py` | curl-subprocess scraper (fallback — frequently 429'd on Shopify) |
-| `send-throne-batch.py` | sends `Stanford Student Inquiry` template, skips fallbacks, dedupes against log |
+| `OUTREACH.md` | playbook: pitch, email template, full workflow, hard rules |
+| `THRONE-CAMPAIGN.md` | retrospective of the 712-send Throne campaign (2026-04-19/20) |
+| `outreach-log.csv` | canonical log: `name,role,brand,domain,email,date_sent,verified,llm_evidence` |
+| `run-batch.sh` | one-shot orchestrator: scrape → send → bounce-sweep |
+| `scrape-batch.py` | urllib contact-page scraper; summary-only stdout, detail in `logs/` |
+| `send-batch.py` | sender; dedupes against the log; summary-only stdout |
+| `process-bounces.py` | finds DSNs, marks bounced rows `BOUNCED`, trashes DSNs |
+| `throne-batch-*.csv` | historical inputs from the Throne campaign |
 
-## Common commands
+## One-shot batch
 
-Scrape a new brand list (CSV must have `brand,domain` columns):
-
-```bash
-python3 scrape-throne-batch.py <batch.csv>
-```
-
-Send to the verified-scraped rows only:
+Input is a CSV with at least `brand,domain` columns.
 
 ```bash
-GOG_KEYRING_PASSWORD=... GOG_ACCOUNT=armaanp4423@gmail.com \
-  python3 send-throne-batch.py <batch.csv>
+./run-batch.sh <batch.csv> <account-email>
+# optional: --dry-run
 ```
 
-Check bounces from the last hour:
+Output is ~6–10 lines: one summary per stage.
+
+```
+[scrape] found=38 fallback=22 elapsed=47s log=logs/scrape-batch.log
+  warn: SomeBrand err:URLError
+[send]   sent=35 failed=0 skipped_dup=3 log=logs/send-batch.log
+[bounce] dsns=2 bounced_emails=2 log_updated=2 trashed=2 log=logs/bounces-2026-04-20.log
+```
+
+Per-row detail is in `logs/` if you need to investigate.
+
+## How Claude should drive this
+
+Read `OUTREACH.md` in full first — the pitch, template, and hard rules live
+there. Then:
+
+1. **Brand → domain** — call `Agent(subagent_type="general-purpose", model="haiku", …)`
+   with the brand list; ask for `brand,domain` CSV output. Do NOT use Opus
+   WebSearch for this step.
+2. **Run the batch** — `./run-batch.sh <batch.csv> <account>`. Do not invoke
+   `scrape-batch.py` / `send-batch.py` / `process-bounces.py` individually —
+   they emit one useful line each and the orchestrator already chains them.
+3. **Read only the summary.** If something looks off (high fallback count,
+   non-zero sender failures, unexpected DSN count), then `cat` the matching
+   `logs/*.log` file. Otherwise the run is done.
+
+## Common commands (rare / manual)
+
+Inspect last scrape log:
 
 ```bash
-gog --account <email> gmail messages search \
-  'from:mailer-daemon@googlemail.com newer_than:1h' --max 200
+ls -t logs/scrape-*.log | head -1 | xargs cat
 ```
 
-Trash all bounces on an account:
+Sweep bounces outside a batch run (e.g. day-after follow-up):
 
 ```bash
-gog --account <email> gmail trash --query 'from:mailer-daemon' --max 2000 -y
+python3 process-bounces.py --account <email> --since 24h
 ```
 
-## Workflow
+## Hard rules (summary — see OUTREACH.md for the full list)
 
-See `OUTREACH.md` for the playbook. See `THRONE-CAMPAIGN.md` for a worked
-example (712 sends across 22 batches, with the gotchas that bit during it).
-
-## Claude Code instructions
-
-- Only send to rows where `email_source` starts with `https://` (real
-  scraped contact-page addresses). Never send to `hello@{domain}` fallbacks.
-- Always pass `--account` to `gog` (or set `GOG_ACCOUNT`). Don't rely on a
-  default sender.
-- Dedupe against `outreach-log.csv` by exact brand-column match before each
-  batch — `send-throne-batch.py` does this automatically.
-- After each batch: check bounces, mark matching rows `BOUNCED`, trash the
-  DSNs.
-- Do not use Hunter or guess email patterns. The current workflow only
-  accepts emails extracted from the brand's own contact page.
+- Only send to `email_source` starting with `https://`. Never to
+  `hello@{domain}` fallbacks, never to Hunter or guessed patterns.
+- Subject is always exactly `Stanford Student Inquiry`. Plain text body.
+  No em dashes, no exclamations, no buzzwords.
+- `send-batch.py` dedupes against `outreach-log.csv` by exact brand match —
+  trust it, do not pre-filter manually.
+- ≤~200 cold emails per account per day. Split across accounts and days.
