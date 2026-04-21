@@ -77,6 +77,13 @@ export const brandFormSchema = z.object({
 
 export type BrandFormValues = z.infer<typeof brandFormSchema>
 
+export const BRAND_STAGES = ['cold', 'in_talks', 'done'] as const
+export type BrandStage = (typeof BRAND_STAGES)[number]
+
+export const brandStageSchema = z.object({
+  stage: z.enum(BRAND_STAGES),
+})
+
 const optionalText = (max: number, label: string) =>
   z
     .string()
@@ -139,6 +146,7 @@ export const brandEditSchema = z.object({
     .nullable()
     .optional()
     .transform((v) => (v ? v : null)),
+  stage: z.enum(BRAND_STAGES).optional(),
 })
 
 export type BrandEditValues = z.infer<typeof brandEditSchema>

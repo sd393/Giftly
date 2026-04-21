@@ -10,7 +10,33 @@ import os
 import urllib.error
 import urllib.parse
 import urllib.request
+from pathlib import Path
 from typing import Any
+
+
+def _load_dotenv_fallback(keys: tuple[str, ...]) -> None:
+    """Pick up GIFTLY_* vars from the repo-root .env.local when they aren't
+    already in the shell. Keeps Next.js and the Python scripts on a single
+    source of truth without forcing the user to double-export."""
+    if all(os.environ.get(k) for k in keys):
+        return
+    dotenv = Path(__file__).resolve().parent.parent / ".env.local"
+    if not dotenv.exists():
+        return
+    try:
+        for line in dotenv.read_text().splitlines():
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            k, _, v = line.partition("=")
+            k = k.strip()
+            if k in keys and k not in os.environ:
+                os.environ[k] = v.strip().strip('"').strip("'")
+    except OSError:
+        pass
+
+
+_load_dotenv_fallback(("GIFTLY_API_URL", "GIFTLY_API_TOKEN"))
 
 API_URL = os.environ.get("GIFTLY_API_URL", "").rstrip("/")
 API_TOKEN = os.environ.get("GIFTLY_API_TOKEN", "")

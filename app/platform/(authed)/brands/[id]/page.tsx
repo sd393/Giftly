@@ -8,6 +8,7 @@ import { createClient } from '@/lib/supabase/server'
 import { ActivityTimeline } from '../../_components/activity-timeline'
 import { BrandEditForm } from '../_components/brand-edit-form'
 import { BrandNotes } from '../_components/brand-notes'
+import { BrandStageSelect } from '../_components/brand-stage-select'
 import { BrandStatusActions } from '../_components/brand-status-actions'
 
 export default async function BrandDetailPage({
@@ -87,11 +88,14 @@ export default async function BrandDetailPage({
             ) : null}
           </p>
         </div>
-        <BrandStatusActions
-          id={brand.id}
-          reviewed={Boolean(brand.reviewed_at)}
-          archived={Boolean(brand.archived_at)}
-        />
+        <div className="flex flex-col items-end gap-2">
+          <BrandStageSelect id={brand.id} initial={brand.stage} />
+          <BrandStatusActions
+            id={brand.id}
+            reviewed={Boolean(brand.reviewed_at)}
+            archived={Boolean(brand.archived_at)}
+          />
+        </div>
       </div>
 
       <section className="mb-8">

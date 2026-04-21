@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from 'next/server'
 import { z } from 'zod'
 
 import { jsonError, verifyBearerToken } from '@/lib/api/auth'
+import { promoteBrandToInTalks } from '@/lib/platform/brand-stage'
 import {
   ENTITY_TYPES,
   MESSAGE_DIRECTIONS,
@@ -114,6 +115,13 @@ export async function POST(request: NextRequest) {
 
   if (error || !data) {
     return jsonError(500, 'insert_failed', error?.message)
+  }
+
+  if (
+    v.entity_type === 'brand' &&
+    (v.direction === 'inbound' || v.status === 'replied')
+  ) {
+    await promoteBrandToInTalks(supabaseAdmin, v.entity_id)
   }
 
   return NextResponse.json({ data }, { status: 201 })

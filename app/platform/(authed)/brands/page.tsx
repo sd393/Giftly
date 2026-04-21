@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Plus } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import { BRAND_STAGES, type BrandStage } from '@/lib/schemas/brand'
 import { createClient } from '@/lib/supabase/server'
 
 import { PageHeader } from '../_components/page-header'
@@ -13,10 +14,13 @@ type SortField = 'brand_name' | 'created_at' | 'updated_at'
 type SearchParams = {
   q?: string
   category?: string
+  stage?: string
   sort?: SortField
   dir?: 'asc' | 'desc'
   show?: 'active' | 'archived' | 'all'
 }
+
+const STAGE_SET = new Set<string>(BRAND_STAGES)
 
 const VALID_SORT: Record<SortField, true> = {
   brand_name: true,
@@ -32,6 +36,8 @@ export default async function BrandsDirectoryPage({
   const sp = await searchParams
   const q = sp.q?.trim() ?? ''
   const category = sp.category?.trim() ?? ''
+  const stage: BrandStage | '' =
+    sp.stage && STAGE_SET.has(sp.stage) ? (sp.stage as BrandStage) : ''
   const sort: SortField = sp.sort && VALID_SORT[sp.sort] ? sp.sort : 'created_at'
   const dir: 'asc' | 'desc' = sp.dir === 'asc' ? 'asc' : 'desc'
   const show: 'active' | 'archived' | 'all' =
@@ -42,12 +48,13 @@ export default async function BrandsDirectoryPage({
   let query = supabase
     .from('brands')
     .select(
-      'id, brand_name, website, category, contact_name, contact_email, owner_id, reviewed_at, archived_at, created_at, updated_at'
+      'id, brand_name, website, category, contact_name, contact_email, owner_id, stage, reviewed_at, archived_at, created_at, updated_at'
     )
 
   if (show === 'active') query = query.is('archived_at', null)
   else if (show === 'archived') query = query.not('archived_at', 'is', null)
 
+  if (stage) query = query.eq('stage', stage)
   if (category) query = query.ilike('category', category)
 
   if (q) {
@@ -84,6 +91,7 @@ export default async function BrandsDirectoryPage({
       <BrandsFilters
         q={q}
         category={category}
+        stage={stage}
         sort={sort}
         dir={dir}
         show={show}

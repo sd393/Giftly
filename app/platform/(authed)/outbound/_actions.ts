@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 
+import { promoteBrandToInTalks } from '@/lib/platform/brand-stage'
 import {
   outboundMessageSchema,
   MESSAGE_STATUSES,
@@ -53,6 +54,15 @@ export async function logOutboundMessage(
     }
   }
 
+  // Auto-promote cold brand → in_talks when we've logged a reply or a new
+  // inbound. Failure here must not fail the whole action.
+  if (
+    v.entityType === 'brand' &&
+    (v.direction === 'inbound' || v.status === 'replied')
+  ) {
+    await promoteBrandToInTalks(supabase, v.entityId)
+  }
+
   revalidatePath('/outbound')
   revalidatePath(
     v.entityType === 'creator'
@@ -84,6 +94,10 @@ export async function updateMessageStatus(
 
   if (error || !data) {
     return { success: false, error: error?.message ?? 'Failed to update' }
+  }
+
+  if (status === 'replied' && data.entity_type === 'brand') {
+    await promoteBrandToInTalks(supabase, data.entity_id)
   }
 
   revalidatePath('/outbound')

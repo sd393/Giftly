@@ -2,7 +2,13 @@
 
 import { revalidatePath } from 'next/cache'
 
-import { brandEditSchema, type BrandEditValues } from '@/lib/schemas/brand'
+import {
+  BRAND_STAGES,
+  brandEditSchema,
+  brandStageSchema,
+  type BrandEditValues,
+  type BrandStage,
+} from '@/lib/schemas/brand'
 import { createClient } from '@/lib/supabase/server'
 
 type ActionResult<T = undefined> =
@@ -10,7 +16,7 @@ type ActionResult<T = undefined> =
   | { success: false; error: string }
 
 function toPayload(v: BrandEditValues) {
-  return {
+  const base = {
     contact_name: v.contactName,
     contact_role: v.contactRole ?? null,
     contact_email: v.contactEmail,
@@ -21,6 +27,7 @@ function toPayload(v: BrandEditValues) {
     notes: v.notes ?? null,
     owner_id: v.ownerId,
   }
+  return v.stage ? { ...base, stage: v.stage } : base
 }
 
 export async function createBrand(
@@ -125,3 +132,29 @@ export async function archiveBrand(
   revalidatePath(`/brands/${id}`)
   return { success: true, data: undefined }
 }
+
+export async function setBrandStage(
+  id: string,
+  stage: BrandStage
+): Promise<ActionResult> {
+  const parsed = brandStageSchema.safeParse({ stage })
+  if (!parsed.success) {
+    return { success: false, error: 'Invalid stage' }
+  }
+
+  const supabase = await createClient()
+  const { error } = await supabase
+    .from('brands')
+    .update({ stage: parsed.data.stage })
+    .eq('id', id)
+
+  if (error) return { success: false, error: error.message }
+
+  revalidatePath('/brands')
+  revalidatePath(`/brands/${id}`)
+  revalidatePath('/outbound')
+  return { success: true, data: undefined }
+}
+
+export { BRAND_STAGES }
+export type { BrandStage }

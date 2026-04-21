@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from 'next/server'
 import { z } from 'zod'
 
 import { jsonError, verifyBearerToken } from '@/lib/api/auth'
+import { promoteBrandToInTalks } from '@/lib/platform/brand-stage'
 import { MESSAGE_STATUSES } from '@/lib/schemas/outbound'
 import { supabaseAdmin } from '@/lib/supabase/admin'
 import type { Database } from '@/lib/supabase/types'
@@ -58,6 +59,10 @@ export async function PATCH(
 
   if (error) return jsonError(500, 'update_failed', error.message)
   if (!data) return jsonError(404, 'not_found')
+
+  if (parsed.data.status === 'replied' && data.entity_type === 'brand') {
+    await promoteBrandToInTalks(supabaseAdmin, data.entity_id)
+  }
 
   return NextResponse.json({ data })
 }

@@ -11,19 +11,28 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { BRAND_STAGES, type BrandStage } from '@/lib/schemas/brand'
 
 type Props = {
   q: string
   category: string
+  stage: BrandStage | ''
   sort: string
   dir: 'asc' | 'desc'
   show: 'active' | 'archived' | 'all'
   categories: string[]
 }
 
+const STAGE_LABELS: Record<BrandStage, string> = {
+  cold: 'cold',
+  in_talks: 'in talks',
+  done: 'done',
+}
+
 export function BrandsFilters({
   q,
   category,
+  stage,
   sort,
   dir,
   show,
@@ -64,6 +73,23 @@ export function BrandsFilters({
           {categories.map((c) => (
             <SelectItem key={c} value={c}>
               {c}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+
+      <Select
+        value={stage || 'all'}
+        onValueChange={(v) => updateParam('stage', v === 'all' ? null : v)}
+      >
+        <SelectTrigger className="w-32 h-9">
+          <SelectValue placeholder="stage" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="all">all stages</SelectItem>
+          {BRAND_STAGES.map((s) => (
+            <SelectItem key={s} value={s}>
+              {STAGE_LABELS[s]}
             </SelectItem>
           ))}
         </SelectContent>

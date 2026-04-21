@@ -61,6 +61,7 @@ export type Database = {
           owner_id: string | null
           product_description: string | null
           reviewed_at: string | null
+          stage: Database['public']['Enums']['brand_stage']
           updated_at: string
           website: string
         }
@@ -77,6 +78,7 @@ export type Database = {
           owner_id?: string | null
           product_description?: string | null
           reviewed_at?: string | null
+          stage?: Database['public']['Enums']['brand_stage']
           updated_at?: string
           website: string
         }
@@ -93,6 +95,7 @@ export type Database = {
           owner_id?: string | null
           product_description?: string | null
           reviewed_at?: string | null
+          stage?: Database['public']['Enums']['brand_stage']
           updated_at?: string
           website?: string
         }
@@ -273,6 +276,7 @@ export type Database = {
       }
     }
     Enums: {
+      brand_stage: 'cold' | 'in_talks' | 'done'
       created_by_kind: 'user' | 'agent'
       entity_type: 'creator' | 'brand'
       message_direction: 'outbound' | 'inbound'
