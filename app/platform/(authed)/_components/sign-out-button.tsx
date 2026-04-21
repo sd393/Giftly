@@ -23,10 +23,9 @@ export function SignOutButton() {
           router.refresh()
         })
       }
-      title="sign out"
-      className="shrink-0 inline-flex items-center justify-center h-7 w-7 rounded text-ink-soft transition-all duration-150 hover:text-red-500 hover:[filter:drop-shadow(0_0_8px_rgba(239,68,68,0.8))] disabled:opacity-50"
+      className="shrink-0 inline-flex items-center justify-center h-6 w-6 rounded text-muted-warm transition-all duration-150 hover:text-red-500 hover:[filter:drop-shadow(0_0_6px_rgba(239,68,68,0.7))] disabled:opacity-50"
     >
-      <LogOut className="h-4 w-4" />
+      <LogOut className="h-3.5 w-3.5" />
     </button>
   )
 }
