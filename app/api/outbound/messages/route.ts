@@ -117,10 +117,10 @@ export async function POST(request: NextRequest) {
     return jsonError(500, 'insert_failed', error?.message)
   }
 
-  if (
-    v.entity_type === 'brand' &&
-    (v.direction === 'inbound' || v.status === 'replied')
-  ) {
+  // Only promote on explicit status=replied. direction=inbound alone is
+  // mostly autoresponders / ticket bots and shouldn't move a brand out of
+  // `cold`.
+  if (v.entity_type === 'brand' && v.status === 'replied') {
     await promoteBrandToInTalks(supabaseAdmin, v.entity_id)
   }
 

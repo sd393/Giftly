@@ -54,12 +54,12 @@ export async function logOutboundMessage(
     }
   }
 
-  // Auto-promote cold brand → in_talks when we've logged a reply or a new
-  // inbound. Failure here must not fail the whole action.
-  if (
-    v.entityType === 'brand' &&
-    (v.direction === 'inbound' || v.status === 'replied')
-  ) {
+  // Auto-promote cold brand → in_talks when we've logged a real reply.
+  // direction=inbound alone isn't enough because most inbound mail is
+  // autoresponders / ticketing boilerplate; the caller must explicitly set
+  // status=replied to signal engagement. Failure here must not fail the
+  // whole action.
+  if (v.entityType === 'brand' && v.status === 'replied') {
     await promoteBrandToInTalks(supabase, v.entityId)
   }
 

@@ -102,6 +102,14 @@ export function MessagesTable({ rows }: { rows: MessageRow[] }) {
                 </TableCell>
                 <TableCell>
                   <StatusBadge status={r.status} />
+                  {isAutoResponder(r) ? (
+                    <Badge
+                      variant="outline"
+                      className="ml-1 text-[0.6rem] uppercase"
+                    >
+                      auto
+                    </Badge>
+                  ) : null}
                 </TableCell>
                 <TableCell className="text-ink-soft text-[0.85rem] max-w-[24rem]">
                   <div className="truncate">
@@ -180,7 +188,14 @@ function MessageDetailSheet({
             <div className="mt-6 space-y-5 px-4 pb-6">
               <div className="grid grid-cols-2 gap-3 text-[0.8rem]">
                 <Meta label="status">
-                  <StatusBadge status={message.status} />
+                  <span className="inline-flex items-center gap-1">
+                    <StatusBadge status={message.status} />
+                    {isAutoResponder(message) ? (
+                      <Badge variant="outline" className="text-[0.6rem] uppercase">
+                        auto
+                      </Badge>
+                    ) : null}
+                  </span>
                 </Meta>
                 <Meta label="logged by">
                   <span className="capitalize">{message.createdBy}</span>
@@ -305,6 +320,12 @@ function formatWhen(iso: string): string {
 function firstLine(body: string): string {
   const line = body.split(/\r?\n/).find((l) => l.trim().length > 0) ?? body
   return line.length > 120 ? line.slice(0, 119) + '…' : line
+}
+
+function isAutoResponder(r: MessageRow): boolean {
+  if (r.direction !== 'inbound') return false
+  const meta = r.metadata as { auto_responder?: boolean } | null
+  return Boolean(meta && meta.auto_responder === true)
 }
 
 function metadataHasContent(m: Json): boolean {
