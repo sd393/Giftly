@@ -33,3 +33,5 @@ supabase/.temp/
 # Outreach pipeline scratch
 outreach/__pycache__/
 outreach/logs/
+# Gmail reply cache (regenerate with scripts/collect-gmail-replies.py)
+outreach/.gmail-cache/

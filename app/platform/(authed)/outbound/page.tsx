@@ -52,8 +52,9 @@ export default async function OutboundPage({
     .limit(500)
 
   // In-talks brands live independently of the filters — they're the
-  // priority strip at the top. We surface the most recent inbound/replied
-  // message per brand so the card can show "last reply Xd ago".
+  // priority strip at the top. We surface the most recent message in the
+  // thread (either direction) so the card reflects whether we or the brand
+  // is holding the ball.
   const { data: inTalksBrandRows } = await supabase
     .from('brands')
     .select('id, brand_name, website')
@@ -65,34 +66,41 @@ export default async function OutboundPage({
   const inTalksBrands: InTalksBrand[] = []
   if (inTalksBrandRows && inTalksBrandRows.length > 0) {
     const ids = inTalksBrandRows.map((b) => b.id)
-    const { data: lastReplies } = await supabase
+    const { data: recentMessages } = await supabase
       .from('outbound_messages')
       .select('entity_id, direction, status, sent_at')
       .eq('entity_type', 'brand')
       .in('entity_id', ids)
-      .or('direction.eq.inbound,status.eq.replied')
       .order('sent_at', { ascending: false })
       .limit(500)
 
-    const latestByBrand = new Map<string, string>()
-    for (const m of lastReplies ?? []) {
+    const latestByBrand = new Map<
+      string,
+      { sent_at: string; direction: 'outbound' | 'inbound' }
+    >()
+    for (const m of recentMessages ?? []) {
       if (!latestByBrand.has(m.entity_id)) {
-        latestByBrand.set(m.entity_id, m.sent_at)
+        latestByBrand.set(m.entity_id, {
+          sent_at: m.sent_at,
+          direction: m.direction,
+        })
       }
     }
 
     for (const b of inTalksBrandRows) {
+      const last = latestByBrand.get(b.id)
       inTalksBrands.push({
         id: b.id,
         brand_name: b.brand_name,
         website: b.website,
-        last_reply_at: latestByBrand.get(b.id) ?? null,
+        last_message_at: last?.sent_at ?? null,
+        last_message_direction: last?.direction ?? null,
       })
     }
 
     inTalksBrands.sort((a, b) => {
-      const av = a.last_reply_at ?? ''
-      const bv = b.last_reply_at ?? ''
+      const av = a.last_message_at ?? ''
+      const bv = b.last_message_at ?? ''
       if (av === bv) return 0
       return av < bv ? 1 : -1
     })

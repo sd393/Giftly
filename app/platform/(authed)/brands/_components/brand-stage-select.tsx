@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { useTransition } from 'react'
 import { toast } from 'sonner'
 
@@ -27,6 +28,7 @@ export function BrandStageSelect({
   id: string
   initial: BrandStage
 }) {
+  const router = useRouter()
   const [pending, startTransition] = useTransition()
 
   function handleChange(next: string) {
@@ -34,8 +36,12 @@ export function BrandStageSelect({
     if (stage === initial) return
     startTransition(async () => {
       const result = await setBrandStage(id, stage)
-      if (!result.success) toast.error(result.error ?? 'failed')
-      else toast.success(`stage set to ${LABELS[stage]}`)
+      if (!result.success) {
+        toast.error(result.error ?? 'failed')
+        return
+      }
+      toast.success(`stage set to ${LABELS[stage]}`)
+      router.refresh()
     })
   }
 

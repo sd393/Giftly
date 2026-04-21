@@ -12,7 +12,8 @@ export type InTalksBrand = {
   id: string
   brand_name: string
   website: string
-  last_reply_at: string | null
+  last_message_at: string | null
+  last_message_direction: 'outbound' | 'inbound' | null
 }
 
 export function InTalksList({ brands }: { brands: InTalksBrand[] }) {
@@ -56,10 +57,13 @@ function InTalksRow({ brand }: { brand: InTalksBrand }) {
         </Link>
         <p className="text-[0.75rem] text-muted-warm truncate">
           {brand.website}
-          {brand.last_reply_at ? (
+          {brand.last_message_at ? (
             <>
-              {' · last reply '}
-              {relativeTime(brand.last_reply_at)}
+              {' · '}
+              {brand.last_message_direction === 'inbound'
+                ? 'last reply from them'
+                : 'last sent by us'}{' '}
+              {relativeTime(brand.last_message_at)}
             </>
           ) : null}
         </p>

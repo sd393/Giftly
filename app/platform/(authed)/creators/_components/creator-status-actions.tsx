@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { useTransition } from 'react'
 import { toast } from 'sonner'
 
@@ -16,12 +17,21 @@ export function CreatorStatusActions({
   reviewed: boolean
   archived: boolean
 }) {
+  const router = useRouter()
   const [pending, startTransition] = useTransition()
 
-  function run(action: () => Promise<{ success: boolean; error?: string }>) {
+  function run(
+    action: () => Promise<{ success: boolean; error?: string }>,
+    successMessage: string
+  ) {
     startTransition(async () => {
       const result = await action()
-      if (!result.success) toast.error(result.error ?? 'failed')
+      if (!result.success) {
+        toast.error(result.error ?? 'failed')
+        return
+      }
+      toast.success(successMessage)
+      router.refresh()
     })
   }
 
@@ -32,7 +42,12 @@ export function CreatorStatusActions({
           size="sm"
           variant={reviewed ? 'outline' : 'primary'}
           disabled={pending}
-          onClick={() => run(() => markCreatorReviewed(id, !reviewed))}
+          onClick={() =>
+            run(
+              () => markCreatorReviewed(id, !reviewed),
+              reviewed ? 'marked unreviewed' : 'marked reviewed'
+            )
+          }
         >
           {reviewed ? 'mark unreviewed' : 'mark reviewed'}
         </Button>
@@ -41,7 +56,12 @@ export function CreatorStatusActions({
         size="sm"
         variant="outline"
         disabled={pending}
-        onClick={() => run(() => archiveCreator(id, !archived))}
+        onClick={() =>
+          run(
+            () => archiveCreator(id, !archived),
+            archived ? 'unarchived' : 'archived'
+          )
+        }
       >
         {archived ? 'unarchive' : 'archive'}
       </Button>
