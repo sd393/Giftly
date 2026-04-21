@@ -3,6 +3,8 @@ import { redirect } from 'next/navigation'
 
 import { createClient } from '@/lib/supabase/server'
 
+import { SignOutButton } from './_components/sign-out-button'
+
 const NAV_ITEMS = [
   { href: '/', label: 'inbound' },
   { href: '/creators', label: 'creators' },
@@ -50,9 +52,12 @@ export default async function AuthedLayout({
           ))}
         </nav>
         <div className="border-t border-line/60 px-3 py-3">
-          <p className="px-2 text-[0.75rem] text-muted-warm truncate">
-            {user.email}
-          </p>
+          <div className="px-2 flex items-center gap-2">
+            <p className="text-[0.75rem] text-muted-warm truncate min-w-0 flex-1">
+              {user.email}
+            </p>
+            <SignOutButton />
+          </div>
         </div>
       </aside>
       <main className="flex-1 min-w-0">{children}</main>
