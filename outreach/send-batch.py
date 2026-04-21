@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Send Stanford Student Inquiry to a brand batch (non-fallback only).
+"""Send Berkeley Student Inquiry to a brand batch (non-fallback only).
 
 Reads <batch>.csv, filters to rows with a real scraped email (email_source
 starts with 'https://'), sends each via `gog gmail send`, and appends the
@@ -29,17 +29,40 @@ VERBOSE = "--verbose" in sys.argv or "-v" in sys.argv
 DRY_RUN = "--dry-run" in sys.argv
 GMAIL_ID_RE = re.compile(r"\b([0-9a-f]{16,})\b")
 
-ACCOUNT = os.environ.get("GOG_ACCOUNT", "armaanp4423@gmail.com")
-SUBJECT = "Stanford Student Inquiry"
-BODY_TMPL = """Hi,
+ACCOUNT = os.environ.get("GOG_ACCOUNT", "ethanpzhou@berkeley.edu")
 
-We're Stanford/Dartmouth students connecting DTC brands with vetted creators. We match you with creators who actually drive sales, and you only pay commission on results, no contracts.
+# Per-account subject + body. Both strings accept `{brand}` via str.format.
+TEMPLATES: dict[str, dict[str, str]] = {
+    "ethan@trygiftly.com": {
+        "subject": "Creator partnership for {brand}?",
+        "body": """Hi,
+
+I run Giftly. We connect DTC brands with vetted creators who actually drive sales, and you only pay commission on results, no contracts.
 
 Would you be interested in 2-3 creator profiles that'd be a great fit for {brand}?
 
 Thanks,
-Armaan
-"""
+Ethan
+""",
+    },
+}
+
+DEFAULT_TEMPLATE = {
+    "subject": "Berkeley Student Inquiry",
+    "body": """Hi,
+
+We're Berkeley students connecting DTC brands with vetted creators. We match you with creators who actually drive sales, and you only pay commission on results, no contracts.
+
+Would you be interested in 2-3 creator profiles that'd be a great fit for {brand}?
+
+Thanks,
+Ethan
+""",
+}
+
+_tmpl = TEMPLATES.get(ACCOUNT, DEFAULT_TEMPLATE)
+SUBJECT_TMPL = _tmpl["subject"]
+BODY_TMPL = _tmpl["body"]
 
 
 def normalize_brand(raw: str) -> str:
@@ -61,11 +84,12 @@ def normalize_brand(raw: str) -> str:
 def send_one(brand_raw: str, email: str, *, dry_run: bool) -> tuple[bool, str, str, str | None]:
     """Send one email via gog. Returns (ok, info, body, external_id)."""
     brand = normalize_brand(brand_raw)
+    subject = SUBJECT_TMPL.format(brand=brand)
     body = BODY_TMPL.format(brand=brand)
     cmd = [
         "gog", "--account", ACCOUNT, "gmail", "send",
         "--to", email,
-        "--subject", SUBJECT,
+        "--subject", subject,
         "--body", body,
     ]
     if dry_run:
@@ -121,10 +145,14 @@ def append_log(row: dict) -> None:
         w.writerow({k: row.get(k, "") for k in fieldnames})
 
 
+def _dedup_key(raw: str) -> str:
+    return normalize_brand(raw).strip().lower()
+
+
 def load_already_sent() -> set[str]:
     if not LOG_CSV.exists():
         return set()
-    return {(r.get("brand") or "").strip().lower() for r in csv.DictReader(LOG_CSV.open()) if (r.get("brand") or "").strip()}
+    return {_dedup_key(r.get("brand") or "") for r in csv.DictReader(LOG_CSV.open()) if (r.get("brand") or "").strip()}
 
 
 def main():
@@ -133,7 +161,7 @@ def main():
         rows = list(csv.DictReader(f))
     already = load_already_sent()
     real = [r for r in rows if r.get("email_source", "").startswith("https://")]
-    targets = [r for r in real if r["brand"].strip().lower() not in already]
+    targets = [r for r in real if _dedup_key(r["brand"]) not in already]
     skipped_dup = len(real) - len(targets)
 
     LOG_DIR.mkdir(exist_ok=True)
@@ -203,9 +231,10 @@ def main():
 def _mirror_to_api(
     *, brand_raw: str, domain: str, email: str, body: str, external_id: str | None
 ) -> tuple[bool, str]:
+    brand_norm = normalize_brand(brand_raw)
     try:
         brand_id = giftly_api.upsert_brand(
-            brand_name=normalize_brand(brand_raw),
+            brand_name=brand_norm,
             website=domain or email.split("@", 1)[-1],
         )
     except giftly_api.ApiError as e:
@@ -219,7 +248,7 @@ def _mirror_to_api(
             entity_type="brand",
             entity_id=brand_id,
             channel="email",
-            subject=SUBJECT,
+            subject=SUBJECT_TMPL.format(brand=brand_norm),
             body=body,
             sender_account=ACCOUNT,
             status="sent",
