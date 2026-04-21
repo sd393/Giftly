@@ -59,7 +59,12 @@ export default async function BrandsDirectoryPage({
       'id, brand_name, website, category, contact_name, contact_email, owner_id, source, stage, reviewed_at, archived_at, created_at, updated_at'
     )
 
-  if (show === 'active') query = query.is('archived_at', null)
+  // "active" = not-archived AND not-cold. Cold stage means we've only done
+  // outbound outreach; those rows show up in /outbound but don't clutter the
+  // active-partnerships list here. To see cold prospects, pick stage=cold or
+  // show=all.
+  if (show === 'active')
+    query = query.is('archived_at', null).neq('stage', 'cold')
   else if (show === 'archived') query = query.not('archived_at', 'is', null)
 
   // `directory` (default) hides cold-outreach prospects; those live on

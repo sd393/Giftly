@@ -101,6 +101,48 @@ def upsert_brand(brand_name: str, website: str) -> str:
     return bid
 
 
+def upsert_creator(
+    name: str,
+    *,
+    email: str | None = None,
+    external_ref: str | None = None,
+    platform: str | None = None,
+    social_handles: str | None = None,
+    followers: str | None = None,
+    niches: list[str] | None = None,
+    product_interests: str | None = None,
+    content_link: str | None = None,
+    notes: str | None = None,
+) -> str:
+    """Get-or-create a creator by email (or a synthetic email derived from
+    external_ref for pipeline-discovered prospects). Returns creator id."""
+    body: dict[str, Any] = {"name": name}
+    if email:
+        body["email"] = email
+    if external_ref:
+        body["external_ref"] = external_ref
+    if platform:
+        body["platform"] = platform
+    if social_handles:
+        body["social_handles"] = social_handles
+    if followers:
+        body["followers"] = followers
+    if niches:
+        body["niches"] = niches
+    if product_interests:
+        body["product_interests"] = product_interests
+    if content_link:
+        body["content_link"] = content_link
+    if notes:
+        body["notes"] = notes
+    result = _request("POST", "/api/creators/upsert", body=body)
+    data = (result or {}).get("data") or {}
+    cid = data.get("id")
+    if not cid:
+        raise ApiError(500, "no_id", "upsert response missing id")
+    return cid
+
+
 def log_outbound_message(
     *,
     entity_type: str,
