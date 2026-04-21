@@ -103,12 +103,19 @@ export async function markBrandReviewed(
   reviewed: boolean
 ): Promise<ActionResult> {
   const supabase = await createClient()
-  const { error } = await supabase
+  const { data, error } = await supabase
     .from('brands')
     .update({ reviewed_at: reviewed ? new Date().toISOString() : null })
     .eq('id', id)
+    .select('id')
 
-  if (error) return { success: false, error: error.message }
+  if (error) {
+    console.error('[markBrandReviewed]', error)
+    return { success: false, error: error.message }
+  }
+  if (!data || data.length === 0) {
+    return { success: false, error: 'Brand not found or not editable' }
+  }
 
   revalidatePath('/brands')
   revalidatePath('/')
@@ -121,12 +128,19 @@ export async function archiveBrand(
   archive: boolean
 ): Promise<ActionResult> {
   const supabase = await createClient()
-  const { error } = await supabase
+  const { data, error } = await supabase
     .from('brands')
     .update({ archived_at: archive ? new Date().toISOString() : null })
     .eq('id', id)
+    .select('id')
 
-  if (error) return { success: false, error: error.message }
+  if (error) {
+    console.error('[archiveBrand]', error)
+    return { success: false, error: error.message }
+  }
+  if (!data || data.length === 0) {
+    return { success: false, error: 'Brand not found or not editable' }
+  }
 
   revalidatePath('/brands')
   revalidatePath(`/brands/${id}`)

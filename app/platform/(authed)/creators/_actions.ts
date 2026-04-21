@@ -101,12 +101,19 @@ export async function markCreatorReviewed(
   reviewed: boolean
 ): Promise<ActionResult> {
   const supabase = await createClient()
-  const { error } = await supabase
+  const { data, error } = await supabase
     .from('creators')
     .update({ reviewed_at: reviewed ? new Date().toISOString() : null })
     .eq('id', id)
+    .select('id')
 
-  if (error) return { success: false, error: error.message }
+  if (error) {
+    console.error('[markCreatorReviewed]', error)
+    return { success: false, error: error.message }
+  }
+  if (!data || data.length === 0) {
+    return { success: false, error: 'Creator not found or not editable' }
+  }
 
   revalidatePath('/creators')
   revalidatePath('/')
@@ -119,12 +126,19 @@ export async function archiveCreator(
   archive: boolean
 ): Promise<ActionResult> {
   const supabase = await createClient()
-  const { error } = await supabase
+  const { data, error } = await supabase
     .from('creators')
     .update({ archived_at: archive ? new Date().toISOString() : null })
     .eq('id', id)
+    .select('id')
 
-  if (error) return { success: false, error: error.message }
+  if (error) {
+    console.error('[archiveCreator]', error)
+    return { success: false, error: error.message }
+  }
+  if (!data || data.length === 0) {
+    return { success: false, error: 'Creator not found or not editable' }
+  }
 
   revalidatePath('/creators')
   revalidatePath(`/creators/${id}`)
