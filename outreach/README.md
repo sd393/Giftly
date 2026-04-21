@@ -15,6 +15,10 @@ export GOG_KEYRING_PASSWORD="<your gog keyring password>"
 # One of:
 export GOG_ACCOUNT="armaan.priyadarshan.29@dartmouth.edu"
 export GOG_ACCOUNT="armaanp4423@gmail.com"
+
+# Platform mirroring (optional — skipped with a warning if unset)
+export GIFTLY_API_URL="https://app.trygiftly.com"
+export GIFTLY_API_TOKEN="gf_<token from app.trygiftly.com/settings>"
 ```
 
 Both accounts should already be authed (`gog auth list`). To re-auth:
@@ -27,6 +31,12 @@ gog auth add armaanp4423@gmail.com --services gmail --force-consent
 With multiple accounts stored, every `gog` call needs `--account <email>` —
 the scripts pass it through from `GOG_ACCOUNT`.
 
+Create the API token once in the Giftly internal platform (`Settings → API
+tokens → + new token`) with `brands:read`, `brands:write`, `outbound:read`,
+and `outbound:write` scopes. Stash it in your shell profile; `send-batch.py`
+and `process-bounces.py` pick it up automatically. Without it the pipeline
+still runs — it just skips the platform mirror with a warning.
+
 ## Files
 
 | File | Purpose |
@@ -36,8 +46,9 @@ the scripts pass it through from `GOG_ACCOUNT`.
 | `outreach-log.csv` | canonical log: `name,role,brand,domain,email,date_sent,verified,llm_evidence` |
 | `run-batch.sh` | one-shot orchestrator: scrape → send → bounce-sweep |
 | `scrape-batch.py` | urllib contact-page scraper; summary-only stdout, detail in `logs/` |
-| `send-batch.py` | sender; dedupes against the log; summary-only stdout |
-| `process-bounces.py` | finds DSNs, marks bounced rows `BOUNCED`, trashes DSNs |
+| `send-batch.py` | sender; dedupes against the log; summary-only stdout; mirrors each send to the platform API |
+| `process-bounces.py` | finds DSNs, marks bounced rows `BOUNCED` in the log + PATCHes matching platform messages to `bounced`, trashes DSNs |
+| `giftly_api.py` | thin stdlib client for the internal `/api/*` routes |
 | `throne-batch-*.csv` | historical inputs from the Throne campaign |
 
 ## One-shot batch
@@ -97,4 +108,3 @@ python3 process-bounces.py --account <email> --since 24h
   No em dashes, no exclamations, no buzzwords.
 - `send-batch.py` dedupes against `outreach-log.csv` by exact brand match —
   trust it, do not pre-filter manually.
-- ≤~200 cold emails per account per day. Split across accounts and days.
