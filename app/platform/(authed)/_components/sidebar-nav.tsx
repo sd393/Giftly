@@ -27,7 +27,7 @@ export function SidebarNav({ items }: { items: NavItem[] }) {
               'group relative px-3 py-2 text-[0.875rem] font-medium rounded transition-colors',
               active
                 ? 'text-coral bg-coral/10'
-                : 'text-ink-soft hover:text-ink hover:bg-cream-warm'
+                : 'text-ink-soft hover:text-coral hover:bg-coral/5'
             )}
           >
             {active ? (
