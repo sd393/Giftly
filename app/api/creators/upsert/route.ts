@@ -90,6 +90,10 @@ export async function POST(request: NextRequest) {
       product_interests: v.product_interests ?? null,
       content_link: v.content_link ?? null,
       notes: v.notes ?? null,
+      // Pipeline-discovered creators: keep them out of the /creators
+      // directory (which defaults to source='application' form submissions)
+      // until they reply / sign up.
+      source: 'outreach',
     })
     .select('id, name, email, created_at, updated_at, archived_at')
     .single()

@@ -50,6 +50,10 @@ export default async function CreatorsDirectoryPage({
   if (show === 'active') query = query.is('archived_at', null)
   else if (show === 'archived') query = query.not('archived_at', 'is', null)
 
+  // Hide pipeline-discovered prospects (IG DM recipients, etc.). They live
+  // on /outbound until they sign up or we manually promote them.
+  query = query.neq('source', 'outreach')
+
   if (platform) query = query.ilike('platform', platform)
   if (niche) query = query.contains('niches', [niche])
 
