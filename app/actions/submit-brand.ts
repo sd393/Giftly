@@ -45,6 +45,9 @@ export async function submitBrandForm(
     website: v.website,
     category: v.category ?? null,
     product_description: v.productDescription,
+    // A brand filling out the public form is a warm lead; promote it to the
+    // application source even if we previously cold-emailed them.
+    source: 'application' as const,
   }
 
   const { data: upserted, error: upsertError } = await supabaseAdmin

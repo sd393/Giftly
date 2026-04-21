@@ -7,12 +7,16 @@ export default async function InboundPage() {
   const supabase = await createClient()
   const since = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()
 
+  // Inbound is only for rows that came through the public application forms
+  // at trygiftly.com/brands + /creators. Cold-outreach brands live on
+  // /outbound; manually-added rows go straight into the directory.
   const [creatorsRes, brandsRes] = await Promise.all([
     supabase
       .from('creators')
       .select(
         'id, name, email, platform, followers, niches, product_interests, created_at'
       )
+      .eq('source', 'application')
       .is('reviewed_at', null)
       .is('archived_at', null)
       .gte('created_at', since)
@@ -23,6 +27,7 @@ export default async function InboundPage() {
       .select(
         'id, brand_name, website, category, contact_name, contact_email, product_description, created_at'
       )
+      .eq('source', 'application')
       .is('reviewed_at', null)
       .is('archived_at', null)
       .gte('created_at', since)

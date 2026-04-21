@@ -15,12 +15,16 @@ type SearchParams = {
   q?: string
   category?: string
   stage?: string
+  source?: string
   sort?: SortField
   dir?: 'asc' | 'desc'
   show?: 'active' | 'archived' | 'all'
 }
 
 const STAGE_SET = new Set<string>(BRAND_STAGES)
+
+const SOURCE_VALUES = ['application', 'outreach', 'manual', 'all'] as const
+type SourceFilter = (typeof SOURCE_VALUES)[number] | 'directory'
 
 const VALID_SORT: Record<SortField, true> = {
   brand_name: true,
@@ -38,6 +42,10 @@ export default async function BrandsDirectoryPage({
   const category = sp.category?.trim() ?? ''
   const stage: BrandStage | '' =
     sp.stage && STAGE_SET.has(sp.stage) ? (sp.stage as BrandStage) : ''
+  const source: SourceFilter =
+    (SOURCE_VALUES as readonly string[]).includes(sp.source ?? '')
+      ? (sp.source as SourceFilter)
+      : 'directory'
   const sort: SortField = sp.sort && VALID_SORT[sp.sort] ? sp.sort : 'created_at'
   const dir: 'asc' | 'desc' = sp.dir === 'asc' ? 'asc' : 'desc'
   const show: 'active' | 'archived' | 'all' =
@@ -48,11 +56,16 @@ export default async function BrandsDirectoryPage({
   let query = supabase
     .from('brands')
     .select(
-      'id, brand_name, website, category, contact_name, contact_email, owner_id, stage, reviewed_at, archived_at, created_at, updated_at'
+      'id, brand_name, website, category, contact_name, contact_email, owner_id, source, stage, reviewed_at, archived_at, created_at, updated_at'
     )
 
   if (show === 'active') query = query.is('archived_at', null)
   else if (show === 'archived') query = query.not('archived_at', 'is', null)
+
+  // `directory` (default) hides cold-outreach prospects; those live on
+  // /outbound until the team explicitly adds them to the directory.
+  if (source === 'directory') query = query.neq('source', 'outreach')
+  else if (source !== 'all') query = query.eq('source', source)
 
   if (stage) query = query.eq('stage', stage)
   if (category) query = query.ilike('category', category)
@@ -92,6 +105,7 @@ export default async function BrandsDirectoryPage({
         q={q}
         category={category}
         stage={stage}
+        source={source}
         sort={sort}
         dir={dir}
         show={show}

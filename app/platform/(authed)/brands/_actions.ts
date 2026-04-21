@@ -41,7 +41,7 @@ export async function createBrand(
   const supabase = await createClient()
   const { data, error } = await supabase
     .from('brands')
-    .insert(toPayload(parsed.data))
+    .insert({ ...toPayload(parsed.data), source: 'manual' })
     .select('id')
     .single()
 
@@ -130,6 +130,24 @@ export async function archiveBrand(
 
   revalidatePath('/brands')
   revalidatePath(`/brands/${id}`)
+  return { success: true, data: undefined }
+}
+
+export async function promoteBrandToDirectory(
+  id: string
+): Promise<ActionResult> {
+  const supabase = await createClient()
+  const { error } = await supabase
+    .from('brands')
+    .update({ source: 'manual' })
+    .eq('id', id)
+    .eq('source', 'outreach')
+
+  if (error) return { success: false, error: error.message }
+
+  revalidatePath('/brands')
+  revalidatePath(`/brands/${id}`)
+  revalidatePath('/outbound')
   return { success: true, data: undefined }
 }
 

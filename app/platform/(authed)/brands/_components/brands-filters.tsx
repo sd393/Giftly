@@ -13,10 +13,13 @@ import {
 } from '@/components/ui/select'
 import { BRAND_STAGES, type BrandStage } from '@/lib/schemas/brand'
 
+type SourceFilter = 'directory' | 'application' | 'outreach' | 'manual' | 'all'
+
 type Props = {
   q: string
   category: string
   stage: BrandStage | ''
+  source: SourceFilter
   sort: string
   dir: 'asc' | 'desc'
   show: 'active' | 'archived' | 'all'
@@ -33,6 +36,7 @@ export function BrandsFilters({
   q,
   category,
   stage,
+  source,
   sort,
   dir,
   show,
@@ -75,6 +79,24 @@ export function BrandsFilters({
               {c}
             </SelectItem>
           ))}
+        </SelectContent>
+      </Select>
+
+      <Select
+        value={source}
+        onValueChange={(v) =>
+          updateParam('source', v === 'directory' ? null : v)
+        }
+      >
+        <SelectTrigger className="w-40 h-9">
+          <SelectValue />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="directory">directory (default)</SelectItem>
+          <SelectItem value="application">applied via form</SelectItem>
+          <SelectItem value="manual">added manually</SelectItem>
+          <SelectItem value="outreach">cold outreach</SelectItem>
+          <SelectItem value="all">all sources</SelectItem>
         </SelectContent>
       </Select>
 

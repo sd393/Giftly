@@ -39,7 +39,7 @@ export async function createCreator(
   const supabase = await createClient()
   const { data, error } = await supabase
     .from('creators')
-    .insert(toInsertPayload(parsed.data))
+    .insert({ ...toInsertPayload(parsed.data), source: 'manual' })
     .select('id')
     .single()
 

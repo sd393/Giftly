@@ -49,6 +49,7 @@ export async function submitCreatorForm(
     niches: v.niches,
     product_interests: v.productInterests,
     content_link: v.contentLink ?? null,
+    source: 'application' as const,
   }
 
   const { data: upserted, error: upsertError } = await supabaseAdmin

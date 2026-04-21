@@ -79,6 +79,7 @@ export async function POST(request: NextRequest) {
       contact_role: v.contact_role ?? null,
       category: v.category ?? null,
       product_description: v.product_description ?? null,
+      source: 'outreach',
     })
     .select('id, brand_name, website, created_at, updated_at, archived_at')
     .single()

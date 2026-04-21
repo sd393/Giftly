@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { createClient } from '@/lib/supabase/server'
 
 import { ActivityTimeline } from '../../_components/activity-timeline'
+import { BrandDirectoryButton } from '../_components/brand-directory-button'
 import { BrandEditForm } from '../_components/brand-edit-form'
 import { BrandNotes } from '../_components/brand-notes'
 import { BrandStageSelect } from '../_components/brand-stage-select'
@@ -78,12 +79,19 @@ export default async function BrandDetailPage({
                 archived
               </Badge>
             ) : null}
+            {brand.source === 'outreach' ? (
+              <Badge variant="outline" className="ml-2 text-[0.65rem] uppercase">
+                prospect
+              </Badge>
+            ) : null}
             {!brand.archived_at && brand.reviewed_at ? (
               <Badge variant="secondary" className="ml-2 text-[0.65rem]">
                 reviewed
               </Badge>
             ) : null}
-            {!brand.archived_at && !brand.reviewed_at ? (
+            {!brand.archived_at &&
+            !brand.reviewed_at &&
+            brand.source !== 'outreach' ? (
               <Badge className="ml-2 text-[0.65rem]">new</Badge>
             ) : null}
           </p>
@@ -95,6 +103,9 @@ export default async function BrandDetailPage({
             reviewed={Boolean(brand.reviewed_at)}
             archived={Boolean(brand.archived_at)}
           />
+          {brand.source === 'outreach' ? (
+            <BrandDirectoryButton id={brand.id} />
+          ) : null}
         </div>
       </div>
 

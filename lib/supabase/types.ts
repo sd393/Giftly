@@ -61,6 +61,7 @@ export type Database = {
           owner_id: string | null
           product_description: string | null
           reviewed_at: string | null
+          source: Database['public']['Enums']['record_source']
           stage: Database['public']['Enums']['brand_stage']
           updated_at: string
           website: string
@@ -78,6 +79,7 @@ export type Database = {
           owner_id?: string | null
           product_description?: string | null
           reviewed_at?: string | null
+          source?: Database['public']['Enums']['record_source']
           stage?: Database['public']['Enums']['brand_stage']
           updated_at?: string
           website: string
@@ -95,6 +97,7 @@ export type Database = {
           owner_id?: string | null
           product_description?: string | null
           reviewed_at?: string | null
+          source?: Database['public']['Enums']['record_source']
           stage?: Database['public']['Enums']['brand_stage']
           updated_at?: string
           website?: string
@@ -117,6 +120,7 @@ export type Database = {
           product_interests: string | null
           reviewed_at: string | null
           social_handles: string | null
+          source: Database['public']['Enums']['record_source']
           updated_at: string
         }
         Insert: {
@@ -134,6 +138,7 @@ export type Database = {
           product_interests?: string | null
           reviewed_at?: string | null
           social_handles?: string | null
+          source?: Database['public']['Enums']['record_source']
           updated_at?: string
         }
         Update: {
@@ -151,6 +156,7 @@ export type Database = {
           product_interests?: string | null
           reviewed_at?: string | null
           social_handles?: string | null
+          source?: Database['public']['Enums']['record_source']
           updated_at?: string
         }
         Relationships: []
@@ -281,6 +287,7 @@ export type Database = {
       entity_type: 'creator' | 'brand'
       message_direction: 'outbound' | 'inbound'
       message_status: 'sent' | 'delivered' | 'replied' | 'bounced' | 'failed'
+      record_source: 'application' | 'outreach' | 'manual'
       task_status: 'todo' | 'in_progress' | 'waiting' | 'done' | 'dropped'
     }
     CompositeTypes: {
