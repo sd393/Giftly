@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation'
 
 import { createClient } from '@/lib/supabase/server'
 
+import { SidebarNav } from './_components/sidebar-nav'
 import { SignOutButton } from './_components/sign-out-button'
 
 const NAV_ITEMS = [
@@ -40,17 +41,7 @@ export default async function AuthedLayout({
             internal
           </p>
         </div>
-        <nav className="flex-1 px-2 py-3 flex flex-col gap-0.5">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="px-3 py-2 text-[0.875rem] font-medium text-ink-soft hover:text-ink hover:bg-cream-warm rounded"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <SidebarNav items={NAV_ITEMS} />
         <div className="border-t border-line/60 px-3 py-3">
           <div className="px-2 flex items-center gap-2">
             <p className="text-[0.75rem] text-muted-warm truncate min-w-0 flex-1">
