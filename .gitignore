@@ -14,3 +14,22 @@ next.user-config.*
 node_modules
 .next/
 .DS_Store
+tsconfig.tsbuildinfo
+
+# Editor / agent scratch
+.claude/
+.agents/
+.factory/
+.windsurf/
+skills/
+skills-lock.json
+
+# Contains API keys — never commit
+.mcp.json
+
+# Supabase CLI local state (keep migrations, ignore runtime)
+supabase/.temp/
+
+# Outreach pipeline scratch
+outreach/__pycache__/
+outreach/logs/
