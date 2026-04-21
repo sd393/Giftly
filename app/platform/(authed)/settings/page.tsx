@@ -10,7 +10,6 @@ import {
 import { createClient } from '@/lib/supabase/server'
 
 import { PageHeader } from '../_components/page-header'
-import { SignOutButton } from '../_components/sign-out-button'
 import { CreateTokenDialog } from './_components/create-token-dialog'
 import { TokenRowActions } from './_components/token-row-actions'
 
@@ -59,9 +58,6 @@ export default async function SettingsPage() {
                 {(user?.user_metadata?.full_name as string | undefined) ?? '—'}
               </p>
             </div>
-          </div>
-          <div className="mt-5">
-            <SignOutButton />
           </div>
         </div>
       </section>

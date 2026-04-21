@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Plus } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { createClient } from '@/lib/supabase/server'
@@ -73,7 +74,10 @@ export default async function BrandsDirectoryPage({
           subtitle={`${rows?.length ?? 0} ${show === 'active' ? 'active' : show === 'archived' ? 'archived' : 'total'}`}
         />
         <Button asChild size="sm">
-          <Link href="/brands/new">+ new brand</Link>
+          <Link href="/brands/new">
+            <Plus aria-hidden />
+            new brand
+          </Link>
         </Button>
       </div>
 

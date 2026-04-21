@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Plus } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { createClient } from '@/lib/supabase/server'
@@ -79,7 +80,10 @@ export default async function CreatorsDirectoryPage({
           subtitle={`${rows?.length ?? 0} ${show === 'active' ? 'active' : show === 'archived' ? 'archived' : 'total'}`}
         />
         <Button asChild size="sm">
-          <Link href="/creators/new">+ new creator</Link>
+          <Link href="/creators/new">
+            <Plus aria-hidden />
+            new creator
+          </Link>
         </Button>
       </div>
 

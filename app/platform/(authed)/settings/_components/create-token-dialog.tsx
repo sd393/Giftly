@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useTransition } from 'react'
+import { Plus } from 'lucide-react'
 import { toast } from 'sonner'
 
 import { Button } from '@/components/ui/button'
@@ -75,7 +76,10 @@ export function CreateTokenDialog() {
       }}
     >
       <DialogTrigger asChild>
-        <Button size="sm">+ new token</Button>
+        <Button size="sm">
+          <Plus aria-hidden />
+          new token
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         {created ? (
