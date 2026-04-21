@@ -11,6 +11,7 @@ const NAV_ITEMS = [
   { href: '/creators', label: 'creators' },
   { href: '/brands', label: 'brands' },
   { href: '/outbound', label: 'outbound' },
+  { href: '/import', label: 'import' },
   { href: '/settings', label: 'settings' },
 ]
 
