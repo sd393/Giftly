@@ -107,12 +107,7 @@ export default async function CreatorsDirectoryPage({
           Failed to load creators: {error.message}
         </p>
       ) : (
-        <CreatorsTable
-          rows={rows ?? []}
-          sort={sort}
-          dir={dir}
-          currentParams={sp}
-        />
+        <CreatorsTable rows={rows ?? []} />
       )}
     </div>
   )
