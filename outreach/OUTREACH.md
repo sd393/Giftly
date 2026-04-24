@@ -123,8 +123,7 @@ summary looks off.
 ## Sending accounts
 
 - `armaan.priyadarshan.29@dartmouth.edu` — primary, higher volume.
-- `armaanp4423@gmail.com` — secondary, split load to stay under per-account
-  warmth limits.
+- `armaanp4423@gmail.com` — secondary.
 
 Both are authed via `gog`. Always pass `--account <email>` (or
 `GOG_ACCOUNT`) explicitly — `gog` refuses to default when multiple accounts
@@ -137,8 +136,6 @@ are stored. `run-batch.sh` handles this via its second argument.
   trust it.
 - **Subject is always exactly** `Stanford Student Inquiry`.
 - **No em dashes, exclamation marks, buzzwords, flattery.**
-- No single account exceeds ~200 cold emails/day. Split across accounts and
-  days for larger lists.
 - Bounces are owned by `process-bounces.py` — don't retry guessed patterns
   and don't hand-edit the `verified` column.
 - No Hunter, no pattern-guessing. Only addresses extracted from the brand's
