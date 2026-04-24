@@ -39,6 +39,7 @@ export function CreatorEditForm({ creator }: { creator: Creator }) {
       niches: creator.niches ?? [],
       productInterests: creator.product_interests ?? undefined,
       contentLink: creator.content_link ?? undefined,
+      shippingAddress: creator.shipping_address ?? undefined,
       notes: creator.notes ?? undefined,
       ownerId: creator.owner_id,
     },
@@ -90,6 +91,14 @@ export function CreatorEditForm({ creator }: { creator: Creator }) {
 
       <Field label="product interests" error={errors.productInterests?.message}>
         <Textarea rows={4} {...register('productInterests')} />
+      </Field>
+
+      <Field label="shipping address" error={errors.shippingAddress?.message}>
+        <Textarea
+          rows={3}
+          placeholder="street, city, state, zip"
+          {...register('shippingAddress')}
+        />
       </Field>
 
       <div className="flex items-center gap-3 pt-2">

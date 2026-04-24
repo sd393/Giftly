@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
   let query = supabaseAdmin
     .from('creators')
     .select(
-      'id, name, email, social_handles, platform, followers, niches, product_interests, content_link, notes, owner_id, reviewed_at, archived_at, created_at, updated_at'
+      'id, name, email, social_handles, platform, followers, niches, product_interests, content_link, shipping_address, notes, owner_id, reviewed_at, archived_at, created_at, updated_at'
     )
 
   const show = q.show ?? 'active'

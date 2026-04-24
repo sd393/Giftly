@@ -54,6 +54,7 @@ export function CreatorForm() {
       niches: [],
       productInterests: '',
       contentLink: '',
+      shippingAddress: '',
     },
   })
 
@@ -261,6 +262,30 @@ export function CreatorForm() {
                   <Input
                     type="url"
                     placeholder="https://instagram.com/p/..."
+                    disabled={isSubmitting}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="shippingAddress"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>
+                  shipping address
+                  <span className="ml-1 text-muted-warm font-normal">
+                    (optional)
+                  </span>
+                </FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="street, city, state, zip"
+                    rows={3}
                     disabled={isSubmitting}
                     {...field}
                   />

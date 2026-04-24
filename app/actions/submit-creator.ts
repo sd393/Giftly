@@ -49,6 +49,7 @@ export async function submitCreatorForm(
     niches: v.niches,
     product_interests: v.productInterests,
     content_link: v.contentLink ?? null,
+    shipping_address: v.shippingAddress ?? null,
     source: 'application' as const,
   }
 
@@ -132,6 +133,7 @@ function renderCreatorEmail({
         ${row('Followers', v.followers)}
         ${row('Niches', niches)}
         ${row('Product interests', v.productInterests)}
+        ${row('Shipping address', v.shippingAddress)}
         <tr><td style="padding:10px 8px;font-weight:600;vertical-align:top;width:160px">Content link</td><td style="padding:10px 8px">${linkHtml}</td></tr>
       </table>
       ${recordLink ? `<p style="margin:20px 0 0"><a href="${escapeHtml(recordLink)}">open in internal platform →</a></p>` : ''}

@@ -119,6 +119,7 @@ export type Database = {
           platform: string | null
           product_interests: string | null
           reviewed_at: string | null
+          shipping_address: string | null
           social_handles: string | null
           source: Database['public']['Enums']['record_source']
           updated_at: string
@@ -137,6 +138,7 @@ export type Database = {
           platform?: string | null
           product_interests?: string | null
           reviewed_at?: string | null
+          shipping_address?: string | null
           social_handles?: string | null
           source?: Database['public']['Enums']['record_source']
           updated_at?: string
@@ -155,6 +157,7 @@ export type Database = {
           platform?: string | null
           product_interests?: string | null
           reviewed_at?: string | null
+          shipping_address?: string | null
           social_handles?: string | null
           source?: Database['public']['Enums']['record_source']
           updated_at?: string

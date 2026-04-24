@@ -82,6 +82,14 @@ export function NewCreatorForm() {
         <Textarea rows={3} {...register('productInterests')} />
       </Field>
 
+      <Field label="shipping address" error={errors.shippingAddress?.message}>
+        <Textarea
+          rows={3}
+          placeholder="street, city, state, zip"
+          {...register('shippingAddress')}
+        />
+      </Field>
+
       <Field label="initial notes" error={errors.notes?.message}>
         <Textarea rows={3} {...register('notes')} />
       </Field>

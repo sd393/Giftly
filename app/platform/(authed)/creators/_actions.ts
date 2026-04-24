@@ -23,6 +23,7 @@ function toInsertPayload(v: CreatorEditValues) {
     niches: v.niches,
     product_interests: v.productInterests ?? null,
     content_link: v.contentLink ?? null,
+    shipping_address: v.shippingAddress ?? null,
     notes: v.notes ?? null,
     owner_id: v.ownerId,
   }

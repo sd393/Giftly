@@ -65,6 +65,7 @@ export const creatorFormSchema = z.object({
     .optional()
     .or(z.literal(''))
     .transform((v) => (v && v.length > 0 ? v : undefined)),
+  shippingAddress: optionalText(500, 'Shipping address'),
 })
 
 export type CreatorFormValues = z.infer<typeof creatorFormSchema>
@@ -86,6 +87,7 @@ export const creatorEditSchema = z.object({
     .default([]),
   productInterests: optionalText(2000, 'Product interests'),
   contentLink: contentLinkSchema,
+  shippingAddress: optionalText(500, 'Shipping address'),
   notes: optionalText(5000, 'Notes'),
   ownerId: z
     .string()
