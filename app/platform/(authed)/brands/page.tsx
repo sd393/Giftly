@@ -67,10 +67,13 @@ export default async function BrandsDirectoryPage({
     query = query.is('archived_at', null).neq('stage', 'cold')
   else if (show === 'archived') query = query.not('archived_at', 'is', null)
 
-  // `directory` (default) hides cold-outreach prospects; those live on
-  // /outbound until the team explicitly adds them to the directory.
-  if (source === 'directory') query = query.neq('source', 'outreach')
-  else if (source !== 'all') query = query.eq('source', source)
+  // `directory` (default) hides cold-outreach prospects, but lets through
+  // any brand that has graduated past cold (stage in_talks/done) regardless
+  // of how it originally entered the pipeline. Source is provenance; stage
+  // is current relationship state, and current state should win for the UI.
+  if (source === 'directory') {
+    query = query.or('source.neq.outreach,stage.in.(in_talks,done)')
+  } else if (source !== 'all') query = query.eq('source', source)
 
   if (stage) query = query.eq('stage', stage)
   if (category) query = query.ilike('category', category)
