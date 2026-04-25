@@ -17,6 +17,9 @@ type SearchParams = {
   sort?: SortField
   dir?: 'asc' | 'desc'
   show?: 'active' | 'archived' | 'all'
+  // ?demo=1 masks PII (name, email) for screencaps without disabling
+  // search/filter/sort. Flip the URL on for a recording, off after.
+  demo?: string
 }
 
 const VALID_SORT: Record<SortField, true> = {
@@ -67,7 +70,16 @@ export default async function CreatorsDirectoryPage({
 
   query = query.order(sort, { ascending: dir === 'asc' })
 
-  const { data: rows, error } = await query.limit(500)
+  const { data: rawRows, error } = await query.limit(500)
+
+  const isDemo = sp.demo === '1'
+  const rows = isDemo
+    ? (rawRows ?? []).map((r, i) => ({
+        ...r,
+        name: `Creator ${String(i + 1).padStart(2, '0')}`,
+        email: `creator${String(i + 1).padStart(2, '0')}@redacted.giftly`,
+      }))
+    : rawRows
 
   const distinctPlatforms = Array.from(
     new Set((rows ?? []).map((r) => r.platform).filter(Boolean) as string[])

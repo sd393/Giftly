@@ -19,6 +19,9 @@ type SearchParams = {
   sort?: SortField
   dir?: 'asc' | 'desc'
   show?: 'active' | 'archived' | 'all'
+  // ?demo=1 masks contact PII (name, email) for screencaps. Brand name +
+  // website stay visible since those are the credentialing proof points.
+  demo?: string
 }
 
 const STAGE_SET = new Set<string>(BRAND_STAGES)
@@ -88,7 +91,18 @@ export default async function BrandsDirectoryPage({
 
   query = query.order(sort, { ascending: dir === 'asc' })
 
-  const { data: rows, error } = await query.limit(500)
+  const { data: rawRows, error } = await query.limit(500)
+
+  const isDemo = sp.demo === '1'
+  const rows = isDemo
+    ? (rawRows ?? []).map((r) => ({
+        ...r,
+        contact_name: r.contact_name ? '***' : r.contact_name,
+        contact_email: r.contact_email
+          ? `***@${r.website ?? 'redacted'}`
+          : r.contact_email,
+      }))
+    : rawRows
 
   const distinctCategories = Array.from(
     new Set((rows ?? []).map((r) => r.category).filter(Boolean) as string[])
