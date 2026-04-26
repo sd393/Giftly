@@ -1,0 +1,90 @@
+name,role,company,domain,category,notes
+Julie Bornstein,Founder & CEO,Daydream,daydream.ing,consumer-shopping,AI-powered chat-based shopping agent for fashion ($50M seed)
+Phoebe Gates,Co-Founder & CEO,Phia,phia.com,consumer-shopping,AI shopping assistant finding best prices ($35M Series A)
+LJ Northington,Co-Founder & CEO,Aesthetic,myaesthetic.ai,consumer-shopping,FindGPT AI fashion discovery platform
+Zach Hudson,Co-Founder & CEO,Onton,onton.com,consumer-shopping,AI product discovery engine for home/furniture (~$10M raised)
+Jenny Wang,Co-Founder & CEO,Alta,alta.ai,consumer-shopping,AI personal stylist and shopping companion ($11M seed)
+Sam Atkinson,Co-Founder & CEO,Swap,swap.com,consumer-shopping,E-commerce operating system for brands ($40M Series B)
+Maju Kuruvilla,Founder & CEO,Spangle AI,spangle.ai,consumer-shopping,Agentic commerce platform generating custom AI storefronts for retail brands
+Dorian Dargan,Co-Founder & CEO,Doji,doji.com,consumer-shopping,AI-powered fashion try-on app using diffusion models for personalized avatars ($14M)
+Victoria Peppiatt,Co-Founder & Co-CEO,Hey Savi,heysavi.com,consumer-shopping,Fashion search and recommendation platform matching users with in-stock items at best prices
+Shlok Bhartiya,Founder & CEO,Shoppin,shoppin.app,consumer-shopping,AI-powered fashion search engine for women's clothing
+Tamar Shachar,VP of Products,Karma,karmanow.com,consumer-shopping,Browser-based AI shopping assistant; 7M+ users; price tracking and cash-back across 100K retailers
+Naveen Ramasamy,VP of Product Management,Glance,glance.com,consumer-shopping,AI-native commerce platform; selfie-based visual discovery; InMobi subsidiary
+Purva Gupta,Co-Founder & CEO,Lily AI,lily.ai,consumer-shopping,Retail AI bridging consumer/merchant language using NLP at scale ($71M)
+Cheryl Liu,Founder & CEO,Raspberry AI,raspberry.ai,consumer-shopping,Generative AI platform for fashion design; reduces concept-to-market time 30-50% ($24M Series A from a16z)
+Jonathan Arena,Co-Founder,New Generation,new-gen.ai,consumer-shopping,Conversational AI shopping platform turning brand catalogs into AI-native storefronts
+Seunghyun Lee,CEO,Enhans,enhans.ai,consumer-shopping,Vertical commerce AI agents with Large Action Model for autonomous e-commerce decisions
+Shaurya Gupta,Co-Founder & CEO,Wishlink,wishlink.com,consumer-shopping,Creator-led commerce platform connecting creators with brands for monetization
+Arthur Leopold,CEO & Co-Founder,Agentio,agentio.com,consumer-shopping,AI-native platform automating YouTube creator content and brand integrations
+Kristi O'Brien,GM Brand Platform / Head of Partnerships,LTK,shopltk.com,consumer-shopping,Global creator commerce platform; $5B+ annual retail sales; 40M monthly shoppers
+Ronak Trivedi,Co-Founder & CEO,Pietra,pietrastudio.com,consumer-shopping,AI Commerce OS for creators; automated sourcing/fulfillment/scaling
+Morteza Ibrahimi,Co-Founder & CEO,Qeen.ai,qeen.ai,consumer-shopping,Autonomous AI agents for e-commerce (content/marketing/conversational sales)
+Marius Meiners,Co-Founder & CEO,Peec AI,peec.ai,consumer-shopping,AI search analytics tracking brand visibility across ChatGPT/Perplexity/Gemini ($21M)
+Kaushik Mahorker,Founder & CEO,Wildcard,wild-card.ai,consumer-shopping,YC W25; API gateway for AI agents to discover and use APIs for shopping/e-commerce
+Masa Shimizu,Founder & CEO,Omakase.ai,omakase.ai,consumer-shopping,Voice AI agent / personal shopper for ecommerce
+Kevin Chandra,Co-Founder & CEO,The Prompting Company,promptingcompany.com,consumer-shopping,AI product discovery platform helping brands get visibility in ChatGPT and other LLMs ($6.5M)
+Nicolás Camhi,Co-Founder & CEO,Vambe,vambe.ai,consumer-shopping,AI conversational commerce for Latin America; $2.5M ARR in first year ($14M Series A)
+Chi Zhang,CEO & Co-Founder,Kite,gokite.ai,consumer-shopping,Blockchain infrastructure for AI shopping agents with identity/payment layer ($18M)
+Kevin Kahn,Co-Founder & CEO,Albatross AI,usealbatross.ai,consumer-shopping,Real-time product discovery using sequential embedding models on live behavioral events ($12.5M)
+Anastasia Georgievskaya,Co-Founder & CEO,Haut.AI,haut.ai,consumer-shopping,AI skincare/beauty recommendation with SkinGPT generative AI
+Valeriya Bezrukova,VP of Product,Constructor,constructor.io,brand-side,AI-powered ecommerce search and product discovery platform
+Michael Hunigan,VP of Product AI,Capacity,capacity.com,brand-side,AI-powered customer support automation; $92.6M+ funding
+Aniket Deosthali,CEO & Co-Founder,Envive,envive.ai,brand-side,Series A ($15M); commerce AI building self-improving agents for online retail
+Paul Meinshausen,CEO & Co-Founder,Aampe,aampe.com,brand-side,Reinforcement learning infrastructure for mobile CRM and marketing
+Diaz Nesamoney,Founder & CEO,DaVinci Commerce,davincicommerce.ai,brand-side,Accenture-backed agentic AI commerce platform; mature stage
+Yoav Oz,CEO & Co-Founder,Rep AI,hellorep.ai,brand-side,Conversational commerce platform for ecommerce / Shopify
+Todd Famous,Chief Product Officer,Crescendo,crescendo.ai,brand-side,AI customer service platform with commerce focus; multilingual full-checkout
+Marcin Stoll,Chief Product Officer,Tidio,tidio.com,brand-side,AI customer support platform; Lyro shopping agent for Shopify SMB
+Ashu Dubey,CEO & Co-Founder,Alhena AI,alhena.ai,brand-side,Hallucination-free agentic platform; AI shopping assistants for compliance-sensitive retail
+Benoit Patra,Chief Technology Officer,iAdvize,iadvize.com,brand-side,Mature European conversational commerce platform
+Vlad Keil,Co-Founder & CEO,Lio,lio.ai,b2b-procurement,AI multi-agent system for enterprise procurement ($30M Series A from a16z)
+Robin Van Aeken,Co-Founder & CEO,Magentic,magentic.com,b2b-procurement,AI agents for supply chain savings (Sequoia + Westly Group; €4.7M seed)
+André Petry,Co-Founder & CEO,Tacto,tacto.ai,b2b-procurement,Industrial procurement intelligence (€50M Series A from Sequoia + Index)
+Bryan Rosenstein,Co-Founder & Head of Operations,Levelpath,levelpath.com,b2b-procurement,AI-native procurement; Series B $55M+; targeting non-founder per user rule
+Kaspar Korjus,Co-Founder & CEO,Pactum AI,pactum.com,b2b-procurement,Series C $54M+; autonomous supplier negotiation; 50+ Fortune 2000 clients
+Noam Shakuri,Co-Founder & CEO,Evolinq,evolinq.io,b2b-procurement,Early stage; AI procurement agents for direct buyers
+Niels Tonsen,Co-Founder & CEO,Turian,turian.ai,b2b-procurement,Early stage; AI agents for B2B order management and procurement
+Lu Cheng,Co-Founder & CTO,Zip,ziphq.com,b2b-procurement,AI procurement orchestration; 50+ agents; $190M Series D — non-founder per user rule
+Ben Freeman,Co-Founder & CEO,Omnea,omnea.co,b2b-procurement,AI-first procurement; Series B $50M (total $75M)
+Zachary Garippa,Co-Founder & CEO,Order.co,order.co,b2b-procurement,Mid-stage; $96.7M raised across 7 rounds; founded 2016
+James McGillicuddy,CEO & Co-Founder,BRM,brm.ai,procurement-orchestration,Series A ($21.6M); AI-powered vendor management for mid-market
+Sudhir Bhojwani,CEO & Co-Founder,Oro Labs,orolabs.ai,procurement-orchestration,Series C ($100M); agentic procurement orchestration
+Gaurav Baheti,CEO & Co-Founder,Procol,procol.ai,procurement-orchestration,India-focused (~$20B+ GMV); Blume + Peak XV backed
+Kevin Frechette,CEO & Co-Founder,Fairmarkit,fairmarkit.com,procurement-orchestration,Founded 2017; Inc 5000 ranked; autonomous tail-spend sourcing
+Alan Holland,Founder & CEO,Keelvar,keelvar.com,procurement-orchestration,High-complexity sourcing bots (ocean freight/packaging/raw materials)
+Jeff Gerber,CEO & Founder,Suplari,suplari.com,procurement-orchestration,Procurement intelligence; agentic workers over SAP/Coupa/Ariba
+Gopinath Polavarapu,Chief Digital & AI Officer,JAGGAER,jaggaer.com,procurement-orchestration,Enterprise S2P (~$500B+ GMV); JAI copilot + Catalyze layer
+Darius Contractor,Chief Product & Engineering Officer,Vendr,vendr.com,saas-procurement,AI negotiation agent (Ruth) on $15B+ pricing data; $216M+ raised
+Kristy McCown,Head of Partnerships,Tropic,tropicapp.io,saas-procurement,Series B ($67M); procurement orchestration on $18B+ transaction data
+Lars Haßler,VP Product,Sastrify,sastrify.com,saas-procurement,AI benchmarking + expert SaaS negotiation on $6B+ pricing data
+Siddharth Sridharan,Co-Founder & CEO,Spendflo,spendflo.com,saas-procurement,AI-native procurement orchestration; Flo AI co-pilot for Slack ($15.4M Series A)
+Ronny Maate,Chief Product Officer,Vertice,vertice.one,saas-procurement,SaaS overspend tracking; Series C ($101M+ raised)
+Ian Runyon,VP of Product,Zylo,zylo.com,saas-procurement,Shadow IT discovery via financial analysis; Series C ($71.8M+)
+Sean D. Murray,CEO,Productiv,productiv.com,saas-procurement,SaaS management with spend; Series C ($73M)
+Nidhi Jain,CEO & Co-Founder,CloudEagle,cloudeagle.ai,saas-procurement,SaaS management + governance with 500+ integrations
+Uri Haramati,CEO & Co-Founder,Torii,toriihq.com,saas-procurement,SaaS lifecycle automation; Series B ($65M)
+Ritish Reddy,CEO & Co-Founder,Zluri,zluri.com,saas-procurement,Identity governance + SaaS management; Series B ($32.5M)
+Patrick O'Connor,CEO & Founder,Gatekeeper,gatekeeperhq.com,saas-procurement,UK-based; centralized contract management
+Cristina Vila Vives,CEO & Co-Founder,Cledara,cledara.com,saas-procurement,Subscription management for SaaS; Series A
+Paul Klein IV,Founder & CEO,Browserbase,browserbase.com,agent-infra,Managed cloud browser infra + Stagehand framework; Series B ($67.5M)
+Idan Raman,Co-Founder & CEO,Anchor Browser,anchorbrowser.io,agent-infra,Enterprise managed cloud browser with VPN for AI agents (Seed)
+Hussien Hussien,Co-Founder & CEO,Steel.dev,steel.dev,agent-infra,Self-hostable browser infra; YC stage
+Suchintan Singh,Co-Founder,Skyvern,skyvern.com,agent-infra,Computer-vision browser automation; strong on insurance/government/procurement forms (YC S23)
+Amir Ashkenazi,Founder & CEO,Airtop,airtop.ai,agent-infra,Cloud browser automation for AI web agents; serial entrepreneur (Adap.tv/Shopping.com)
+Joel Griffith,Founder & CEO,Browserless,browserless.io,agent-infra,Headless Chrome as a service; bootstrapped $4M ARR
+Shri Sukhani,CEO & Co-Founder,Hyperbrowser,hyperbrowser.ai,agent-infra,Cloud browser infra with built-in stealth and CAPTCHA solving (YC)
+Aurken Bilbao,CEO & Founder,ZenRows,zenrows.com,agent-infra,Web scraping API and browser infra for data extraction
+Caleb Peffer,CEO & Co-Founder,Firecrawl,firecrawl.dev,agent-infra,Web data layer; search/navigate/extract for AI applications (Series A $14.5M)
+Jan Čurn,CEO & Co-Founder,Apify,apify.com,agent-infra,Web automation Actors with Skyfire integration; Series B 2024
+Catherine Jue,CEO & Co-Founder,Kernel,kernel.sh,agent-infra,Agent runtime; YC S25; Series A $22M
+Erez Naveh,VP of Product,Bright Data,brightdata.com,agent-infra,Web data + proxy + browser; very large enterprise
+Amir Sarhangi,CEO & Co-Founder,Skyfire,skyfire.xyz,agent-payments,Know Your Agent (KYA) protocol + tokenized identity/payment for AI agents ($9.5M)
+Colin Luce,CEO & Co-Founder,Basis Theory,basistheory.com,agent-payments,Tokenized payment credentials for agents; Series B+ ($33M+)
+Ayal Karmi,CEO & Co-Founder,Nekuda,nekuda.ai,agent-payments,Agent payment infra; Visa Intelligent Commerce partner ($5M Seed from Madrona/Amex/Visa)
+Johnathan McGowan,CEO & Co-Founder,PayOS,payos.ai,agent-payments,Visa Intelligent Commerce partner; emerged from stealth 2025
+Alfonso Gómez-Jordana Mañas,Founder & CEO,Crossmint,crossmint.com,agent-payments,Wallets + virtual cards + stablecoin onramps + verifiable credentials for agents ($23.6M)
+Victor Cardenas Codriansky,CEO & Co-Founder,Slash,slash.com,agent-payments,Developer-first agent banking; Series C $100M @ $1.4B valuation
+Christos Kalantzis,Chief Technology Officer,HUMAN Security (AgenticTrust),humansecurity.com,agent-payments,AgenticTrust = bot/agent verification layer of HUMAN Security
+Arjun Bhargava,CEO & Co-Founder,Rye,rye.com,agent-payments,Real-time product data + checkout API for cross-merchant agents
+Michael Ramsbacker,Chief Product Officer,Trulioo,trulioo.com,agent-payments,Identity for agent KYC; very large unicorn ($1.75B); per user rule non-CEO
