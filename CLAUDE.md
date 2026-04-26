@@ -39,4 +39,7 @@ Env var required for form submissions: `RESEND_API_KEY`. The `from` address is `
 
 - `app/layout.tsx` conditionally mounts `@vercel/analytics` only in production and globally renders `<Toaster position="top-center" />` from sonner.
 - `next.config.mjs` also sets `images.unoptimized: true`.
-- `outreach/` is an untracked working directory — treat it as the user's scratch space, not part of the app.
+- Two cold-email campaigns live in the repo, separate from the Next.js app:
+  - `outreach/` — DTC brand outreach (Stanford/Dartmouth Student Inquiry pitch). Read `outreach/README.md` and `outreach/OUTREACH.md` first; mirrors sends to the internal Supabase platform via `giftly_api.py`.
+  - `outreach-agents/` — agentic-commerce shopping-agent outreach (data-infrastructure pitch). Read `outreach-agents/README.md` and `outreach-agents/OUTREACH.md` first. **For live state of this campaign — what's done, what's pending, decisions and overrides — read `outreach-agents/PROGRESS.md`** before kicking off any subagents or pipeline runs. No platform mirror here.
+  - Both share the same `gog`-authed Gmail accounts but otherwise have separate scripts, logs, and dedup state. Don't cross the streams.
