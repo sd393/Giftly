@@ -11,6 +11,8 @@ LJ Northington,Co-Founder & CEO,Aesthetic,myaesthetic.ai,consumer-shopping,FindG
 Zach Hudson,Co-Founder & CEO,Onton,onton.com,consumer-shopping,AI product discovery engine for home/furniture (~$10M raised),1
 Alexander Gunnarson,Co-Founder & CTO,Onton,onton.com,consumer-shopping,,2
 Jenny Wang,Co-Founder & CEO,Alta,alta.ai,consumer-shopping,AI personal stylist and shopping companion ($11M seed),1
+Tom Hoffen,Co-Founder & CTO,Alta,alta.ai,consumer-shopping,,2
+Mor Shabtai,Co-Founder & COO,Alta,alta.ai,consumer-shopping,,3
 Sam Atkinson,Co-Founder & CEO,Swap,swap.com,consumer-shopping,E-commerce operating system for brands ($40M Series B),1
 Zach Bailet,Co-Founder & COO,Swap,swap.com,consumer-shopping,,2
 Oron Bendavid,VP of Engineering,Swap,swap.com,consumer-shopping,,3
@@ -42,6 +44,7 @@ Prashanth C,Head of Engineering — AI/ML,Lily AI,lily.ai,consumer-shopping,,3
 Vimal Kohli,Chief Analytics Officer,Lily AI,lily.ai,consumer-shopping,,4
 Rick Kjellberg,CFO,Lily AI,lily.ai,consumer-shopping,,5
 Cheryl Liu,Founder & CEO,Raspberry AI,raspberry.ai,consumer-shopping,Generative AI platform for fashion design; reduces concept-to-market time 30-50% ($24M Series A from a16z),1
+Fan Yang,Chief Technology Officer,Raspberry AI,raspberry.ai,consumer-shopping,,2
 Jonathan Arena,Co-Founder,New Generation,new-gen.ai,consumer-shopping,Conversational AI shopping platform turning brand catalogs into AI-native storefronts,1
 Adam Behrens,Co-Founder,New Generation,new-gen.ai,consumer-shopping,,2
 Jaden Levitt,Team,New Generation,new-gen.ai,consumer-shopping,,3
@@ -58,8 +61,13 @@ Divyansh Ameta,Team,Wishlink,wishlink.com,consumer-shopping,,3
 Utkarsh Srivastava,Team,Wishlink,wishlink.com,consumer-shopping,,4
 Arthur Leopold,CEO & Co-Founder,Agentio,agentio.com,consumer-shopping,AI-native platform automating YouTube creator content and brand integrations,1
 Jonathan Meyers,Team,Agentio,agentio.com,consumer-shopping,,2
+Abbie Sheppard,VP Creator Strategy,Agentio,agentio.com,consumer-shopping,,3
+Hilary Anne Hyman,Head of Sales,Agentio,agentio.com,consumer-shopping,,4
 Kristi O'Brien,GM Brand Platform / Head of Partnerships,LTK,shopltk.com,consumer-shopping,Global creator commerce platform; $5B+ annual retail sales; 40M monthly shoppers,1
 Baxter Box,Co-Founder & CEO,LTK,shopltk.com,consumer-shopping,Co-founder (with Amber Venz Box) — per user note skip founder,2
+Ty Amell,Chief Technology Officer,LTK,shopltk.com,consumer-shopping,,3
+Stephanie Sandbo,Chief Revenue Officer,LTK,shopltk.com,consumer-shopping,,4
+Gary Kanazawa,"VP Product, Ad Platform",LTK,shopltk.com,consumer-shopping,,5
 Ronak Trivedi,Co-Founder & CEO,Pietra,pietrastudio.com,consumer-shopping,AI Commerce OS for creators; automated sourcing/fulfillment/scaling,1
 Pan Pandas,Team,Pietra,pietrastudio.com,consumer-shopping,,2
 Tala Akhavan,Team,Pietra,pietrastudio.com,consumer-shopping,,3
@@ -72,7 +80,7 @@ Daniel Drabo,Co-Founder,Peec AI,peec.ai,consumer-shopping,,3
 Kaushik Mahorker,Founder & CEO,Wildcard,wild-card.ai,consumer-shopping,YC W25; API gateway for AI agents to discover and use APIs for shopping/e-commerce,1
 Yagnya Patel,Co-Founder & CTO,Wildcard,wild-card.ai,consumer-shopping,,2
 Masa Shimizu,Founder & CEO,Omakase.ai,omakase.ai,consumer-shopping,Voice AI agent / personal shopper for ecommerce,1
-Or Perlman,Senior Engineering Manager,Omakase.ai,omakase.ai,consumer-shopping,,2
+Or Perlman,Chief Technology Officer,Omakase.ai,omakase.ai,consumer-shopping,,2
 Kevin Chandra,Co-Founder & CEO,The Prompting Company,promptingcompany.com,consumer-shopping,AI product discovery platform helping brands get visibility in ChatGPT and other LLMs ($6.5M),1
 Albert Putra Purnama,Co-Founder & CTO,The Prompting Company,promptingcompany.com,consumer-shopping,,2
 Michelle Marcelline,Co-Founder,The Prompting Company,promptingcompany.com,consumer-shopping,,3
@@ -104,6 +112,9 @@ Schaun Wheeler,Co-Founder,Aampe,aampe.com,brand-side,,3
 Sami Abboud,Co-Founder & CTO,Aampe,aampe.com,brand-side,,4
 Diaz Nesamoney,Founder & CEO,DaVinci Commerce,davincicommerce.ai,brand-side,Accenture-backed agentic AI commerce platform; mature stage,1
 Jaimie Villacarlos,Chief Growth and Partnerships Officer,DaVinci Commerce,davincicommerce.ai,brand-side,,2
+Taran Singh,Chief Technology Officer,DaVinci Commerce,davincicommerce.ai,brand-side,,3
+Aku Srikanth,VP AI Strategy,DaVinci Commerce,davincicommerce.ai,brand-side,,4
+Rushanthini Subramaniam,SVP Global Customer Success,DaVinci Commerce,davincicommerce.ai,brand-side,,5
 Yoav Oz,CEO & Co-Founder,Rep AI,hellorep.ai,brand-side,Conversational commerce platform for ecommerce / Shopify,1
 Shauli Mizrahi,Co-Founder & CTO,Rep AI,hellorep.ai,brand-side,,2
 Todd Famous,Chief Product Officer,Crescendo,crescendo.ai,brand-side,AI customer service platform with commerce focus; multilingual full-checkout,1
@@ -112,8 +123,12 @@ Anand Chandrasekaran,Founder & President,Crescendo,crescendo.ai,brand-side,,3
 Slava Zhakov,Co-Founder & CTO,Crescendo,crescendo.ai,brand-side,,4
 Marcin Stoll,Chief Product Officer,Tidio,tidio.com,brand-side,AI customer support platform; Lyro shopping agent for Shopify SMB,1
 Tytus Gołas,Founder & CEO,Tidio,tidio.com,brand-side,,2
+Mateusz Marszałek,Head of Engineering,Tidio,tidio.com,brand-side,,3
+Krzysztof Spyt,Chief Financial Officer,Tidio,tidio.com,brand-side,,4
 Ashu Dubey,CEO & Co-Founder,Alhena AI,alhena.ai,brand-side,Hallucination-free agentic platform; AI shopping assistants for compliance-sensitive retail,1
 Nagendra Kumar,Co-Founder & CTO,Alhena AI,alhena.ai,brand-side,,2
+Kimberly Huynh Namnath,Head of Partnerships,Alhena AI,alhena.ai,brand-side,,3
+Tatiana Staffaroni,Head of Marketing,Alhena AI,alhena.ai,brand-side,,4
 Benoit Patra,Chief Technology Officer,iAdvize,iadvize.com,brand-side,Mature European conversational commerce platform,1
 Mike de la Cruz,President & Chief Strategy Officer,iAdvize,iadvize.com,brand-side,,2
 Nicolas de Rosen,CEO North America,iAdvize,iadvize.com,brand-side,,3
@@ -187,16 +202,22 @@ Sven Lackinger,Co-Founder & CEO,Sastrify,sastrify.com,saas-procurement,,2
 Maximilian Messing,Co-Founder & CTO,Sastrify,sastrify.com,saas-procurement,,3
 Siddharth Sridharan,Co-Founder & CEO,Spendflo,spendflo.com,saas-procurement,AI-native procurement orchestration; Flo AI co-pilot for Slack ($15.4M Series A),1
 Ajay Vardhan,Co-Founder & CTO,Spendflo,spendflo.com,saas-procurement,,2
+Rajiv Ramanan,Co-Founder & Chief Revenue Officer,Spendflo,spendflo.com,saas-procurement,,3
+Nivas Ravichandran,Head of Marketing,Spendflo,spendflo.com,saas-procurement,,4
 Ronny Maate,Chief Product Officer,Vertice,vertice.one,saas-procurement,SaaS overspend tracking; Series C ($101M+ raised),1
 Roy Tuvey,Co-Founder & Co-CEO,Vertice,vertice.one,saas-procurement,,2
 Eldar Tuvey,Founder & CEO,Vertice,vertice.one,saas-procurement,,3
 Ian Runyon,VP of Product,Zylo,zylo.com,saas-procurement,Shadow IT discovery via financial analysis; Series C ($71.8M+),1
 Eric Christopher,Co-Founder & CEO,Zylo,zylo.com,saas-procurement,,2
+Matt DiAntonio,Chief Product Officer,Zylo,zylo.com,saas-procurement,,3
+Tim Horoho,Chief Technology Officer,Zylo,zylo.com,saas-procurement,,4
+Cory Wheeler,Co-Founder & Chief Customer Officer,Zylo,zylo.com,saas-procurement,,5
 Sean D. Murray,CEO,Productiv,productiv.com,saas-procurement,SaaS management with spend; Series C ($73M),1
 Munish Gandhi,COO,Productiv,productiv.com,saas-procurement,,2
 Ashish Aggarwal,CTO,Productiv,productiv.com,saas-procurement,,3
 Nidhi Jain,CEO & Co-Founder,CloudEagle,cloudeagle.ai,saas-procurement,SaaS management + governance with 500+ integrations,1
 Prasanna Naik,Co-Founder,CloudEagle,cloudeagle.ai,saas-procurement,,2
+Swatantra Agrawal,Chief Architect,CloudEagle,cloudeagle.ai,saas-procurement,,3
 Uri Haramati,CEO & Co-Founder,Torii,toriihq.com,saas-procurement,SaaS lifecycle automation; Series B ($65M),1
 Uri Nativ,CPO & Co-Founder,Torii,toriihq.com,saas-procurement,,2
 Tal Bereznitskey,CTO & Co-Founder,Torii,toriihq.com,saas-procurement,,3
@@ -226,11 +247,14 @@ Shuchang Zheng,Co-Founder & CTO,Skyvern,skyvern.com,agent-infra,,2
 Kerem Yilmaz,Co-Founder,Skyvern,skyvern.com,agent-infra,,3
 Amir Ashkenazi,Founder & CEO,Airtop,airtop.ai,agent-infra,Cloud browser automation for AI web agents; serial entrepreneur (Adap.tv/Shopping.com),1
 Daniel Shteremberg,Co-Founder & CTO,Airtop,airtop.ai,agent-infra,,2
+Aidyl Kareh,Engineering Manager,Airtop,airtop.ai,agent-infra,,3
 Joel Griffith,Founder & CEO,Browserless,browserless.io,agent-infra,Headless Chrome as a service; bootstrapped $4M ARR,1
 Shri Sukhani,CEO & Co-Founder,Hyperbrowser,hyperbrowser.ai,agent-infra,Cloud browser infra with built-in stealth and CAPTCHA solving (YC),1
 Akshay Shekhawat,Co-Founder & CTO,Hyperbrowser,hyperbrowser.ai,agent-infra,,2
 Aurken Bilbao,CEO & Founder,ZenRows,zenrows.com,agent-infra,Web scraping API and browser infra for data extraction,1
 Ander Rodriguez Varela,Co-Founder & CTO,ZenRows,zenrows.com,agent-infra,,2
+Alina Sharapova,Director of Engineering,ZenRows,zenrows.com,agent-infra,,3
+Tazz Parker,VP of Marketing,ZenRows,zenrows.com,agent-infra,,4
 Caleb Peffer,CEO & Co-Founder,Firecrawl,firecrawl.dev,agent-infra,Web data layer; search/navigate/extract for AI applications (Series A $14.5M),1
 Eric Ciarla,Co-Founder & CMO,Firecrawl,firecrawl.dev,agent-infra,,2
 Nicolas Silberstein Camara,Co-Founder & CTO,Firecrawl,firecrawl.dev,agent-infra,,3
@@ -257,6 +281,7 @@ Johnathan McGowan,CEO & Co-Founder,PayOS,payos.ai,agent-payments,Visa Intelligen
 Aparna Krishnan Girish,CPO & Co-Founder,PayOS,payos.ai,agent-payments,,2
 Alfonso Gómez-Jordana Mañas,Founder & CEO,Crossmint,crossmint.com,agent-payments,Wallets + virtual cards + stablecoin onramps + verifiable credentials for agents ($23.6M),1
 Rodri Fernández Touza,Co-Founder,Crossmint,crossmint.com,agent-payments,,2
+Ken Zhang,Head of Stablecoins and Fintech,Crossmint,crossmint.com,agent-payments,,3
 Victor Cardenas Codriansky,CEO & Co-Founder,Slash,slash.com,agent-payments,Developer-first agent banking; Series C $100M @ $1.4B valuation,1
 Kevin Bai,CTO & Co-Founder,Slash,slash.com,agent-payments,,2
 Shaan Patel,Head of Growth,Slash,slash.com,agent-payments,,3

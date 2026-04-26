@@ -9,11 +9,11 @@ needs to pick up where the last one left off, without re-deriving context.
 
 ---
 
-## Current state — 2026-04-25
+## Current state — 2026-04-26
 
 **Pre-send research is complete; nothing has been emailed yet.**
 
-- `contacts.csv` — 273 priority-ranked contacts across 89 companies (up to
+- `contacts.csv` — 298 priority-ranked contacts across 89 companies (up to
   5 per company; founder/CEO at p1 for early-stage, product/AI/partnerships
   lead at p1 for Series B+ and large companies).
 - `batch.csv` — 89 rows, one priority-1 contact per company. **Generated
@@ -38,16 +38,19 @@ Contacts per company:
 
 | Contacts | Companies |
 |---|---|
-| 5 | 11 |
-| 4 | 14 |
-| 3 | 38 |
-| 2 | 22 |
-| 1 | 4 |
+| 5 | 14 |
+| 4 | 19 |
+| 3 | 42 |
+| 2 | 12 |
+| 1 | 2 |
 
-26 companies have <3 contacts — for very small/bootstrapped startups
-(Browserless solo, Onton ~5-person, Aesthetic/Alta/Raspberry AI early-
-stage) the public surface area genuinely doesn't have 5 senior people.
-Don't fabricate.
+14 companies still have <3 contacts. After a second research pass
+targeted at the 26 originally under-researched companies, these are the
+ones where public surface area genuinely doesn't have more senior
+people: Browserless (solo-founded), Aesthetic, Doji, Onton, Wildcard,
+Raspberry AI (all <10 employees); Evolinq, Magentic, Tacto, Hyperbrowser,
+Kernel, PayOS (early seed/stealth, only founders public); Omakase.ai,
+Rep AI (small mid-stage). Don't fabricate.
 
 ---
 
@@ -97,6 +100,24 @@ Runyon (VP Product); JAGGAER → Gopinath Polavarapu (CDAIO); Constructor
 → Valeriya Bezrukova (VP Product); Capacity → Michael Hunigan (VP Product
 AI); Crescendo → Todd Famous (CPO); iAdvize → Benoit Patra (CTO).
 
+Filtered out from the 2026-04-26 second research pass (returned by
+subagents but rejected during aggregation):
+
+- **CloudEagle "Petey Cruiser" (COO)** — almost certainly fabricated; the
+  name reads as a joke (PT Cruiser). Subagent didn't catch it.
+- **Browserless "Alex Boswell" (Director)** — vague title, vague source
+  (ZoomInfo only); likely cross-company conflation. Skipped.
+- **Airtop Kyle Parrott / Sam Myers (Staff/Senior Engineer)** — IC roles,
+  below the senior-leadership threshold the prompt set.
+- **Kernel Mason Williams (Founding Engineer)** — IC role at a 5-person
+  company.
+- **ZenRows Jonathan Nebot (Senior Stealth Engineer)** — IC role.
+- **Tidio Monika Dmochowska (Head of Talent Acquisition)** — HR, not
+  product/agent-relevant.
+- **Omakase.ai Or Perlman re-add** — already in our list at p2; subagent
+  re-found him. Took the opportunity to update his role from "Senior
+  Engineering Manager" → "Chief Technology Officer" (verified).
+
 ---
 
 ## Domains worth verifying before send
@@ -123,16 +144,9 @@ these, manually check first:
 
 - **Eyeball the curated list.** The user has not yet manually reviewed
   `batch.csv`. Don't kick off `run-batch.sh` until they have.
-- **5-contacts coverage.** 26 companies under-researched (<3 contacts).
-  Decision still pending: spawn another research round, or accept the
-  current ceiling.
-- **Tidio and AgenticTrust have no `name`** in `batch.csv` — the sender
-  will use `Hi,` for these (no per-recipient greeting). Confirm before
-  sending.
-- **Tidio re-research** — consider giving Tidio a real first-name
-  contact via a follow-up Haiku pass; the brand-side run did surface
-  Marcin Stoll (CPO) but the row in `batch.csv` may have been left blank
-  during a prior Tidio update.
+- **5-contacts coverage.** Down to 14 companies <3 contacts after the
+  2026-04-26 follow-up pass. These are bonafide ceilings — solo-founded
+  or <10-person startups. Don't try a third pass.
 
 ---
 
