@@ -33,7 +33,7 @@ GMAIL_ID_RE = re.compile(r"\b([0-9a-f]{16,})\b")
 ACCOUNT = os.environ.get("GOG_ACCOUNT", "armaanp4423@gmail.com")
 
 SUBJECT_TMPL = "Stanford/Dartmouth Student Inquiry"
-BODY_TMPL = """{greeting}
+BODY_TMPL = """Hi,
 
 We are Stanford/Dartmouth students building data infrastructure for people to trust agents with purchases. We've established a network of humans who evaluate products and are turning the results into structured, queryable data for agentic commerce solutions.
 
@@ -42,18 +42,6 @@ Curious if this could be useful for what {company} is building. Would you be ope
 Thanks,
 Armaan
 """
-
-# Role-address locals — when the scraped email matches one of these, we don't
-# try to infer a first name from it. Same list the scraper prefers.
-GENERIC_LOCALS = {
-    "hello", "hi", "contact", "info", "team", "press",
-    "partnerships", "partners", "collabs", "collab", "creators",
-    "founders", "founder", "newbusiness", "new-business",
-    "sales", "biz", "business", "support", "ceo",
-    "bd", "ops", "help", "admin", "office", "inquiries",
-}
-
-HONORIFICS = {"mr", "mrs", "ms", "miss", "dr", "prof", "rev", "sir", "madam"}
 
 
 def normalize_company(raw: str) -> str:
@@ -65,37 +53,13 @@ def normalize_company(raw: str) -> str:
     return re.sub(r"\s+", " ", raw.strip())
 
 
-def first_name_from(name_col: str, email: str) -> str:
-    """Greeting first name. Prefer the explicit `name` column from the input
-    CSV; fall back to the email local part when it looks like a person's
-    name (not a role address like hello@). Empty string when nothing usable
-    — caller renders `Hi,` instead of `Hi {name},`.
-    """
-    name_col = (name_col or "").strip()
-    if name_col:
-        for token in name_col.split():
-            cleaned = re.sub(r"[^A-Za-z'\-]", "", token)
-            if len(cleaned) >= 2 and cleaned.lower() not in HONORIFICS:
-                return cleaned[:1].upper() + cleaned[1:].lower()
-    local = email.split("@", 1)[0].lower()
-    if local in GENERIC_LOCALS:
-        return ""
-    parts = re.split(r"[._\-]", local)
-    first = parts[0] if parts else ""
-    if len(first) >= 3 and first.isalpha():
-        return first.capitalize()
-    return ""
-
-
 def send_one(
-    company_raw: str, email: str, name_raw: str, *, dry_run: bool
+    company_raw: str, email: str, *, dry_run: bool
 ) -> tuple[bool, str, str, str | None]:
     """Send one email via gog. Returns (ok, info, body, external_id)."""
     company = normalize_company(company_raw)
-    first = first_name_from(name_raw, email)
-    greeting = f"Hi {first}," if first else "Hi,"
     subject = SUBJECT_TMPL
-    body = BODY_TMPL.format(greeting=greeting, company=company)
+    body = BODY_TMPL.format(company=company)
     cmd = [
         "gog", "--account", ACCOUNT, "gmail", "send",
         "--to", email,
@@ -187,7 +151,7 @@ def main():
         company_raw = r.get("company") or r.get("domain", "")
         email = r["email"]
         name_raw = r.get("name") or ""
-        ok, info, body, external_id = send_one(company_raw, email, name_raw, dry_run=dry)
+        ok, info, body, external_id = send_one(company_raw, email, dry_run=dry)
         status = "OK " if ok else "FAIL"
         id_tag = f" id={external_id}" if external_id else ""
         log(f"[{i:>2}/{len(targets)}] {status} {company_raw:<32} {email:<40} {info}{id_tag}")

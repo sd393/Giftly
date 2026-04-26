@@ -44,11 +44,16 @@ belongs to so we can segment reply rates later.
 ## Email format
 
 - **Subject** (exact, no variations): `Stanford/Dartmouth Student Inquiry`
-- **Body template** lives in `send-batch.py` (`BODY_TMPL`). Two
-  substitutions: `{greeting}` (resolved per-row) and `{company}`:
+- **Body template** lives in `send-batch.py` (`BODY_TMPL`). One
+  substitution: `{company}`. Greeting is always `Hi,` — no name
+  personalization (the scraped email is usually a role address like
+  `info@` or `hello@`, so a first-name greeting would mismatch the
+  recipient and read as misdirected). The `name` column in `batch.csv`
+  is preserved as targeting context but is not interpolated into the
+  body.
 
   ```
-  {greeting}
+  Hi,
 
   We are Stanford/Dartmouth students building data infrastructure for people to trust agents with purchases. We've established a network of humans who evaluate products and are turning the results into structured, queryable data for agentic commerce solutions.
 
@@ -58,16 +63,6 @@ belongs to so we can segment reply rates later.
   Armaan
   ```
 
-- **Greeting personalization** — `first_name_from()` in `send-batch.py`:
-  1. If the input CSV row has a `name` column, the first token (cleaned
-     of punctuation) becomes the greeting → `Hi Julie,`.
-  2. Otherwise, if the scraped email's local part looks like a person's
-     name (≥3 alpha chars, not a role address like `hello@`/`info@`/
-     `partnerships@`), use that → `julie@daydream.com` → `Hi Julie,`.
-  3. Otherwise → `Hi,`.
-
-  This is best-effort. If you want a guaranteed first name, fill the
-  `name` column in `batch.csv` (manually or via Haiku research pass).
 - Sign off `Thanks,\nArmaan`. Plain text only.
 - No em dashes, no exclamation marks, no buzzwords, no flattery — same
   hygiene as the brand campaign.
