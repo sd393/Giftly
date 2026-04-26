@@ -13,10 +13,10 @@ needs to pick up where the last one left off, without re-deriving context.
 
 **Pre-send research is complete; nothing has been emailed yet.**
 
-- `contacts.csv` — 298 priority-ranked contacts across 89 companies (up to
+- `contacts.csv` — 304 priority-ranked contacts across 91 companies (up to
   5 per company; founder/CEO at p1 for early-stage, product/AI/partnerships
   lead at p1 for Series B+ and large companies).
-- `batch.csv` — 89 rows, one priority-1 contact per company. **Generated
+- `batch.csv` — 91 rows, one priority-1 contact per company. **Generated
   from `contacts.csv` priority=1 rows** — never hand-edit; regenerate by
   re-running the aggregation if `contacts.csv` changes.
 - `outreach-log.csv` — empty (header only). Populated by `send-batch.py`
@@ -27,9 +27,9 @@ Coverage by category:
 | Category | Companies |
 |---|---|
 | consumer-shopping | 29 |
+| agent-infra | 13 |
 | saas-procurement | 12 |
-| agent-infra | 12 |
-| brand-side | 10 |
+| brand-side | 11 |
 | b2b-procurement | 10 |
 | agent-payments | 9 |
 | procurement-orchestration | 7 |
@@ -39,9 +39,9 @@ Contacts per company:
 | Contacts | Companies |
 |---|---|
 | 5 | 14 |
-| 4 | 19 |
+| 4 | 20 |
 | 3 | 42 |
-| 2 | 12 |
+| 2 | 13 |
 | 1 | 2 |
 
 14 companies still have <3 contacts. After a second research pass
@@ -74,6 +74,21 @@ These are non-obvious choices made during research that affect what's in
 - **Nudge Security, ProcureDesk, Precoro, LevaData, Acai Travel dropped**
   during the original research pass for being out of scope (security
   posture / no agent layer / B2B-only travel).
+- **Foundation-lab equivalents at the merchant/procurement layer skipped**
+  (cross-checked against the April 2026 landscape doc on 2026-04-26):
+  Salesforce Agentforce, Shopify, BigCommerce, Coupa, Ivalua, Zycus, GEP,
+  Flexera, Ramp, Dia (Atlassian-owned), Manus, Rabbit. Same calculus as
+  OpenAI/Anthropic — wrong contact level for cold email; needs warm intros.
+- **Stagehand** is not a separate company — it's Browserbase's TypeScript
+  framework. Already covered.
+
+Added 2026-04-26 after the landscape doc cross-check:
+
+- **Browser Use** | browser-use.com | agent-infra | 2 contacts (Magnus
+  Müller, Gregor Žunič — YC W25 founders).
+- **commercetools** | commercetools.com | brand-side | 4 contacts (Shiri
+  Mosenzon Erez CPO at p1; CEO Doug McNary skipped per "skip CEO at large
+  companies").
 
 Manual reranks applied during aggregation (subagent had picked the wrong
 contact level despite explicit hints):
