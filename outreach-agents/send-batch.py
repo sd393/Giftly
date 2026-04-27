@@ -45,12 +45,20 @@ Armaan
 
 
 def normalize_company(raw: str) -> str:
-    """Light normalization — strip whitespace, collapse internal spaces.
+    """Light normalization — strip the `[email-local]` dedup suffix that
+    multi-contact retry batches inject into the company column to bypass
+    the per-company dedup, then collapse whitespace.
+
+    Why: batch-retry / batch-expansion files set company to e.g.
+    'Browser Use [magnus]' so dedup treats each contact as new. That
+    suffix must NOT reach the email body — recipients see only the real
+    company name.
 
     Unlike the brand pipeline we don't title-case all-caps tokens because
     company brand styles (OpenAI, BRM, x402, JAGGAER) are intentional.
     """
-    return re.sub(r"\s+", " ", raw.strip())
+    no_suffix = re.sub(r"\s*\[[^\]]+\]\s*$", "", raw.strip())
+    return re.sub(r"\s+", " ", no_suffix)
 
 
 def send_one(
