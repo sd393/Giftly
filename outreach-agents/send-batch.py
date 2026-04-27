@@ -119,9 +119,17 @@ def _dedup_key(raw: str) -> str:
 
 
 def load_already_sent() -> set[str]:
+    """Companies we've already successfully delivered to. BOUNCED rows are
+    eligible for retry to a different address — the bounce means the prior
+    address was bad, not that we reached the company.
+    """
     if not LOG_CSV.exists():
         return set()
-    return {_dedup_key(r.get("company") or "") for r in csv.DictReader(LOG_CSV.open()) if (r.get("company") or "").strip()}
+    return {
+        _dedup_key(r.get("company") or "")
+        for r in csv.DictReader(LOG_CSV.open())
+        if (r.get("company") or "").strip() and r.get("verified") != "BOUNCED"
+    }
 
 
 def main():

@@ -1,12 +1,12 @@
 name,role,company,domain,category,email,date_sent,verified,notes
-Maju Kuruvilla,Founder & CEO,Spangle AI,spangle.ai,consumer-shopping,hello@spangle.ai,2026-04-26,sent,Agentic commerce platform generating custom AI storefronts for retail brands
+Maju Kuruvilla,Founder & CEO,Spangle AI,spangle.ai,consumer-shopping,hello@spangle.ai,2026-04-26,BOUNCED,Agentic commerce platform generating custom AI storefronts for retail brands
 Dorian Dargan,Co-Founder & CEO,Doji,doji.com,consumer-shopping,hi@doji.com,2026-04-26,sent,AI-powered fashion try-on app using diffusion models for personalized avatars ($14M)
 Victoria Peppiatt,Co-Founder & Co-CEO,Hey Savi,heysavi.com,consumer-shopping,hello@heysavi.com,2026-04-26,sent,Fashion search and recommendation platform matching users with in-stock items at best prices
 Shlok Bhartiya,Founder & CEO,Shoppin,shoppin.app,consumer-shopping,support@shoppin.app,2026-04-26,sent,AI-powered fashion search engine for women's clothing
 Tamar Shachar,VP of Products,Karma,karmanow.com,consumer-shopping,hello@karmanow.com,2026-04-26,sent,Browser-based AI shopping assistant; 7M+ users; price tracking and cash-back across 100K retailers
 Jonathan Arena,Co-Founder,New Generation,new-gen.ai,consumer-shopping,founders@new-gen.ai,2026-04-26,sent,Conversational AI shopping platform turning brand catalogs into AI-native storefronts
 Shaurya Gupta,Co-Founder & CEO,Wishlink,wishlink.com,consumer-shopping,info@wishlink.com,2026-04-26,sent,Creator-led commerce platform connecting creators with brands for monetization
-,CEO & Co-Founder,Agentio,agentio.com,consumer-shopping,jack@agentio.com,2026-04-26,sent,AI-native platform automating YouTube creator content and brand integrations
+,CEO & Co-Founder,Agentio,agentio.com,consumer-shopping,jack@agentio.com,2026-04-26,BOUNCED,AI-native platform automating YouTube creator content and brand integrations
 Kaushik Mahorker,Founder & CEO,Wildcard,wild-card.ai,consumer-shopping,info@wild-card.ai,2026-04-26,sent,YC W25; API gateway for AI agents to discover and use APIs for shopping/e-commerce
 Kevin Kahn,Co-Founder & CEO,Albatross AI,usealbatross.ai,consumer-shopping,info@usealbatross.ai,2026-04-26,sent,Real-time product discovery using sequential embedding models on live behavioral events ($12.5M)
 Anastasia Georgievskaya,Co-Founder & CEO,Haut.AI,haut.ai,consumer-shopping,team@haut.ai,2026-04-26,sent,AI skincare/beauty recommendation with SkinGPT generative AI
@@ -19,7 +19,7 @@ Niels Tonsen,Co-Founder & CEO,Turian,turian.ai,b2b-procurement,info@turian.ai,20
 Lu Cheng,Co-Founder & CTO,Zip,ziphq.com,b2b-procurement,support@ziphq.com,2026-04-26,sent,AI procurement orchestration; 50+ agents; $190M Series D — non-founder per user rule
 Ben Freeman,Co-Founder & CEO,Omnea,omnea.co,b2b-procurement,press@omnea.co,2026-04-26,sent,AI-first procurement; Series B $50M (total $75M)
 James McGillicuddy,CEO & Co-Founder,BRM,brm.ai,procurement-orchestration,sales@brm.ai,2026-04-26,sent,Series A ($21.6M); AI-powered vendor management for mid-market
-Sudhir Bhojwani,CEO & Co-Founder,Oro Labs,orolabs.ai,procurement-orchestration,contact@orolabs.ai,2026-04-26,sent,Series C ($100M); agentic procurement orchestration
+Sudhir Bhojwani,CEO & Co-Founder,Oro Labs,orolabs.ai,procurement-orchestration,contact@orolabs.ai,2026-04-26,BOUNCED,Series C ($100M); agentic procurement orchestration
 Gaurav Baheti,CEO & Co-Founder,Procol,procol.ai,procurement-orchestration,partner@procol.ai,2026-04-26,sent,India-focused (~$20B+ GMV); Blume + Peak XV backed
 Jeff Gerber,CEO & Founder,Suplari,suplari.com,procurement-orchestration,info@suplari.com,2026-04-26,sent,Procurement intelligence; agentic workers over SAP/Coupa/Ariba
 Gopinath Polavarapu,Chief Digital & AI Officer,JAGGAER,jaggaer.com,procurement-orchestration,marketing@jaggaer.com,2026-04-26,sent,Enterprise S2P (~$500B+ GMV); JAI copilot + Catalyze layer
@@ -36,5 +36,300 @@ Colin Luce,CEO & Co-Founder,Basis Theory,basistheory.com,agent-payments,support@
 Victor Cardenas Codriansky,CEO & Co-Founder,Slash,slash.com,agent-payments,support@slash.com,2026-04-26,sent,Developer-first agent banking; Series C $100M @ $1.4B valuation
 Christos Kalantzis,Chief Technology Officer,HUMAN Security (AgenticTrust),humansecurity.com,agent-payments,press@humansecurity.com,2026-04-26,sent,AgenticTrust = bot/agent verification layer of HUMAN Security
 Michael Ramsbacker,Chief Product Officer,Trulioo,trulioo.com,agent-payments,info@trulioo.com,2026-04-26,sent,Identity for agent KYC; very large unicorn ($1.75B); per user rule non-CEO
-Magnus Müller,Co-founder & CEO,Browser Use,browser-use.com,agent-infra,team@browser-use.com,2026-04-26,sent,Open-source Python framework for AI browser agents; YC W25; $17M seed
+Magnus Müller,Co-founder & CEO,Browser Use,browser-use.com,agent-infra,team@browser-use.com,2026-04-26,BOUNCED,Open-source Python framework for AI browser agents; YC W25; $17M seed
 ,Chief Product Officer,commercetools,commercetools.com,brand-side,kemba.neptune@commercetools.com,2026-04-26,sent,Composable commerce platform; UCP/ACP-compatible; ~500 employees; Insight Partners-backed
+Phoebe Gates,Co-Founder & CEO,Phia,phia.com,consumer-shopping,press@phia.com,2026-04-26,sent,AI shopping assistant finding best prices ($35M Series A)
+Cheryl Liu,Founder & CEO,Raspberry AI,raspberry.ai,consumer-shopping,join@raspberry.ai,2026-04-26,sent,Generative AI platform for fashion design; reduces concept-to-market time 30-50% ($24M Series A from a16z)
+Marius Meiners,Co-Founder & CEO,Peec AI,peec.ai,consumer-shopping,careers@peec.ai,2026-04-26,sent,AI search analytics tracking brand visibility across ChatGPT/Perplexity/Gemini ($21M)
+Michael Hunigan,VP of Product AI,Capacity,capacity.com,brand-side,media@capacity.com,2026-04-26,sent,AI-powered customer support automation; $92.6M+ funding
+André Petry,Co-Founder & CEO,Tacto,tacto.ai,b2b-procurement,hello@tacto.ai,2026-04-26,sent,Industrial procurement intelligence (€50M Series A from Sequoia + Index)
+Noam Shakuri,Co-Founder & CEO,Evolinq,evolinq.io,b2b-procurement,careers@evolinq.io,2026-04-26,sent,Early stage; AI procurement agents for direct buyers
+Darius Contractor,Chief Product & Engineering Officer,Vendr,vendr.com,saas-procurement,careers@vendr.com,2026-04-26,sent,AI negotiation agent (Ruth) on $15B+ pricing data; $216M+ raised
+Cristina Vila Vives,CEO & Co-Founder,Cledara,cledara.com,saas-procurement,hello@cledara.com,2026-04-26,sent,Subscription management for SaaS; Series A
+Julie Bornstein,Founder & CEO,Daydream,daydream.ing,consumer-shopping,support@daydream.ing,2026-04-26,sent,AI-powered chat-based shopping agent for fashion ($50M seed)
+LJ Northington,Co-Founder & CEO,Aesthetic,myaesthetic.ai,consumer-shopping,support@myaesthetic.ai,2026-04-26,sent,FindGPT AI fashion discovery platform
+Zach Hudson,Co-Founder & CEO,Onton,onton.com,consumer-shopping,hello@onton.com,2026-04-26,sent,AI product discovery engine for home/furniture (~$10M raised)
+Kristi O'Brien,GM Brand Platform / Head of Partnerships,LTK,shopltk.com,consumer-shopping,info@rewardstyle.com,2026-04-26,sent,Global creator commerce platform; $5B+ annual retail sales; 40M monthly shoppers
+Ronak Trivedi,Co-Founder & CEO,Pietra,pietrastudio.com,consumer-shopping,creators@pietrastudio.com,2026-04-26,sent,AI Commerce OS for creators; automated sourcing/fulfillment/scaling
+Morteza Ibrahimi,Co-Founder & CEO,Qeen.ai,qeen.ai,consumer-shopping,contact@qeen.ai,2026-04-26,sent,Autonomous AI agents for e-commerce (content/marketing/conversational sales)
+Chi Zhang,CEO & Co-Founder,Kite,gokite.ai,consumer-shopping,laughing.qiao@gokite.ai,2026-04-26,sent,Blockchain infrastructure for AI shopping agents with identity/payment layer ($18M)
+Valeriya Bezrukova,VP of Product,Constructor,constructor.io,brand-side,support@constructor.io,2026-04-26,sent,AI-powered ecommerce search and product discovery platform
+Aniket Deosthali,CEO & Co-Founder,Envive,envive.ai,brand-side,legal@envive.ai,2026-04-26,BOUNCED,Series A ($15M); commerce AI building self-improving agents for online retail
+Diaz Nesamoney,Founder & CEO,DaVinci Commerce,davincicommerce.ai,brand-side,sales@davincicommerce.ai,2026-04-26,sent,Accenture-backed agentic AI commerce platform; mature stage
+Ashu Dubey,CEO & Co-Founder,Alhena AI,alhena.ai,brand-side,hello@alhena.ai,2026-04-26,sent,Hallucination-free agentic platform; AI shopping assistants for compliance-sensitive retail
+Benoit Patra,Chief Technology Officer,iAdvize,iadvize.com,brand-side,contact@iadvize.com,2026-04-26,sent,Mature European conversational commerce platform
+Vlad Keil,Co-Founder & CEO,Lio,lio.ai,b2b-procurement,info@asklio.ai,2026-04-26,sent,AI multi-agent system for enterprise procurement ($30M Series A from a16z)
+Kaspar Korjus,Co-Founder & CEO,Pactum AI,pactum.com,b2b-procurement,info@pactum.com,2026-04-26,sent,Series C $54M+; autonomous supplier negotiation; 50+ Fortune 2000 clients
+Zachary Garippa,Co-Founder & CEO,Order.co,order.co,b2b-procurement,hello@order.co,2026-04-26,sent,Mid-stage; $96.7M raised across 7 rounds; founded 2016
+Kevin Frechette,CEO & Co-Founder,Fairmarkit,fairmarkit.com,procurement-orchestration,hello@fairmarkit.com,2026-04-26,sent,Founded 2017; Inc 5000 ranked; autonomous tail-spend sourcing
+Alan Holland,Founder & CEO,Keelvar,keelvar.com,procurement-orchestration,privacy@keelvar.com,2026-04-26,sent,High-complexity sourcing bots (ocean freight/packaging/raw materials)
+Kristy McCown,Head of Partnerships,Tropic,tropicapp.io,saas-procurement,info@tropicapp.io,2026-04-26,sent,Series B ($67M); procurement orchestration on $18B+ transaction data
+Siddharth Sridharan,Co-Founder & CEO,Spendflo,spendflo.com,saas-procurement,hello@spendflo.com,2026-04-26,sent,AI-native procurement orchestration; Flo AI co-pilot for Slack ($15.4M Series A)
+Uri Haramati,CEO & Co-Founder,Torii,toriihq.com,saas-procurement,hello@toriihq.com,2026-04-26,sent,SaaS lifecycle automation; Series B ($65M)
+Patrick O'Connor,CEO & Founder,Gatekeeper,gatekeeperhq.com,saas-procurement,tickets@gatekeeperhq.com,2026-04-26,sent,UK-based; centralized contract management
+Paul Klein IV,Founder & CEO,Browserbase,browserbase.com,agent-infra,support@browserbase.com,2026-04-26,sent,Managed cloud browser infra + Stagehand framework; Series B ($67.5M)
+Idan Raman,Co-Founder & CEO,Anchor Browser,anchorbrowser.io,agent-infra,support@anchorbrowser.io,2026-04-26,sent,Enterprise managed cloud browser with VPN for AI agents (Seed)
+Amir Ashkenazi,Founder & CEO,Airtop,airtop.ai,agent-infra,support@airtop.ai,2026-04-26,sent,Cloud browser automation for AI web agents; serial entrepreneur (Adap.tv/Shopping.com)
+Aurken Bilbao,CEO & Founder,ZenRows,zenrows.com,agent-infra,success@zenrows.com,2026-04-26,sent,Web scraping API and browser infra for data extraction
+Amir Sarhangi,CEO & Co-Founder,Skyfire,skyfire.xyz,agent-payments,media@skyfire.xyz,2026-04-26,sent,Know Your Agent (KYA) protocol + tokenized identity/payment for AI agents ($9.5M)
+Ayal Karmi,CEO & Co-Founder,Nekuda,nekuda.ai,agent-payments,hello@nekuda.ai,2026-04-26,BOUNCED,Agent payment infra; Visa Intelligent Commerce partner ($5M Seed from Madrona/Amex/Visa)
+Arjun Bhargava,CEO & Co-Founder,Rye,rye.com,agent-payments,hello@rye.com,2026-04-26,sent,Real-time product data + checkout API for cross-merchant agents
+Jenny Wang,Co-Founder & CEO,Alta,alta.ai,consumer-shopping,support@altahq.com,2026-04-26,sent,AI personal stylist and shopping companion ($11M seed)
+Sam Atkinson,Co-Founder & CEO,Swap,swap.com,consumer-shopping,contact@swap-commerce.com,2026-04-26,sent,E-commerce operating system for brands ($40M Series B)
+Maju Kuruvilla,Founder & CEO,Spangle AI,spangle.ai,consumer-shopping,info@spangle.ai,2026-04-26,sent,Agentic commerce platform generating custom AI storefronts for retail brands
+Naveen Ramasamy,VP of Product Management,Glance,glance.com,consumer-shopping,hello@glance.com,2026-04-26,BOUNCED,AI-native commerce platform; selfie-based visual discovery; InMobi subsidiary
+Purva Gupta,Co-Founder & CEO,Lily AI,lily.ai,consumer-shopping,hello@lily.ai,2026-04-26,BOUNCED,Retail AI bridging consumer/merchant language using NLP at scale ($71M)
+Seunghyun Lee,CEO,Enhans,enhans.ai,consumer-shopping,hello@enhans.ai,2026-04-26,BOUNCED,Vertical commerce AI agents with Large Action Model for autonomous e-commerce decisions
+Arthur Leopold,CEO & Co-Founder,Agentio,agentio.com,consumer-shopping,hello@agentio.com,2026-04-26,sent,AI-native platform automating YouTube creator content and brand integrations
+Masa Shimizu,Founder & CEO,Omakase.ai,omakase.ai,consumer-shopping,hello@omakase.ai,2026-04-26,BOUNCED,Voice AI agent / personal shopper for ecommerce
+Kevin Chandra,Co-Founder & CEO,The Prompting Company,promptingcompany.com,consumer-shopping,hello@promptingcompany.com,2026-04-26,BOUNCED,AI product discovery platform helping brands get visibility in ChatGPT and other LLMs ($6.5M)
+Nicolás Camhi,Co-Founder & CEO,Vambe,vambe.ai,consumer-shopping,hello@vambe.ai,2026-04-26,BOUNCED,AI conversational commerce for Latin America; $2.5M ARR in first year ($14M Series A)
+Aniket Deosthali,CEO & Co-Founder,Envive,envive.ai,brand-side,hello@envive.ai,2026-04-26,sent,Series A ($15M); commerce AI building self-improving agents for online retail
+Marcin Stoll,Chief Product Officer,Tidio,tidio.com,brand-side,support@tidio.net,2026-04-26,sent,AI customer support platform; Lyro shopping agent for Shopify SMB
+Sudhir Bhojwani,CEO & Co-Founder,Oro Labs,orolabs.ai,procurement-orchestration,hello@orolabs.ai,2026-04-26,sent,Series C ($100M); agentic procurement orchestration
+Sean D. Murray,CEO,Productiv,productiv.com,saas-procurement,hello@productiv.com,2026-04-26,BOUNCED,SaaS management with spend; Series C ($73M)
+Suchintan Singh,Co-Founder,Skyvern,skyvern.com,agent-infra,founders@skyvern.com,2026-04-26,sent,Computer-vision browser automation; strong on insurance/government/procurement forms (YC S23)
+Shri Sukhani,CEO & Co-Founder,Hyperbrowser,hyperbrowser.ai,agent-infra,hello@hyperbrowser.ai,2026-04-26,BOUNCED,Cloud browser infra with built-in stealth and CAPTCHA solving (YC)
+Caleb Peffer,CEO & Co-Founder,Firecrawl,firecrawl.dev,agent-infra,help@firecrawl.com,2026-04-26,sent,Web data layer; search/navigate/extract for AI applications (Series A $14.5M)
+Catherine Jue,CEO & Co-Founder,Kernel,kernel.sh,agent-infra,hello@kernel.sh,2026-04-26,BOUNCED,Agent runtime; YC S25; Series A $22M
+Ayal Karmi,CEO & Co-Founder,Nekuda,nekuda.ai,agent-payments,info@nekuda.ai,2026-04-26,sent,Agent payment infra; Visa Intelligent Commerce partner ($5M Seed from Madrona/Amex/Visa)
+Johnathan McGowan,CEO & Co-Founder,PayOS,payos.ai,agent-payments,hello@payos.ai,2026-04-26,sent,Visa Intelligent Commerce partner; emerged from stealth 2025
+Alfonso Gómez-Jordana Mañas,Founder & CEO,Crossmint,crossmint.com,agent-payments,hello@crossmint.com,2026-04-26,sent,Wallets + virtual cards + stablecoin onramps + verifiable credentials for agents ($23.6M)
+Magnus Müller,Co-founder & CEO,Browser Use,browser-use.com,agent-infra,hello@browser-use.com,2026-04-26,BOUNCED,Open-source Python framework for AI browser agents; YC W25; $17M seed
+Naveen Ramasamy,VP of Product Management,Glance,glance.com,consumer-shopping,contact@glance.com,2026-04-26,BOUNCED,AI-native commerce platform; selfie-based visual discovery; InMobi subsidiary
+Purva Gupta,Co-Founder & CEO,Lily AI,lily.ai,consumer-shopping,contact@lily.ai,2026-04-26,BOUNCED,Retail AI bridging consumer/merchant language using NLP at scale ($71M)
+Seunghyun Lee,CEO,Enhans,enhans.ai,consumer-shopping,contact@enhans.ai,2026-04-26,BOUNCED,Vertical commerce AI agents with Large Action Model for autonomous e-commerce decisions
+Masa Shimizu,Founder & CEO,Omakase.ai,omakase.ai,consumer-shopping,contact@omakase.ai,2026-04-26,BOUNCED,Voice AI agent / personal shopper for ecommerce
+Kevin Chandra,Co-Founder & CEO,The Prompting Company,promptingcompany.com,consumer-shopping,contact@promptingcompany.com,2026-04-26,BOUNCED,AI product discovery platform helping brands get visibility in ChatGPT and other LLMs ($6.5M)
+Nicolás Camhi,Co-Founder & CEO,Vambe,vambe.ai,consumer-shopping,contact@vambe.ai,2026-04-26,BOUNCED,AI conversational commerce for Latin America; $2.5M ARR in first year ($14M Series A)
+Sean D. Murray,CEO,Productiv,productiv.com,saas-procurement,contact@productiv.com,2026-04-26,BOUNCED,SaaS management with spend; Series C ($73M)
+Shri Sukhani,CEO & Co-Founder,Hyperbrowser,hyperbrowser.ai,agent-infra,contact@hyperbrowser.ai,2026-04-26,BOUNCED,Cloud browser infra with built-in stealth and CAPTCHA solving (YC)
+Catherine Jue,CEO & Co-Founder,Kernel,kernel.sh,agent-infra,contact@kernel.sh,2026-04-26,BOUNCED,Agent runtime; YC S25; Series A $22M
+Magnus Müller,Co-founder & CEO,Browser Use,browser-use.com,agent-infra,contact@browser-use.com,2026-04-26,BOUNCED,Open-source Python framework for AI browser agents; YC W25; $17M seed
+Naveen Ramasamy,VP of Product Management,Glance,glance.com,consumer-shopping,partnerships@glance.com,2026-04-26,sent,AI-native commerce platform; selfie-based visual discovery; InMobi subsidiary
+Purva Gupta,Co-Founder & CEO,Lily AI,lily.ai,consumer-shopping,sales@lily.ai,2026-04-26,BOUNCED,Retail AI bridging consumer/merchant language using NLP at scale ($71M)
+Seunghyun Lee,CEO,Enhans,enhans.ai,consumer-shopping,founders@enhans.ai,2026-04-26,BOUNCED,Vertical commerce AI agents with Large Action Model for autonomous e-commerce decisions
+Masa Shimizu,Founder & CEO,Omakase.ai,omakase.ai,consumer-shopping,support@omakase.ai,2026-04-26,BOUNCED,Voice AI agent / personal shopper for ecommerce
+Kevin Chandra,Co-Founder & CEO,The Prompting Company,promptingcompany.com,consumer-shopping,founders@promptingcompany.com,2026-04-26,sent,AI product discovery platform helping brands get visibility in ChatGPT and other LLMs ($6.5M)
+Nicolás Camhi,Co-Founder & CEO,Vambe,vambe.ai,consumer-shopping,founders@vambe.ai,2026-04-26,BOUNCED,AI conversational commerce for Latin America; $2.5M ARR in first year ($14M Series A)
+Sean D. Murray,CEO,Productiv,productiv.com,saas-procurement,sales@productiv.com,2026-04-26,sent,SaaS management with spend; Series C ($73M)
+Shri Sukhani,CEO & Co-Founder,Hyperbrowser,hyperbrowser.ai,agent-infra,founders@hyperbrowser.ai,2026-04-26,BOUNCED,Cloud browser infra with built-in stealth and CAPTCHA solving (YC)
+Catherine Jue,CEO & Co-Founder,Kernel,kernel.sh,agent-infra,founders@kernel.sh,2026-04-26,sent,Agent runtime; YC S25; Series A $22M
+,,Browser Use [magnus],browser-use.com,agent-infra,magnus@browser-use.com,2026-04-26,sent,Open-source Python framework for AI browser agents; YC W25; $17M seed
+,,Browser Use [gregor],browser-use.com,agent-infra,gregor@browser-use.com,2026-04-26,sent,Open-source Python framework for AI browser agents; YC W25; $17M seed
+,,Hyperbrowser [shri],hyperbrowser.ai,agent-infra,shri@hyperbrowser.ai,2026-04-26,sent,Cloud browser infra with built-in stealth and CAPTCHA solving (YC)
+,,Hyperbrowser [akshay],hyperbrowser.ai,agent-infra,akshay@hyperbrowser.ai,2026-04-26,sent,Cloud browser infra with built-in stealth and CAPTCHA solving (YC)
+,,Lily AI [purva],lily.ai,consumer-shopping,purva@lily.ai,2026-04-26,sent,Retail AI bridging consumer/merchant language using NLP at scale ($71M)
+,,Lily AI [sowmiya],lily.ai,consumer-shopping,sowmiya@lily.ai,2026-04-26,sent,Retail AI bridging consumer/merchant language using NLP at scale ($71M)
+,,Enhans [seunghyun],enhans.ai,consumer-shopping,seunghyun@enhans.ai,2026-04-26,sent,Vertical commerce AI agents with Large Action Model for autonomous e-commerce decisions
+,,Omakase.ai [masa],omakase.ai,consumer-shopping,masa@omakase.ai,2026-04-26,sent,Voice AI agent / personal shopper for ecommerce
+,Co-Founder & Chief Commercial Officer,Daydream [lisa],daydream.ing,consumer-shopping,lisa@daydream.ing,2026-04-26,sent,
+,Chief Technology Officer,Daydream [matt],daydream.ing,consumer-shopping,matt@daydream.ing,2026-04-26,BOUNCED,
+,Chief Product Officer,Daydream [dan],daydream.ing,consumer-shopping,dan@daydream.ing,2026-04-26,sent,
+,Chief Strategy Officer,Daydream [richard],daydream.ing,consumer-shopping,richard@daydream.ing,2026-04-26,sent,
+,Co-Founder & CEO,Phia [sophia],phia.com,consumer-shopping,sophia@phia.com,2026-04-26,sent,
+,Chief Product Officer,Phia [carter],phia.com,consumer-shopping,carter@phia.com,2026-04-26,BOUNCED,
+,Co-Founder & CTO,Onton [alexander],onton.com,consumer-shopping,alexander@onton.com,2026-04-26,sent,
+,Co-Founder & CTO,Alta [tom],alta.ai,consumer-shopping,tom@alta.ai,2026-04-26,BOUNCED,
+,Co-Founder & COO,Alta [mor],alta.ai,consumer-shopping,mor@alta.ai,2026-04-26,BOUNCED,
+,Co-Founder & COO,Swap [zach],swap.com,consumer-shopping,zach@swap.com,2026-04-26,BOUNCED,
+,VP of Engineering,Swap [oron],swap.com,consumer-shopping,oron@swap.com,2026-04-26,BOUNCED,
+,Co-Founder & Chief AI Scientist,Spangle AI [fei],spangle.ai,consumer-shopping,fei@spangle.ai,2026-04-26,sent,
+,Chief Commercial Officer,Spangle AI [karen],spangle.ai,consumer-shopping,karen@spangle.ai,2026-04-26,sent,
+,Co-Founder,Spangle AI [jon],spangle.ai,consumer-shopping,jon@spangle.ai,2026-04-26,BOUNCED,
+,Co-Founder & Head of Engineering,Spangle AI [yufeng],spangle.ai,consumer-shopping,yufeng@spangle.ai,2026-04-26,sent,
+,Co-Founder & CTO,Doji [jim],doji.com,consumer-shopping,jim@doji.com,2026-04-26,sent,
+,Co-Founder & Co-CEO,Hey Savi [sarah],heysavi.com,consumer-shopping,sarah@heysavi.com,2026-04-26,BOUNCED,
+,Co-Founder & CPTO,Hey Savi [angela],heysavi.com,consumer-shopping,angela@heysavi.com,2026-04-26,BOUNCED,
+,Co-Founder & CTO,Shoppin [utsav],shoppin.app,consumer-shopping,utsav@shoppin.app,2026-04-26,BOUNCED,
+,Senior AI/ML Engineer,Shoppin [nishant],shoppin.app,consumer-shopping,nishant@shoppin.app,2026-04-26,BOUNCED,
+,Founding Product Designer,Shoppin [rishi],shoppin.app,consumer-shopping,rishi@shoppin.app,2026-04-26,sent,
+,Co-Founder & CEO,Karma [jonathan],karmanow.com,consumer-shopping,jonathan@karmanow.com,2026-04-26,sent,
+,CTO,Karma [omer],karmanow.com,consumer-shopping,omer@karmanow.com,2026-04-26,sent,
+,Head of Sales & Partnerships,Karma [joshua],karmanow.com,consumer-shopping,joshua@karmanow.com,2026-04-26,sent,
+,Co-Founder & COO,Glance [piyush],glance.com,consumer-shopping,piyush@glance.com,2026-04-26,sent,
+,Co-Founder & CTO,Glance [mohit],glance.com,consumer-shopping,mohit@glance.com,2026-04-26,BOUNCED,
+,Founder & CEO,Glance [naveen],glance.com,consumer-shopping,naveen@glance.com,2026-04-26,sent,InMobi parent CEO — per user note skip
+,Head of Engineering — AI/ML,Lily AI [prashanth],lily.ai,consumer-shopping,prashanth@lily.ai,2026-04-26,BOUNCED,
+,Chief Analytics Officer,Lily AI [vimal],lily.ai,consumer-shopping,vimal@lily.ai,2026-04-26,BOUNCED,
+,CFO,Lily AI [rick],lily.ai,consumer-shopping,rick@lily.ai,2026-04-26,BOUNCED,
+,Chief Technology Officer,Raspberry AI [fan],raspberry.ai,consumer-shopping,fan@raspberry.ai,2026-04-26,BOUNCED,
+,Co-Founder,New Generation [adam],new-gen.ai,consumer-shopping,adam@new-gen.ai,2026-04-26,sent,
+,Team,New Generation [jaden],new-gen.ai,consumer-shopping,jaden@new-gen.ai,2026-04-26,BOUNCED,
+,Team,New Generation [marcus],new-gen.ai,consumer-shopping,marcus@new-gen.ai,2026-04-26,BOUNCED,
+,Team,New Generation [lisa],new-gen.ai,consumer-shopping,lisa@new-gen.ai,2026-04-26,BOUNCED,
+,Team,Enhans [young],enhans.ai,consumer-shopping,young@enhans.ai,2026-04-26,BOUNCED,
+,Team,Enhans [sukyeon],enhans.ai,consumer-shopping,sukyeon@enhans.ai,2026-04-26,sent,
+,Team,Enhans [jongwhi],enhans.ai,consumer-shopping,jongwhi@enhans.ai,2026-04-26,sent,
+,Team,Enhans [jaewoong],enhans.ai,consumer-shopping,jaewoong@enhans.ai,2026-04-26,sent,
+,Team,Wishlink [chandan],wishlink.com,consumer-shopping,chandan@wishlink.com,2026-04-26,sent,
+,Team,Wishlink [divyansh],wishlink.com,consumer-shopping,divyansh@wishlink.com,2026-04-26,sent,
+,Team,Wishlink [utkarsh],wishlink.com,consumer-shopping,utkarsh@wishlink.com,2026-04-26,sent,
+,Team,Agentio [jonathan],agentio.com,consumer-shopping,jonathan@agentio.com,2026-04-26,sent,
+,VP Creator Strategy,Agentio [abbie],agentio.com,consumer-shopping,abbie@agentio.com,2026-04-26,sent,
+,Head of Sales,Agentio [hilary],agentio.com,consumer-shopping,hilary@agentio.com,2026-04-26,sent,
+,Co-Founder & CEO,LTK [baxter],shopltk.com,consumer-shopping,baxter@shopltk.com,2026-04-26,sent,Co-founder (with Amber Venz Box) — per user note skip founder
+,Chief Technology Officer,LTK [ty],shopltk.com,consumer-shopping,ty@shopltk.com,2026-04-26,sent,
+,Chief Revenue Officer,LTK [stephanie],shopltk.com,consumer-shopping,stephanie@shopltk.com,2026-04-26,sent,
+,"VP Product, Ad Platform",LTK [gary],shopltk.com,consumer-shopping,gary@shopltk.com,2026-04-26,sent,
+,Team,Pietra [pan],pietrastudio.com,consumer-shopping,pan@pietrastudio.com,2026-04-26,sent,
+,Team,Pietra [tala],pietrastudio.com,consumer-shopping,tala@pietrastudio.com,2026-04-26,sent,
+,Team,Qeen.ai [ahmad],qeen.ai,consumer-shopping,ahmad@qeen.ai,2026-04-26,sent,
+,Team,Qeen.ai [dina],qeen.ai,consumer-shopping,dina@qeen.ai,2026-04-26,sent,
+,Co-Founder,Peec AI [tobias],peec.ai,consumer-shopping,tobias@peec.ai,2026-04-26,sent,
+,Co-Founder,Peec AI [daniel],peec.ai,consumer-shopping,daniel@peec.ai,2026-04-26,sent,
+,Co-Founder & CTO,Wildcard [yagnya],wild-card.ai,consumer-shopping,yagnya@wild-card.ai,2026-04-26,BOUNCED,
+,Chief Technology Officer,Omakase.ai [or],omakase.ai,consumer-shopping,or@omakase.ai,2026-04-26,BOUNCED,
+,Co-Founder & CTO,The Prompting Company [albert],promptingcompany.com,consumer-shopping,albert@promptingcompany.com,2026-04-26,sent,
+,Co-Founder,The Prompting Company [michelle],promptingcompany.com,consumer-shopping,michelle@promptingcompany.com,2026-04-26,sent,
+,Co-Founder & Chief AI Officer,Vambe [matias],vambe.ai,consumer-shopping,matias@vambe.ai,2026-04-26,sent,
+,Co-Founder & CTO,Vambe [diego],vambe.ai,consumer-shopping,diego@vambe.ai,2026-04-26,sent,
+,Co-Founder & CTO,Kite [scott],gokite.ai,consumer-shopping,scott@gokite.ai,2026-04-26,BOUNCED,
+,Head of Product,Kite [yusuke],gokite.ai,consumer-shopping,yusuke@gokite.ai,2026-04-26,BOUNCED,
+,Co-Founder & Chief Strategy Officer,Albatross AI [matteo],usealbatross.ai,consumer-shopping,matteo@usealbatross.ai,2026-04-26,sent,
+,Co-Founder & CTO,Albatross AI [johan],usealbatross.ai,consumer-shopping,johan@usealbatross.ai,2026-04-26,sent,
+,Co-Founder & CTO,Haut.AI [konstantin],haut.ai,consumer-shopping,konstantin@haut.ai,2026-04-26,BOUNCED,
+,Deep Learning Engineer,Haut.AI [dinar],haut.ai,consumer-shopping,dinar@haut.ai,2026-04-26,BOUNCED,
+,Chief Operating Officer,Constructor [rawson],constructor.io,brand-side,rawson@constructor.io,2026-04-26,sent,
+,Founder & Chief Information Security Officer,Constructor [dan],constructor.io,brand-side,dan@constructor.io,2026-04-26,sent,
+,Founder & CEO,Capacity [david],capacity.com,brand-side,david@capacity.com,2026-04-26,sent,
+,Co-Founder,Capacity [chris],capacity.com,brand-side,chris@capacity.com,2026-04-26,sent,
+,Co-Founder & CTO,Envive [sameer],envive.ai,brand-side,sameer@envive.ai,2026-04-26,sent,
+,Co-Founder & Chief Scientist,Envive [iz],envive.ai,brand-side,iz@envive.ai,2026-04-26,BOUNCED,
+,Co-Founder & Chief Architect,Envive [matthew],envive.ai,brand-side,matthew@envive.ai,2026-04-26,BOUNCED,
+,Co-Founder & COO,Aampe [kate],aampe.com,brand-side,kate@aampe.com,2026-04-26,sent,
+,Co-Founder,Aampe [schaun],aampe.com,brand-side,schaun@aampe.com,2026-04-26,sent,
+,Co-Founder & CTO,Aampe [sami],aampe.com,brand-side,sami@aampe.com,2026-04-26,sent,
+,Chief Growth and Partnerships Officer,DaVinci Commerce [jaimie],davincicommerce.ai,brand-side,jaimie@davincicommerce.ai,2026-04-26,sent,
+,Chief Technology Officer,DaVinci Commerce [taran],davincicommerce.ai,brand-side,taran@davincicommerce.ai,2026-04-26,BOUNCED,
+,VP AI Strategy,DaVinci Commerce [aku],davincicommerce.ai,brand-side,aku@davincicommerce.ai,2026-04-26,BOUNCED,
+,SVP Global Customer Success,DaVinci Commerce [rushanthini],davincicommerce.ai,brand-side,rushanthini@davincicommerce.ai,2026-04-26,sent,
+,Co-Founder & CTO,Rep AI [shauli],hellorep.ai,brand-side,shauli@hellorep.ai,2026-04-26,sent,
+,Co-Founder & CEO,Crescendo [matt],crescendo.ai,brand-side,matt@crescendo.ai,2026-04-26,sent,
+,Founder & President,Crescendo [anand],crescendo.ai,brand-side,anand@crescendo.ai,2026-04-26,BOUNCED,
+,Co-Founder & CTO,Crescendo [slava],crescendo.ai,brand-side,slava@crescendo.ai,2026-04-26,BOUNCED,
+,Founder & CEO,Tidio [tytus],tidio.com,brand-side,tytus@tidio.com,2026-04-26,BOUNCED,
+,Head of Engineering,Tidio [mateusz],tidio.com,brand-side,mateusz@tidio.com,2026-04-26,BOUNCED,
+,Chief Financial Officer,Tidio [krzysztof],tidio.com,brand-side,krzysztof@tidio.com,2026-04-26,BOUNCED,
+,Co-Founder & CTO,Alhena AI [nagendra],alhena.ai,brand-side,nagendra@alhena.ai,2026-04-26,sent,
+,Head of Partnerships,Alhena AI [kimberly],alhena.ai,brand-side,kimberly@alhena.ai,2026-04-26,sent,
+,Head of Marketing,Alhena AI [tatiana],alhena.ai,brand-side,tatiana@alhena.ai,2026-04-26,sent,
+,President & Chief Strategy Officer,iAdvize [mike],iadvize.com,brand-side,mike@iadvize.com,2026-04-26,BOUNCED,
+,CEO North America,iAdvize [nicolas],iadvize.com,brand-side,nicolas@iadvize.com,2026-04-26,sent,
+,Founder & CEO,iAdvize [julien],iadvize.com,brand-side,julien@iadvize.com,2026-04-26,sent,
+,Co-Founder & COO,Lio [till],lio.ai,b2b-procurement,till@lio.ai,2026-04-26,BOUNCED,
+,Co-Founder & CTO,Lio [lukas],lio.ai,b2b-procurement,lukas@lio.ai,2026-04-26,sent,
+,Co-Founder & CTO,Magentic [odhran],magentic.com,b2b-procurement,odhran@magentic.com,2026-04-26,sent,
+,Co-Founder & CPO,Tacto [johannes],tacto.ai,b2b-procurement,johannes@tacto.ai,2026-04-26,sent,
+,Co-Founder & Head of Engineering,Levelpath [raimonds],levelpath.com,b2b-procurement,raimonds@levelpath.com,2026-04-26,sent,
+,Co-Founder & CEO,Levelpath [alex],levelpath.com,b2b-procurement,alex@levelpath.com,2026-04-26,sent,
+,Co-Founder & Chief Scientist,Pactum AI [kristjan],pactum.com,b2b-procurement,kristjan@pactum.com,2026-04-26,sent,
+,Chief People Officer,Pactum AI [layla],pactum.com,b2b-procurement,layla@pactum.com,2026-04-26,BOUNCED,
+,Co-Founder & CTO,Evolinq [or],evolinq.io,b2b-procurement,or@evolinq.io,2026-04-26,sent,
+,Co-Founder & CRO,Turian [tilmann],turian.ai,b2b-procurement,tilmann@turian.ai,2026-04-26,sent,
+,Co-Founder & Managing Director,Turian [dominik],turian.ai,b2b-procurement,dominik@turian.ai,2026-04-26,sent,
+,Co-Founder & VP,Zip [felix],ziphq.com,b2b-procurement,felix@ziphq.com,2026-04-26,sent,
+,Co-Founder & CEO,Zip [rujul],ziphq.com,b2b-procurement,rujul@ziphq.com,2026-04-26,sent,
+,Co-Founder & CTO,Omnea [ben],omnea.co,b2b-procurement,ben@omnea.co,2026-04-26,BOUNCED,
+,VP Business Development,Omnea [ashil],omnea.co,b2b-procurement,ashil@omnea.co,2026-04-26,BOUNCED,
+,Co-Founder & CTO,Order.co [tom],order.co,b2b-procurement,tom@order.co,2026-04-26,sent,
+,Co-Founder & Chief Business Officer,Order.co [matt],order.co,b2b-procurement,matt@order.co,2026-04-26,sent,
+,CTO & Co-Founder,BRM [fabian],brm.ai,procurement-orchestration,fabian@brm.ai,2026-04-26,sent,
+,Product/Engineering,BRM [michael],brm.ai,procurement-orchestration,michael@brm.ai,2026-04-26,BOUNCED,
+,Product/Engineering,BRM [connor],brm.ai,procurement-orchestration,connor@brm.ai,2026-04-26,BOUNCED,
+,Co-Founder & Head of Product Strategy,Oro Labs [lalitha],orolabs.ai,procurement-orchestration,lalitha@orolabs.ai,2026-04-26,sent,
+,CTO & Co-Founder,Oro Labs [yuan],orolabs.ai,procurement-orchestration,yuan@orolabs.ai,2026-04-26,sent,
+,Co-Founder & CTO,Procol [sumit],procol.ai,procurement-orchestration,sumit@procol.ai,2026-04-26,BOUNCED,
+,Leadership / Product,Procol [dipesh],procol.ai,procurement-orchestration,dipesh@procol.ai,2026-04-26,BOUNCED,
+,Leadership / Operations,Procol [naveen],procol.ai,procurement-orchestration,naveen@procol.ai,2026-04-26,BOUNCED,
+,Leadership / Growth,Procol [deepakshi],procol.ai,procurement-orchestration,deepakshi@procol.ai,2026-04-26,BOUNCED,
+,CTO & Co-Founder,Fairmarkit [victor],fairmarkit.com,procurement-orchestration,victor@fairmarkit.com,2026-04-26,sent,
+,SVP Partnerships & Corporate Strategy,Fairmarkit [allison],fairmarkit.com,procurement-orchestration,allison@fairmarkit.com,2026-04-26,sent,
+,Chief Financial & Operating Officer,Fairmarkit [celeste],fairmarkit.com,procurement-orchestration,celeste@fairmarkit.com,2026-04-26,BOUNCED,
+,Chief Revenue Officer,Fairmarkit [john],fairmarkit.com,procurement-orchestration,john@fairmarkit.com,2026-04-26,sent,
+,VP of Sales,Keelvar [toby],keelvar.com,procurement-orchestration,toby@keelvar.com,2026-04-26,BOUNCED,
+,VP Marketing,Keelvar [riona],keelvar.com,procurement-orchestration,riona@keelvar.com,2026-04-26,BOUNCED,
+,Chief Technology Officer,Suplari [mark],suplari.com,procurement-orchestration,mark@suplari.com,2026-04-26,sent,
+,Chief Revenue Officer,Suplari [claude],suplari.com,procurement-orchestration,claude@suplari.com,2026-04-26,sent,
+,Chief Product Officer,JAGGAER [jon],jaggaer.com,procurement-orchestration,jon@jaggaer.com,2026-04-26,BOUNCED,
+,Chief Strategic Officer,JAGGAER [pascal],jaggaer.com,procurement-orchestration,pascal@jaggaer.com,2026-04-26,BOUNCED,
+,Senior Product Manager — AI,JAGGAER [dimitri],jaggaer.com,procurement-orchestration,dimitri@jaggaer.com,2026-04-26,BOUNCED,
+,SVP Go-To-Market,Vendr [jeff],vendr.com,saas-procurement,jeff@vendr.com,2026-04-26,sent,
+,SVP Growth Marketing,Vendr [vitali],vendr.com,saas-procurement,vitali@vendr.com,2026-04-26,BOUNCED,
+,CFO & COO,Vendr [jason],vendr.com,saas-procurement,jason@vendr.com,2026-04-26,BOUNCED,
+,Chief of Staff,Vendr [wendy],vendr.com,saas-procurement,wendy@vendr.com,2026-04-26,BOUNCED,
+,Co-Founder & COO,Tropic [justin],tropicapp.io,saas-procurement,justin@tropicapp.io,2026-04-26,sent,
+,Co-Founder & CEO,Tropic [david],tropicapp.io,saas-procurement,david@tropicapp.io,2026-04-26,sent,
+,SVP Customer Experience,Tropic [patrick],tropicapp.io,saas-procurement,patrick@tropicapp.io,2026-04-26,sent,
+,Chief Product Officer,Tropic [srinivas],tropicapp.io,saas-procurement,srinivas@tropicapp.io,2026-04-26,sent,
+,Co-Founder & CEO,Sastrify [sven],sastrify.com,saas-procurement,sven@sastrify.com,2026-04-26,sent,
+,Co-Founder & CTO,Sastrify [maximilian],sastrify.com,saas-procurement,maximilian@sastrify.com,2026-04-26,BOUNCED,
+,Co-Founder & CTO,Spendflo [ajay],spendflo.com,saas-procurement,ajay@spendflo.com,2026-04-26,sent,
+,Co-Founder & Chief Revenue Officer,Spendflo [rajiv],spendflo.com,saas-procurement,rajiv@spendflo.com,2026-04-26,sent,
+,Head of Marketing,Spendflo [nivas],spendflo.com,saas-procurement,nivas@spendflo.com,2026-04-26,sent,
+,Co-Founder & Co-CEO,Vertice [roy],vertice.one,saas-procurement,roy@vertice.one,2026-04-26,sent,
+,Founder & CEO,Vertice [eldar],vertice.one,saas-procurement,eldar@vertice.one,2026-04-26,sent,
+,Co-Founder & CEO,Zylo [eric],zylo.com,saas-procurement,eric@zylo.com,2026-04-26,sent,
+,Chief Product Officer,Zylo [matt],zylo.com,saas-procurement,matt@zylo.com,2026-04-26,BOUNCED,
+,Chief Technology Officer,Zylo [tim],zylo.com,saas-procurement,tim@zylo.com,2026-04-26,sent,
+,Co-Founder & Chief Customer Officer,Zylo [cory],zylo.com,saas-procurement,cory@zylo.com,2026-04-26,sent,
+,COO,Productiv [munish],productiv.com,saas-procurement,munish@productiv.com,2026-04-26,BOUNCED,
+,CTO,Productiv [ashish],productiv.com,saas-procurement,ashish@productiv.com,2026-04-26,BOUNCED,
+,Co-Founder,CloudEagle [prasanna],cloudeagle.ai,saas-procurement,prasanna@cloudeagle.ai,2026-04-26,BOUNCED,
+,Chief Architect,CloudEagle [swatantra],cloudeagle.ai,saas-procurement,swatantra@cloudeagle.ai,2026-04-26,BOUNCED,
+,CPO & Co-Founder,Torii [uri],toriihq.com,saas-procurement,uri@toriihq.com,2026-04-26,sent,
+,CTO & Co-Founder,Torii [tal],toriihq.com,saas-procurement,tal@toriihq.com,2026-04-26,sent,
+,VP of Sales,Torii [rachel],toriihq.com,saas-procurement,rachel@toriihq.com,2026-04-26,BOUNCED,
+,CTO & Co-Founder,Zluri [chaithanya],zluri.com,saas-procurement,chaithanya@zluri.com,2026-04-26,sent,
+,Co-Founder,Zluri [sethu],zluri.com,saas-procurement,sethu@zluri.com,2026-04-26,sent,
+,Head of Product and Engineering,Zluri [jitender],zluri.com,saas-procurement,jitender@zluri.com,2026-04-26,BOUNCED,
+,VP of Product and Engineering,Gatekeeper [sam],gatekeeperhq.com,saas-procurement,sam@gatekeeperhq.com,2026-04-26,BOUNCED,
+,VP Marketing,Gatekeeper [ian],gatekeeperhq.com,saas-procurement,ian@gatekeeperhq.com,2026-04-26,BOUNCED,
+,CFO,Gatekeeper [philip],gatekeeperhq.com,saas-procurement,philip@gatekeeperhq.com,2026-04-26,BOUNCED,
+,COO & Co-Founder,Cledara [brad],cledara.com,saas-procurement,brad@cledara.com,2026-04-26,sent,
+,Head of Product,Cledara [donal],cledara.com,saas-procurement,donal@cledara.com,2026-04-26,sent,
+,Founding Engineer,Browserbase [dominic],browserbase.com,agent-infra,dominic@browserbase.com,2026-04-26,BOUNCED,
+,Technical Lead Core Team,Browserbase [walker],browserbase.com,agent-infra,walker@browserbase.com,2026-04-26,sent,
+,Co-Founder & CTO,Anchor Browser [dor],anchorbrowser.io,agent-infra,dor@anchorbrowser.io,2026-04-26,sent,
+,Co-Founder & VP R&D,Anchor Browser [guy],anchorbrowser.io,agent-infra,guy@anchorbrowser.io,2026-04-26,sent,
+,Co-Founder & CTO,Steel.dev [nasr],steel.dev,agent-infra,nasr@steel.dev,2026-04-26,sent,
+,Founding Engineer,Steel.dev [dane],steel.dev,agent-infra,dane@steel.dev,2026-04-26,sent,
+,Co-Founder & CTO,Skyvern [shuchang],skyvern.com,agent-infra,shuchang@skyvern.com,2026-04-26,sent,
+,Co-Founder,Skyvern [kerem],skyvern.com,agent-infra,kerem@skyvern.com,2026-04-26,sent,
+,Co-Founder & CTO,Airtop [daniel],airtop.ai,agent-infra,daniel@airtop.ai,2026-04-26,sent,
+,Engineering Manager,Airtop [aidyl],airtop.ai,agent-infra,aidyl@airtop.ai,2026-04-26,sent,
+,Co-Founder & CTO,ZenRows [ander],zenrows.com,agent-infra,ander@zenrows.com,2026-04-26,sent,
+,Director of Engineering,ZenRows [alina],zenrows.com,agent-infra,alina@zenrows.com,2026-04-26,sent,
+,VP of Marketing,ZenRows [tazz],zenrows.com,agent-infra,tazz@zenrows.com,2026-04-26,sent,
+,Co-Founder & CMO,Firecrawl [eric],firecrawl.dev,agent-infra,eric@firecrawl.dev,2026-04-26,sent,
+,Co-Founder & CTO,Firecrawl [nicolas],firecrawl.dev,agent-infra,nicolas@firecrawl.dev,2026-04-26,sent,
+,VP of Product,Apify [jan],apify.com,agent-infra,jan@apify.com,2026-04-26,sent,
+,Co-Founder,Apify [jakub],apify.com,agent-infra,jakub@apify.com,2026-04-26,sent,
+,Co-Founder & CTO,Kernel [rafael],kernel.sh,agent-infra,rafael@kernel.sh,2026-04-26,BOUNCED,
+,Managing Director North America,Bright Data [omri],brightdata.com,agent-infra,omri@brightdata.com,2026-04-26,sent,
+,CEO,Bright Data [or],brightdata.com,agent-infra,or@brightdata.com,2026-04-26,sent,
+,Chief Product Officer & Co-Founder,Skyfire [craig],skyfire.xyz,agent-payments,craig@skyfire.xyz,2026-04-26,sent,
+,Head of Public Relations,Skyfire [kevin],skyfire.xyz,agent-payments,kevin@skyfire.xyz,2026-04-26,BOUNCED,
+,Vice President of Product,Basis Theory [kevin],basistheory.com,agent-payments,kevin@basistheory.com,2026-04-26,sent,
+,Head of Partnerships,Basis Theory [chris],basistheory.com,agent-payments,chris@basistheory.com,2026-04-26,sent,
+,Head of Sales,Basis Theory [grant],basistheory.com,agent-payments,grant@basistheory.com,2026-04-26,sent,
+,Chief Technology Officer,Basis Theory [james],basistheory.com,agent-payments,james@basistheory.com,2026-04-26,sent,
+,CTO & Co-Founder,Nekuda [barak],nekuda.ai,agent-payments,barak@nekuda.ai,2026-04-26,sent,
+,CPO & Co-Founder,Nekuda [idan],nekuda.ai,agent-payments,idan@nekuda.ai,2026-04-26,sent,
+,CPO & Co-Founder,PayOS [aparna],payos.ai,agent-payments,aparna@payos.ai,2026-04-26,sent,
+,Co-Founder,Crossmint [rodri],crossmint.com,agent-payments,rodri@crossmint.com,2026-04-26,sent,
+,Head of Stablecoins and Fintech,Crossmint [ken],crossmint.com,agent-payments,ken@crossmint.com,2026-04-26,sent,
+,CTO & Co-Founder,Slash [kevin],slash.com,agent-payments,kevin@slash.com,2026-04-26,sent,
+,Head of Growth,Slash [shaan],slash.com,agent-payments,shaan@slash.com,2026-04-26,sent,
+,Head of Risk,Slash [eric],slash.com,agent-payments,eric@slash.com,2026-04-26,sent,
+,Chief Executive Officer,HUMAN Security (AgenticTrust) [stu],humansecurity.com,agent-payments,stu@humansecurity.com,2026-04-26,sent,
+,Executive Chairman & Co-Founder,HUMAN Security (AgenticTrust) [tamer],humansecurity.com,agent-payments,tamer@humansecurity.com,2026-04-26,sent,
+,Head of Marketing,Rye [elisabeth],rye.com,agent-payments,elisabeth@rye.com,2026-04-26,BOUNCED,
+,VP of Engineering,Rye [luis],rye.com,agent-payments,luis@rye.com,2026-04-26,BOUNCED,
+,SVP of Product,Trulioo [rob],trulioo.com,agent-payments,rob@trulioo.com,2026-04-26,sent,
+,Chief Revenue Officer,Trulioo [eric],trulioo.com,agent-payments,eric@trulioo.com,2026-04-26,BOUNCED,
+,CEO,Trulioo [vicky],trulioo.com,agent-payments,vicky@trulioo.com,2026-04-26,sent,
+,COO,Trulioo [zac],trulioo.com,agent-payments,zac@trulioo.com,2026-04-26,sent,
+,VP Partners & Alliances,commercetools [paul],commercetools.com,brand-side,paul@commercetools.com,2026-04-26,sent,
+,Chief Revenue Officer,commercetools [john],commercetools.com,brand-side,john@commercetools.com,2026-04-26,sent,
+,Chief Customer Officer,commercetools [eric],commercetools.com,brand-side,eric@commercetools.com,2026-04-26,sent,

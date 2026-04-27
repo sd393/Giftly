@@ -31,7 +31,12 @@ LOG_DIR = ROOT / "logs"
 
 PATHS = ["", "/contact", "/contact-us", "/pages/contact", "/pages/contact-us",
          "/get-in-touch", "/about", "/about-us", "/pages/about",
-         "/team", "/company", "/company/contact", "/company/about"]
+         "/team", "/company", "/company/contact", "/company/about",
+         "/press", "/press-room", "/newsroom", "/news",
+         "/investors", "/investor-relations",
+         "/careers", "/careers/contact", "/jobs",
+         "/legal", "/legal/contact", "/imprint", "/impressum",
+         "/support/contact", "/help/contact"]
 TIMEOUT = 6
 WORKERS = 24
 MAX_BYTES = 400_000
