@@ -2,3 +2,5 @@ logs/
 __pycache__/
 batch-*.csv
 .gmail-cache/
+.venv/
+venv/
