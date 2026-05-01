@@ -9,6 +9,7 @@ import { CreatorEditForm } from '../_components/creator-edit-form'
 import { CreatorNotes } from '../_components/creator-notes'
 import { CreatorStatusActions } from '../_components/creator-status-actions'
 import { ActivityTimeline } from '../../_components/activity-timeline'
+import { SendInviteButton } from './_components/send-invite-button'
 
 export default async function CreatorDetailPage({
   params,
@@ -80,11 +81,17 @@ export default async function CreatorDetailPage({
             ) : null}
           </p>
         </div>
-        <CreatorStatusActions
-          id={creator.id}
-          reviewed={Boolean(creator.reviewed_at)}
-          archived={Boolean(creator.archived_at)}
-        />
+        <div className="flex flex-col items-end gap-2">
+          <CreatorStatusActions
+            id={creator.id}
+            reviewed={Boolean(creator.reviewed_at)}
+            archived={Boolean(creator.archived_at)}
+          />
+          <SendInviteButton
+            creatorId={creator.id}
+            alreadyInvited={Boolean(creator.auth_user_id)}
+          />
+        </div>
       </div>
 
       <section className="mb-8">
