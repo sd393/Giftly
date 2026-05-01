@@ -23,6 +23,7 @@ tsconfig.tsbuildinfo
 .windsurf/
 skills/
 skills-lock.json
+.worktrees/
 
 # Contains API keys — never commit
 .mcp.json
