@@ -1,8 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useTransition } from 'react'
+import { toast } from 'sonner'
 
 import { Button } from '@/components/ui/button'
+
+import { acceptOffer, declineOffer } from '../_actions'
 
 import { DeclineForm } from './decline-form'
 import { NoObligationBanner } from './no-obligation-banner'
@@ -12,9 +15,36 @@ export function OfferCard({ match }: { match: PortalMatch }) {
   const [mode, setMode] = useState<'idle' | 'declining'>('idle')
   const [reasons, setReasons] = useState<string[]>([])
   const [note, setNote] = useState('')
+  const [pending, startTransition] = useTransition()
 
   const product = match.product
   const brand = product?.brand ?? null
+
+  function handleAccept() {
+    startTransition(async () => {
+      const r = await acceptOffer(match.id)
+      if (r.ok) {
+        toast.success('Accepted — we’ll ship next.')
+      } else {
+        toast.error(r.error ?? 'Something went wrong.')
+      }
+    })
+  }
+
+  function handleDecline() {
+    startTransition(async () => {
+      const r = await declineOffer({
+        matchId: match.id,
+        reasons,
+        note,
+      })
+      if (r.ok) {
+        toast.success('Passed — we won’t pitch this one again.')
+      } else {
+        toast.error(r.error ?? 'Something went wrong.')
+      }
+    })
+  }
 
   return (
     <article className="bg-white border border-line/60 rounded-md overflow-hidden transition-all">
@@ -79,15 +109,15 @@ export function OfferCard({ match }: { match: PortalMatch }) {
             <Button
               size="sm"
               variant="coral"
-              onClick={() => {
-                /* wired in Task 3.2 */
-              }}
+              disabled={pending}
+              onClick={handleAccept}
             >
-              Accept the gift
+              {pending ? 'Accepting…' : 'Accept the gift'}
             </Button>
             <Button
               size="sm"
               variant="outline"
+              disabled={pending}
               onClick={() => setMode('declining')}
             >
               Pass on this one
@@ -105,15 +135,15 @@ export function OfferCard({ match }: { match: PortalMatch }) {
               <Button
                 size="sm"
                 variant="coral"
-                onClick={() => {
-                  /* wired in Task 3.2 */
-                }}
+                disabled={pending}
+                onClick={handleDecline}
               >
-                Submit decline
+                {pending ? 'Submitting…' : 'Submit decline'}
               </Button>
               <Button
                 size="sm"
                 variant="ghost"
+                disabled={pending}
                 onClick={() => {
                   setMode('idle')
                   setReasons([])
