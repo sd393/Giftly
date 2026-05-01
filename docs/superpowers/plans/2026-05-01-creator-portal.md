@@ -22,6 +22,21 @@ End-of-phase commit lands a migration + a working test runner. No UI yet.
 - `app/platform/(authed)/import/page.tsx` (if exists)
 - `supabase/migrations/*_add_inbound_tables.sql`
 
+**Findings:**
+
+The `/creator` form writes directly to Supabase `creators` — no Sheets/webhook/cron in the path, and no Task 0.0a needed. Concrete trace:
+
+- `app/actions/submit-creator.ts:56-60` performs `supabaseAdmin.from('creators').upsert(insertPayload, { onConflict: 'email' }).select('id, created_at, updated_at').single()` — a direct table write using the secret-key admin client (`lib/supabase/admin.ts:19`, which bypasses RLS).
+- `insertPayload` (lines 43-54) explicitly hard-codes `source: 'application' as const`, matching the enum value defined in `supabase/migrations/20260421000005_record_source.sql:12-21` and aligning with the `/creators` page filter (`source != 'outreach'` in `app/platform/(authed)/creators/page.tsx:58`).
+- The `creators` table is defined in `supabase/migrations/20260421075202_add_inbound_tables.sql:12-25` (note: the `..._075134_...` migration is empty/0-line — the real DDL is in `..._075202_...`). The `source` column was added later by `20260421000005_record_source.sql`; `shipping_address` by `20260422201449_creator_shipping_address.sql:3`. All columns referenced by `insertPayload` exist.
+- After the upsert, the action sends a team notification email via Resend (lines 73-95). Email failure is swallowed (catch + console.error) and does not affect the Supabase row — so applicants always land in the table even if Resend is down.
+- `app/platform/(authed)/import/page.tsx` exists but is unrelated: it imports Instagram DM history via a client-side ZIP parser into `outbound_messages` and creates `source='outreach'` creator rows that are explicitly hidden from `/creators`. It is not part of the application flow.
+- Grepped migrations and app code for `cron|sheets|webhook|CREATOR_SHEET` — only hits are in this plan, the spec, and lockfiles. No DB trigger, no Edge Function, no Sheets sync.
+
+Caveat (does not block): the **project-root** `CLAUDE.md` (`/Users/ethan/Documents/Projects/Giftly/CLAUDE.md`) still describes the old Google Apps Script webhook flow and a `CREATOR_SHEET_WEBHOOK_URL` env var. That doc is stale — the worktree-local `CLAUDE.md` correctly describes the current Resend-only notification path, and the code matches the worktree doc. Worth fixing in a separate housekeeping commit; not in scope for Task 0.0.
+
+Implication for Phase 1: every applicant from `/creator` already has a `creators` row keyed by email with `source='application'`, so the `sendPortalInvite` flow (Task 1.1) has a stable row to bind a Supabase auth user to. The `auth_user_id` column added in Task 0.2 attaches to existing rows.
+
 - [ ] **Step 1: Trace creator-application data flow**
 
 Read the files above. Determine whether `/creator` form writes a row into Supabase `creators` directly, via webhook + cron, or whether admin manually creates rows after Sheets review.
