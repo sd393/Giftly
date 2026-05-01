@@ -32,6 +32,39 @@ export async function proxy(request: NextRequest) {
     if (pathname === '/platform' || pathname.startsWith('/platform/')) {
       return NextResponse.redirect(new URL('/', request.url))
     }
+
+    // Gate the creator portal: require a Supabase session bound to a
+    // creators row via auth_user_id.
+    if (pathname === '/portal/creator' || pathname.startsWith('/portal/creator/')) {
+      const { supabase, response } = createMiddlewareClient(request)
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
+      if (!user) {
+        const loginUrl = request.nextUrl.clone()
+        loginUrl.pathname = '/login'
+        loginUrl.searchParams.set('next', pathname)
+        return NextResponse.redirect(loginUrl)
+      }
+      const { data: creator } = await supabase
+        .from('creators')
+        .select('id')
+        .eq('auth_user_id', user.id)
+        .single()
+      if (!creator) {
+        const loginUrl = request.nextUrl.clone()
+        loginUrl.pathname = '/login'
+        loginUrl.searchParams.set('next', pathname)
+        loginUrl.searchParams.set('unbound', '1')
+        return NextResponse.redirect(loginUrl)
+      }
+      const res = NextResponse.next({ request })
+      for (const cookie of response().cookies.getAll()) {
+        res.cookies.set(cookie)
+      }
+      return res
+    }
+
     return NextResponse.next()
   }
 
