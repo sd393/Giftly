@@ -61,7 +61,17 @@ describe('sendPortalInvite', () => {
 
     const result = await sendPortalInvite('c2')
     expect(result.ok).toBe(true)
-    expect(inviteMock).toHaveBeenCalledWith('new@example.com', expect.any(Object))
+    // redirectTo must point at the platform-host auth callback so PKCE
+    // exchange runs there and the session cookie ends up on the platform
+    // host (where the portal lives).
+    expect(inviteMock).toHaveBeenCalledWith(
+      'new@example.com',
+      expect.objectContaining({
+        redirectTo: expect.stringMatching(
+          /\/auth\/callback\?next=\/portal\/creator$/
+        ),
+      })
+    )
     expect(updateMock).toHaveBeenCalledWith({
       auth_user_id: 'auth-uid-xyz',
       invited_at: expect.any(String),

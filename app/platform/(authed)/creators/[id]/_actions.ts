@@ -20,9 +20,18 @@ export async function sendPortalInvite(creatorId: string) {
   if (creator.auth_user_id) {
     return { ok: false as const, error: 'Creator already invited.' }
   }
+  // Magic link must land on the platform-host /auth/callback so the PKCE
+  // exchange runs there and the session cookie ends up on the platform host
+  // (where the portal lives). `next=/portal/creator` is what the callback
+  // role-routing falls back to for non-admin sign-ins anyway, but we set it
+  // explicitly to be self-documenting.
+  const platformUrl =
+    process.env.NEXT_PUBLIC_PLATFORM_URL ??
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    'http://app.localhost:3000'
   const { data: invite, error: inviteErr } =
     await supabaseAdmin.auth.admin.inviteUserByEmail(creator.email, {
-      redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/portal/creator`,
+      redirectTo: `${platformUrl}/auth/callback?next=/portal/creator`,
     })
   if (inviteErr || !invite?.user) {
     return { ok: false as const, error: inviteErr?.message ?? 'Invite failed.' }
