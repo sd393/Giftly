@@ -16,6 +16,12 @@ function isPlatformHost(host: string | null): boolean {
   return h === 'app.trygiftly.com' || h === 'app.localhost' || h.startsWith('app.')
 }
 
+function platformOriginUrl(): URL {
+  return new URL(
+    process.env.NEXT_PUBLIC_PLATFORM_URL ?? 'http://app.localhost:3000'
+  )
+}
+
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
   const host = request.headers.get('host')
@@ -33,42 +39,66 @@ export async function proxy(request: NextRequest) {
       return NextResponse.redirect(new URL('/', request.url))
     }
 
-    // Gate the creator portal: require a Supabase session bound to a
-    // creators row via auth_user_id.
+    // The creator portal lives on the platform host. Bounce any traffic
+    // to /portal/creator/* across hosts, preserving sub-paths and query.
     if (pathname === '/portal/creator' || pathname.startsWith('/portal/creator/')) {
-      const { supabase, response } = createMiddlewareClient(request)
-      const {
-        data: { user },
-      } = await supabase.auth.getUser()
-      if (!user) {
-        const loginUrl = request.nextUrl.clone()
-        loginUrl.pathname = '/login'
-        loginUrl.searchParams.set('next', pathname)
-        return NextResponse.redirect(loginUrl)
-      }
-      const { data: creator } = await supabase
-        .from('creators')
-        .select('id')
-        .eq('auth_user_id', user.id)
-        .single()
-      if (!creator) {
-        const loginUrl = request.nextUrl.clone()
-        loginUrl.pathname = '/login'
-        loginUrl.searchParams.set('next', pathname)
-        loginUrl.searchParams.set('unbound', '1')
-        return NextResponse.redirect(loginUrl)
-      }
-      const res = NextResponse.next({ request })
-      for (const cookie of response().cookies.getAll()) {
-        res.cookies.set(cookie)
-      }
-      return res
+      const platformUrl = platformOriginUrl()
+      platformUrl.pathname = pathname
+      platformUrl.search = request.nextUrl.search
+      return NextResponse.redirect(platformUrl)
+    }
+
+    // Login also lives on the platform host. The marketing-host /login is
+    // just a redirect (the page may or may not exist as dead code).
+    if (pathname === '/login') {
+      const platformUrl = platformOriginUrl()
+      platformUrl.pathname = '/login'
+      platformUrl.search = request.nextUrl.search
+      return NextResponse.redirect(platformUrl)
     }
 
     return NextResponse.next()
   }
 
-  // Platform host: rewrite every request into the /platform/* tree.
+  // Platform host. The portal paths resolve under app/portal/creator/* and
+  // must NOT be rewritten under /platform/*. They have their own gate that
+  // checks the creators binding, not the @trygiftly.com domain.
+  const isPortalPath =
+    pathname === '/portal/creator' || pathname.startsWith('/portal/creator/')
+
+  if (isPortalPath) {
+    const { supabase, response } = createMiddlewareClient(request)
+    const {
+      data: { user },
+    } = await supabase.auth.getUser()
+    if (!user) {
+      const loginUrl = request.nextUrl.clone()
+      loginUrl.pathname = '/login'
+      loginUrl.searchParams.set('next', pathname)
+      return NextResponse.redirect(loginUrl)
+    }
+    const { data: creator } = await supabase
+      .from('creators')
+      .select('id')
+      .eq('auth_user_id', user.id)
+      .single()
+    if (!creator) {
+      const loginUrl = request.nextUrl.clone()
+      loginUrl.pathname = '/login'
+      loginUrl.searchParams.set('next', pathname)
+      loginUrl.searchParams.set('unbound', '1')
+      return NextResponse.redirect(loginUrl)
+    }
+    // Pass through with no rewrite so the route resolves to app/portal/...
+    const res = NextResponse.next({ request })
+    for (const cookie of response().cookies.getAll()) {
+      res.cookies.set(cookie)
+    }
+    return res
+  }
+
+  // Otherwise this is admin-tool traffic on the platform host. Rewrite into
+  // the /platform/* tree.
   const rewrittenPath =
     pathname === '/' ? '/platform' : `/platform${pathname}`
   const rewriteUrl = request.nextUrl.clone()
