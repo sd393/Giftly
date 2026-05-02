@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server'
 
+import { supabaseAdmin } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
 
 const ADMIN_EMAIL_DOMAIN = 'trygiftly.com'
@@ -41,10 +42,11 @@ export async function GET(request: NextRequest) {
     return NextResponse.redirect(new URL(next, url.origin))
   }
 
-  // Not an admin → must be an admin-accepted creator. Match by either an
-  // existing auth_user_id binding or by email (covers first-time bind via
-  // Google/password before invite landed).
-  const { data: creator } = await supabase
+  // Not an admin → must be an admin-accepted creator. Use the admin client
+  // for the lookup + bind so we can read/write the row before the
+  // creators_self_read policy applies (it requires auth_user_id to already
+  // be bound, which it isn't yet on first sign-in).
+  const { data: creator } = await supabaseAdmin
     .from('creators')
     .select('id, auth_user_id, invited_at')
     .or(`auth_user_id.eq.${user.id},email.eq.${email}`)
@@ -60,7 +62,7 @@ export async function GET(request: NextRequest) {
   // (invited_at is set) but auth_user_id is null — happens if they sign in
   // via Google/password before clicking the magic link. Bind it now.
   if (!creator.auth_user_id) {
-    await supabase
+    await supabaseAdmin
       .from('creators')
       .update({ auth_user_id: user.id })
       .eq('id', creator.id)
