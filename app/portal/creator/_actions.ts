@@ -108,7 +108,7 @@ export async function markStillTrying(matchId: string) {
 // Limits mirrored from the eval-videos bucket (storage.buckets row).
 // Bucket-level enforcement still applies; we check here too so the user
 // sees a clean error rather than the bucket's opaque rejection.
-export const SUBMIT_LIMITS = {
+const SUBMIT_LIMITS = {
   MAX_BYTES: 100 * 1024 * 1024,
   ALLOWED_MIMES: ['video/mp4', 'video/quicktime', 'video/webm'] as const,
 }
