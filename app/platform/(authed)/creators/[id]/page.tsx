@@ -9,6 +9,7 @@ import { CreatorEditForm } from '../_components/creator-edit-form'
 import { CreatorNotes } from '../_components/creator-notes'
 import { CreatorStatusActions } from '../_components/creator-status-actions'
 import { ActivityTimeline } from '../../_components/activity-timeline'
+import { MatchesList } from './_components/matches-list'
 import { SendInviteButton } from './_components/send-invite-button'
 
 export default async function CreatorDetailPage({
@@ -108,6 +109,13 @@ export default async function CreatorDetailPage({
           notes
         </h2>
         <CreatorNotes id={creator.id} initial={creator.notes ?? ''} />
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-[0.75rem] uppercase tracking-[0.15em] text-muted-warm font-medium mb-3">
+          matches
+        </h2>
+        <MatchesList creatorId={creator.id} />
       </section>
 
       <section>

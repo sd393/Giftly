@@ -1,5 +1,12 @@
 'use server'
 
+import { revalidatePath } from 'next/cache'
+
+import { extractEval } from '@/lib/eval-extraction'
+import {
+  extractWithClaude,
+  transcribeWithWhisper,
+} from '@/lib/eval-extraction-providers'
 import { supabaseAdmin } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
 
@@ -34,4 +41,18 @@ export async function sendPortalInvite(creatorId: string) {
     return { ok: false as const, error: bindErr.message }
   }
   return { ok: true as const }
+}
+
+/**
+ * Admin-triggered eval extraction. Wraps `extractEval` with the real
+ * Whisper + Claude providers and revalidates the creators index so the
+ * status badges refresh after a successful run.
+ */
+export async function runExtractionAction(matchId: string) {
+  const r = await extractEval(matchId, {
+    transcribe: transcribeWithWhisper,
+    extract: extractWithClaude,
+  })
+  revalidatePath(`/platform/creators`)
+  return r
 }

@@ -5,9 +5,22 @@ import OpenAI from 'openai'
 
 import { EXTRACTION_PROMPT } from '@/lib/schemas/eval'
 
-// SDKs read OPENAI_API_KEY / ANTHROPIC_API_KEY from process.env.
-const openai = new OpenAI()
-const anthropic = new Anthropic()
+// Lazy singletons. The SDK constructors throw when the corresponding
+// env var is missing, which would otherwise crash module-load — and
+// that import chain runs from `_actions.ts` even on routes that don't
+// call extraction. Defer until first use so missing keys only surface
+// when an admin actually clicks "run extraction".
+let _openai: OpenAI | null = null
+function openaiClient(): OpenAI {
+  if (!_openai) _openai = new OpenAI()
+  return _openai
+}
+
+let _anthropic: Anthropic | null = null
+function anthropicClient(): Anthropic {
+  if (!_anthropic) _anthropic = new Anthropic()
+  return _anthropic
+}
 
 /**
  * Real `transcribe` implementation backed by OpenAI Whisper. Wraps the
@@ -17,7 +30,7 @@ export async function transcribeWithWhisper(blob: Blob): Promise<string> {
   const file = new File([blob], 'eval.mp4', {
     type: blob.type || 'video/mp4',
   })
-  const r = await openai.audio.transcriptions.create({
+  const r = await openaiClient().audio.transcriptions.create({
     file,
     model: 'whisper-1',
   })
@@ -31,7 +44,7 @@ export async function transcribeWithWhisper(blob: Blob): Promise<string> {
  * object against `ExtractedEvalSchema`.
  */
 export async function extractWithClaude(transcript: string): Promise<unknown> {
-  const r = await anthropic.messages.create({
+  const r = await anthropicClient().messages.create({
     model: 'claude-haiku-4-5-20251001',
     max_tokens: 1024,
     messages: [
