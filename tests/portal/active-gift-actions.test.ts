@@ -41,7 +41,7 @@ describe('markReceived', () => {
 })
 
 describe('markStillTrying', () => {
-  it('updates stage to still_trying with stage=received guard', async () => {
+  it('updates stage to still_trying with stage IN (received, still_trying) guard', async () => {
     ;(getCreatorForCurrentUser as any).mockResolvedValue({ id: 'c1' })
     const chain = mockUpdateChain()
     ;(createClient as any).mockResolvedValue({
@@ -50,6 +50,9 @@ describe('markStillTrying', () => {
     const r = await markStillTrying('m1')
     expect(r.ok).toBe(true)
     expect(chain.update).toHaveBeenCalledWith({ stage: 'still_trying' })
-    expect(chain.eqFinal).toHaveBeenCalledWith('stage', 'received')
+    expect(chain.inFinal).toHaveBeenCalledWith('stage', [
+      'received',
+      'still_trying',
+    ])
   })
 })

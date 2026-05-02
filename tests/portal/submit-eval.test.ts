@@ -58,13 +58,13 @@ function makeSupabaseMock(opts: {
   const eqId = vi.fn().mockReturnValue({ eq: eqCreator })
   const select = vi.fn().mockReturnValue({ eq: eqId })
 
-  // matches.update(...).eq(id).eq(creator_id).eq(stage)
-  const updateEqStage = vi
+  // matches.update(...).eq(id).eq(creator_id).in(stage, [...])
+  const updateInStage = vi
     .fn()
     .mockResolvedValue({ error: opts.updateError ?? null })
   const updateEqCreator = vi
     .fn()
-    .mockReturnValue({ eq: updateEqStage })
+    .mockReturnValue({ in: updateInStage })
   const updateEqId = vi.fn().mockReturnValue({ eq: updateEqCreator })
   const update = vi.fn().mockReturnValue({ eq: updateEqId })
 

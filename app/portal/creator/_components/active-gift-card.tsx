@@ -99,11 +99,18 @@ export function ActiveGiftCard({ match }: { match: PortalMatch }) {
         </div>
       ) : null}
 
-      {match.stage === 'received' ? (
+      {match.stage === 'received' || match.stage === 'still_trying' ? (
         <div className="border-t border-line/60 px-5 md:px-6 py-5">
           <p className="text-[0.7rem] uppercase tracking-[0.15em] text-muted-warm font-medium mb-3">
             how is it going?
           </p>
+
+          {match.stage === 'still_trying' ? (
+            <p className="text-[0.8rem] text-muted-warm leading-[1.55] max-w-[60ch] mb-4">
+              We&rsquo;ll check back in 14 days. Submit whenever you&rsquo;re
+              ready — no rush.
+            </p>
+          ) : null}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {/*
@@ -112,6 +119,11 @@ export function ActiveGiftCard({ match }: { match: PortalMatch }) {
               itself carries sentiment (positive OR negative), so we don't
               need a separate "not for me" path here; honest signal lives in
               what the creator says on camera.
+
+              Both buttons remain available in `still_trying` too — that state
+              is a soft "remind me later" flag, not a lock. Creator can submit
+              an eval any time, or re-tap "Still trying it" to refresh the
+              14-day window.
             */}
             <Button
               asChild
@@ -138,21 +150,18 @@ export function ActiveGiftCard({ match }: { match: PortalMatch }) {
               className={cn(
                 'w-full h-auto py-5 px-5 flex flex-col items-center gap-3 text-center text-[0.9rem] font-medium leading-tight rounded-md',
                 'bg-white border border-line/60 text-ink hover:bg-cream-warm hover:text-ink hover:-translate-y-0',
+                match.stage === 'still_trying' &&
+                  'border-coral/40 bg-coral/5',
               )}
             >
               <Clock aria-hidden="true" className="size-6 text-ink-soft" />
-              <span>Still trying it</span>
+              <span>
+                {match.stage === 'still_trying'
+                  ? 'Still trying — refresh reminder'
+                  : 'Still trying it'}
+              </span>
             </Button>
           </div>
-        </div>
-      ) : null}
-
-      {match.stage === 'still_trying' ? (
-        <div className="border-t border-line/60 px-5 md:px-6 py-5">
-          <p className="text-[0.85rem] text-ink-soft leading-[1.55] max-w-[60ch]">
-            No rush. We&rsquo;ll check back in 14 days. If you change your mind
-            earlier, jump back in here and pick a different answer.
-          </p>
         </div>
       ) : null}
 

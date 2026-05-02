@@ -68,12 +68,14 @@ export async function markStillTrying(matchId: string) {
   const creator = await getCreatorForCurrentUser()
   if (!creator) return { ok: false as const, error: 'Not signed in.' }
   const supabase = await createClient()
+  // Allow from `received` (first time) or `still_trying` (refresh the
+  // 14-day reminder window). Either way the row ends up at still_trying.
   const { error } = await supabase
     .from('matches')
     .update({ stage: 'still_trying' })
     .eq('id', matchId)
     .eq('creator_id', creator.id)
-    .eq('stage', 'received')
+    .in('stage', ['received', 'still_trying'])
   if (error) return { ok: false as const, error: error.message }
   revalidatePath('/portal/creator')
   return { ok: true as const }
@@ -139,7 +141,10 @@ export async function submitEval(
   if (matchErr || !match) {
     return { ok: false, error: 'Match not found.' }
   }
-  if (match.stage !== 'received') {
+  // Eval submission allowed from `received` or `still_trying` (the latter
+  // is a soft "remind me later" flag, not a lock — creator can submit any
+  // time without first reverting their state).
+  if (match.stage !== 'received' && match.stage !== 'still_trying') {
     return {
       ok: false,
       error: "This eval isn't open right now.",
@@ -177,7 +182,7 @@ export async function submitEval(
     })
     .eq('id', match.id)
     .eq('creator_id', creator.id)
-    .eq('stage', 'received')
+    .in('stage', ['received', 'still_trying'])
   if (updateErr) {
     return { ok: false, error: updateErr.message }
   }

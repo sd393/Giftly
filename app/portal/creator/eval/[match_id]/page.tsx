@@ -48,7 +48,7 @@ export default async function EvalSubmitPage({
       : product.brand
     : null
 
-  if (match.stage !== 'received') {
+  if (match.stage !== 'received' && match.stage !== 'still_trying') {
     const blurb =
       STAGE_BLURB[match.stage] ?? "This eval isn't open right now."
     return (
