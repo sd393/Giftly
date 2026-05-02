@@ -1,3 +1,4 @@
+import { ActiveGiftCard } from './active-gift-card'
 import type { PortalMatch } from './portal-tabs'
 
 export function ActiveGiftsTab({ matches }: { matches: PortalMatch[] }) {
@@ -8,5 +9,21 @@ export function ActiveGiftsTab({ matches }: { matches: PortalMatch[] }) {
       </p>
     )
   }
-  return <pre>{JSON.stringify(matches, null, 2)}</pre>
+
+  return (
+    <div className="space-y-6">
+      <ul className="space-y-4">
+        {matches.map((match) => (
+          <li key={match.id}>
+            <ActiveGiftCard match={match} />
+          </li>
+        ))}
+      </ul>
+
+      <p className="text-[0.75rem] text-muted-warm max-w-[60ch]">
+        We won&rsquo;t spam you. One nudge at the 14-day mark if you
+        haven&rsquo;t logged a reaction, then we drop it.
+      </p>
+    </div>
+  )
 }
