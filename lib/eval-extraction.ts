@@ -4,7 +4,7 @@ import { ExtractedEvalSchema } from '@/lib/schemas/eval'
 
 /**
  * Dependencies for `extractEval`. Real callers wire in
- * `extractFromVideoWithGemini` from `lib/eval-extraction-providers.ts`.
+ * `extractFromVideoWithOpenAI` from `lib/eval-extraction-providers.ts`.
  * Tests pass mocks.
  */
 export type ExtractEvalDeps = {
@@ -21,8 +21,9 @@ export type ExtractEvalDeps = {
  *     the multimodal extractor.
  *  4. Validate the returned JSON. On parse failure, mark both
  *     `extraction_status='failed'` and `transcript_status='failed'`
- *     (the single Gemini call produces both — they succeed or fail
- *     together, unlike the old two-stage Whisper+Claude pipeline).
+ *     (the single OpenAI provider call produces both — they succeed
+ *     or fail together, since Whisper and GPT-4o vision both run
+ *     inside the same provider).
  *  5. Save extracted JSON, copy the `transcript` field from it onto
  *     the legacy `transcript` column (downstream agents may scan it
  *     independently of the structured fields), and mark both

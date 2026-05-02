@@ -1,10 +1,13 @@
 import { z } from 'zod'
 
 export const ExtractedEvalSchema = z.object({
-  // Video-native fields. Gemini fills these from the video itself, not
-  // from a separate transcript pre-pass. `transcript` is the spoken
-  // audio transcribed as a side-product of the multimodal pass; we
-  // also mirror it onto `eval_videos.transcript` for keyword scans.
+  // Multimodal fields. The provider transcribes spoken audio with
+  // Whisper, extracts keyframes with ffmpeg, then asks GPT-4o vision
+  // to fill the structured fields from both signals. The provider
+  // injects the Whisper transcript directly into `transcript` rather
+  // than asking GPT-4o to echo it back, so this field always reflects
+  // the verbatim Whisper output. We also mirror `transcript` onto
+  // `eval_videos.transcript` for keyword scans.
   transcript: z.string().nullable(),
   visual_observations: z.array(z.string()).default([]),
   demonstrated_use_cases: z.array(z.string()).default([]),
@@ -20,22 +23,27 @@ export const ExtractedEvalSchema = z.object({
 
 export type ExtractedEval = z.infer<typeof ExtractedEvalSchema>
 
-export const EXTRACTION_PROMPT = `You are extracting structured evaluation data from a creator's video review of a product. The input is the full video — both the spoken audio AND the visuals (how they hold the product, packaging, facial reactions, gestures, room/setting context, demonstrated use cases). Use both signals.
+export const EXTRACTION_PROMPT = `You are extracting structured evaluation data from a creator's video review of a product. You will receive TWO inputs:
 
-Return JSON matching the schema exactly. Only fill fields that are actually present in the video — use null (or empty array for list fields) for anything the creator did not address. Do not infer or guess.
+  1. A transcript of the creator's spoken audio (already transcribed by Whisper, included verbatim below).
+  2. A small number of time-ordered keyframes sampled from the video (first to last). Use these for visual signals — packaging, how they hold the product, facial reactions, gestures, room/setting context, demonstrated use cases.
+
+Use BOTH signals when filling fields that have visual content.
+
+Return a single JSON object matching the schema exactly. Only fill fields that are actually present in the inputs — use null (or empty array for list fields) for anything the creator did not address. Do not infer or guess.
 
 Field semantics:
-- transcript: verbatim spoken audio from the creator. Include ums, false starts. Null only if the video has no spoken content.
-- visual_observations: things you see in the video that aren't spoken — packaging shots, how they hold the product, facial expressions, gestures, room/setting context, what's on screen alongside the product. One short observation per array entry.
-- demonstrated_use_cases: ways the creator actually USED the product on camera (not just mentioned). One use case per entry.
+- transcript: leave this as null or omit it; the server overwrites it with the verbatim Whisper transcript before saving.
+- visual_observations: things you see in the keyframes that aren't spoken — packaging shots, how they hold the product, facial expressions, gestures, room/setting context, what's on screen alongside the product. One short observation per array entry.
+- demonstrated_use_cases: ways the creator actually USED the product on camera (visible in the keyframes), not just mentioned in audio. One use case per entry.
 - would_keep_using / worth_the_price / sentiment: the creator's stance, drawn from spoken AND visual cues (e.g. visible enthusiasm, reluctance).
 - best_for / not_for: audience or use-case fits the creator names.
 - one_line_take: one sentence summarizing their overall verdict, in your words.
-- raw_quotes: direct quotes from the spoken audio that capture the creator's stance.
+- raw_quotes: direct quotes from the spoken transcript that capture the creator's stance.
 
 Schema:
 {
-  "transcript": string | null,
+  "transcript": null,
   "visual_observations": string[],
   "demonstrated_use_cases": string[],
   "would_keep_using": "yes" | "sometimes" | "no" | null,

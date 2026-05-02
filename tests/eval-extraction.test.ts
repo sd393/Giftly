@@ -178,7 +178,8 @@ describe('extractEval', () => {
     expect(completeIdx).toBeGreaterThan(runningIdx)
 
     // running update flags both transcript_status and extraction_status,
-    // since the multimodal call produces both atomically.
+    // since the OpenAI provider produces both atomically (Whisper +
+    // GPT-4o vision run inside the single `extract` call).
     expect(evalUpdates[runningIdx].transcript_status).toBe('running')
 
     // Final complete payload contains parsed data, mirrored transcript,
@@ -210,14 +211,14 @@ describe('extractEval', () => {
     expect(supa._calls.matchUpdateEq).toHaveBeenCalledWith('id', 'match-1')
   })
 
-  it('Gemini failure: extraction_status=failed, transcript_status=failed, match never flipped', async () => {
+  it('provider failure: extraction_status=failed, transcript_status=failed, match never flipped', async () => {
     const supa = makeSupabaseMock()
     ;(createClient as any).mockResolvedValue(supa)
-    const extract = vi.fn().mockRejectedValue(new Error('gemini boom'))
+    const extract = vi.fn().mockRejectedValue(new Error('openai boom'))
 
     const r = await extractEval('match-1', { extract })
     expect(r.ok).toBe(false)
-    expect(r.error).toMatch(/gemini boom/)
+    expect(r.error).toMatch(/openai boom/)
     // matches table never updated
     expect(supa._state.matchUpdates).toHaveLength(0)
 
@@ -226,12 +227,12 @@ describe('extractEval', () => {
     const last =
       supa._state.evalUpdates[supa._state.evalUpdates.length - 1]
     expect(last.extraction_status).toBe('failed')
-    expect(last.extraction_error).toMatch(/gemini boom/)
+    expect(last.extraction_error).toMatch(/openai boom/)
     expect(last.transcript_status).toBe('failed')
-    expect(last.transcript_error).toMatch(/gemini boom/)
+    expect(last.transcript_error).toMatch(/openai boom/)
   })
 
-  it('Gemini returning invalid JSON shape: extraction_status=failed, error populated', async () => {
+  it('provider returning invalid JSON shape: extraction_status=failed, error populated', async () => {
     const supa = makeSupabaseMock()
     ;(createClient as any).mockResolvedValue(supa)
     // Missing required keys → schema parse fails

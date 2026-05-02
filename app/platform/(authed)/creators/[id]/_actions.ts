@@ -3,7 +3,7 @@
 import { revalidatePath } from 'next/cache'
 
 import { extractEval } from '@/lib/eval-extraction'
-import { extractFromVideoWithGemini } from '@/lib/eval-extraction-providers'
+import { extractFromVideoWithOpenAI } from '@/lib/eval-extraction-providers'
 import { supabaseAdmin } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
 
@@ -42,11 +42,12 @@ export async function sendPortalInvite(creatorId: string) {
 
 /**
  * Admin-triggered eval extraction. Wraps `extractEval` with the real
- * Gemini multimodal provider and revalidates the creators index so the
- * status badges refresh after a successful run.
+ * OpenAI provider (Whisper + GPT-4o vision over ffmpeg keyframes) and
+ * revalidates the creators index so the status badges refresh after a
+ * successful run.
  */
 export async function runExtractionAction(matchId: string) {
-  const r = await extractEval(matchId, { extract: extractFromVideoWithGemini })
+  const r = await extractEval(matchId, { extract: extractFromVideoWithOpenAI })
   revalidatePath(`/platform/creators`)
   return r
 }
