@@ -1,24 +1,17 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useTransition } from 'react'
-import { Clock, Heart, ThumbsDown } from 'lucide-react'
+import { useTransition } from 'react'
+import { Clock, Video } from 'lucide-react'
 import { toast } from 'sonner'
 
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
-import {
-  declineAfterReceipt,
-  markReceived,
-  markStillTrying,
-} from '../_actions'
+import { markReceived, markStillTrying } from '../_actions'
 
-import { DeclineForm } from './decline-form'
 import type { PortalMatch } from './portal-tabs'
-
-type Mode = 'idle' | 'declining'
 
 const STAGE_BADGES: Record<string, string> = {
   accepted: 'in transit',
@@ -29,9 +22,6 @@ const STAGE_BADGES: Record<string, string> = {
 }
 
 export function ActiveGiftCard({ match }: { match: PortalMatch }) {
-  const [mode, setMode] = useState<Mode>('idle')
-  const [reasons, setReasons] = useState<string[]>([])
-  const [note, setNote] = useState('')
   const [pending, startTransition] = useTransition()
 
   const product = match.product
@@ -54,21 +44,6 @@ export function ActiveGiftCard({ match }: { match: PortalMatch }) {
       const r = await markStillTrying(match.id)
       if (r.ok) {
         toast.success("Got it — we'll check back in 14 days.")
-      } else {
-        toast.error(r.error ?? 'Something went wrong.')
-      }
-    })
-  }
-
-  function handleDeclineAfterReceipt() {
-    startTransition(async () => {
-      const r = await declineAfterReceipt({
-        matchId: match.id,
-        reasons,
-        note,
-      })
-      if (r.ok) {
-        toast.success("Passed — we won't pitch this one again.")
       } else {
         toast.error(r.error ?? 'Something went wrong.')
       }
@@ -124,20 +99,19 @@ export function ActiveGiftCard({ match }: { match: PortalMatch }) {
         </div>
       ) : null}
 
-      {match.stage === 'received' && mode === 'idle' ? (
+      {match.stage === 'received' ? (
         <div className="border-t border-line/60 px-5 md:px-6 py-5">
           <p className="text-[0.7rem] uppercase tracking-[0.15em] text-muted-warm font-medium mb-3">
             how is it going?
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {/*
-              UX-INTENT: these three options are deliberately equal-weight.
-              Equal sizing, equal color treatment (cream button on coral hover,
-              NOT one bright primary + two muted secondary), equal hierarchy.
-              The "I don't love it" path being co-equal with the positive path
-              is the entire UX thesis on the creator side. Do not "promote" the
-              positive path.
+              UX-INTENT: equal-weight pair. Both options sized + styled the
+              same — no "primary" treatment on the eval path. The eval video
+              itself carries sentiment (positive OR negative), so we don't
+              need a separate "not for me" path here; honest signal lives in
+              what the creator says on camera.
             */}
             <Button
               asChild
@@ -150,24 +124,9 @@ export function ActiveGiftCard({ match }: { match: PortalMatch }) {
               )}
             >
               <Link href={`/portal/creator/eval/${match.id}`}>
-                <Heart aria-hidden="true" className="size-6 text-ink-soft" />
+                <Video aria-hidden="true" className="size-6 text-ink-soft" />
                 <span>Submit eval</span>
               </Link>
-            </Button>
-
-            <Button
-              type="button"
-              variant="outline"
-              size="default"
-              disabled={pending}
-              onClick={() => setMode('declining')}
-              className={cn(
-                'w-full h-auto py-5 px-5 flex flex-col items-center gap-3 text-center text-[0.9rem] font-medium leading-tight rounded-md',
-                'bg-white border border-line/60 text-ink hover:bg-cream-warm hover:text-ink hover:-translate-y-0',
-              )}
-            >
-              <ThumbsDown aria-hidden="true" className="size-6 text-ink-soft" />
-              <span>Not for me</span>
             </Button>
 
             <Button
@@ -183,39 +142,6 @@ export function ActiveGiftCard({ match }: { match: PortalMatch }) {
             >
               <Clock aria-hidden="true" className="size-6 text-ink-soft" />
               <span>Still trying it</span>
-            </Button>
-          </div>
-        </div>
-      ) : null}
-
-      {match.stage === 'received' && mode === 'declining' ? (
-        <div className="border-t border-line/60 px-5 md:px-6 py-5">
-          <DeclineForm
-            reasons={reasons}
-            note={note}
-            onChangeReasons={setReasons}
-            onChangeNote={setNote}
-          />
-          <div className="mt-4 flex items-center gap-2">
-            <Button
-              size="sm"
-              variant="coral"
-              disabled={pending}
-              onClick={handleDeclineAfterReceipt}
-            >
-              {pending ? 'Submitting…' : 'Submit decline'}
-            </Button>
-            <Button
-              size="sm"
-              variant="ghost"
-              disabled={pending}
-              onClick={() => {
-                setMode('idle')
-                setReasons([])
-                setNote('')
-              }}
-            >
-              Cancel
             </Button>
           </div>
         </div>

@@ -64,32 +64,6 @@ export async function markReceived(matchId: string) {
   return { ok: true as const }
 }
 
-const declineAfterReceiptSchema = declineSchema // same shape
-
-export async function declineAfterReceipt(
-  input: z.infer<typeof declineAfterReceiptSchema>,
-) {
-  const creator = await getCreatorForCurrentUser()
-  if (!creator) return { ok: false as const, error: 'Not signed in.' }
-  const parsed = declineAfterReceiptSchema.safeParse(input)
-  if (!parsed.success) return { ok: false as const, error: 'Invalid input.' }
-  const supabase = await createClient()
-  const { error } = await supabase
-    .from('matches')
-    .update({
-      stage: 'declined_after_receipt',
-      declined_at: new Date().toISOString(),
-      decline_reason: parsed.data.reasons.join(', ') || null,
-      decline_note: parsed.data.note || null,
-    })
-    .eq('id', parsed.data.matchId)
-    .eq('creator_id', creator.id)
-    .in('stage', ['accepted', 'received'])
-  if (error) return { ok: false as const, error: error.message }
-  revalidatePath('/portal/creator')
-  return { ok: true as const }
-}
-
 export async function markStillTrying(matchId: string) {
   const creator = await getCreatorForCurrentUser()
   if (!creator) return { ok: false as const, error: 'Not signed in.' }

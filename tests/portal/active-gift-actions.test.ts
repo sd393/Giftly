@@ -3,11 +3,7 @@ vi.mock('@/lib/supabase/server', () => ({ createClient: vi.fn() }))
 vi.mock('@/lib/portal/auth', () => ({ getCreatorForCurrentUser: vi.fn() }))
 vi.mock('next/cache', () => ({ revalidatePath: vi.fn() }))
 
-import {
-  markReceived,
-  declineAfterReceipt,
-  markStillTrying,
-} from '@/app/portal/creator/_actions'
+import { markReceived, markStillTrying } from '@/app/portal/creator/_actions'
 import { getCreatorForCurrentUser } from '@/lib/portal/auth'
 import { createClient } from '@/lib/supabase/server'
 
@@ -41,23 +37,6 @@ describe('markReceived', () => {
       received_at: expect.any(String),
     })
     expect(chain.eqFinal).toHaveBeenCalledWith('stage', 'accepted')
-  })
-})
-
-describe('declineAfterReceipt', () => {
-  it('updates stage with stage IN (accepted, received) guard', async () => {
-    ;(getCreatorForCurrentUser as any).mockResolvedValue({ id: 'c1' })
-    const chain = mockUpdateChain()
-    ;(createClient as any).mockResolvedValue({
-      from: vi.fn().mockReturnValue({ update: chain.update }),
-    })
-    const r = await declineAfterReceipt({
-      matchId: '00000000-0000-0000-0000-000000000001',
-      reasons: ['not aligned'],
-      note: '',
-    })
-    expect(r.ok).toBe(true)
-    expect(chain.inFinal).toHaveBeenCalledWith('stage', ['accepted', 'received'])
   })
 })
 
