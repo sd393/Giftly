@@ -104,3 +104,11 @@ export async function markStillTrying(matchId: string) {
   revalidatePath('/portal/creator')
   return { ok: true as const }
 }
+
+// submitEval is implemented in Task 5.2 (next commit).
+// Stubbed here so the eval submit page UI compiles and routes correctly.
+export async function submitEval(
+  _formData: FormData,
+): Promise<{ ok: boolean; error?: string }> {
+  return { ok: false, error: 'Eval submission not implemented yet.' }
+}
