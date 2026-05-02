@@ -4,12 +4,11 @@ import { ExtractedEvalSchema } from '@/lib/schemas/eval'
 
 /**
  * Dependencies for `extractEval`. Real callers wire in
- * `transcribeWithWhisper` + `extractWithClaude` from
- * `lib/eval-extraction-providers.ts`. Tests pass mocks.
+ * `extractFromVideoWithGemini` from `lib/eval-extraction-providers.ts`.
+ * Tests pass mocks.
  */
 export type ExtractEvalDeps = {
-  transcribe: (blob: Blob) => Promise<string>
-  extract: (transcript: string) => Promise<unknown>
+  extract: (videoBlob: Blob) => Promise<unknown>
 }
 
 /**
@@ -17,11 +16,19 @@ export type ExtractEvalDeps = {
  *
  * Pipeline:
  *  1. Load latest `eval_videos` row for the match.
- *  2. Mark `transcript_status='running'`, download blob, transcribe.
- *  3. Save transcript or transcript_error.
- *  4. Mark `extraction_status='running'`, run extraction, validate.
- *  5. Save extracted JSON or extraction_error.
- *  6. On full success, flip `matches.stage='eval_complete'`.
+ *  2. Guard: skip if `extraction_status='running'`.
+ *  3. Mark `extraction_status='running'`, download blob, hand it to
+ *     the multimodal extractor.
+ *  4. Validate the returned JSON. On parse failure, mark both
+ *     `extraction_status='failed'` and `transcript_status='failed'`
+ *     (the single Gemini call produces both — they succeed or fail
+ *     together, unlike the old two-stage Whisper+Claude pipeline).
+ *  5. Save extracted JSON, copy the `transcript` field from it onto
+ *     the legacy `transcript` column (downstream agents may scan it
+ *     independently of the structured fields), and mark both
+ *     statuses 'complete'.
+ *  6. Flip `matches.stage='eval_complete'` and stamp
+ *     `eval_complete_at`.
  *
  * Idempotent: re-running on a `complete` eval cleanly overwrites the
  * previous extraction (admin can re-tune the prompt and re-run). The
@@ -48,16 +55,20 @@ export async function extractEval(
     return { ok: false, error: 'already running' }
   }
 
-  // ---- transcript step ----
-  const { error: tRunErr } = await supabase
+  const { error: runErr } = await supabase
     .from('eval_videos')
-    .update({ transcript_status: 'running', transcript_error: null })
+    .update({
+      extraction_status: 'running',
+      extraction_error: null,
+      transcript_status: 'running',
+      transcript_error: null,
+    })
     .eq('id', row.id)
-  if (tRunErr) {
-    return { ok: false, error: tRunErr.message }
+  if (runErr) {
+    return { ok: false, error: runErr.message }
   }
 
-  let transcript: string
+  let raw: unknown
   try {
     const { data: blob, error: dlErr } = await supabase.storage
       .from('eval-videos')
@@ -65,45 +76,17 @@ export async function extractEval(
     if (dlErr || !blob) {
       throw new Error(dlErr?.message ?? 'failed to download blob')
     }
-    transcript = await deps.transcribe(blob)
+    raw = await deps.extract(blob)
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e)
     await supabase
       .from('eval_videos')
-      .update({ transcript_status: 'failed', transcript_error: msg })
-      .eq('id', row.id)
-    return { ok: false, error: msg }
-  }
-
-  const { error: tDoneErr } = await supabase
-    .from('eval_videos')
-    .update({
-      transcript,
-      transcript_status: 'complete',
-      transcript_error: null,
-    })
-    .eq('id', row.id)
-  if (tDoneErr) {
-    return { ok: false, error: tDoneErr.message }
-  }
-
-  // ---- extraction step ----
-  const { error: eRunErr } = await supabase
-    .from('eval_videos')
-    .update({ extraction_status: 'running', extraction_error: null })
-    .eq('id', row.id)
-  if (eRunErr) {
-    return { ok: false, error: eRunErr.message }
-  }
-
-  let raw: unknown
-  try {
-    raw = await deps.extract(transcript)
-  } catch (e) {
-    const msg = e instanceof Error ? e.message : String(e)
-    await supabase
-      .from('eval_videos')
-      .update({ extraction_status: 'failed', extraction_error: msg })
+      .update({
+        extraction_status: 'failed',
+        extraction_error: msg,
+        transcript_status: 'failed',
+        transcript_error: msg,
+      })
       .eq('id', row.id)
     return { ok: false, error: msg }
   }
@@ -113,26 +96,36 @@ export async function extractEval(
     const msg = `extracted JSON did not match schema: ${parsed.error.message}`
     await supabase
       .from('eval_videos')
-      .update({ extraction_status: 'failed', extraction_error: msg })
+      .update({
+        extraction_status: 'failed',
+        extraction_error: msg,
+        transcript_status: 'failed',
+        transcript_error: msg,
+      })
       .eq('id', row.id)
     return { ok: false, error: msg }
   }
 
   const now = new Date().toISOString()
-  const { error: eDoneErr } = await supabase
+  const { error: doneErr } = await supabase
     .from('eval_videos')
     .update({
       extracted: parsed.data,
       extraction_status: 'complete',
       extraction_error: null,
       extracted_at: now,
+      // Mirror the model-produced transcript onto the legacy column so
+      // admin keyword scans / downstream agents can query it without
+      // touching the structured `extracted` jsonb.
+      transcript: parsed.data.transcript,
+      transcript_status: 'complete',
+      transcript_error: null,
     })
     .eq('id', row.id)
-  if (eDoneErr) {
-    return { ok: false, error: eDoneErr.message }
+  if (doneErr) {
+    return { ok: false, error: doneErr.message }
   }
 
-  // ---- match.stage flip ----
   const { error: stageErr } = await supabase
     .from('matches')
     .update({ stage: 'eval_complete', eval_complete_at: now })

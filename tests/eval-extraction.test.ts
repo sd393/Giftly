@@ -101,6 +101,12 @@ function makeSupabaseMock(opts: {
 }
 
 const goodPayload = {
+  transcript: 'I would absolutely keep using this. Slipping it on now.',
+  visual_observations: [
+    'creator slips the shoe on barefoot',
+    'packaging shown briefly at the start',
+  ],
+  demonstrated_use_cases: ['walking around the apartment'],
   would_keep_using: 'yes',
   worth_the_price: 'maybe_at_discount',
   best_for: ['runners'],
@@ -120,10 +126,7 @@ describe('extractEval', () => {
       selectError: { message: 'no rows' },
     })
     ;(createClient as any).mockResolvedValue(supa)
-    const r = await extractEval('match-1', {
-      transcribe: vi.fn(),
-      extract: vi.fn(),
-    })
+    const r = await extractEval('match-1', { extract: vi.fn() })
     expect(r.ok).toBe(false)
     expect(r.error).toMatch(/eval row not found/i)
     // No status writes happened
@@ -141,54 +144,62 @@ describe('extractEval', () => {
       },
     })
     ;(createClient as any).mockResolvedValue(supa)
-    const transcribe = vi.fn()
     const extract = vi.fn()
-    const r = await extractEval('match-1', { transcribe, extract })
+    const r = await extractEval('match-1', { extract })
     expect(r.ok).toBe(false)
     expect(r.error).toMatch(/already running/i)
-    expect(transcribe).not.toHaveBeenCalled()
     expect(extract).not.toHaveBeenCalled()
     expect(supa._calls.evalUpdate).not.toHaveBeenCalled()
   })
 
-  it('happy path: transcribes, extracts, flips match to eval_complete', async () => {
+  it('happy path: extracts video, mirrors transcript, flips match to eval_complete', async () => {
     const supa = makeSupabaseMock()
     ;(createClient as any).mockResolvedValue(supa)
-    const transcribe = vi.fn().mockResolvedValue('I love it.')
     const extract = vi.fn().mockResolvedValue(goodPayload)
 
-    const r = await extractEval('match-1', { transcribe, extract })
+    const r = await extractEval('match-1', { extract })
 
     expect(r.ok).toBe(true)
-    expect(transcribe).toHaveBeenCalledTimes(1)
-    expect(extract).toHaveBeenCalledWith('I love it.')
+    // Provider was called with the downloaded blob — single call.
+    expect(extract).toHaveBeenCalledTimes(1)
+    expect(extract.mock.calls[0][0]).toBeInstanceOf(Blob)
     expect(supa._calls.storageFrom).toHaveBeenCalledWith('eval-videos')
     expect(supa._calls.download).toHaveBeenCalledWith('match-1/abc.mp4')
 
-    // Must touch transcript_status before extraction_status.
+    // running marker comes before complete marker.
     const evalUpdates = supa._state.evalUpdates
-    const transcriptRunningIdx = evalUpdates.findIndex(
-      (u) => u.transcript_status === 'running',
-    )
-    const transcriptCompleteIdx = evalUpdates.findIndex(
-      (u) => u.transcript_status === 'complete',
-    )
-    const extractionRunningIdx = evalUpdates.findIndex(
+    const runningIdx = evalUpdates.findIndex(
       (u) => u.extraction_status === 'running',
     )
-    const extractionCompleteIdx = evalUpdates.findIndex(
+    const completeIdx = evalUpdates.findIndex(
       (u) => u.extraction_status === 'complete',
     )
-    expect(transcriptRunningIdx).toBeGreaterThanOrEqual(0)
-    expect(transcriptCompleteIdx).toBeGreaterThan(transcriptRunningIdx)
-    expect(extractionRunningIdx).toBeGreaterThan(transcriptCompleteIdx)
-    expect(extractionCompleteIdx).toBeGreaterThan(extractionRunningIdx)
+    expect(runningIdx).toBeGreaterThanOrEqual(0)
+    expect(completeIdx).toBeGreaterThan(runningIdx)
 
-    // Final extraction-complete payload contains parsed data + extracted_at.
-    const finalEvalUpdate = evalUpdates[extractionCompleteIdx]
+    // running update flags both transcript_status and extraction_status,
+    // since the multimodal call produces both atomically.
+    expect(evalUpdates[runningIdx].transcript_status).toBe('running')
+
+    // Final complete payload contains parsed data, mirrored transcript,
+    // and extracted_at — and clears the transcript_status too.
+    const finalEvalUpdate = evalUpdates[completeIdx]
     expect(finalEvalUpdate.extracted).toEqual(goodPayload)
     expect(finalEvalUpdate.extracted_at).toEqual(expect.any(String))
     expect(finalEvalUpdate.extraction_error).toBeNull()
+    expect(finalEvalUpdate.transcript).toBe(goodPayload.transcript)
+    expect(finalEvalUpdate.transcript_status).toBe('complete')
+    expect(finalEvalUpdate.transcript_error).toBeNull()
+
+    // The new video-native fields are present in the saved jsonb.
+    const extracted = finalEvalUpdate.extracted as typeof goodPayload
+    expect(extracted.transcript).toBe(goodPayload.transcript)
+    expect(extracted.visual_observations).toEqual(
+      goodPayload.visual_observations,
+    )
+    expect(extracted.demonstrated_use_cases).toEqual(
+      goodPayload.demonstrated_use_cases,
+    )
 
     // Match flip happened with eval_complete + timestamp.
     expect(supa._state.matchUpdates).toHaveLength(1)
@@ -199,34 +210,34 @@ describe('extractEval', () => {
     expect(supa._calls.matchUpdateEq).toHaveBeenCalledWith('id', 'match-1')
   })
 
-  it('Whisper failure: transcript_status=failed, match never flipped', async () => {
+  it('Gemini failure: extraction_status=failed, transcript_status=failed, match never flipped', async () => {
     const supa = makeSupabaseMock()
     ;(createClient as any).mockResolvedValue(supa)
-    const transcribe = vi.fn().mockRejectedValue(new Error('whisper boom'))
-    const extract = vi.fn()
+    const extract = vi.fn().mockRejectedValue(new Error('gemini boom'))
 
-    const r = await extractEval('match-1', { transcribe, extract })
+    const r = await extractEval('match-1', { extract })
     expect(r.ok).toBe(false)
-    expect(r.error).toMatch(/whisper boom/)
-    expect(extract).not.toHaveBeenCalled()
+    expect(r.error).toMatch(/gemini boom/)
     // matches table never updated
     expect(supa._state.matchUpdates).toHaveLength(0)
 
-    // last eval_videos update must be transcript_status=failed with the error
+    // last eval_videos update must mark BOTH statuses failed (single
+    // call produces both, so they fail together).
     const last =
       supa._state.evalUpdates[supa._state.evalUpdates.length - 1]
+    expect(last.extraction_status).toBe('failed')
+    expect(last.extraction_error).toMatch(/gemini boom/)
     expect(last.transcript_status).toBe('failed')
-    expect(last.transcript_error).toMatch(/whisper boom/)
+    expect(last.transcript_error).toMatch(/gemini boom/)
   })
 
-  it('Claude returning invalid JSON: extraction_status=failed, error populated', async () => {
+  it('Gemini returning invalid JSON shape: extraction_status=failed, error populated', async () => {
     const supa = makeSupabaseMock()
     ;(createClient as any).mockResolvedValue(supa)
-    const transcribe = vi.fn().mockResolvedValue('hi')
-    // Missing required keys, e.g. would_keep_using → schema parse fails
+    // Missing required keys → schema parse fails
     const extract = vi.fn().mockResolvedValue({ wat: 'nope' })
 
-    const r = await extractEval('match-1', { transcribe, extract })
+    const r = await extractEval('match-1', { extract })
     expect(r.ok).toBe(false)
     expect(r.error).toMatch(/did not match schema/i)
 
@@ -238,13 +249,8 @@ describe('extractEval', () => {
       supa._state.evalUpdates[supa._state.evalUpdates.length - 1]
     expect(last.extraction_status).toBe('failed')
     expect(last.extraction_error).toMatch(/did not match schema/i)
-
-    // Transcript still got saved.
-    const transcriptComplete = supa._state.evalUpdates.find(
-      (u) => u.transcript_status === 'complete',
-    )
-    expect(transcriptComplete).toBeTruthy()
-    expect(transcriptComplete!.transcript).toBe('hi')
+    // transcript_status also marked failed — they fail together now.
+    expect(last.transcript_status).toBe('failed')
   })
 
   it('re-running a complete eval overwrites cleanly (idempotency)', async () => {
@@ -258,20 +264,20 @@ describe('extractEval', () => {
       },
     })
     ;(createClient as any).mockResolvedValue(supa)
-    const transcribe = vi.fn().mockResolvedValue('fresh transcript')
     const extract = vi.fn().mockResolvedValue(goodPayload)
 
-    const r = await extractEval('match-1', { transcribe, extract })
+    const r = await extractEval('match-1', { extract })
 
     expect(r.ok).toBe(true)
-    expect(transcribe).toHaveBeenCalledTimes(1)
-    expect(extract).toHaveBeenCalledWith('fresh transcript')
+    expect(extract).toHaveBeenCalledTimes(1)
 
     // Final extraction update overwrites with the new parsed payload.
     const last =
       supa._state.evalUpdates[supa._state.evalUpdates.length - 1]
     expect(last.extraction_status).toBe('complete')
     expect(last.extracted).toEqual(goodPayload)
+    // And mirrors the new transcript onto the legacy column.
+    expect(last.transcript).toBe(goodPayload.transcript)
 
     // Match was flipped (or kept) at eval_complete.
     expect(supa._state.matchUpdates).toHaveLength(1)
