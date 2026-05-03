@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache'
 
 import { extractEval } from '@/lib/eval-extraction'
 import { extractFromVideoWithOpenAI } from '@/lib/eval-extraction-providers'
+import { markMatchShipped } from '@/lib/match-shipping'
 import { supabaseAdmin } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
 
@@ -57,6 +58,22 @@ export async function sendPortalInvite(creatorId: string) {
  */
 export async function runExtractionAction(matchId: string) {
   const r = await extractEval(matchId, { extract: extractFromVideoWithOpenAI })
+  revalidatePath(`/platform/creators`)
+  return r
+}
+
+/**
+ * Admin "mark shipped" action. Thin wrapper around `markMatchShipped`
+ * (lib/match-shipping.ts) so the brand portal can later reuse the same
+ * core transition without depending on this admin path. Just delegates +
+ * revalidates.
+ */
+export async function markShippedAction(
+  matchId: string,
+  trackingNumber?: string,
+  trackingCarrier?: string,
+) {
+  const r = await markMatchShipped(matchId, { trackingNumber, trackingCarrier })
   revalidatePath(`/platform/creators`)
   return r
 }

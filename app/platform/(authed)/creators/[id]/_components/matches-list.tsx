@@ -6,6 +6,7 @@ import {
 import { createClient } from '@/lib/supabase/server'
 
 import { ExtractedEvalView } from './extracted-eval-view'
+import { MarkShippedButton } from './mark-shipped-button'
 import { RunExtractionButton } from './run-extraction-button'
 
 type EvalVideo = {
@@ -23,6 +24,9 @@ type MatchRow = {
   id: string
   stage: string
   proposed_at: string
+  shipped_at: string | null
+  tracking_number: string | null
+  tracking_carrier: string | null
   product:
     | {
         id: string
@@ -40,6 +44,7 @@ const STAGE_VARIANT: Record<
 > = {
   proposed: 'secondary',
   accepted: 'default',
+  shipped: 'default',
   received: 'default',
   still_trying: 'outline',
   declined: 'outline',
@@ -51,6 +56,7 @@ const STAGE_VARIANT: Record<
 const STAGE_LABEL: Record<string, string> = {
   proposed: 'proposed',
   accepted: 'accepted',
+  shipped: 'shipped',
   received: 'received',
   still_trying: 'still trying',
   declined: 'declined',
@@ -69,6 +75,9 @@ export async function MatchesList({ creatorId }: { creatorId: string }) {
       id,
       stage,
       proposed_at,
+      shipped_at,
+      tracking_number,
+      tracking_carrier,
       product:products (
         id,
         name,
@@ -179,6 +188,22 @@ export async function MatchesList({ creatorId }: { creatorId: string }) {
                 </a>
               ) : null}
             </div>
+
+            {match.stage === 'accepted' ? (
+              <div className="mt-3">
+                <MarkShippedButton matchId={match.id} />
+              </div>
+            ) : null}
+
+            {match.stage === 'shipped' &&
+            (match.tracking_number || match.tracking_carrier) ? (
+              <p className="mt-2 text-[0.78rem] text-muted-warm">
+                tracking:{' '}
+                {[match.tracking_carrier, match.tracking_number]
+                  .filter(Boolean)
+                  .join(' ')}
+              </p>
+            ) : null}
 
             {match.stage === 'eval_submitted' && !extractionFailed ? (
               <div className="mt-3">
