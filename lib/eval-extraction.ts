@@ -6,9 +6,16 @@ import { ExtractedEvalSchema } from '@/lib/schemas/eval'
  * Dependencies for `extractEval`. Real callers wire in
  * `extractFromVideoWithOpenAI` from `lib/eval-extraction-providers.ts`.
  * Tests pass mocks.
+ *
+ * `ctx` carries the expected product + brand name so the provider can
+ * include them in the extraction prompt and ask the model to verify
+ * `product_visible_in_video` / `product_match_confidence`.
  */
 export type ExtractEvalDeps = {
-  extract: (videoBlob: Blob) => Promise<unknown>
+  extract: (
+    videoBlob: Blob,
+    ctx: { productName: string; brandName: string },
+  ) => Promise<unknown>
 }
 
 /**
@@ -56,6 +63,43 @@ export async function extractEval(
     return { ok: false, error: 'already running' }
   }
 
+  // Pull the product + brand names so we can ground the extraction prompt
+  // in what was actually shipped. If the join fails for any reason we
+  // fall back to empty strings — the model just won't be able to match
+  // against a specific product, but the rest of the extraction still works.
+  const { data: matchRow } = await supabase
+    .from('matches')
+    .select(
+      `id,
+       product:products (
+         name,
+         brand:brands ( brand_name )
+       )`,
+    )
+    .eq('id', matchId)
+    .single()
+  // Postgrest may type the joined relations as either object or array
+  // depending on the relationship; the runtime shape on .single() with
+  // FK joins is an object, so unwrap accordingly.
+  const productMaybe = (matchRow as unknown as
+    | {
+        product:
+          | {
+              name: string
+              brand: { brand_name: string } | { brand_name: string }[] | null
+            }
+          | { name: string; brand: { brand_name: string } | null }[]
+          | null
+      }
+    | null
+  )?.product
+  const productObj = Array.isArray(productMaybe) ? productMaybe[0] : productMaybe
+  const productName = productObj?.name ?? ''
+  const brandObj = Array.isArray(productObj?.brand)
+    ? productObj.brand[0]
+    : productObj?.brand
+  const brandName = brandObj?.brand_name ?? ''
+
   const { error: runErr } = await supabase
     .from('eval_videos')
     .update({
@@ -77,7 +121,7 @@ export async function extractEval(
     if (dlErr || !blob) {
       throw new Error(dlErr?.message ?? 'failed to download blob')
     }
-    raw = await deps.extract(blob)
+    raw = await deps.extract(blob, { productName, brandName })
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e)
     await supabase

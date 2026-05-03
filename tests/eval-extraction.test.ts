@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 vi.mock('@/lib/supabase/server', () => ({ createClient: vi.fn() }))
 
 import { extractEval } from '@/lib/eval-extraction'
+import { ExtractedEvalSchema } from '@/lib/schemas/eval'
 import { createClient } from '@/lib/supabase/server'
 
 type EvalRow = {
@@ -16,6 +17,8 @@ type EvalRow = {
 /**
  * Build a Supabase mock that:
  *   - returns a single `eval_videos` row when selected,
+ *   - returns a single joined `matches` row (with product + brand) when
+ *     extractEval reads the product context,
  *   - records every `update()` call against eval_videos and matches,
  *   - serves a pretend blob from storage.download.
  *
@@ -27,6 +30,8 @@ function makeSupabaseMock(opts: {
   selectError?: { message: string } | null
   downloadError?: { message: string } | null
   blob?: Blob | null
+  productName?: string
+  brandName?: string
 } = {}) {
   const initialRow: EvalRow = opts.evalRow ?? {
     id: 'eval-1',
@@ -40,16 +45,30 @@ function makeSupabaseMock(opts: {
   const matchUpdates: Record<string, unknown>[] = []
 
   // eval_videos.select(...).eq.order.limit.single
-  const single = vi
+  const evalSingle = vi
     .fn()
     .mockResolvedValue({
       data: opts.selectError ? null : initialRow,
       error: opts.selectError ?? null,
     })
-  const limit = vi.fn().mockReturnValue({ single })
-  const order = vi.fn().mockReturnValue({ limit })
-  const eqSelect = vi.fn().mockReturnValue({ order })
-  const select = vi.fn().mockReturnValue({ eq: eqSelect })
+  const evalLimit = vi.fn().mockReturnValue({ single: evalSingle })
+  const evalOrder = vi.fn().mockReturnValue({ limit: evalLimit })
+  const evalEqSelect = vi.fn().mockReturnValue({ order: evalOrder })
+  const evalSelect = vi.fn().mockReturnValue({ eq: evalEqSelect })
+
+  // matches.select(...).eq.single (product/brand context join)
+  const matchSingle = vi.fn().mockResolvedValue({
+    data: {
+      id: 'match-1',
+      product: {
+        name: opts.productName ?? 'Test Shoe',
+        brand: { brand_name: opts.brandName ?? 'Acme' },
+      },
+    },
+    error: null,
+  })
+  const matchEqSelect = vi.fn().mockReturnValue({ single: matchSingle })
+  const matchSelect = vi.fn().mockReturnValue({ eq: matchEqSelect })
 
   // eval_videos.update(payload).eq('id', row.id)
   const evalUpdateEq = vi.fn().mockResolvedValue({ error: null })
@@ -69,8 +88,8 @@ function makeSupabaseMock(opts: {
     })
 
   const from = vi.fn().mockImplementation((table: string) => {
-    if (table === 'eval_videos') return { select, update: evalUpdate }
-    if (table === 'matches') return { update: matchUpdate }
+    if (table === 'eval_videos') return { select: evalSelect, update: evalUpdate }
+    if (table === 'matches') return { select: matchSelect, update: matchUpdate }
     return {}
   })
 
@@ -88,7 +107,8 @@ function makeSupabaseMock(opts: {
     from,
     storage: { from: storageFrom },
     _calls: {
-      select,
+      select: evalSelect,
+      matchSelect,
       evalUpdate,
       evalUpdateEq,
       matchUpdate,
@@ -114,6 +134,8 @@ const goodPayload = {
   one_line_take: 'solid daily wear.',
   sentiment: 'positive',
   raw_quotes: ['I would absolutely keep using this.'],
+  product_visible_in_video: true,
+  product_match_confidence: 'high',
 }
 
 beforeEach(() => {
@@ -153,16 +175,23 @@ describe('extractEval', () => {
   })
 
   it('happy path: extracts video, mirrors transcript, flips match to eval_complete', async () => {
-    const supa = makeSupabaseMock()
+    const supa = makeSupabaseMock({
+      productName: 'Cloud Runner',
+      brandName: 'Acme Footwear',
+    })
     ;(createClient as any).mockResolvedValue(supa)
     const extract = vi.fn().mockResolvedValue(goodPayload)
 
     const r = await extractEval('match-1', { extract })
 
     expect(r.ok).toBe(true)
-    // Provider was called with the downloaded blob — single call.
+    // Provider was called with the downloaded blob AND the product context.
     expect(extract).toHaveBeenCalledTimes(1)
     expect(extract.mock.calls[0][0]).toBeInstanceOf(Blob)
+    expect(extract.mock.calls[0][1]).toEqual({
+      productName: 'Cloud Runner',
+      brandName: 'Acme Footwear',
+    })
     expect(supa._calls.storageFrom).toHaveBeenCalledWith('eval-videos')
     expect(supa._calls.download).toHaveBeenCalledWith('match-1/abc.mp4')
 
@@ -201,6 +230,9 @@ describe('extractEval', () => {
     expect(extracted.demonstrated_use_cases).toEqual(
       goodPayload.demonstrated_use_cases,
     )
+    // And the new anti-fraud fields round-trip too.
+    expect(extracted.product_visible_in_video).toBe(true)
+    expect(extracted.product_match_confidence).toBe('high')
 
     // Match flip happened with eval_complete + timestamp.
     expect(supa._state.matchUpdates).toHaveLength(1)
@@ -286,5 +318,41 @@ describe('extractEval', () => {
       stage: 'eval_complete',
       eval_complete_at: expect.any(String),
     })
+  })
+})
+
+describe('ExtractedEvalSchema (anti-fraud fields)', () => {
+  it('parses valid product_visible_in_video + product_match_confidence', async () => {
+    const valid = ExtractedEvalSchema.safeParse(goodPayload)
+    expect(valid.success).toBe(true)
+    if (valid.success) {
+      expect(valid.data.product_visible_in_video).toBe(true)
+      expect(valid.data.product_match_confidence).toBe('high')
+    }
+  })
+
+  it('accepts null for both anti-fraud fields (model could not tell)', async () => {
+    const r = ExtractedEvalSchema.safeParse({
+      ...goodPayload,
+      product_visible_in_video: null,
+      product_match_confidence: null,
+    })
+    expect(r.success).toBe(true)
+  })
+
+  it('rejects an out-of-enum confidence value', async () => {
+    const r = ExtractedEvalSchema.safeParse({
+      ...goodPayload,
+      product_match_confidence: 'super-high',
+    })
+    expect(r.success).toBe(false)
+  })
+
+  it('rejects a non-boolean product_visible_in_video', async () => {
+    const r = ExtractedEvalSchema.safeParse({
+      ...goodPayload,
+      product_visible_in_video: 'yes',
+    })
+    expect(r.success).toBe(false)
   })
 })

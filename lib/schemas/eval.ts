@@ -19,6 +19,17 @@ export const ExtractedEvalSchema = z.object({
   one_line_take: z.string().nullable(),
   sentiment: z.enum(['positive', 'mixed', 'negative']).nullable(),
   raw_quotes: z.array(z.string()).default([]),
+
+  // Anti-fraud signals. The provider is given the expected product +
+  // brand name and asked to confirm the product is actually visible in
+  // the video. Both nullable — model returns null if it couldn't tell
+  // (e.g. audio-only segments, glare, very dark frames). The admin UI
+  // flags low/none confidence + product_visible=false with a coral
+  // warning badge so a human can review before payout.
+  product_visible_in_video: z.boolean().nullable(),
+  product_match_confidence: z
+    .enum(['high', 'medium', 'low', 'none'])
+    .nullable(),
 })
 
 export type ExtractedEval = z.infer<typeof ExtractedEvalSchema>
@@ -32,6 +43,20 @@ Use BOTH signals when filling fields that have visual content.
 
 Return a single JSON object matching the schema exactly. Only fill fields that are actually present in the inputs — use null (or empty array for list fields) for anything the creator did not address. Do not infer or guess.
 
+## Expected product
+The creator was sent: "{product_name}" by "{brand_name}".
+
+When evaluating product_visible_in_video, mark TRUE only if you actually see
+something matching the expected product (packaging, label, distinctive shape).
+A product mentioned only in audio without visible confirmation = FALSE.
+For product_match_confidence:
+  - "high": clearly visible, label/branding readable, matches expected product
+  - "medium": product visible but distant or partially obscured; can identify
+    by shape/color but not branding
+  - "low": something product-shaped is visible but unclear if it's the expected one
+  - "none": no product visible, or visible product clearly mismatched (e.g.,
+    expected: shampoo, visible: a cup of coffee)
+
 Field semantics:
 - transcript: leave this as null or omit it; the server overwrites it with the verbatim Whisper transcript before saving.
 - visual_observations: things you see in the keyframes that aren't spoken — packaging shots, how they hold the product, facial expressions, gestures, room/setting context, what's on screen alongside the product. One short observation per array entry.
@@ -40,6 +65,7 @@ Field semantics:
 - best_for / not_for: audience or use-case fits the creator names.
 - one_line_take: one sentence summarizing their overall verdict, in your words.
 - raw_quotes: direct quotes from the spoken transcript that capture the creator's stance.
+- product_visible_in_video / product_match_confidence: see the "Expected product" rules above. Use null for either if you genuinely cannot tell (e.g. only audio, no clear frames).
 
 Schema:
 {
@@ -52,6 +78,8 @@ Schema:
   "not_for": string[],
   "one_line_take": string | null,
   "sentiment": "positive" | "mixed" | "negative" | null,
-  "raw_quotes": string[]
+  "raw_quotes": string[],
+  "product_visible_in_video": boolean | null,
+  "product_match_confidence": "high" | "medium" | "low" | "none" | null
 }
 `

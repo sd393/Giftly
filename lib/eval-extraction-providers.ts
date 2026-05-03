@@ -34,14 +34,21 @@ function openai(): OpenAI {
  * The transcript is injected into the parsed JSON server-side rather
  * than asking GPT-4o to echo it back — saves output tokens and avoids
  * the model paraphrasing it.
+ *
+ * `ctx` carries product + brand name; we substitute them into the
+ * prompt so the model can verify product visibility (anti-fraud).
  */
 export async function extractFromVideoWithOpenAI(
   videoBlob: Blob,
+  ctx: { productName: string; brandName: string },
 ): Promise<unknown> {
   const [keyframes, transcript] = await Promise.all([
     extractKeyframes(videoBlob),
     transcribeWithWhisper(videoBlob),
   ])
+
+  const prompt = EXTRACTION_PROMPT.replace(/\{product_name\}/g, ctx.productName)
+    .replace(/\{brand_name\}/g, ctx.brandName)
 
   const messages: OpenAI.Chat.Completions.ChatCompletionMessageParam[] = [
     {
@@ -49,7 +56,7 @@ export async function extractFromVideoWithOpenAI(
       content: [
         {
           type: 'text',
-          text: `${EXTRACTION_PROMPT}\n\n--- TRANSCRIPT ---\n${transcript}\n--- END TRANSCRIPT ---\n\nThe ${keyframes.length} images that follow are time-ordered keyframes from the video (first to last).`,
+          text: `${prompt}\n\n--- TRANSCRIPT ---\n${transcript}\n--- END TRANSCRIPT ---\n\nThe ${keyframes.length} images that follow are time-ordered keyframes from the video (first to last).`,
         },
         ...keyframes.map((buf) => ({
           type: 'image_url' as const,
