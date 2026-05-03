@@ -245,7 +245,10 @@ export type Database = {
           product_id: string
           proposed_at: string
           received_at: string | null
+          shipped_at: string | null
           stage: string
+          tracking_carrier: string | null
+          tracking_number: string | null
           updated_at: string
           why_matched: string | null
         }
@@ -264,7 +267,10 @@ export type Database = {
           product_id: string
           proposed_at?: string
           received_at?: string | null
+          shipped_at?: string | null
           stage?: string
+          tracking_carrier?: string | null
+          tracking_number?: string | null
           updated_at?: string
           why_matched?: string | null
         }
@@ -283,7 +289,10 @@ export type Database = {
           product_id?: string
           proposed_at?: string
           received_at?: string | null
+          shipped_at?: string | null
           stage?: string
+          tracking_carrier?: string | null
+          tracking_number?: string | null
           updated_at?: string
           why_matched?: string | null
         }
