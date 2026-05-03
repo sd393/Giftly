@@ -175,6 +175,7 @@ export type Database = {
           blob_key: string
           bytes: number | null
           created_at: string
+          creator_stated_sentiment: string | null
           duration_sec: number | null
           extracted: Json | null
           extracted_at: string | null
@@ -191,6 +192,7 @@ export type Database = {
           blob_key: string
           bytes?: number | null
           created_at?: string
+          creator_stated_sentiment?: string | null
           duration_sec?: number | null
           extracted?: Json | null
           extracted_at?: string | null
@@ -207,6 +209,7 @@ export type Database = {
           blob_key?: string
           bytes?: number | null
           created_at?: string
+          creator_stated_sentiment?: string | null
           duration_sec?: number | null
           extracted?: Json | null
           extracted_at?: string | null
