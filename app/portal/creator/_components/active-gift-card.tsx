@@ -14,7 +14,8 @@ import { markReceived, markStillTrying } from '../_actions'
 import type { PortalMatch } from './portal-tabs'
 
 const STAGE_BADGES: Record<string, string> = {
-  accepted: 'in transit',
+  accepted: 'awaiting shipment',
+  shipped: 'in transit',
   received: 'ready to evaluate',
   still_trying: 'checking back in 14 days',
   eval_submitted: 'eval received',
@@ -84,10 +85,29 @@ export function ActiveGiftCard({ match }: { match: PortalMatch }) {
 
       {match.stage === 'accepted' ? (
         <div className="border-t border-line/60 px-5 md:px-6 py-5">
-          <p className="text-[0.85rem] text-ink-soft max-w-[60ch] mb-4">
-            We&rsquo;ll let you know when it ships. Tap below once it lands so
-            we can move you to the evaluation step.
+          <p className="text-[0.85rem] text-ink-soft max-w-[60ch]">
+            Your match is confirmed. We&rsquo;ll let you know when the brand
+            ships your package.
           </p>
+        </div>
+      ) : null}
+
+      {match.stage === 'shipped' ? (
+        <div className="border-t border-line/60 px-5 md:px-6 py-5">
+          <p className="text-[0.85rem] text-ink-soft max-w-[60ch] mb-1">
+            Your package is on the way. Tap below once it lands so we can
+            move you to the evaluation step.
+          </p>
+          {match.tracking_number ? (
+            <p className="text-[0.78rem] text-muted-warm mb-4">
+              Tracking:{' '}
+              {[match.tracking_carrier, match.tracking_number]
+                .filter(Boolean)
+                .join(' ')}
+            </p>
+          ) : (
+            <div className="mb-4" />
+          )}
           <Button
             size="sm"
             variant="coral"

@@ -16,6 +16,9 @@ export type PortalMatch = {
   why_matched: string | null
   commission_pct: number | null
   proposed_at: string
+  shipped_at: string | null
+  tracking_number: string | null
+  tracking_carrier: string | null
   product: {
     id: string
     name: string

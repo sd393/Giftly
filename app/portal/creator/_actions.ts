@@ -53,12 +53,15 @@ export async function markReceived(matchId: string) {
   const creator = await getCreatorForCurrentUser()
   if (!creator) return { ok: false as const, error: 'Not signed in.' }
   const supabase = await createClient()
+  // Gated on `shipped`, not `accepted` — admin (or brand portal) must
+  // confirm shipping first. This closes the "got-it" fraud path where a
+  // creator could click "I received it" before any package shipped.
   const { error } = await supabase
     .from('matches')
     .update({ stage: 'received', received_at: new Date().toISOString() })
     .eq('id', matchId)
     .eq('creator_id', creator.id)
-    .eq('stage', 'accepted')
+    .eq('stage', 'shipped')
   if (error) return { ok: false as const, error: error.message }
   revalidatePath('/portal/creator')
   return { ok: true as const }

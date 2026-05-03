@@ -24,7 +24,7 @@ describe('markReceived', () => {
     expect(r.ok).toBe(false)
   })
 
-  it('updates stage to received with stage=accepted guard', async () => {
+  it('updates stage to received with stage=shipped guard', async () => {
     ;(getCreatorForCurrentUser as any).mockResolvedValue({ id: 'c1' })
     const chain = mockUpdateChain()
     ;(createClient as any).mockResolvedValue({
@@ -36,7 +36,8 @@ describe('markReceived', () => {
       stage: 'received',
       received_at: expect.any(String),
     })
-    expect(chain.eqFinal).toHaveBeenCalledWith('stage', 'accepted')
+    // Now gated on `shipped` (admin-confirmed), not `accepted`.
+    expect(chain.eqFinal).toHaveBeenCalledWith('stage', 'shipped')
   })
 })
 

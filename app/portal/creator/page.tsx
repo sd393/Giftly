@@ -7,6 +7,7 @@ import { PortalTabs, type PortalMatch } from './_components/portal-tabs'
 
 const ACTIVE_STAGES = [
   'accepted',
+  'shipped',
   'received',
   'still_trying',
   'eval_submitted',
@@ -22,6 +23,7 @@ export default async function CreatorPortalPage() {
     .from('matches')
     .select(
       `id, stage, why_matched, commission_pct, proposed_at,
+       shipped_at, tracking_number, tracking_carrier,
        product:products(id, name, image_url, retail_price_cents,
                        brand:brands(id, brand_name))`,
     )
