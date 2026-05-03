@@ -103,6 +103,7 @@ export async function submitEval(
 ): Promise<{ ok: boolean; error?: string }> {
   const matchIdRaw = formData.get('matchId')
   const file = formData.get('file')
+  const sentimentRaw = formData.get('creator_stated_sentiment')
 
   // Validate file presence and shape before talking to Supabase.
   if (!(file instanceof File) || file.size === 0) {
@@ -111,6 +112,24 @@ export async function submitEval(
   if (typeof matchIdRaw !== 'string' || !matchIdRaw) {
     return { ok: false, error: 'Missing match id.' }
   }
+  // Sentiment is captured client-side before recording (Phase 7f). Strict
+  // binary — 'mixed' is intentionally not an option here. The LLM-extracted
+  // sentiment can still be 'mixed'; admin compares the two for mismatch
+  // flagging. Validated right after matchId since it's cheap.
+  if (typeof sentimentRaw !== 'string' || !sentimentRaw) {
+    return {
+      ok: false,
+      error: 'Pick positive or negative before submitting.',
+    }
+  }
+  if (sentimentRaw !== 'positive' && sentimentRaw !== 'negative') {
+    return {
+      ok: false,
+      error: 'Sentiment must be positive or negative.',
+    }
+  }
+  const sentiment = sentimentRaw as 'positive' | 'negative'
+
   if (
     !file.type ||
     !SUBMIT_LIMITS.ALLOWED_MIMES.includes(
@@ -172,6 +191,7 @@ export async function submitEval(
     blob_key: blobKey,
     bytes: file.size,
     mime_type: file.type,
+    creator_stated_sentiment: sentiment,
   })
   if (insertErr) {
     return { ok: false, error: insertErr.message }

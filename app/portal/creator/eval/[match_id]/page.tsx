@@ -83,13 +83,36 @@ export default async function EvalSubmitPage({
         eval submission
       </p>
       <h1 className="font-display text-[1.75rem] tracking-tight mt-1">
-        {product?.name ?? 'this product'}
+        Record your eval
       </h1>
       <p className="text-[0.85rem] text-muted-warm mt-1">
-        from {brand?.brand_name ?? 'Brand'}
+        {product?.name ?? 'this product'} from {brand?.brand_name ?? 'Brand'}
       </p>
 
-      <div className="mt-8 border border-line/60 rounded-md bg-white p-5 md:p-6">
+      {/*
+        Rules card. Visually distinct from the talking-points card below so
+        the two real rules (show the product on camera, pick honest sentiment)
+        don't get conflated with the optional inspiration bullets. Phrased
+        before recording so the creator doesn't waste a take.
+      */}
+      <div className="mt-8 bg-cream-warm/40 border border-line/60 rounded-md p-4">
+        <p className="text-[0.7rem] uppercase tracking-[0.15em] text-muted-warm font-medium mb-2">
+          two rules
+        </p>
+        <ol className="text-[0.9rem] text-ink leading-[1.55] list-decimal pl-5 space-y-2">
+          <li>
+            Show the product in the video. (Hold it up, point to it, demo it
+            — anything that confirms you actually have it.)
+          </li>
+          <li>
+            Pick positive or negative below — be honest. We&rsquo;d rather
+            have a real &ldquo;this didn&rsquo;t work for me&rdquo; than a
+            forced thumbs-up.
+          </li>
+        </ol>
+      </div>
+
+      <div className="mt-6 border border-line/60 rounded-md bg-white p-5 md:p-6">
         <p className="text-[0.7rem] uppercase tracking-[0.15em] text-muted-warm font-medium mb-2">
           how this works
         </p>

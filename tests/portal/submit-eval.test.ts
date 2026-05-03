@@ -22,15 +22,25 @@ function makeFile({
   return new File([blob], name, { type })
 }
 
+// Default sentiment is 'positive' so existing tests continue to exercise the
+// happy path. Tests that need a different value or to omit the field set it
+// explicitly.
 function makeFormData(opts: {
   matchId?: string | null
   file?: File | null
+  sentiment?: string | null
 } = {}) {
   const fd = new FormData()
   if (opts.matchId !== null && opts.matchId !== undefined) {
     fd.set('matchId', opts.matchId)
   }
   if (opts.file) fd.set('file', opts.file)
+  // Treat `null` as "explicitly omit"; treat `undefined` as "use default".
+  if (opts.sentiment === undefined) {
+    fd.set('creator_stated_sentiment', 'positive')
+  } else if (opts.sentiment !== null) {
+    fd.set('creator_stated_sentiment', opts.sentiment)
+  }
   return fd
 }
 
@@ -118,6 +128,32 @@ describe('submitEval', () => {
     expect(r.error).toMatch(/unsupported/i)
   })
 
+  it('rejects when creator_stated_sentiment is missing', async () => {
+    ;(getCreatorForCurrentUser as any).mockResolvedValue({ id: 'creator-1' })
+    const r = await submitEval(
+      makeFormData({
+        matchId: 'match-1',
+        file: makeFile(),
+        sentiment: null,
+      }),
+    )
+    expect(r.ok).toBe(false)
+    expect(r.error).toMatch(/positive or negative/i)
+  })
+
+  it('rejects when creator_stated_sentiment is invalid value', async () => {
+    ;(getCreatorForCurrentUser as any).mockResolvedValue({ id: 'creator-1' })
+    const r = await submitEval(
+      makeFormData({
+        matchId: 'match-1',
+        file: makeFile(),
+        sentiment: 'mixed',
+      }),
+    )
+    expect(r.ok).toBe(false)
+    expect(r.error).toMatch(/positive or negative/i)
+  })
+
   it('rejects when match.stage is not received', async () => {
     ;(getCreatorForCurrentUser as any).mockResolvedValue({ id: 'creator-1' })
     const supa = makeSupabaseMock({
@@ -143,13 +179,15 @@ describe('submitEval', () => {
     expect(r.error).toMatch(/signed in/i)
   })
 
-  it('happy path: uploads, inserts, updates stage', async () => {
+  it('happy path: uploads, inserts (with stated sentiment), updates stage', async () => {
     ;(getCreatorForCurrentUser as any).mockResolvedValue({ id: 'creator-1' })
     const supa = makeSupabaseMock()
     ;(createClient as any).mockResolvedValue(supa)
 
     const file = makeFile({ bytes: 2048, type: 'video/mp4' })
-    const r = await submitEval(makeFormData({ matchId: 'match-1', file }))
+    const r = await submitEval(
+      makeFormData({ matchId: 'match-1', file, sentiment: 'positive' }),
+    )
 
     expect(r.ok).toBe(true)
     // upload happened to the eval-videos bucket with a key prefixed by match id
@@ -158,12 +196,13 @@ describe('submitEval', () => {
     expect(blobKey).toMatch(/^match-1\/.+\.mp4$/)
     expect(fileArg).toBe(file)
     expect(opts).toEqual({ contentType: 'video/mp4' })
-    // eval_videos row inserted with correct shape
+    // eval_videos row inserted with correct shape, including stated sentiment
     expect(supa._calls.insert).toHaveBeenCalledWith({
       match_id: 'match-1',
       blob_key: blobKey,
       bytes: 2048,
       mime_type: 'video/mp4',
+      creator_stated_sentiment: 'positive',
     })
     // stage update fired
     expect(supa._calls.update).toHaveBeenCalledWith(
@@ -171,6 +210,20 @@ describe('submitEval', () => {
         stage: 'eval_submitted',
         eval_submitted_at: expect.any(String),
       }),
+    )
+  })
+
+  it('happy path: persists negative sentiment', async () => {
+    ;(getCreatorForCurrentUser as any).mockResolvedValue({ id: 'creator-1' })
+    const supa = makeSupabaseMock()
+    ;(createClient as any).mockResolvedValue(supa)
+    const file = makeFile()
+    const r = await submitEval(
+      makeFormData({ matchId: 'match-1', file, sentiment: 'negative' }),
+    )
+    expect(r.ok).toBe(true)
+    expect(supa._calls.insert).toHaveBeenCalledWith(
+      expect.objectContaining({ creator_stated_sentiment: 'negative' }),
     )
   })
 
