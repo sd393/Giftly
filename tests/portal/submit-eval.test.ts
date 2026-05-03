@@ -47,18 +47,31 @@ function makeFormData(opts: {
 /** Build a Supabase client mock with a chainable matches.select / update,
  *  storage.upload, and eval_videos.insert. The match row returned from
  *  .single() defaults to stage='received' and creator_id matching the test
- *  creator id; override via the `match` arg. */
+ *  creator id; override via the `match` arg.
+ *
+ *  Defaults `eval_deadline_at` to 7 days in the future so the happy-path
+ *  tests don't trip the deadline guard added in Phase 7h. Tests that need
+ *  to exercise expiration override the field. */
 function makeSupabaseMock(opts: {
-  match?: { id: string; stage: string; creator_id: string } | null
+  match?: {
+    id: string
+    stage: string
+    creator_id: string
+    eval_deadline_at?: string | null
+  } | null
   matchSelectError?: { message: string } | null
   uploadError?: { message: string } | null
   insertError?: { message: string } | null
   updateError?: { message: string } | null
 } = {}) {
+  const futureDeadline = new Date(
+    Date.now() + 7 * 24 * 60 * 60 * 1000,
+  ).toISOString()
   const match = opts.match ?? {
     id: 'match-1',
     stage: 'received',
     creator_id: 'creator-1',
+    eval_deadline_at: futureDeadline,
   }
 
   const single = vi
@@ -165,6 +178,33 @@ describe('submitEval', () => {
     )
     expect(r.ok).toBe(false)
     expect(r.error).toMatch(/isn['’]t open/i)
+    // never reached storage / insert
+    expect(supa._calls.upload).not.toHaveBeenCalled()
+    expect(supa._calls.insert).not.toHaveBeenCalled()
+  })
+
+  it('rejects when past deadline', async () => {
+    ;(getCreatorForCurrentUser as any).mockResolvedValue({ id: 'creator-1' })
+    // Stage is still `received` but the deadline lapsed — the cron
+    // hasn't run yet to flip to `eval_expired`. submitEval should reject
+    // anyway so nothing slips through the gap.
+    const pastDeadline = new Date(
+      Date.now() - 24 * 60 * 60 * 1000,
+    ).toISOString()
+    const supa = makeSupabaseMock({
+      match: {
+        id: 'match-1',
+        stage: 'received',
+        creator_id: 'creator-1',
+        eval_deadline_at: pastDeadline,
+      },
+    })
+    ;(createClient as any).mockResolvedValue(supa)
+    const r = await submitEval(
+      makeFormData({ matchId: 'match-1', file: makeFile() }),
+    )
+    expect(r.ok).toBe(false)
+    expect(r.error).toMatch(/window|closed/i)
     // never reached storage / insert
     expect(supa._calls.upload).not.toHaveBeenCalled()
     expect(supa._calls.insert).not.toHaveBeenCalled()

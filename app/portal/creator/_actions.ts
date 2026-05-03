@@ -4,6 +4,10 @@ import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 
 import { getCreatorForCurrentUser } from '@/lib/portal/auth'
+import {
+  evalDeadlineFromReceived,
+  isPastDeadline,
+} from '@/lib/portal/eval-deadline'
 import { createClient } from '@/lib/supabase/server'
 
 export async function acceptOffer(matchId: string) {
@@ -56,9 +60,19 @@ export async function markReceived(matchId: string) {
   // Gated on `shipped`, not `accepted` — admin (or brand portal) must
   // confirm shipping first. This closes the "got-it" fraud path where a
   // creator could click "I received it" before any package shipped.
+  //
+  // We stamp `eval_deadline_at` here at the same moment as `received_at`
+  // so the 7-day window is anchored to the same instant the creator
+  // confirmed receipt. submitEval re-checks against this column.
+  const now = new Date()
+  const deadline = evalDeadlineFromReceived(now)
   const { error } = await supabase
     .from('matches')
-    .update({ stage: 'received', received_at: new Date().toISOString() })
+    .update({
+      stage: 'received',
+      received_at: now.toISOString(),
+      eval_deadline_at: deadline.toISOString(),
+    })
     .eq('id', matchId)
     .eq('creator_id', creator.id)
     .eq('stage', 'shipped')
@@ -162,7 +176,7 @@ export async function submitEval(
   // concurrent submissions can't double-fire.
   const { data: match, error: matchErr } = await supabase
     .from('matches')
-    .select('id, stage, creator_id')
+    .select('id, stage, creator_id, eval_deadline_at')
     .eq('id', matchIdRaw)
     .eq('creator_id', creator.id)
     .single()
@@ -176,6 +190,17 @@ export async function submitEval(
     return {
       ok: false,
       error: "This eval isn't open right now.",
+    }
+  }
+  // Even within `received` / `still_trying`, past-deadline submissions
+  // are rejected. The cron-driven auto-expire (flipping to `eval_expired`)
+  // is deferred, so this check is what actually keeps stale submissions out
+  // in the meantime. `isPastDeadline(null)` returns false, so legacy rows
+  // without a deadline stay submittable.
+  if (isPastDeadline(match.eval_deadline_at)) {
+    return {
+      ok: false,
+      error: 'The submission window for this eval has closed.',
     }
   }
 

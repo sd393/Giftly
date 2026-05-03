@@ -35,6 +35,8 @@ describe('markReceived', () => {
     expect(chain.update).toHaveBeenCalledWith({
       stage: 'received',
       received_at: expect.any(String),
+      // 7-day deadline anchored at the same instant as received_at.
+      eval_deadline_at: expect.any(String),
     })
     // Now gated on `shipped` (admin-confirmed), not `accepted`.
     expect(chain.eqFinal).toHaveBeenCalledWith('stage', 'shipped')
