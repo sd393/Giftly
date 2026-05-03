@@ -12,6 +12,7 @@ const ACTIVE_STAGES = [
   'still_trying',
   'eval_submitted',
   'eval_complete',
+  'eval_expired',
 ]
 
 export default async function CreatorPortalPage() {
@@ -23,7 +24,7 @@ export default async function CreatorPortalPage() {
     .from('matches')
     .select(
       `id, stage, why_matched, commission_pct, proposed_at,
-       shipped_at, tracking_number, tracking_carrier,
+       shipped_at, tracking_number, tracking_carrier, eval_deadline_at,
        product:products(id, name, image_url, retail_price_cents,
                        brand:brands(id, brand_name))`,
     )

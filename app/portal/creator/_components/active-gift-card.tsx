@@ -7,6 +7,7 @@ import { toast } from 'sonner'
 
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { daysLeft } from '@/lib/portal/eval-deadline'
 import { cn } from '@/lib/utils'
 
 import { markReceived, markStillTrying } from '../_actions'
@@ -20,6 +21,7 @@ const STAGE_BADGES: Record<string, string> = {
   still_trying: 'checking back in 14 days',
   eval_submitted: 'eval received',
   eval_complete: 'eval complete',
+  eval_expired: 'eval expired',
 }
 
 export function ActiveGiftCard({ match }: { match: PortalMatch }) {
@@ -125,6 +127,35 @@ export function ActiveGiftCard({ match }: { match: PortalMatch }) {
             how is it going?
           </p>
 
+          {/* Deadline countdown. Tone shifts as the window closes:
+              - >2 days: muted-warm, neutral phrasing.
+              - 1-2 days: coral, urgent phrasing.
+              - 0 days (today): coral, "expires today".
+              `daysLeft` returns null for legacy rows (no deadline set) — we
+              skip the subtitle entirely in that case rather than confuse
+              the creator with an indefinite countdown. */}
+          {(() => {
+            const left = daysLeft(match.eval_deadline_at)
+            if (left == null) return null
+            const urgent = left <= 2
+            const text =
+              left === 0
+                ? 'Expires today'
+                : urgent
+                  ? `Only ${left} day${left === 1 ? '' : 's'} left`
+                  : `${left} days left to submit your eval`
+            return (
+              <p
+                className={cn(
+                  'text-[0.78rem] leading-[1.55] mb-3',
+                  urgent ? 'text-coral-deep' : 'text-muted-warm',
+                )}
+              >
+                {text}
+              </p>
+            )
+          })()}
+
           {match.stage === 'still_trying' ? (
             <p className="text-[0.8rem] text-muted-warm leading-[1.55] max-w-[60ch] mb-4">
               We&rsquo;ll check back in 14 days. Submit whenever you&rsquo;re
@@ -198,6 +229,18 @@ export function ActiveGiftCard({ match }: { match: PortalMatch }) {
         <div className="border-t border-line/60 px-5 md:px-6 py-5">
           <p className="text-[0.85rem] text-ink-soft leading-[1.55] max-w-[60ch]">
             Evaluation complete. Thanks for the honest signal.
+          </p>
+        </div>
+      ) : null}
+
+      {match.stage === 'eval_expired' ? (
+        <div className="border-t border-line/60 px-5 md:px-6 py-5">
+          <p className="text-[0.7rem] uppercase tracking-[0.15em] text-coral-deep font-medium mb-2">
+            eval window closed
+          </p>
+          <p className="text-[0.85rem] text-ink-soft leading-[1.55] max-w-[60ch]">
+            The 7-day submission window for this eval has closed. Reach out
+            to your Giftly contact if you&rsquo;d like a re-entry.
           </p>
         </div>
       ) : null}

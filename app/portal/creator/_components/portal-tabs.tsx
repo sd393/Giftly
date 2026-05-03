@@ -19,6 +19,10 @@ export type PortalMatch = {
   shipped_at: string | null
   tracking_number: string | null
   tracking_carrier: string | null
+  // Set by markReceived; null for legacy `received` rows that predate the
+  // 7-day deadline migration. Helpers in lib/portal/eval-deadline.ts treat
+  // null as "no deadline" so those rows stay submittable.
+  eval_deadline_at: string | null
   product: {
     id: string
     name: string

@@ -3,10 +3,15 @@ import { notFound, redirect } from 'next/navigation'
 
 import { Button } from '@/components/ui/button'
 import { getCreatorForCurrentUser } from '@/lib/portal/auth'
+import { daysLeft, isPastDeadline } from '@/lib/portal/eval-deadline'
 import { createClient } from '@/lib/supabase/server'
 
 import { EvalSubmitForm } from './_components/eval-submit-form'
 
+// Used for both off-stage rows and past-deadline rows. The `expired` blurb
+// is the generic catch-all for any reason the window is shut — eval_expired
+// stage flipped by cron OR a `received`/`still_trying` row whose deadline
+// silently lapsed before cron ran.
 const STAGE_BLURB: Record<string, string> = {
   proposed: "Accept this offer first — once it ships and lands you'll be able to submit your eval here.",
   accepted: "We're still waiting on shipping. Once you mark it as received, the eval will open up.",
@@ -15,7 +20,12 @@ const STAGE_BLURB: Record<string, string> = {
   still_trying: "You marked this as still-trying. Switch back to 'submit eval' from the active gifts list when you're ready.",
   eval_submitted: "Thanks — we already have your eval for this product.",
   eval_complete: 'Evaluation complete. Thanks for the honest signal.',
+  eval_expired:
+    "The 7-day submission window for this eval has closed. Reach out to your Giftly contact if you'd like a re-entry.",
 }
+
+const PAST_DEADLINE_BLURB =
+  "The 7-day submission window for this eval has closed. Reach out to your Giftly contact if you'd like a re-entry."
 
 export default async function EvalSubmitPage({
   params,
@@ -31,7 +41,7 @@ export default async function EvalSubmitPage({
   const { data: match } = await supabase
     .from('matches')
     .select(
-      `id, stage, creator_id,
+      `id, stage, creator_id, eval_deadline_at,
        product:products(id, name, image_url,
                         brand:brands(id, brand_name))`,
     )
@@ -48,9 +58,16 @@ export default async function EvalSubmitPage({
       : product.brand
     : null
 
-  if (match.stage !== 'received' && match.stage !== 'still_trying') {
-    const blurb =
-      STAGE_BLURB[match.stage] ?? "This eval isn't open right now."
+  // Two ways the form is closed: stage isn't open OR deadline has lapsed
+  // even though stage hasn't been flipped to `eval_expired` yet (cron gap).
+  const stageClosed =
+    match.stage !== 'received' && match.stage !== 'still_trying'
+  const deadlineClosed = isPastDeadline(match.eval_deadline_at)
+
+  if (stageClosed || deadlineClosed) {
+    const blurb = stageClosed
+      ? STAGE_BLURB[match.stage] ?? "This eval isn't open right now."
+      : PAST_DEADLINE_BLURB
     return (
       <div className="max-w-[640px]">
         <p className="text-[0.7rem] uppercase tracking-[0.18em] text-muted-warm font-medium">
@@ -77,6 +94,17 @@ export default async function EvalSubmitPage({
     )
   }
 
+  // In-window: build the deadline subtitle near the rules card so the
+  // creator sees both the deadline date and the rolling day count.
+  const deadlineLeft = daysLeft(match.eval_deadline_at)
+  const deadlineDate = match.eval_deadline_at
+    ? new Date(match.eval_deadline_at).toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      })
+    : null
+
   return (
     <div className="max-w-[640px]">
       <p className="text-[0.7rem] uppercase tracking-[0.18em] text-muted-warm font-medium">
@@ -88,6 +116,16 @@ export default async function EvalSubmitPage({
       <p className="text-[0.85rem] text-muted-warm mt-1">
         {product?.name ?? 'this product'} from {brand?.brand_name ?? 'Brand'}
       </p>
+
+      {/* Deadline subtitle. Sits between the title and rules card so the
+          creator sees the window before reading the rules. Hidden for
+          legacy rows without an `eval_deadline_at`. */}
+      {deadlineDate && deadlineLeft != null ? (
+        <p className="mt-3 text-[0.78rem] text-muted-warm">
+          Submit by {deadlineDate} — about {deadlineLeft} day
+          {deadlineLeft === 1 ? '' : 's'} left.
+        </p>
+      ) : null}
 
       {/*
         Rules card. Visually distinct from the talking-points card below so
