@@ -9,6 +9,8 @@ import { CreatorEditForm } from '../_components/creator-edit-form'
 import { CreatorNotes } from '../_components/creator-notes'
 import { CreatorStatusActions } from '../_components/creator-status-actions'
 import { ActivityTimeline } from '../../_components/activity-timeline'
+import { MatchesList } from './_components/matches-list'
+import { SendInviteButton } from './_components/send-invite-button'
 
 export default async function CreatorDetailPage({
   params,
@@ -80,11 +82,17 @@ export default async function CreatorDetailPage({
             ) : null}
           </p>
         </div>
-        <CreatorStatusActions
-          id={creator.id}
-          reviewed={Boolean(creator.reviewed_at)}
-          archived={Boolean(creator.archived_at)}
-        />
+        <div className="flex flex-col items-end gap-2">
+          <CreatorStatusActions
+            id={creator.id}
+            reviewed={Boolean(creator.reviewed_at)}
+            archived={Boolean(creator.archived_at)}
+          />
+          <SendInviteButton
+            creatorId={creator.id}
+            alreadyInvited={Boolean(creator.auth_user_id)}
+          />
+        </div>
       </div>
 
       <section className="mb-8">
@@ -101,6 +109,13 @@ export default async function CreatorDetailPage({
           notes
         </h2>
         <CreatorNotes id={creator.id} initial={creator.notes ?? ''} />
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-[0.75rem] uppercase tracking-[0.15em] text-muted-warm font-medium mb-3">
+          matches
+        </h2>
+        <MatchesList creatorId={creator.id} />
       </section>
 
       <section>

@@ -1,0 +1,249 @@
+'use client'
+
+import Link from 'next/link'
+import { useTransition } from 'react'
+import { Clock, Video } from 'lucide-react'
+import { toast } from 'sonner'
+
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { daysLeft } from '@/lib/portal/eval-deadline'
+import { cn } from '@/lib/utils'
+
+import { markReceived, markStillTrying } from '../_actions'
+
+import type { PortalMatch } from './portal-tabs'
+
+const STAGE_BADGES: Record<string, string> = {
+  accepted: 'awaiting shipment',
+  shipped: 'in transit',
+  received: 'ready to evaluate',
+  still_trying: 'checking back in 14 days',
+  eval_submitted: 'eval received',
+  eval_complete: 'eval complete',
+  eval_expired: 'eval expired',
+}
+
+export function ActiveGiftCard({ match }: { match: PortalMatch }) {
+  const [pending, startTransition] = useTransition()
+
+  const product = match.product
+  const brand = product?.brand ?? null
+  const stageLabel = STAGE_BADGES[match.stage] ?? match.stage
+
+  function handleReceived() {
+    startTransition(async () => {
+      const r = await markReceived(match.id)
+      if (r.ok) {
+        toast.success('Marked as received.')
+      } else {
+        toast.error(r.error ?? 'Something went wrong.')
+      }
+    })
+  }
+
+  function handleStillTrying() {
+    startTransition(async () => {
+      const r = await markStillTrying(match.id)
+      if (r.ok) {
+        toast.success("Got it — we'll check back in 14 days.")
+      } else {
+        toast.error(r.error ?? 'Something went wrong.')
+      }
+    })
+  }
+
+  return (
+    <article className="bg-white border border-line/60 rounded-md overflow-hidden">
+      <div className="p-5 md:p-6 flex items-start gap-5">
+        {product?.image_url ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={product.image_url}
+            alt={product.name ?? ''}
+            width={120}
+            height={120}
+            className="size-24 md:size-28 rounded-md object-cover bg-cream-warm shrink-0"
+            loading="lazy"
+          />
+        ) : (
+          <div className="size-24 md:size-28 rounded-md bg-cream-warm shrink-0" />
+        )}
+
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 mb-1">
+            <Badge className="text-[0.65rem] uppercase tracking-[0.1em]">
+              {stageLabel}
+            </Badge>
+          </div>
+          <p className="text-[0.78rem] text-muted-warm">
+            from {brand?.brand_name ?? 'Brand'}
+          </p>
+          <h3 className="font-display text-[1.25rem] tracking-tight mt-0.5">
+            {product?.name ?? 'Product'}
+          </h3>
+        </div>
+      </div>
+
+      {match.stage === 'accepted' ? (
+        <div className="border-t border-line/60 px-5 md:px-6 py-5">
+          <p className="text-[0.85rem] text-ink-soft max-w-[60ch]">
+            Your match is confirmed. We&rsquo;ll let you know when the brand
+            ships your package.
+          </p>
+        </div>
+      ) : null}
+
+      {match.stage === 'shipped' ? (
+        <div className="border-t border-line/60 px-5 md:px-6 py-5">
+          <p className="text-[0.85rem] text-ink-soft max-w-[60ch] mb-1">
+            Your package is on the way. Tap below once it lands so we can
+            move you to the evaluation step.
+          </p>
+          {match.tracking_number ? (
+            <p className="text-[0.78rem] text-muted-warm mb-4">
+              Tracking:{' '}
+              {[match.tracking_carrier, match.tracking_number]
+                .filter(Boolean)
+                .join(' ')}
+            </p>
+          ) : (
+            <div className="mb-4" />
+          )}
+          <Button
+            size="sm"
+            variant="coral"
+            disabled={pending}
+            onClick={handleReceived}
+          >
+            {pending ? 'Saving…' : 'I received it'}
+          </Button>
+        </div>
+      ) : null}
+
+      {match.stage === 'received' || match.stage === 'still_trying' ? (
+        <div className="border-t border-line/60 px-5 md:px-6 py-5">
+          <p className="text-[0.7rem] uppercase tracking-[0.15em] text-muted-warm font-medium mb-3">
+            how is it going?
+          </p>
+
+          {/* Deadline countdown. Tone shifts as the window closes:
+              - >2 days: muted-warm, neutral phrasing.
+              - 1-2 days: coral, urgent phrasing.
+              - 0 days (today): coral, "expires today".
+              `daysLeft` returns null for legacy rows (no deadline set) — we
+              skip the subtitle entirely in that case rather than confuse
+              the creator with an indefinite countdown. */}
+          {(() => {
+            const left = daysLeft(match.eval_deadline_at)
+            if (left == null) return null
+            const urgent = left <= 2
+            const text =
+              left === 0
+                ? 'Expires today'
+                : urgent
+                  ? `Only ${left} day${left === 1 ? '' : 's'} left`
+                  : `${left} days left to submit your eval`
+            return (
+              <p
+                className={cn(
+                  'text-[0.78rem] leading-[1.55] mb-3',
+                  urgent ? 'text-coral-deep' : 'text-muted-warm',
+                )}
+              >
+                {text}
+              </p>
+            )
+          })()}
+
+          {match.stage === 'still_trying' ? (
+            <p className="text-[0.8rem] text-muted-warm leading-[1.55] max-w-[60ch] mb-4">
+              We&rsquo;ll check back in 14 days. Submit whenever you&rsquo;re
+              ready — no rush.
+            </p>
+          ) : null}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {/*
+              UX-INTENT: equal-weight pair. Both options sized + styled the
+              same — no "primary" treatment on the eval path. The eval video
+              itself carries sentiment (positive OR negative), so we don't
+              need a separate "not for me" path here; honest signal lives in
+              what the creator says on camera.
+
+              Both buttons remain available in `still_trying` too — that state
+              is a soft "remind me later" flag, not a lock. Creator can submit
+              an eval any time, or re-tap "Still trying it" to refresh the
+              14-day window.
+            */}
+            <Button
+              asChild
+              type="button"
+              variant="outline"
+              size="default"
+              className={cn(
+                'w-full h-auto py-5 px-5 flex flex-col items-center gap-3 text-center text-[0.9rem] font-medium leading-tight rounded-md',
+                'bg-white border border-line/60 text-ink hover:bg-cream-warm hover:text-ink hover:-translate-y-0',
+              )}
+            >
+              <Link href={`/portal/creator/eval/${match.id}`}>
+                <Video aria-hidden="true" className="size-6 text-ink-soft" />
+                <span>Submit eval</span>
+              </Link>
+            </Button>
+
+            <Button
+              type="button"
+              variant="outline"
+              size="default"
+              disabled={pending}
+              onClick={handleStillTrying}
+              className={cn(
+                'w-full h-auto py-5 px-5 flex flex-col items-center gap-3 text-center text-[0.9rem] font-medium leading-tight rounded-md',
+                'bg-white border border-line/60 text-ink hover:bg-cream-warm hover:text-ink hover:-translate-y-0',
+                match.stage === 'still_trying' &&
+                  'border-coral/40 bg-coral/5',
+              )}
+            >
+              <Clock aria-hidden="true" className="size-6 text-ink-soft" />
+              <span>
+                {match.stage === 'still_trying'
+                  ? 'Still trying — refresh reminder'
+                  : 'Still trying it'}
+              </span>
+            </Button>
+          </div>
+        </div>
+      ) : null}
+
+      {match.stage === 'eval_submitted' ? (
+        <div className="border-t border-line/60 px-5 md:px-6 py-5">
+          <p className="text-[0.85rem] text-ink-soft leading-[1.55] max-w-[60ch]">
+            Thanks — we got your evaluation. We&rsquo;ll be in touch with next
+            steps.
+          </p>
+        </div>
+      ) : null}
+
+      {match.stage === 'eval_complete' ? (
+        <div className="border-t border-line/60 px-5 md:px-6 py-5">
+          <p className="text-[0.85rem] text-ink-soft leading-[1.55] max-w-[60ch]">
+            Evaluation complete. Thanks for the honest signal.
+          </p>
+        </div>
+      ) : null}
+
+      {match.stage === 'eval_expired' ? (
+        <div className="border-t border-line/60 px-5 md:px-6 py-5">
+          <p className="text-[0.7rem] uppercase tracking-[0.15em] text-coral-deep font-medium mb-2">
+            eval window closed
+          </p>
+          <p className="text-[0.85rem] text-ink-soft leading-[1.55] max-w-[60ch]">
+            The 7-day submission window for this eval has closed. Reach out
+            to your Giftly contact if you&rsquo;d like a re-entry.
+          </p>
+        </div>
+      ) : null}
+    </article>
+  )
+}

@@ -13,6 +13,12 @@ const nextConfig = {
         'www.trygiftly.com',
         'app.trygiftly.com',
       ],
+      // Eval video uploads can reach 500 MB (5+ min 1080p phone video).
+      // Default Server Action body limit is ~1 MB; without this raise,
+      // submissions fail before the action runs. Mirrors `MAX_BYTES` in
+      // app/portal/creator/_actions.ts and the eval-videos bucket
+      // file_size_limit.
+      bodySizeLimit: '500mb',
     },
   },
 }
