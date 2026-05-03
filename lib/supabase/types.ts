@@ -243,6 +243,7 @@ export type Database = {
           decline_reason: string | null
           declined_at: string | null
           eval_complete_at: string | null
+          eval_deadline_at: string | null
           eval_submitted_at: string | null
           id: string
           product_id: string
@@ -265,6 +266,7 @@ export type Database = {
           decline_reason?: string | null
           declined_at?: string | null
           eval_complete_at?: string | null
+          eval_deadline_at?: string | null
           eval_submitted_at?: string | null
           id?: string
           product_id: string
@@ -287,6 +289,7 @@ export type Database = {
           decline_reason?: string | null
           declined_at?: string | null
           eval_complete_at?: string | null
+          eval_deadline_at?: string | null
           eval_submitted_at?: string | null
           id?: string
           product_id?: string
