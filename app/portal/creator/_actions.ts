@@ -87,8 +87,14 @@ export async function markStillTrying(matchId: string) {
 // Limits mirrored from the eval-videos bucket (storage.buckets row).
 // Bucket-level enforcement still applies; we check here too so the user
 // sees a clean error rather than the bucket's opaque rejection.
+//
+// 500 MB covers ~95% of real creator submissions: 5+ min 1080p phone
+// video (HEVC iPhone ≈ 300-375 MB; H.264 Android ≈ 450-750 MB). The
+// matching bucket file_size_limit lives in
+// supabase/migrations/<ts>_eval_videos_bucket_500mb.sql, and the
+// server-action body cap in next.config.mjs has the same ceiling.
 const SUBMIT_LIMITS = {
-  MAX_BYTES: 100 * 1024 * 1024,
+  MAX_BYTES: 500 * 1024 * 1024,
   ALLOWED_MIMES: ['video/mp4', 'video/quicktime', 'video/webm'] as const,
 }
 
@@ -142,7 +148,7 @@ export async function submitEval(
     }
   }
   if (file.size > SUBMIT_LIMITS.MAX_BYTES) {
-    return { ok: false, error: 'File is over the 100 MB limit.' }
+    return { ok: false, error: 'File is over the 500 MB limit.' }
   }
 
   const creator = await getCreatorForCurrentUser()

@@ -112,10 +112,10 @@ describe('submitEval', () => {
 
   it('rejects oversized file', async () => {
     ;(getCreatorForCurrentUser as any).mockResolvedValue({ id: 'creator-1' })
-    const big = makeFile({ bytes: 100 * 1024 * 1024 + 1 })
+    const big = makeFile({ bytes: 500 * 1024 * 1024 + 1 })
     const r = await submitEval(makeFormData({ matchId: 'match-1', file: big }))
     expect(r.ok).toBe(false)
-    expect(r.error).toMatch(/100 MB/)
+    expect(r.error).toMatch(/500 MB/)
   })
 
   it('rejects unsupported mime type', async () => {
