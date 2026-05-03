@@ -1,7 +1,7 @@
 # Giftly Outreach Playbook
 
-Stanford/Dartmouth students connecting DTC brands with vetted, commission-paid
-creators. Brands pay only on results, no contracts.
+Stanford/Berkeley/Dartmouth students connecting DTC brands with vetted,
+commission-paid creators. Brands pay only on results, no contracts.
 
 ## Pitch (one-liner)
 
@@ -32,7 +32,7 @@ in-house creator teams, pre-revenue brands.
   ```
   Hi,
 
-  We're Stanford/Dartmouth students connecting DTC brands with vetted creators. We match you with creators who actually drive sales, and you only pay commission on results, no contracts.
+  We're Stanford/Berkeley/Dartmouth students connecting DTC brands with vetted creators. We match you with creators who actually drive sales, and you only pay commission on results, no contracts.
 
   Would you be interested in 2-3 creator profiles that'd be a great fit for {brand}?
 
@@ -44,6 +44,9 @@ in-house creator teams, pre-revenue brands.
 - No em dashes, no exclamation marks, no buzzwords, no flattery.
 - Brand-name normalization: all-caps brands → Title Case; strip `By ` prefix.
   See `normalize_brand()` in `send-batch.py`.
+- **Every send CCs** the teammates listed in `CC_RECIPIENTS` in
+  `send-batch.py` (currently Samarjit, Ethan, Shamit). Update that constant
+  if the team changes; don't make CC per-batch.
 
 ### Example
 
@@ -52,7 +55,7 @@ in-house creator teams, pre-revenue brands.
 ```
 Hi,
 
-We're Stanford/Dartmouth students connecting DTC brands with vetted creators. We match you with creators who actually drive sales, and you only pay commission on results, no contracts.
+We're Stanford/Berkeley/Dartmouth students connecting DTC brands with vetted creators. We match you with creators who actually drive sales, and you only pay commission on results, no contracts.
 
 Would you be interested in 2-3 creator profiles that'd be a great fit for Hydrant?
 
@@ -128,6 +131,10 @@ summary looks off.
 Both are authed via `gog`. Always pass `--account <email>` (or
 `GOG_ACCOUNT`) explicitly — `gog` refuses to default when multiple accounts
 are stored. `run-batch.sh` handles this via its second argument.
+
+CC'd on every send (not used as senders): `samarjit.deshmukh.29@dartmouth.edu`,
+`ethanpzhou@berkeley.edu`, `shamitd@stanford.edu`. Replies hitting "Reply
+All" land in those inboxes too — coordinate before changing the list.
 
 ## Hard rules
 

@@ -1,6 +1,6 @@
 # Giftly Outreach
 
-Cold-email tooling for the Stanford/Dartmouth creator-matching pitch.
+Cold-email tooling for the Stanford/Berkeley/Dartmouth creator-matching pitch.
 Scrapes brand contact pages, sends from authenticated Gmail accounts via the
 `gog` CLI, logs results, sweeps bounces.
 

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Send Berkeley Student Inquiry to a brand batch (non-fallback only).
+"""Send Stanford Student Inquiry to a brand batch (non-fallback only).
 
 Reads <batch>.csv, filters to rows with a real scraped email (email_source
 starts with 'https://'), sends each via `gog gmail send`, and appends the
-send to outreach-log.csv.
+send to outreach-log.csv. Each send CCs the teammates in CC_RECIPIENTS.
 
 Stdout is summary-only. Per-row detail goes to logs/send-<batch-stem>.log.
 """
@@ -27,42 +27,27 @@ IN_CSV = Path(_args[0]) if _args else (ROOT / "batch.csv")
 LOG_CSV = ROOT / "outreach-log.csv"
 VERBOSE = "--verbose" in sys.argv or "-v" in sys.argv
 DRY_RUN = "--dry-run" in sys.argv
+INCLUDE_FALLBACK = "--include-fallback" in sys.argv
 GMAIL_ID_RE = re.compile(r"\b([0-9a-f]{16,})\b")
 
-ACCOUNT = os.environ.get("GOG_ACCOUNT", "ethanpzhou@berkeley.edu")
+ACCOUNT = os.environ.get("GOG_ACCOUNT", "armaan.priyadarshan.29@dartmouth.edu")
 
-# Per-account subject + body. Both strings accept `{brand}` via str.format.
-TEMPLATES: dict[str, dict[str, str]] = {
-    "ethan@trygiftly.com": {
-        "subject": "Creator partnership for {brand}?",
-        "body": """Hi,
+CC_RECIPIENTS = (
+    "samarjit.deshmukh.29@dartmouth.edu",
+    "ethanpzhou@berkeley.edu",
+    "shamitd@stanford.edu",
+)
 
-I run Giftly. We connect DTC brands with vetted creators who actually drive sales, and you only pay commission on results, no contracts.
+SUBJECT_TMPL = "Stanford Student Inquiry"
+BODY_TMPL = """Hi,
 
-Would you be interested in 2-3 creator profiles that'd be a great fit for {brand}?
-
-Thanks,
-Ethan
-""",
-    },
-}
-
-DEFAULT_TEMPLATE = {
-    "subject": "Berkeley Student Inquiry",
-    "body": """Hi,
-
-We're Berkeley students connecting DTC brands with vetted creators. We match you with creators who actually drive sales, and you only pay commission on results, no contracts.
+We're Stanford/Berkeley/Dartmouth students connecting DTC brands with vetted creators. We match you with creators who actually drive sales, and you only pay commission on results, no contracts.
 
 Would you be interested in 2-3 creator profiles that'd be a great fit for {brand}?
 
 Thanks,
-Ethan
-""",
-}
-
-_tmpl = TEMPLATES.get(ACCOUNT, DEFAULT_TEMPLATE)
-SUBJECT_TMPL = _tmpl["subject"]
-BODY_TMPL = _tmpl["body"]
+Armaan
+"""
 
 
 def normalize_brand(raw: str) -> str:
@@ -89,13 +74,14 @@ def send_one(brand_raw: str, email: str, *, dry_run: bool) -> tuple[bool, str, s
     cmd = [
         "gog", "--account", ACCOUNT, "gmail", "send",
         "--to", email,
+        "--cc", ",".join(CC_RECIPIENTS),
         "--subject", subject,
         "--body", body,
     ]
     if dry_run:
         cmd.append("--dry-run")
     env = os.environ.copy()
-    if "GOG_KEYRING_PASSWORD" not in env:
+    if not dry_run and "GOG_KEYRING_PASSWORD" not in env:
         print("ERROR: GOG_KEYRING_PASSWORD not set", file=sys.stderr)
         sys.exit(1)
     try:
@@ -160,7 +146,14 @@ def main():
     with IN_CSV.open() as f:
         rows = list(csv.DictReader(f))
     already = load_already_sent()
-    real = [r for r in rows if r.get("email_source", "").startswith("https://")]
+    if INCLUDE_FALLBACK:
+        # Accept fallback-source rows too (synthesized hello@domain). Only used
+        # when the campaign owner has explicitly authorized contacting brands
+        # whose contact pages didn't yield a verified email — this overrides
+        # the OUTREACH.md hard rule and risks higher bounces.
+        real = [r for r in rows if r.get("email", "").strip()]
+    else:
+        real = [r for r in rows if r.get("email_source", "").startswith("https://")]
     targets = [r for r in real if _dedup_key(r["brand"]) not in already]
     skipped_dup = len(real) - len(targets)
 

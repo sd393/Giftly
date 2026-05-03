@@ -863,3 +863,832 @@ name,role,brand,domain,email,date_sent,verified,llm_evidence
 ,,Field Trip Snacks,fieldtripsnacks.com,info@fieldtripsnacks.com,2026-04-21,sent,throne-merchant
 ,,HerbsPro,herbspro.com,support@herbspro.com,2026-04-21,sent,throne-merchant
 ,,APOTHEKE,apothekeco.com,info@apothekeco.com,2026-04-21,sent,throne-merchant
+,,Bubbeau,bubeautybrand.com,info@bubeautybrand.com,2026-04-28,sent,throne-merchant
+,,Brochu Walker,brochuwalker.com,press@brochuwalker.com,2026-04-28,sent,throne-merchant
+,,Kremp Florist,kremp.com,contactus@kremp.com,2026-04-28,sent,throne-merchant
+,,Cubitt,cubitts.com,info@cubitts.com,2026-04-28,sent,throne-merchant
+,,Touchland,touchland.com,collab@touchland.com,2026-04-28,sent,throne-merchant
+,,Dovetail Workwear,dovetailworkwear.com,cs@dovetailworkwear.com,2026-04-28,sent,throne-merchant
+,,ZQuiet,zquiet.com,info@zquiet.com,2026-04-28,sent,throne-merchant
+,,BlushVibe,blushvibe.com,support@blushvibe.com,2026-04-28,sent,throne-merchant
+,,Mega Cat Studios,megacatstudios.com,info@megacatstudios.com,2026-04-28,sent,throne-merchant
+,,KINK3D,kink3d.com,support@kink3d.com,2026-04-28,sent,throne-merchant
+,,Rogue Energy,rogueenergy.com,support@rogueenergy.com,2026-04-28,sent,throne-merchant
+,,AMEICO,ameico.com,info@ameico.com,2026-04-28,sent,throne-merchant
+,,Mount-It!,mount-it.com,sales@mount-it.com,2026-04-28,sent,throne-merchant
+,,Bio Bidet,biobidet.com,support@biobidet.com,2026-04-28,sent,throne-merchant
+,,Eddie Bauer Kids,eddiebauerkids.com,customerservice@eddiebauerkids.com,2026-04-28,sent,throne-merchant
+,,Cubitts,cubitts.com,info@cubitts.com,2026-04-28,sent,throne-merchant
+,,Chargeasap,chargeasap.com,support@chargeasap.com,2026-04-28,BOUNCED,throne-merchant
+,,Melissa & Doug,melissaanddoug.com,jobs@melissaanddoug.com,2026-04-28,sent,throne-merchant
+,,KORA Organics,koraorganics.com,info@koraorganics.com,2026-04-28,sent,throne-merchant
+,,Grow by Gifting,growbygifting.com,sales@growbygifting.com,2026-04-28,sent,throne-merchant
+,,iEDM,iedm.com,customerservice@iedm.com,2026-04-28,sent,throne-merchant
+,,Girls Crew,shopgirlscrew.com,info@shopgirlscrew.com,2026-04-28,sent,throne-merchant
+,,Judy Blue,judybluejeans.com,shop@judybluejeans.com,2026-04-28,sent,throne-merchant
+,,Dolls Kill,dollskill.com,contact@dollskill.com,2026-04-28,sent,throne-merchant
+,,BWH Plant Co,bwhplantco.com,events@bwhplantco.com,2026-04-28,sent,throne-merchant
+,,Seattle Coffee Gear,seattlecoffeegear.com,sales@seattlecoffeegear.com,2026-04-28,sent,throne-merchant
+,,HUE,hue.com,consumercare@hue.com,2026-04-28,sent,throne-merchant
+,,Soko Glam,sokoglam.com,hello@sokoglam.com,2026-04-28,sent,throne-merchant
+,,King of Christmas,kingofchristmas.com,info@kingofchristmas.com,2026-04-28,sent,throne-merchant
+,,Pure Parima,pureparima.com,info@pureparima.com,2026-04-28,sent,throne-merchant
+,,ELEVEN Australia,elevenaustralia.com,bryant@elevenaustralia.com,2026-04-28,sent,throne-merchant
+,,tonies,tonies.com,hello@tonies.com,2026-04-28,sent,throne-merchant
+,,Speck Products,speckproducts.com,customerservice@speckproducts.com,2026-04-28,sent,throne-merchant
+,,Windsor,windsorstore.com,customersupport@windsorstore.com,2026-04-28,sent,throne-merchant
+,,Hill House Home,hillhousehome.com,hello@hillhousehome.com,2026-04-28,sent,throne-merchant
+,,Mayfairsilk,mayfairsilk.com,shop@mayfairsilk.com,2026-04-28,sent,throne-merchant
+,,Unbound,unboundbabes.com,hello@unboundbabes.com,2026-04-28,sent,throne-merchant
+,,Wildflower Cases,wildflowercases.com,sales@wildflowercases.com,2026-04-28,sent,throne-merchant
+,,MANTLE,mantle-clothing.com,info@mantle-clothing.com,2026-04-28,sent,throne-merchant
+,,Stila Cosmetics,stilacosmetics.com,custcare@stilacosmetics.com,2026-04-28,sent,throne-merchant
+,,Fantastic Fungi,fantasticfungi.com,hi@fantasticfungi.com,2026-04-28,sent,throne-merchant
+,,Hudson Jeans,hudsonjeans.com,ecomm@hudsonjeans.com,2026-04-28,sent,throne-merchant
+,,Buddha Board,buddhaboard.com,info@buddhaboard.com,2026-04-28,sent,throne-merchant
+,,Aera,aeraforhome.com,support@aeraforhome.com,2026-04-28,sent,throne-merchant
+,,AFRM,shopafrm.com,customerservice@shopafrm.com,2026-04-28,sent,throne-merchant
+,,Flaviar,flaviar.com,support@flaviar.com,2026-04-28,sent,throne-merchant
+,,Woolly Clothing Co,woolly.clothing,help@woolly.clothing,2026-04-28,sent,throne-merchant
+,,The Loomia,loomia.com,accounts@loomia.com,2026-04-28,sent,throne-merchant
+,,Terra Thread,terrathread.com,terrathread@terrathread.com,2026-04-28,sent,throne-merchant
+,,Ksubi US,ksubi.com,customerservice-us@ksubi.com,2026-04-28,sent,throne-merchant
+,,Johanna Ortiz,johannaortiz.com,customerservice@johannaortiz.com,2026-04-28,sent,throne-merchant
+,,SABO,saboskirt.com,cancel@saboskirt.com,2026-04-28,sent,throne-merchant
+,,Sparkle In Pink,sparkleinpink.com,support@sparkleinpink.com,2026-04-28,sent,throne-merchant
+,,House of Macadamias,houseofmacadamias.com,hello@houseofmacadamias.com,2026-04-28,sent,throne-merchant
+,,MUNBYN,munbyn.com,support@munbyn.com,2026-04-28,sent,throne-merchant
+,,augustnoa,augustnoa.com,hello@augustnoa.com,2026-04-28,sent,throne-merchant
+,,cpap.com,cpap.com,support@cpap.com,2026-04-28,sent,throne-merchant
+,,Evelyn & Bobbie,evelynbobbie.com,connect@evelynbobbie.com,2026-04-28,sent,throne-merchant
+,,Roller Rabbit,rollerrabbit.com,service@rollerrabbit.com,2026-04-28,sent,throne-merchant
+,,Revo Sunglasses,revo.com,help@revo.com,2026-04-28,sent,throne-merchant
+,,MidinMod,midinmod.com,support@midinmod.com,2026-04-28,sent,throne-merchant
+,,Nimble,gonimble.com,hello@gonimble.com,2026-04-28,sent,throne-merchant
+,,Retro Stage,retro-stage.com,service@retro-stage.com,2026-04-28,sent,throne-merchant
+,,Sulina Shop,sulinashop.com,sulinashop@sulinashop.com,2026-04-28,sent,throne-merchant
+,,ohora usa,ohora.com,help_us@ohora.com,2026-04-28,sent,throne-merchant
+,,Los Angeles Apparel,laapparelstore.com,shop@laapparelstore.com,2026-04-28,sent,throne-merchant
+,,Field Company,fieldco.com,info@fieldco.com,2026-04-28,sent,throne-merchant
+,,RealCraft,realcraft.com,info@realcraft.com,2026-04-28,sent,throne-merchant
+,,United by Blue,unitedbyblue.com,blue@unitedbyblue.com,2026-04-28,sent,throne-merchant
+,,KOVERED,kovered.co.uk,askkovered@kovered.co.uk,2026-04-28,sent,throne-merchant
+,,NOSH NYC,noshnycandy.com,info@noshnycandy.com,2026-04-28,sent,throne-merchant
+,,Gold & Honey,goldandhoney.com,support@goldandhoney.com,2026-04-28,sent,throne-merchant
+,,HERVÉ LÉGER,herveleger.com,hello@herveleger.com,2026-04-28,sent,throne-merchant
+,,Health-Ade,health-ade.com,sales@health-ade.com,2026-04-28,sent,throne-merchant
+,,Emilia Wickstead,emiliawickstead.com,info@emiliawickstead.com,2026-04-28,sent,throne-merchant
+,,momcozy,momcozy.com,support@momcozy.com,2026-04-28,sent,throne-merchant
+,,Tekto Knives,tektoknives.com,support@tektoknives.com,2026-04-28,sent,throne-merchant
+,,Snow Peak,snowpeak.com,info@snowpeak.com,2026-04-28,sent,throne-merchant
+,,GrowingTrees,grow-trees.com,info@grow-trees.com,2026-04-28,sent,throne-merchant
+,,JMP The Label,jmpthelabel.com,support@jmpthelabel.com,2026-04-28,sent,throne-merchant
+,,KITSCH,mykitsch.com,sales@mykitsch.com,2026-04-28,sent,throne-merchant
+,,Dudley Stephens,dudley-stephens.com,info@dudley-stephens.com,2026-04-28,sent,throne-merchant
+,,DIFF Eyewear,diffeyewear.com,support@diffeyewear.com,2026-04-28,sent,throne-merchant
+,,Pyle USA,pyleusa.com,info@pyleusa.com,2026-04-28,sent,throne-merchant
+,,Abbott Lyon,abbottlyon.com,hello@abbottlyon.com,2026-04-28,sent,throne-merchant
+,,Tabletop Things,tabletopthings.com,tom@tabletopthings.com,2026-04-28,sent,throne-merchant
+,,gorjana,gorjana.com,customercare@gorjana.com,2026-04-28,sent,throne-merchant
+,,Alex Crane,alexcrane.co,wholesale@alexcrane.co,2026-04-28,sent,throne-merchant
+,,Eureka Ergonomic,eurekaergonomic.com,customerservice@eurekaergonomic.com,2026-04-28,sent,throne-merchant
+,,YES Bar,theyesbar.com,hello@theyesbar.com,2026-04-28,sent,throne-merchant
+,,Grey Bandit,greybandit.com,help@greybandit.com,2026-04-28,sent,throne-merchant
+,,Hippie Crafter,hippiecrafter.com,support@hippiecrafter.com,2026-04-28,sent,throne-merchant
+,,Maison Miru,maisonmiru.com,hello@maisonmiru.com,2026-04-28,sent,throne-merchant
+,,ReflecToes,reflectoes.com,info@reflectoes.com,2026-04-28,sent,throne-merchant
+,,Auratherapy,auratherapylife.com,hello@auratherapylife.com,2026-04-28,sent,throne-merchant
+,,MARLOWE Skin,marloweskin.com,hello@marloweskin.com,2026-04-28,sent,throne-merchant
+,,Camellios,camellios.com,support@camellios.com,2026-04-28,sent,throne-merchant
+,,Condomania,condomania.com,hello@condomania.com,2026-04-28,sent,throne-merchant
+,,Zen Monkey Studios,zenmonkeystudios.com,josh@zenmonkeystudios.com,2026-04-28,sent,throne-merchant
+,,Urbanista,urbanista.com,press@urbanista.com,2026-04-28,sent,throne-merchant
+,,ProHealth,prohealth.com,customerloyalty@prohealth.com,2026-04-28,sent,throne-merchant
+,,Manuka Doctor US,manukadoctor.com,customerservices@manukadoctor.com,2026-04-28,sent,throne-merchant
+,,Dorsey,shopdorsey.com,vip@shopdorsey.com,2026-04-28,sent,throne-merchant
+,,Sutera,sleepsutera.com,support@sleepsutera.com,2026-04-28,sent,throne-merchant
+,,Honeydew Sleep,honeydewsleep.com,info@honeydewsleep.com,2026-04-28,sent,throne-merchant
+,,Janji,janji.com,support@janji.com,2026-04-28,sent,throne-merchant
+,,Pherotic,pherotic.shop,hello@pherotic.shop,2026-04-28,sent,throne-merchant
+,,Rhino USA,rhinousainc.com,support@rhinousainc.com,2026-04-28,sent,throne-merchant
+,,Project Genius,projectgeniusinc.com,support@projectgeniusinc.com,2026-04-28,sent,throne-merchant
+,,The Great,thisisthegreat.com,hello@thisisthegreat.com,2026-04-28,sent,throne-merchant
+,,Pela Case,pelacase.com,hello@pelacase.com,2026-04-28,sent,throne-merchant
+,,Natura Pine,naturapine.com,shop@naturapine.com,2026-04-28,sent,throne-merchant
+,,Emi Jay,emijay.com,support@emijay.com,2026-04-28,sent,throne-merchant
+,,Anyday,cookanyday.com,press@cookanyday.com,2026-04-28,sent,throne-merchant
+,,PEARL iZUMi,pearlizumi.com,info@pearlizumi.com,2026-04-28,sent,throne-merchant
+,,Randolph USA,randolphusa.com,visioncenter@randolphusa.com,2026-04-28,sent,throne-merchant
+,,Huk Gear,huk.com,support@huk.com,2026-04-28,sent,throne-merchant
+,,2Modern,2modern.com,support@2modern.com,2026-04-28,sent,throne-merchant
+,,A'lei Beauty,aleibeauty.com,info@aleibeauty.com,2026-04-28,sent,throne-merchant
+,,Prinker,prinker.net,info@prinker.net,2026-04-28,sent,throne-merchant
+,,Skinveda,skinveda.com,shilpi@skinveda.com,2026-04-28,sent,throne-merchant
+,,Merigold,merigold.co,info@merigold.co,2026-04-28,sent,throne-merchant
+,,Sun Mountain,sunmountain.com,customercare@sunmountain.com,2026-04-28,sent,throne-merchant
+,,KREWE,krewe.com,krewe@krewe.com,2026-04-28,sent,throne-merchant
+,,Alex Mill,alexmill.com,askalex@alexmill.com,2026-04-28,sent,throne-merchant
+,,Grabie,grabie.cc,service@grabie.cc,2026-04-28,sent,throne-merchant
+,,L'MOMO,lmomo.ca,pr@lmomo.ca,2026-04-28,sent,throne-merchant
+,,Studio Nicholson,studionicholson.com,farai@studionicholson.com,2026-04-28,sent,throne-merchant
+,,Allure Passion,allurepassion.com,info@allurepassion.com,2026-04-28,sent,throne-merchant
+,,bebe,bebe.com,customersupport@bebe.com,2026-04-28,sent,throne-merchant
+,,Posh Totty Designs,poshtottydesigns.com,hello@poshtottydesigns.com,2026-04-28,sent,throne-merchant
+,,Spectrum Collections,spectrumcollections.com,contact@spectrumcollections.com,2026-04-28,sent,throne-merchant
+,,Dosey,dosey.com,hey@dosey.com,2026-04-28,sent,throne-merchant
+,,BARNER,barnerbrand.com,support@barnerbrand.com,2026-04-28,sent,throne-merchant
+,,Biird,biird.co,hello@biird.co,2026-04-28,sent,throne-merchant
+,,Packed Party,packedparty.com,wholesale@packedparty.com,2026-04-28,sent,throne-merchant
+,,Kiramoon,kiramoon.com,hello@kiramoon.com,2026-04-28,sent,throne-merchant
+,,Latitude Outdoors,latitudeoutdoors.com,explore@latitudeoutdoors.com,2026-04-28,sent,throne-merchant
+,,LoveShackFancy,loveshackfancy.com,customerservice@loveshackfancy.com,2026-04-28,sent,throne-merchant
+,,Dermaflash,dermaflash.com,customerservice@dermaflash.com,2026-04-28,sent,throne-merchant
+,,Bonne et Filou,bonneetfilou.com,contact@bonneetfilou.com,2026-04-28,sent,throne-merchant
+,,MONPURE,monpure.com,info@monpure.com,2026-04-28,sent,throne-merchant
+,,Jamstik,jamstik.com,support@jamstik.com,2026-04-28,sent,throne-merchant
+,,Melange Collection,melangehome.com,info@melangehome.com,2026-04-28,sent,throne-merchant
+,,Bisoulovely,bisoulovely.com,info@bisoulovely.com,2026-04-28,sent,throne-merchant
+,,SAME,samelosangeles.com,press@samelosangeles.com,2026-04-28,sent,throne-merchant
+,,Pflueger Fishing,pfluegerfishing.com,support@pfluegerfishing.com,2026-04-28,sent,throne-merchant
+,,Matr Boomie,matrboomie.com,shop@matrboomie.com,2026-04-28,sent,throne-merchant
+,,TELETIES,teleties.com,info@teleties.com,2026-04-28,sent,throne-merchant
+,,Bibipins,bibipins.com,info@bibipins.com,2026-04-28,sent,throne-merchant
+,,Bruvi,bruvi.com,hello@bruvi.com,2026-04-28,sent,throne-merchant
+,,Mymanu,mymanu.com,support@mymanu.com,2026-04-28,sent,throne-merchant
+,,Petite Maison Kids,petitemaisonkids.com,info@petitemaisonkids.com,2026-04-28,sent,throne-merchant
+,,Ten Thousand,tenthousand.cc,support@tenthousand.cc,2026-04-28,sent,throne-merchant
+,,ELEGOO Official,elegoo.com,info@elegoo.com,2026-04-28,sent,throne-merchant
+,,Munchkin,munchkin.com,helpinfantformula@munchkin.com,2026-04-28,sent,throne-merchant
+,,Popsations Popcorn,popsationspopcorn.com,info@popsationspopcorn.com,2026-04-28,sent,throne-merchant
+,,Miron Crosby,mironcrosby.com,info@mironcrosby.com,2026-04-28,sent,throne-merchant
+,,ebdenim,ebdenim.com,caroline@ebdenim.com,2026-04-28,sent,throne-merchant
+,,The Home Security Superstore,thehomesecuritysuperstore.com,press@thehomesecuritysuperstore.com,2026-04-28,sent,throne-merchant
+,,Lodge Cast Iron,lodgecastiron.com,info@lodgecastiron.com,2026-04-28,sent,throne-merchant
+,,PowerStep,powerstep.com,custservice@powerstep.com,2026-04-28,sent,throne-merchant
+,,ERDEM,erdem.com,press@erdem.com,2026-04-28,sent,throne-merchant
+,,CrunchLabs,crunchlabs.com,help@crunchlabs.com,2026-04-28,sent,throne-merchant
+,,Hawkins New York,hawkinsnewyork.com,press@hawkinsnewyork.com,2026-04-28,sent,throne-merchant
+,,Full Circle Home,fullcirclehome.com,info@fullcirclehome.com,2026-04-28,sent,throne-merchant
+,,Emani Vegan Cosmetics,emani.com,hello@emani.com,2026-04-28,sent,throne-merchant
+,,The Dungeon Store,thedungeonstore.com,sales@thedungeonstore.com,2026-04-28,sent,throne-merchant
+,,Cocofloss,cocolab.com,press@cocolab.com,2026-04-28,sent,throne-merchant
+,,noom,noom.com,partnersupport@noom.com,2026-04-28,sent,throne-merchant
+,,Bed Nerdz,bednerdz.com,info@bednerdz.com,2026-04-28,sent,throne-merchant
+,,Moment,shopmoment.com,hello@shopmoment.com,2026-04-28,sent,throne-merchant
+,,Quiet Town,quiettownhome.com,info@quiettownhome.com,2026-04-28,sent,throne-merchant
+,,Radio Flyer,radioflyer.com,awen@radioflyer.com,2026-04-28,sent,throne-merchant
+,,NEOM Organics,neomwellbeing.com,corporate@neomwellbeing.com,2026-04-28,sent,throne-merchant
+,,BlazePod,blazepod.com,support@blazepod.com,2026-04-28,sent,throne-merchant
+,,Furbish Studio,furbishstudio.com,info@furbishstudio.com,2026-04-28,sent,throne-merchant
+,,Aunt Ethel's Pot Pies,auntethels.com,info@auntethels.com,2026-04-28,sent,throne-merchant
+,,Shower Candy,showercandy.com,info@showercandy.com,2026-04-28,sent,throne-merchant
+,,Eye of Love,eyeoflove.com,info@eyeoflove.com,2026-04-28,sent,throne-merchant
+,,PARTCH,partch.co,contact@partch.co,2026-04-28,sent,throne-merchant
+,,ffyjewelry,fymjewelrydesign.com,service@fymjewelrydesign.com,2026-04-28,sent,throne-merchant
+,,McCrea's Candies,mccreascandies.com,info@mccreascandies.com,2026-04-28,sent,throne-merchant
+,,Unihertz,unihertz.com,service@unihertz.com,2026-04-28,sent,throne-merchant
+,,Awe Inspired,aweinspired.com,info@aweinspired.com,2026-04-28,sent,throne-merchant
+,,Vitruvi,vitruvi.com,hello@vitruvi.com,2026-04-28,sent,throne-merchant
+,,Karma and Luck,karmaandluck.com,info@karmaandluck.com,2026-04-28,sent,throne-merchant
+,,Outdoor Voices,outdoorvoices.com,hello@outdoorvoices.com,2026-04-28,sent,throne-merchant
+,,Satechi,satechi.com,support@satechi.com,2026-04-28,sent,throne-merchant
+,,Live Tinted,livetinted.com,hello@livetinted.com,2026-04-28,sent,throne-merchant
+,,Vitruvi US,vitruvi.com,hello@vitruvi.com,2026-04-28,sent,throne-merchant
+,,Raycon,rayconglobal.com,support@rayconglobal.com,2026-04-28,sent,throne-merchant
+,,Pap's Jerky,papsjerky.com,explore@papsjerky.com,2026-04-28,sent,throne-merchant
+,,Tiny Tags,tinytags.com,info@tinytags.com,2026-04-28,sent,throne-merchant
+,,Arms Of Eve,armsofeve.com,info@armsofeve.com,2026-04-28,sent,throne-merchant
+,,Patricia Nash,patricianashdesigns.com,admin@patricianashdesigns.com,2026-04-28,sent,throne-merchant
+,,Sunday Night Foods,sundaynightfoods.com,hello@sundaynightfoods.com,2026-04-28,sent,throne-merchant
+,,Saltair,saltair.com,info@saltair.com,2026-04-28,sent,throne-merchant
+,,Utomic,utomic.com,support@utomic.com,2026-04-28,sent,throne-merchant
+,,wearefaace,wearefaace.com,hello@wearefaace.com,2026-04-28,sent,throne-merchant
+,,Yogasleep,yogasleep.com,hello@yogasleep.com,2026-04-28,sent,throne-merchant
+,,miNATURALS,minaturalsnutrition.com,ron@minaturalsnutrition.com,2026-04-28,sent,throne-merchant
+,,J. Adams,jadams.shoes,support@jadams.shoes,2026-04-28,sent,throne-merchant
+,,BRABAR,shopbrabar.com,care@shopbrabar.com,2026-04-28,sent,throne-merchant
+,,The M Jewelers,themjewelersny.com,contact@themjewelersny.com,2026-04-28,sent,throne-merchant
+,,Licorice,licorice.com,hello@licorice.com,2026-04-28,sent,throne-merchant
+,,Sprinkled With Pink,sprinkledwithpinkshop.com,hello@sprinkledwithpinkshop.com,2026-04-28,sent,throne-merchant
+,,CASELY,getcasely.com,help@getcasely.com,2026-04-28,sent,throne-merchant
+,,LuminAID,luminaid.com,questions@luminaid.com,2026-04-28,sent,throne-merchant
+,,Visual Mood,visualmood.com,info@visualmood.com,2026-04-28,sent,throne-merchant
+,,Kara Yoo,karayoo.com,info@karayoo.com,2026-04-28,sent,throne-merchant
+,,Fulton,fultonumbrellas.com,info@fultonumbrellas.com,2026-04-28,sent,throne-merchant
+,,G-Form,g-form.com,customerservice@g-form.com,2026-04-28,sent,throne-merchant
+,,Matisse Footwear,matissefootwear.com,tevyn@matissefootwear.com,2026-04-28,sent,throne-merchant
+,,EBOOST,eboost.com,press@eboost.com,2026-04-28,sent,throne-merchant
+,,Wild Rye,wild-rye.com,hello@wild-rye.com,2026-04-28,sent,throne-merchant
+,,GIGI PIP,gigipip.com,hello@gigipip.com,2026-04-28,sent,throne-merchant
+,,Poncho,ponchooutdoors.com,help@ponchooutdoors.com,2026-04-28,sent,throne-merchant
+,,Bandolier,bandolierstyle.com,info@bandolierstyle.com,2026-04-28,sent,throne-merchant
+,,OLIPOP,drinkolipop.com,subscription@drinkolipop.com,2026-04-28,sent,throne-merchant
+,,ShadowMyths,shadowmyths.com,doug@shadowmyths.com,2026-04-28,sent,throne-merchant
+,,The Herbal Zen,theherbalzen.com,hello@theherbalzen.com,2026-04-28,sent,throne-merchant
+,,ZALO,zalousa.com,contact@zalousa.com,2026-04-28,sent,throne-merchant
+,,FREEBIRD STORES,freebirdstores.com,orders@freebirdstores.com,2026-04-28,sent,throne-merchant
+,,ALMADA LABEL,almadalabel.com,press@almadalabel.com,2026-04-28,sent,throne-merchant
+,,Vista Shops,vistashops.com,info@vistashops.com,2026-04-28,sent,throne-merchant
+,,Elwood Clothing,elwoodclothing.com,info@elwoodclothing.com,2026-04-28,sent,throne-merchant
+,,Margaux,margauxny.com,help@margauxny.com,2026-04-28,sent,throne-merchant
+,,Sihoo,sihoooffice.com,support@sihoooffice.com,2026-04-28,sent,throne-merchant
+,,Lancaster Cast Iron,lancastercastiron.com,info@lancastercastiron.com,2026-04-28,sent,throne-merchant
+,,Sugar Plum Chocolates,sugar-plum.com,csr@sugar-plum.com,2026-04-28,sent,throne-merchant
+,,TRUE linkswear,truelinkswear.com,info@truelinkswear.com,2026-04-28,sent,throne-merchant
+,,Noah NYC,noahny.com,press@noahny.com,2026-04-28,sent,throne-merchant
+,,BAGGU,baggu.com,info@baggu.com,2026-04-28,sent,throne-merchant
+,,Flow State,flowstatewellness.us,info@flowstatewellness.us,2026-04-28,sent,throne-merchant
+,,swimOutlet,swimoutlet.com,feedback@swimoutlet.com,2026-04-28,sent,throne-merchant
+,,CITY Boots,cityboots.com,support@cityboots.com,2026-04-28,sent,throne-merchant
+,,Sanctuary Clothing,sanctuaryclothing.com,hello@sanctuaryclothing.com,2026-04-28,sent,throne-merchant
+,,Onetify,onetify.com,support@onetify.com,2026-04-28,sent,throne-merchant
+,,Nguyen Coffee Supply,nguyencoffeesupply.com,hello@nguyencoffeesupply.com,2026-04-28,sent,throne-merchant
+,,FLY BY JING,flybyjing.com,support@flybyjing.com,2026-04-28,sent,throne-merchant
+,,Milani Cosmetics,milanicosmetics.com,customerservice@milanicosmetics.com,2026-04-28,sent,throne-merchant
+,,APEX SKI BOOTS,apexskiboots.com,info@apexskiboots.com,2026-04-28,sent,throne-merchant
+,,Multitasky,multitasky.com,hello@multitasky.com,2026-04-28,sent,throne-merchant
+,,CAPNOS,mycapnos.com,hello@mycapnos.com,2026-04-28,sent,throne-merchant
+,,Boarderie,boarderie.com,info@boarderie.com,2026-04-28,sent,throne-merchant
+,,John Hardy,johnhardy.com,clientcare@johnhardy.com,2026-04-28,sent,throne-merchant
+,,MZ Wallace,mzwallace.com,help@mzwallace.com,2026-04-28,sent,throne-merchant
+,,Buoy,buoy.eco,contact@buoy.eco,2026-04-28,sent,throne-merchant
+,,Knockaround,knockaround.com,support@knockaround.com,2026-04-28,sent,throne-merchant
+,,Baby Tula US,babytula.com,help@babytula.com,2026-04-28,sent,throne-merchant
+,,Morrow Soft Goods,morrowsoftgoods.com,hello@morrowsoftgoods.com,2026-04-28,sent,throne-merchant
+,,Ole Henriksen,olehenriksen.com,customerservice@olehenriksen.com,2026-04-28,sent,throne-merchant
+,,Auralis Botanicals,auralisbotanical.com,hi@auralisbotanical.com,2026-04-28,sent,throne-merchant
+,,Speks,getspeks.com,hello@getspeks.com,2026-04-28,sent,throne-merchant
+,,Stix Golf,stix.golf,hello@stix.golf,2026-04-28,sent,throne-merchant
+,,My Mind's Eye Paper,mymindseye.com,hello@mymindseye.com,2026-04-28,sent,throne-merchant
+,,Clare V,clarev.com,info@clarev.com,2026-04-28,sent,throne-merchant
+,,BIKE Athletic,bikeathletic.com,support@bikeathletic.com,2026-04-28,sent,throne-merchant
+,,Stasher,stasherbag.com,wave@stasherbag.com,2026-04-28,sent,throne-merchant
+,,MORI US,us.babymori.com,hello@babymori.com,2026-04-28,sent,throne-merchant
+,,Redragonshop,redragonshop.com,support@redragonshop.com,2026-04-28,sent,throne-merchant
+,,Solid & Striped,solidandstriped.com,press@solidandstriped.com,2026-04-28,sent,throne-merchant
+,,Blackstone Products,blackstoneproducts.com,websales@blackstoneproducts.com,2026-04-28,sent,throne-merchant
+,,MESHKI US,meshki.us,hello@meshki.us,2026-04-28,sent,throne-merchant
+,,Beckett Simonon,beckettsimonon.com,service@beckettsimonon.com,2026-04-28,sent,throne-merchant
+,,Maven Outdoor Equipment,mavenbuilt.com,customerservice@mavenbuilt.com,2026-04-28,sent,throne-merchant
+,,MOTHER,motherdenim.com,customerservice@motherdenim.com,2026-04-28,sent,throne-merchant
+,,Hanky Panky,hankypanky.com,contact-us@hankypanky.com,2026-04-28,sent,throne-merchant
+,,Bella Belle Shoes,bellabelleshoes.com,sales@bellabelleshoes.com,2026-04-28,sent,throne-merchant
+,,Homesick,homesick.com,help@homesick.com,2026-04-28,sent,throne-merchant
+,,The Sill,thesill.com,info@thesill.com,2026-04-28,sent,throne-merchant
+,,Toad&Co,toadandco.com,info@toadandco.com,2026-04-28,sent,throne-merchant
+,,525,525america.com,customer.service@525america.com,2026-04-28,sent,throne-merchant
+,,Chelsea Charles,chelseacharles.com,sales@chelseacharles.com,2026-04-28,sent,throne-merchant
+,,Kizik,kizik.com,customerservice@kizik.com,2026-04-28,sent,throne-merchant
+,,Amiees,amiees.com,support@amiees.com,2026-04-28,sent,throne-merchant
+,,Promescent,promescent.com,customerservice@promescent.com,2026-04-28,sent,throne-merchant
+,,Ascent Nutrition,goascentnutrition.com,info@goascentnutrition.com,2026-04-28,sent,throne-merchant
+,,Cozy Earth,cozyearth.com,support@cozyearth.com,2026-04-28,sent,throne-merchant
+,,Hurom,hurom.com,support@hurom.com,2026-04-28,sent,throne-merchant
+,,Energy Muse,energymuse.com,info@energymuse.com,2026-04-28,sent,throne-merchant
+,,Sara Happ,sarahapp.com,customerservice@sarahapp.com,2026-04-28,sent,throne-merchant
+,,KINGSTON Brass,kingstonbrass.com,contact@kingstonbrass.com,2026-04-28,sent,throne-merchant
+,,Terra Keycaps,terrakeycaps.com,luke@terrakeycaps.com,2026-04-28,sent,throne-merchant
+,,OUPES,oupes.com,support@oupes.com,2026-04-28,sent,throne-merchant
+,,House of Noa,thehouseofnoa.com,hello@thehouseofnoa.com,2026-04-28,sent,throne-merchant
+,,ALC LTD,alcltd.com,assistance@alcltd.com,2026-04-28,sent,throne-merchant
+,,Puritan Candy,puritycandy.com,info@puritycandy.com,2026-04-28,sent,throne-merchant
+,,AromaTech,aromatechscent.com,hello@aromatechscent.com,2026-04-28,sent,throne-merchant
+,,Anirollz,anirollz.com,contact@anirollz.com,2026-04-28,sent,throne-merchant
+,,ezpz,ezpzfun.com,info@ezpzfun.com,2026-04-28,sent,throne-merchant
+,,Mac Duggal,macduggal.com,customercare@macduggal.com,2026-04-28,sent,throne-merchant
+,,Church California,churchcalifornia.com,info@churchcalifornia.com,2026-04-28,sent,throne-merchant
+,,Holderness & Bourne,holdernessandbourne.com,support@holdernessandbourne.com,2026-04-28,sent,throne-merchant
+,,Sunday Scaries,sundayscaries.com,happiness@sundayscaries.com,2026-04-28,sent,throne-merchant
+,,Barton Watch Bands,bartonwatchbands.com,info@bartonwatchbands.com,2026-04-28,sent,throne-merchant
+,,OTAKU,otaku.shop,support@otaku.shop,2026-04-28,sent,throne-merchant
+,,NAGHEDI,naghedinyc.com,info@naghedinyc.com,2026-04-28,sent,throne-merchant
+,,STAUD,staud.clothing,press@staud.clothing,2026-04-28,sent,throne-merchant
+,,Verillas,verlas.com,info@verlas.com,2026-04-28,sent,throne-merchant
+,,IMARKU,imarku.net,imarku@imarku.net,2026-04-28,sent,throne-merchant
+,,Miko,miko.ai,press@miko.ai,2026-04-28,sent,throne-merchant
+,,Basepaws,basepaws.com,hello@basepaws.com,2026-04-28,sent,throne-merchant
+,,Aerosoles,aerosoles.com,customerservice@aerosoles.com,2026-04-28,sent,throne-merchant
+,,Italic,italic.com,hello@italic.com,2026-04-28,sent,throne-merchant
+,,DRAGON GLASSWARE,dragonglassware.com,support@dragonglassware.com,2026-04-28,sent,throne-merchant
+,,iRESTORE,irestorelaser.com,info@irestorelaser.com,2026-04-28,sent,throne-merchant
+,,Global Grub,globalgrub.com,hello@globalgrub.com,2026-04-28,sent,throne-merchant
+,,Artistic Tile,artistictile.com,info@artistictile.com,2026-04-28,sent,throne-merchant
+,,Forest Spa Finland,forestspafinland.com,hei@forestspafinland.com,2026-04-28,sent,throne-merchant
+,,Stripe & Stare,stripeandstare.com,hello@stripeandstare.com,2026-04-28,sent,throne-merchant
+,,DAGNE DOVER,dagnedover.com,support@dagnedover.com,2026-04-28,sent,throne-merchant
+,,Viome,viome.com,press@viome.com,2026-04-28,sent,throne-merchant
+,,Nexbelt,nexbelt.com,info@nexbelt.com,2026-04-28,sent,throne-merchant
+,,Jackery,jackery.com,hello@jackery.com,2026-04-28,sent,throne-merchant
+,,KLAIYI,klaiyihair.com,klaiyi@klaiyihair.com,2026-04-28,sent,throne-merchant
+,,Hook & Tackle,hookandtackle.com,info@hookandtackle.com,2026-04-28,sent,throne-merchant
+,,VICI,vicicollection.com,customercare@vicicollection.com,2026-04-28,sent,throne-merchant
+,,Giraffe Tools US,giraffetools.com,contact@giraffetools.com,2026-04-28,sent,throne-merchant
+,,Ongaro Beauty,ongarobeauty.com,info@ongarobeauty.com,2026-04-28,sent,throne-merchant
+,,Miranda Frye,mirandafrye.com,customercare@mirandafrye.com,2026-04-28,sent,throne-merchant
+,,ella+mila,ellamila.com,marketing@ellamila.com,2026-04-28,sent,throne-merchant
+,,LIVSN,livsndesigns.com,customerservice@livsndesigns.com,2026-04-28,sent,throne-merchant
+,,böhme,bohme.com,webteam@bohme.com,2026-04-28,sent,throne-merchant
+,,Wolf Tooth Components,wolftoothcomponents.com,sales@wolftoothcomponents.com,2026-04-28,sent,throne-merchant
+,,Eva NYC,eva-nyc.com,info@eva-nyc.com,2026-04-28,sent,throne-merchant
+,,Giften Market,giftenmarket.com,hello@giftenmarket.com,2026-04-28,sent,throne-merchant
+,,Plufl,weareplufl.com,hello@weareplufl.com,2026-04-28,sent,throne-merchant
+,,Baking Steel,bakingsteel.com,info@bakingsteel.com,2026-04-28,sent,throne-merchant
+,,Phlur,phlur.com,partnerships@phlur.com,2026-04-28,sent,throne-merchant
+,,Solawave,solawave.co,support@solawave.co,2026-04-28,sent,throne-merchant
+,,Doré,wearedore.com,hello@wearedore.com,2026-04-28,sent,throne-merchant
+,,Pvolve,pvolve.com,partnerships@pvolve.com,2026-04-28,sent,throne-merchant
+,,King Ice,kingice.com,derek@kingice.com,2026-04-28,sent,throne-merchant
+,,Selkirk Sport,selkirk.com,support@selkirk.com,2026-04-28,sent,throne-merchant
+,,Palladium US,palladiumboots.com,cs@palladiumboots.com,2026-04-28,sent,throne-merchant
+,,Ozarke,ozarke.com,info@ozarke.com,2026-04-28,sent,throne-merchant
+,,Breeo,breeo.com,contact@breeo.com,2026-04-28,sent,throne-merchant
+,,Kennedy Blue,kennedyblue.com,info@kennedyblue.com,2026-04-28,sent,throne-merchant
+,,MELO Labs,trymeloair.com,support@trymeloair.com,2026-04-28,sent,throne-merchant
+,,Puzzles of Color,puzzlesofcolor.com,info@puzzlesofcolor.com,2026-04-28,sent,throne-merchant
+,,Montana Knife Company,montanaknifecompany.com,info@montanaknifecompany.com,2026-04-28,sent,throne-merchant
+,,Kuat Racks,kuat.com,info@kuat.com,2026-04-28,sent,throne-merchant
+,,Pooky Lighting US,us.pooky.com,hello@pooky.com,2026-04-28,sent,throne-merchant
+,,Halfday,halfdays.com,heythere@halfdays.com,2026-04-28,sent,throne-merchant
+,,Indigoabbie,indigoabbie.com,hello@indigoabbie.com,2026-04-28,sent,throne-merchant
+,,Heliotrope San Francisco,heliotropesf.com,mail@heliotropesf.com,2026-04-28,sent,throne-merchant
+,,VSSL,vsslgear.com,info@vsslgear.com,2026-04-28,sent,throne-merchant
+,,ChappyWrap,chappywrap.com,press@chappywrap.com,2026-04-28,sent,throne-merchant
+,,ROCKS Whiskey Stones,rockscs.com,info@rockscs.com,2026-04-28,sent,throne-merchant
+,,Bodily,itsbodily.com,hello@itsbodily.com,2026-04-28,sent,throne-merchant
+,,Roses del fuego,rosesdelfuego.com,info@rosesdelfuego.com,2026-04-28,sent,throne-merchant
+,,Ellis Brooklyn,ellisbrooklyn.com,info@ellisbrooklyn.com,2026-04-28,sent,throne-merchant
+,,Cocktail Courier,cocktailcourier.com,contact@cocktailcourier.com,2026-04-28,sent,throne-merchant
+,,TALA,wearetala.com,hello@wearetala.com,2026-04-28,sent,throne-merchant
+,,McGee & Co,mcgeeandco.com,daniela.camboni@mcgeeandco.com,2026-04-28,sent,throne-merchant
+,,DIRTEA,dirteaworld.com,hello@dirteaworld.com,2026-04-28,sent,throne-merchant
+,,American Hat Makers,americanhatmakers.com,info@americanhatmakers.com,2026-04-28,sent,throne-merchant
+,,WoofCrate,woofcrate.ca,happy@woofcrate.ca,2026-04-28,sent,throne-merchant
+,,HELM Boots,helmboots.com,contact@helmboots.com,2026-04-28,sent,throne-merchant
+,,Perfect Locks,perfectlocks.com,support@perfectlocks.com,2026-04-28,sent,throne-merchant
+,,SodaPup,sodapup.com,info@sodapup.com,2026-04-28,sent,throne-merchant
+,,TeddyTales,teddytales.com,cs@teddytales.com,2026-04-28,sent,throne-merchant
+,,Cheekbone Beauty,cheekbonebeauty.com,info@cheekbonebeauty.com,2026-04-28,sent,throne-merchant
+,,Fathead,fathead.com,fans@fathead.com,2026-04-28,sent,throne-merchant
+,,TAI Jewelry,taijewelry.com,customerservice@taijewelry.com,2026-04-28,sent,throne-merchant
+,,Happy Box,happyboxstore.com,hello@happyboxstore.com,2026-04-28,sent,throne-merchant
+,,Carve Designs,carvedesigns.com,contact@carvedesigns.com,2026-04-28,sent,throne-merchant
+,,Atoms,atoms.com,support@atoms.com,2026-04-28,sent,throne-merchant
+,,melin,melin.com,info@melin.com,2026-04-28,sent,throne-merchant
+,,OGL,oglmove.com,service@oglmove.com,2026-04-28,sent,throne-merchant
+,,My Magic Carpet,buymymagiccarpet.com,support@buymymagiccarpet.com,2026-04-28,sent,throne-merchant
+,,Fable,fable.com,hello@fable.com,2026-04-28,sent,throne-merchant
+,,El Guapo,elguapobitters.com,hello@elguapobitters.com,2026-04-28,sent,throne-merchant
+,,Scented Designs,scenteddesigns.com,hello@scenteddesigns.com,2026-04-28,sent,throne-merchant
+,,AutoFull US,autofull.com,service@autofull.com,2026-04-28,sent,throne-merchant
+,,Babiators Sunglasses,babiators.com,customerservice@babiators.com,2026-04-28,sent,throne-merchant
+,,Mountain Khakis,mountainkhakis.com,customerservice@mountainkhakis.com,2026-04-28,sent,throne-merchant
+,,The Stockroom,stockroom.com,info@stockroom.com,2026-04-28,sent,throne-merchant
+,,Fièra Cosmetics,fieracosmetics.com,support@fieracosmetics.com,2026-04-28,sent,throne-merchant
+,,pediped,pediped.com,hello@pediped.com,2026-04-28,sent,throne-merchant
+,,Lark Fine Foods,larkfinefoods.com,sales@larkfinefoods.com,2026-04-28,sent,throne-merchant
+,,Dale Audrey,daleaudrey.com,daleaudrey@daleaudrey.com,2026-04-28,sent,throne-merchant
+,,SIN Home Goods,virginiasin.com,info@virginiasin.com,2026-04-28,sent,throne-merchant
+,,Kailo Labs,gokailo.com,support@gokailo.com,2026-04-28,sent,throne-merchant
+,,centinelle,centinelle.com,advocate@centinelle.com,2026-04-28,BOUNCED,throne-merchant
+,,Capy-Era,capyera.com,hello@capyera.com,2026-04-28,sent,throne-merchant
+,,Haus Labs by Lady Gaga,hauslabs.com,creators@hauslabs.com,2026-04-28,sent,throne-merchant
+,,Raw Sugar,rawsugarliving.com,info@rawsugarliving.com,2026-04-28,sent,throne-merchant
+,,MOB BEAUTY,mobbeauty.com,support@mobbeauty.com,2026-04-28,sent,throne-merchant
+,,DMoose,dmoose.com,support@dmoose.com,2026-04-28,sent,throne-merchant
+,,Sea New York,sea-ny.com,info@sea-ny.com,2026-04-28,sent,throne-merchant
+,,Mindful And Co Kids,mindfulandcokids.com,hello@mindfulandcokids.com,2026-04-28,sent,throne-merchant
+,,Twisted Lily,twistedlily.com,info@twistedlily.com,2026-04-28,sent,throne-merchant
+,,RENPHO US,renpho.com,support@renpho.com,2026-04-28,sent,throne-merchant
+,,RMS Beauty,rmsbeauty.com,customerservice@rmsbeauty.com,2026-04-28,sent,throne-merchant
+,,Espresso Displays,us.espres.so,support@espres.so,2026-04-28,sent,throne-merchant
+,,Twine Living,twineliving.com,help@twineliving.com,2026-04-28,sent,throne-merchant
+,,Drinkmate USA,idrinkproducts.com,sales@idrinkproducts.com,2026-04-28,sent,throne-merchant
+,,Spiral USA,spiralusa.com,info@spiralusa.com,2026-04-28,sent,throne-merchant
+,,Tiare Hawaii,tiarehawaii.com,aloha@tiarehawaii.com,2026-04-28,sent,throne-merchant
+,,Beyond Polish,beyondpolish.com,support@beyondpolish.com,2026-04-28,BOUNCED,throne-merchant
+,,Baukjen,baukjen.com,theteam@baukjen.com,2026-04-28,sent,throne-merchant
+,,Wildling,wildling.com,press@wildling.com,2026-04-28,sent,throne-merchant
+,,Komuso,komusodesign.com,info@komusodesign.com,2026-04-28,sent,throne-merchant
+,,Farsedakis Beauty,farsedakis.com,complaints@farsedakis.com,2026-04-28,BOUNCED,throne-merchant
+,,Gnara,gnara.com,admin@gnara.com,2026-04-28,sent,throne-merchant
+,,Taos Footwear,taosfootwear.com,warranty@taosfootwear.com,2026-04-28,sent,throne-merchant
+,,SLEEFS,sleefs.com,info@sleefs.com,2026-04-28,sent,throne-merchant
+,,NOYZ,noyz.com,support@noyz.com,2026-04-28,sent,throne-merchant
+,,Gatherall,wegatherall.com,help@wegatherall.com,2026-04-28,sent,throne-merchant
+,,kozēkozē,kozekoze.com,hello@kozekoze.com,2026-04-28,sent,throne-merchant
+,,eCreamery,ecreamery.com,thescoop@ecreamery.com,2026-04-28,sent,throne-merchant
+,,Eat My Shortbread,eatmyshortbread.com,info@eatmyshortbread.com,2026-04-28,sent,throne-merchant
+,,Wyze Labs,wyze.com,support@wyze.com,2026-04-28,sent,throne-merchant
+,,Cinq à Sept,cinqasept.nyc,aventura@cinqasept.nyc,2026-04-28,sent,throne-merchant
+,,Lori Beds,loribeds.com,info@loribeds.com,2026-04-28,sent,throne-merchant
+,,HEST,hest.com,info@hest.com,2026-04-28,sent,throne-merchant
+,,Katin USA,katinusa.com,press@katinusa.com,2026-04-28,sent,throne-merchant
+,,Hydrant,drinkhydrant.com,hello@drinkhydrant.com,2026-04-28,sent,throne-merchant
+,,OMNES,omnes.com,hello@omnes.com,2026-04-28,sent,throne-merchant
+,,Xtrema,xtrema.com,support@xtrema.com,2026-04-28,sent,throne-merchant
+,,Lock Laces,locklaces.com,customerservice@locklaces.com,2026-04-28,sent,throne-merchant
+,,Zombie Ghost,zombie.clothing,human@zombie.clothing,2026-04-28,BOUNCED,throne-merchant
+,,Katia Designs,katiadesigns.com,customerservice@katiadesigns.com,2026-04-28,sent,throne-merchant
+,,Grande Cosmetics,grandecosmetics.com,press@grandecosmetics.com,2026-04-28,sent,throne-merchant
+,,Solly Baby,sollybaby.com,info@sollybaby.com,2026-04-28,sent,throne-merchant
+,,Hoselink USA,hoselink.com,support@hoselink.com,2026-04-28,sent,throne-merchant
+,,Kismile,kismile.com,support@kismile.com,2026-04-28,sent,throne-merchant
+,,Victrola,victrola.com,amyu@victrola.com,2026-04-28,sent,throne-merchant
+,,The Hundreds,thehundreds.com,sales@thehundreds.com,2026-04-28,sent,throne-merchant
+,,NATPAT,natpat.com,care@natpat.com,2026-04-28,sent,throne-merchant
+,,Lauren Moshi,laurenmoshi.com,support@laurenmoshi.com,2026-04-28,sent,throne-merchant
+,,Rudy Project,rudyproject.com,customerservice@rudyproject.com,2026-04-28,sent,throne-merchant
+,,POOLSIDE,wearepoolside.com,hello@wearepoolside.com,2026-04-28,sent,throne-merchant
+,,Oribe Hair Care,oribe.com,anja.martens@oribe.com,2026-04-28,sent,throne-merchant
+,,PARFAIT,parfaitlingerie.com,help@parfaitlingerie.com,2026-04-28,sent,throne-merchant
+,,Avarelle,avarelle.com,cs@avarelle.com,2026-04-28,sent,throne-merchant
+,,The Sanctuary,sanctuary.com,info.uk@sanctuary.com,2026-04-28,sent,throne-merchant
+,,Subtle Asian Treats,subtleasiantreats.com,support@subtleasiantreats.com,2026-04-28,sent,throne-merchant
+,,Journelle,journelle.com,help@journelle.com,2026-04-28,sent,throne-merchant
+,,Olive & Piper,oliveandpiper.com,info@oliveandpiper.com,2026-04-28,sent,throne-merchant
+,,Boy Smells,boysmells.com,david.kien@boysmells.com,2026-04-28,sent,throne-merchant
+,,Weebolt,weebolt.com,support@weebolt.com,2026-04-28,sent,throne-merchant
+,,3sixteen,3sixteen.com,info@3sixteen.com,2026-04-28,sent,throne-merchant
+,,Fosi Audio,fosiaudio.com,support@fosiaudio.com,2026-04-28,sent,throne-merchant
+,,Heavys Audio,heavys.com,support@heavys.com,2026-04-28,sent,throne-merchant
+,,Audio46,audio46.com,info@audio46.com,2026-04-28,sent,throne-merchant
+,,La Boîte,laboiteny.com,hello@laboiteny.com,2026-04-28,sent,throne-merchant
+,,Blue Vanilla,bluevanilla.com,contact@bluevanilla.com,2026-04-28,sent,throne-merchant
+,,Manta Sleep,mantasleep.com,support@mantasleep.com,2026-04-28,sent,throne-merchant
+,,Mokobara,mokobara.com,support@mokobara.com,2026-04-28,sent,throne-merchant
+,,Faribault Mill,faribaultmill.com,info@faribaultmill.com,2026-04-28,sent,throne-merchant
+,,Grundens,grundens.com,support@grundens.com,2026-04-28,sent,throne-merchant
+,,Komuso Design,komusodesign.com,info@komusodesign.com,2026-04-28,sent,throne-merchant
+,,ODDOBODY,oddobody.com,contact@oddobody.com,2026-04-28,sent,throne-merchant
+,,BRUCE BOLT,brucebolt.us,team@brucebolt.us,2026-04-28,sent,throne-merchant
+,,Alo Yoga,aloyoga.com,support@aloyoga.com,2026-04-28,sent,throne-merchant
+,,SAU LEE,sau-lee.com,customercare@sau-lee.com,2026-04-28,sent,throne-merchant
+,,Vintage Candy Co,vintagecandyco.com,hello@vintagecandyco.com,2026-04-28,sent,throne-merchant
+,,Luke's Lobster,lukeslobster.com,catering@lukeslobster.com,2026-04-28,sent,throne-merchant
+,,Chillhouse,chillhouse.com,partnerships@chillhouse.com,2026-04-28,sent,throne-merchant
+,,Jamie Haller,shop-jamiehaller.com,hello@shop-jamiehaller.com,2026-04-28,sent,throne-merchant
+,,Energy Rocks,energyrocks.store,info@energyrocks.store,2026-04-28,sent,throne-merchant
+,,Sense,sense-all-in.com,info@sense-all-in.com,2026-04-28,sent,throne-merchant
+,,Nugget,nuggetcomfort.com,hq@nuggetcomfort.com,2026-04-28,sent,throne-merchant
+,,Lumination,lumination.us,socials@lumination.us,2026-04-28,sent,throne-merchant
+,,Never Have I Ever,neverhaveiever.shop,info@neverhaveiever.shop,2026-04-28,sent,throne-merchant
+,,SANDMARC,sandmarc.com,help@sandmarc.com,2026-04-28,sent,throne-merchant
+,,Fan Daddies,fandaddies.com,askdaddies@fandaddies.com,2026-04-28,sent,throne-merchant
+,,KraftGeek,kraftgeek.com,hello@kraftgeek.com,2026-04-28,sent,throne-merchant
+,,SoundAssured,soundassured.com,sales@soundassured.com,2026-04-28,sent,throne-merchant
+,,Etchn,etchn.com,info@etchn.com,2026-04-28,sent,throne-merchant
+,,Gooseberry Intimates,gooseberryintimates.com,customer.services@gooseberryintimates.com,2026-04-28,sent,throne-merchant
+,,HOWLER BROTHERS,howlerbros.com,service@howlerbros.com,2026-04-28,sent,throne-merchant
+,,Tom Beckbe,tombeckbe.com,info@tombeckbe.com,2026-04-28,sent,throne-merchant
+,,THRONE KINGDOM,thronekingdom.com,info@thronekingdom.com,2026-04-28,sent,throne-merchant
+,,Donjane,donjane.com,contact@donjane.com,2026-04-28,sent,throne-merchant
+,,Just Vertical,justvertical.com,support@justvertical.com,2026-04-28,sent,throne-merchant
+,,More Labs,morelabs.com,hello@morelabs.com,2026-04-28,sent,throne-merchant
+,,MUSUBI KILN,musubikiln.com,info@musubikiln.com,2026-04-28,sent,throne-merchant
+,,Voyage Luggage,voyageluggage.com,hello@voyageluggage.com,2026-04-28,sent,throne-merchant
+,,Rosaholics,rosaholics.com,hello@rosaholics.com,2026-04-28,sent,throne-merchant
+,,fyb jewelry,fybjewelry.com,hello@fybjewelry.com,2026-04-28,sent,throne-merchant
+,,Smith Teamaker,smithtea.com,customersuccess@smithtea.com,2026-04-28,sent,throne-merchant
+,,FOR OTHERS,for-others.com,hello@for-others.com,2026-04-28,sent,throne-merchant
+,,Mobile Dog Gear,mobiledoggear.com,news@mobiledoggear.com,2026-04-28,sent,throne-merchant
+,,FINEX Cast Iron Cookware,finexusa.com,cookwithus@finexusa.com,2026-04-28,sent,throne-merchant
+,,Shwood Eyewear,shwoodshop.com,info@shwoodshop.com,2026-04-28,sent,throne-merchant
+,,Homebody,stayhomebody.com,press@stayhomebody.com,2026-04-28,sent,throne-merchant
+,,Klean Kanteen,kleankanteen.com,donations@kleankanteen.com,2026-04-28,sent,throne-merchant
+,,Cravory Cookies,thecravory.com,info@thecravory.com,2026-04-28,sent,throne-merchant
+,,ENVE Composites,enve.com,connor.johnson@enve.com,2026-04-28,sent,throne-merchant
+,,Sister Jane,sisterjane.com,hello@sisterjane.com,2026-04-28,sent,throne-merchant
+,,TRUEWERK,truewerk.com,proservice@truewerk.com,2026-04-28,sent,throne-merchant
+,,Studio Neat,studioneat.com,hello@studioneat.com,2026-04-28,sent,throne-merchant
+,,Athena Club,athenaclub.com,hey@athenaclub.com,2026-04-28,sent,throne-merchant
+,,Bursera,bursera.com,hello@bursera.com,2026-04-28,sent,throne-merchant
+,,Enjoy The Wood,enjoythewood.com,service@enjoythewood.com,2026-04-28,sent,throne-merchant
+,,Sock Panda,sockpanda.com,panda@sockpanda.com,2026-04-28,sent,throne-merchant
+,,Turtle Beach USA,turtlebeach.com,dealerinquiry@turtlebeach.com,2026-04-28,sent,throne-merchant
+,,Fling,hellofling.com,care@hellofling.com,2026-04-28,sent,throne-merchant
+,,Boutinela,boutinela.com,invest@boutinela.com,2026-04-28,sent,throne-merchant
+,,Itemlabel,itemlabel.com,hello@itemlabel.com,2026-04-28,sent,throne-merchant
+,,Holo Taco,holotaco.com,support@holotaco.com,2026-04-28,sent,throne-merchant
+,,Aurora,auroragift.com,info@auroragift.com,2026-04-28,sent,throne-merchant
+,,Turtle Beach,turtlebeach.com,dealerinquiry@turtlebeach.com,2026-04-28,sent,throne-merchant
+,,MeowCos,meowcos.com,sales@meowcos.com,2026-04-28,sent,throne-merchant
+,,Bones Coffee Company,bonescoffee.com,support@bonescoffee.com,2026-04-28,sent,throne-merchant
+,,Nuts.com,nuts.com,feedback@nuts.com,2026-04-28,sent,throne-merchant
+,,I.AM.GIA,iamgia.com,hello@iamgia.com,2026-04-28,sent,throne-merchant
+,,Specc's Chocolatier,speccsfudge.com,hello@speccsfudge.com,2026-04-28,sent,throne-merchant
+,,BakerCrate,bakercrate.com,hello@bakercrate.com,2026-04-28,BOUNCED,throne-merchant
+,,Plushie Dreadfuls,plushiedreadfuls.com,hello@plushiedreadfuls.com,2026-04-28,BOUNCED,throne-merchant
+,,Takeya USA,takeyausa.com,hello@takeyausa.com,2026-04-28,sent,throne-merchant
+,,Bougie Beasts,bougiebeasts.com,hello@bougiebeasts.com,2026-04-28,BOUNCED,throne-merchant
+,,Gnarly Nutrition,gognarly.com,hello@gognarly.com,2026-04-28,BOUNCED,throne-merchant
+,,Thread,threadc.com,hello@threadc.com,2026-04-28,BOUNCED,throne-merchant
+,,Piscifun,piscifun.com,hello@piscifun.com,2026-04-28,BOUNCED,throne-merchant
+,,Caudabe,caudabe.com,hello@caudabe.com,2026-04-28,BOUNCED,throne-merchant
+,,Cheer Up Games,cheerupgames.com,hello@cheerupgames.com,2026-04-28,BOUNCED,throne-merchant
+,,Holocuren,holocuren.com,hello@holocuren.com,2026-04-28,BOUNCED,throne-merchant
+,,Local Pervert,shoplocalpervert.com,hello@shoplocalpervert.com,2026-04-28,BOUNCED,throne-merchant
+,,Kosmic Kandles,kosmickandles.com,hello@kosmickandles.com,2026-04-28,sent,throne-merchant
+,,ABYstyle,abystyle.com,hello@abystyle.com,2026-04-28,BOUNCED,throne-merchant
+,,Craftmix,craftmix.com,hello@craftmix.com,2026-04-28,BOUNCED,throne-merchant
+,,Mojo Gummies,mojo.shop,hello@mojo.shop,2026-04-28,BOUNCED,throne-merchant
+,,Rosephoria,rosephoria.com,hello@rosephoria.com,2026-04-28,sent,throne-merchant
+,,Maaji,maaji.co,hello@maaji.co,2026-04-28,BOUNCED,throne-merchant
+,,RAËLIV Boutique,raeliv.boutique,hello@raeliv.boutique,2026-04-28,sent,throne-merchant
+,,VOLOOM,voloom.com,hello@voloom.com,2026-04-28,BOUNCED,throne-merchant
+,,LEKI USA,lekiusa.com,hello@lekiusa.com,2026-04-28,sent,throne-merchant
+,,Game Face Grooming,gamefacegrooming.com,hello@gamefacegrooming.com,2026-04-28,BOUNCED,throne-merchant
+,,Autumn Cashmere,autumncashmere.com,hello@autumncashmere.com,2026-04-28,BOUNCED,throne-merchant
+,,Manitobah USA,manitobah.com,hello@manitobah.com,2026-04-28,BOUNCED,throne-merchant
+,,Bondinage Latex,bondinage.com,hello@bondinage.com,2026-04-28,BOUNCED,throne-merchant
+,,Maxi-Cosi,maxicosi.com,hello@maxicosi.com,2026-04-28,BOUNCED,throne-merchant
+,,Le Monde Gourmand,gourmandbeauty.com,hello@gourmandbeauty.com,2026-04-28,sent,throne-merchant
+,,Surface Hair,surfacehair.com,hello@surfacehair.com,2026-04-28,sent,throne-merchant
+,,Wildebeest,wildebeest.co,hello@wildebeest.co,2026-04-28,sent,throne-merchant
+,,GhostBed,ghostbed.com,hello@ghostbed.com,2026-04-28,sent,throne-merchant
+,,Side Quest Shoppe,sidequestshoppe.com,hello@sidequestshoppe.com,2026-04-28,BOUNCED,throne-merchant
+,,CRAFTD,craftdlondon.com,hello@craftdlondon.com,2026-04-28,sent,throne-merchant
+,,White Mountain,whitemountainshoes.com,hello@whitemountainshoes.com,2026-04-28,BOUNCED,throne-merchant
+,,True,trueshop.us,hello@trueshop.us,2026-04-28,sent,throne-merchant
+,,Grind,grindcoffeeco.com,hello@grindcoffeeco.com,2026-04-28,BOUNCED,throne-merchant
+,,Fozzis,fozzis.com,hello@fozzis.com,2026-04-28,sent,throne-merchant
+,,Packed with Purpose,packedwithpurpose.gifts,hello@packedwithpurpose.gifts,2026-04-28,sent,throne-merchant
+,,Wild Bill's Olde Fashioned Soda Pop,drinkwildbills.com,hello@drinkwildbills.com,2026-04-28,sent,throne-merchant
+,,Summit & Steam,summitsteam.com,hello@summitsteam.com,2026-04-28,BOUNCED,throne-merchant
+,,The Urban Charm,theurbancharm.com,hello@theurbancharm.com,2026-04-28,BOUNCED,throne-merchant
+,,Ornot,ornotbike.com,hello@ornotbike.com,2026-04-28,BOUNCED,throne-merchant
+,,Warner Bros. Shop,wbshop.com,hello@wbshop.com,2026-04-28,BOUNCED,throne-merchant
+,,fragranceShop,fragranceshop.com,hello@fragranceshop.com,2026-04-28,sent,throne-merchant
+,,Veer Coffee Co,veercoffee.com,hello@veercoffee.com,2026-04-28,BOUNCED,throne-merchant
+,,AG Jeans,agjeans.com,hello@agjeans.com,2026-04-28,BOUNCED,throne-merchant
+,,Atlas Bar,atlasbars.com,hello@atlasbars.com,2026-04-28,BOUNCED,throne-merchant
+,,Simple Retro,simpleretro.com,hello@simpleretro.com,2026-04-28,BOUNCED,throne-merchant
+,,Klymit,klymit.com,hello@klymit.com,2026-04-28,BOUNCED,throne-merchant
+,,URBAN REVIVO,global.urbanrevivo.com,hello@global.urbanrevivo.com,2026-04-28,sent,throne-merchant
+,,Toor Knives,toorknives.com,hello@toorknives.com,2026-04-28,BOUNCED,throne-merchant
+,,Jonathan Adler,jonathanadler.com,hello@jonathanadler.com,2026-04-28,BOUNCED,throne-merchant
+,,Effie's Paper,effiespaper.com,hello@effiespaper.com,2026-04-28,sent,throne-merchant
+,,Lucy & Sam,lucyandsam.com,hello@lucyandsam.com,2026-04-28,sent,throne-merchant
+,,Puppy Pride,puppypride.store,hello@puppypride.store,2026-04-28,sent,throne-merchant
+,,Miss Me,missme.com,hello@missme.com,2026-04-28,sent,throne-merchant
+,,FoodCycler,foodcycler.com,hello@foodcycler.com,2026-04-28,BOUNCED,throne-merchant
+,,Woolx,woolx.com,hello@woolx.com,2026-04-28,sent,throne-merchant
+,,Tricomax,tricomax.com,hello@tricomax.com,2026-04-28,BOUNCED,throne-merchant
+,,ALIGNE,aligne.co,hello@aligne.co,2026-04-28,sent,throne-merchant
+,,Lovisa US,lovisa.com,hello@lovisa.com,2026-04-28,sent,throne-merchant
+,,World Wide Stereo,worldwidestereo.com,hello@worldwidestereo.com,2026-04-28,BOUNCED,throne-merchant
+,,Strange Dollz Boutique,strange-dollz-boudoir.myshopify.com,hello@strange-dollz-boudoir.myshopify.com,2026-04-28,sent,throne-merchant
+,,Michael Stars,michaelstars.com,hello@michaelstars.com,2026-04-28,sent,throne-merchant
+,,GOLF le FLEUR,golflefleur.com,hello@golflefleur.com,2026-04-28,BOUNCED,throne-merchant
+,,Suugr Studio,suu.gr,hello@suu.gr,2026-04-28,sent,throne-merchant
+,,goodr,goodr.com,hello@goodr.com,2026-04-28,BOUNCED,throne-merchant
+,,HOMAGE,homage.com,hello@homage.com,2026-04-28,sent,throne-merchant
+,,Spark Gift Co,sparkgiftco.com,hello@sparkgiftco.com,2026-04-28,BOUNCED,throne-merchant
+,,Glitter Lingerie,glitterlingerie.com,hello@glitterlingerie.com,2026-04-28,sent,throne-merchant
+,,Legacybox,legacybox.com,hello@legacybox.com,2026-04-28,sent,throne-merchant
+,,Unihorn,unihornofficial.com,hello@unihornofficial.com,2026-04-28,BOUNCED,throne-merchant
+,,European Wax Center,waxcenter.com,hello@waxcenter.com,2026-04-28,BOUNCED,throne-merchant
+,,Pokesports,pokesports.org,hello@pokesports.org,2026-04-28,BOUNCED,throne-merchant
+,,Bed Threads,bedthreads.com,hello@bedthreads.com,2026-04-28,sent,throne-merchant
+,,RŌZ,rozstore.co,hello@rozstore.co,2026-04-28,BOUNCED,throne-merchant
+,,Coffee Blossom,blossomcoffeeroasters.com,hello@blossomcoffeeroasters.com,2026-04-28,BOUNCED,throne-merchant
+,,Craft Sportswear,craftsportswear.com,hello@craftsportswear.com,2026-04-28,BOUNCED,throne-merchant
+,,DSPTCH,dsptch.com,hello@dsptch.com,2026-04-28,sent,throne-merchant
+,,Karnox,karnox.com,hello@karnox.com,2026-04-28,BOUNCED,throne-merchant
+,,DM Snacks,dmsnacks.com,hello@dmsnacks.com,2026-04-28,sent,throne-merchant
+,,Warm People,warmpeople.co,hello@warmpeople.co,2026-04-28,sent,throne-merchant
+,,Animebae,animebae.co,hello@animebae.co,2026-04-28,BOUNCED,throne-merchant
+,,GRID Wallet,grid-wallet.com,hello@grid-wallet.com,2026-04-28,BOUNCED,throne-merchant
+,,Chains of metal,chainsofmetal.com,hello@chainsofmetal.com,2026-04-28,BOUNCED,throne-merchant
+,,Mill Rock East,millrockeast.com,hello@millrockeast.com,2026-04-28,BOUNCED,throne-merchant
+,,Percival Menswear,percivalclo.com,hello@percivalclo.com,2026-04-28,sent,throne-merchant
+,,WANDRD Gear,wandrd.com,hello@wandrd.com,2026-04-28,BOUNCED,throne-merchant
+,,IBEX,ibex.com,hello@ibex.com,2026-04-28,sent,throne-merchant
+,,OppaboCo,oppabo.co,hello@oppabo.co,2026-04-28,sent,throne-merchant
+,,Mauviel1830,mauviel-usa.com,hello@mauviel-usa.com,2026-04-28,sent,throne-merchant
+,,Showers Pass,showerspass.com,hello@showerspass.com,2026-04-28,sent,throne-merchant
+,,Psychedelic Water,psychedelicwater.com,hello@psychedelicwater.com,2026-04-28,BOUNCED,throne-merchant
+,,Hestan Culinary,hestanculinary.com,hello@hestanculinary.com,2026-04-28,sent,throne-merchant
+,,Punchkins,punchkins.com,hello@punchkins.com,2026-04-28,sent,throne-merchant
+,,Cutie Bunni,cutiebunni.com,hello@cutiebunni.com,2026-04-28,BOUNCED,throne-merchant
+,,BulbHead,bulbhead.com,hello@bulbhead.com,2026-04-28,BOUNCED,throne-merchant
+,,Nathan James,nathanjames.com,hello@nathanjames.com,2026-04-28,BOUNCED,throne-merchant
+,,Interior Icons,interioricons.com,hello@interioricons.com,2026-04-28,BOUNCED,throne-merchant
+,,Weezie Towels,weezietowels.com,hello@weezietowels.com,2026-04-28,BOUNCED,throne-merchant
+,,Clammy Heart,clammyheart.com,hello@clammyheart.com,2026-04-28,sent,throne-merchant
+,,Petal & Pup USA,petalandpup.com,hello@petalandpup.com,2026-04-28,sent,throne-merchant
+,,Serenity Kids,myserenitykids.com,hello@myserenitykids.com,2026-04-28,sent,throne-merchant
+,,Fresh Clean Threads,freshcleantees.com,hello@freshcleantees.com,2026-04-28,BOUNCED,throne-merchant
+,,Ceres Gourmet,ceresgourmet.com,hello@ceresgourmet.com,2026-04-28,BOUNCED,throne-merchant
+,,Bleuet,bleuetgirl.com,hello@bleuetgirl.com,2026-04-28,BOUNCED,throne-merchant
+,,Alex Evenings,alexevenings.com,hello@alexevenings.com,2026-04-28,sent,throne-merchant
+,,Zoe,zoe.com,hello@zoe.com,2026-04-28,sent,throne-merchant
+,,SHEFIT,shefit.com,hello@shefit.com,2026-04-28,sent,throne-merchant
+,,Alabaster,alabasterco.com,hello@alabasterco.com,2026-04-28,sent,throne-merchant
+,,Bellabu Bear,bellabubear.com,hello@bellabubear.com,2026-04-28,sent,throne-merchant
+,,Andar,andar.com,hello@andar.com,2026-04-28,sent,throne-merchant
+,,ROKA,roka.com,hello@roka.com,2026-04-28,BOUNCED,throne-merchant
+,,Chubbies Shorts,chubbiesshorts.com,hello@chubbiesshorts.com,2026-04-28,BOUNCED,throne-merchant
+,,R. Riveter,rriveter.com,hello@rriveter.com,2026-04-28,BOUNCED,throne-merchant
+,,Stay Golden Cosmetics,staygoldencosmetics.com,hello@staygoldencosmetics.com,2026-04-28,BOUNCED,throne-merchant
+,,SARTORO,sartoro.co,hello@sartoro.co,2026-04-28,BOUNCED,throne-merchant
+,,Ekster,ekster.com,hello@ekster.com,2026-04-28,BOUNCED,throne-merchant
+,,GREATS,greats.com,hello@greats.com,2026-04-28,sent,throne-merchant
+,,L'AVANT Collective,lavantcollective.com,hello@lavantcollective.com,2026-04-28,BOUNCED,throne-merchant
+,,Rockstar Original,rockstarenergy.com,hello@rockstarenergy.com,2026-04-28,sent,throne-merchant
+,,GOOD AMERICAN,goodamerican.com,hello@goodamerican.com,2026-04-28,BOUNCED,throne-merchant
+,,Punchy Munchies,punchymunchies.com,hello@punchymunchies.com,2026-04-28,sent,throne-merchant
+,,Qidi Tech,qidi3d.com,hello@qidi3d.com,2026-04-28,BOUNCED,throne-merchant
+,,KETL Mtn Apparel,ketlmtn.com,hello@ketlmtn.com,2026-04-28,BOUNCED,throne-merchant
+,,Plushy Planet,plushyplanet.com,hello@plushyplanet.com,2026-04-28,sent,throne-merchant
+,,Feels So Good,fsgprints.com,hello@fsgprints.com,2026-04-28,sent,throne-merchant
+,,Gel Blaster,gelblaster.com,hello@gelblaster.com,2026-04-28,sent,throne-merchant
+,,Eklexic Jewelry,eklexic.com,hello@eklexic.com,2026-04-28,BOUNCED,throne-merchant
+,,GoplusUS,goplusus.com,hello@goplusus.com,2026-04-28,BOUNCED,throne-merchant
+,,Comrad,comradsocks.com,hello@comradsocks.com,2026-04-28,sent,throne-merchant
+,,tomboyx,tomboyx.com,hello@tomboyx.com,2026-04-28,BOUNCED,throne-merchant
+,,Encircled,encircled.co,hello@encircled.co,2026-04-28,sent,throne-merchant
+,,MARLII LAB,marliilab.com.au,hello@marliilab.com.au,2026-04-28,BOUNCED,throne-merchant
+,,Birthdate Co,birthdate.co,hello@birthdate.co,2026-04-28,BOUNCED,throne-merchant
+,,RegisBox,regisbox.com,hello@regisbox.com,2026-04-28,BOUNCED,throne-merchant
+,,Alias Tees,aliastees.com,hello@aliastees.com,2026-04-28,sent,throne-merchant
+,,Universal Standard,universalstandard.com,hello@universalstandard.com,2026-04-28,BOUNCED,throne-merchant
+,,12 Parsecs Designs,12parsecsdesigns.com,hello@12parsecsdesigns.com,2026-04-28,BOUNCED,throne-merchant
+,,The Skinny Confidential,theskinnyconfidential.com,hello@theskinnyconfidential.com,2026-04-28,BOUNCED,throne-merchant
+,,KeySmart,getkeysmart.com,hello@getkeysmart.com,2026-04-28,sent,throne-merchant
+,,Plantation Pride,plantationpridepecans.com,hello@plantationpridepecans.com,2026-04-28,sent,throne-merchant
+,,Shapellx,shapellx.com,hello@shapellx.com,2026-04-28,sent,throne-merchant
+,,Hari Mari,harimari.com,hello@harimari.com,2026-04-28,BOUNCED,throne-merchant
+,,Flower Knows,flowerknows.co,hello@flowerknows.co,2026-04-28,BOUNCED,throne-merchant
+,,Ash & Erie,ashanderie.com,hello@ashanderie.com,2026-04-28,BOUNCED,throne-merchant
+,,Ami Paris,amiparis.com,hello@amiparis.com,2026-04-28,BOUNCED,throne-merchant
+,,Rebecca Vallance,rebeccavallance.com,hello@rebeccavallance.com,2026-04-28,BOUNCED,throne-merchant
+,,Sugar Cubed Studios,sugarcubedstudios.com,hello@sugarcubedstudios.com,2026-04-28,sent,throne-merchant
+,,WORKPRO TOOLS,workprotools.store,hello@workprotools.store,2026-04-28,sent,throne-merchant
+,,Brother Ming Games,brotherminggames.com,hello@brotherminggames.com,2026-04-28,sent,throne-merchant
+,,RéVive Skincare,reviveskincare.com,hello@reviveskincare.com,2026-04-28,sent,throne-merchant
+,,Little Gamer Candle Co,littlegamercandleco.com,hello@littlegamercandleco.com,2026-04-28,sent,throne-merchant
+,,HomeTown Riot,hometownriot.com,hello@hometownriot.com,2026-04-28,sent,throne-merchant
+,,TOKK,tokktech.com,hello@tokktech.com,2026-04-28,sent,throne-merchant
+,,Calli Essentials,calliskin.com,hello@calliskin.com,2026-04-28,sent,throne-merchant
+,,TheraFun Accessories,therafunshop.com,hello@therafunshop.com,2026-04-28,sent,throne-merchant
+,,Apoterra,apoterra.com,hello@apoterra.com,2026-04-28,sent,throne-merchant
+,,CIGA design,cigadesign.com,hello@cigadesign.com,2026-04-28,sent,throne-merchant
+,,Echelon Fit US,echelonfit.com,hello@echelonfit.com,2026-04-28,sent,throne-merchant
+,,Otaku Scents,otakuscents.com,hello@otakuscents.com,2026-04-28,sent,throne-merchant
+,,May Lindstrom,maylindstrom.com,hello@maylindstrom.com,2026-04-28,sent,throne-merchant
+,,Perkies,perkies.com,hello@perkies.com,2026-04-28,sent,throne-merchant
+,,Irresistible Me,irresistibleme.com,hello@irresistibleme.com,2026-04-28,sent,throne-merchant
+,,Vortix Technology,vortix-technology.com,hello@vortix-technology.com,2026-04-28,sent,throne-merchant
+,,Cor Silver,thecorcollection.com,hello@thecorcollection.com,2026-04-28,sent,throne-merchant
+,,EVERGOODS,evergoods.us,hello@evergoods.us,2026-04-28,sent,throne-merchant
+,,Sundaze,sundazeskincare.com,hello@sundazeskincare.com,2026-04-28,sent,throne-merchant
+,,Naot Footwear,naot.com,hello@naot.com,2026-04-28,sent,throne-merchant
+,,Sonix,shopsonix.com,hello@shopsonix.com,2026-04-28,sent,throne-merchant
+,,JOI,choosejoi.co,hello@choosejoi.co,2026-04-28,sent,throne-merchant
+,,MySmile,mysmilesteeth.com,hello@mysmilesteeth.com,2026-04-28,BOUNCED,throne-merchant
+,,Hystar,hystar.gg,hello@hystar.gg,2026-04-28,BOUNCED,throne-merchant
+,,Collared Foxy,collaredfoxy.com,hello@collaredfoxy.com,2026-04-28,BOUNCED,throne-merchant
+,,Loftie,byloftie.com,hello@byloftie.com,2026-04-28,sent,throne-merchant
+,,Popkiller,popkiller.us,hello@popkiller.us,2026-04-28,BOUNCED,throne-merchant
+,,Wanan Luxury,wananluxury.com,hello@wananluxury.com,2026-04-28,BOUNCED,throne-merchant
+,,Hauty,hauty.com,hello@hauty.com,2026-04-28,sent,throne-merchant
+,,Lizush,lizush.com,hello@lizush.com,2026-04-28,BOUNCED,throne-merchant
+,,Etekcity,etekcity.com,hello@etekcity.com,2026-04-28,sent,throne-merchant
+,,Saranghae Skincare,lovesaranghae.com,hello@lovesaranghae.com,2026-04-28,sent,throne-merchant
+,,Spirit Shop,barspiritshop.com,hello@barspiritshop.com,2026-04-28,sent,throne-merchant
+,,Little Genie Productions,littlegenie.squarespace.com,hello@littlegenie.squarespace.com,2026-04-28,sent,throne-merchant
+,,Beyond Yoga,beyondyoga.com,hello@beyondyoga.com,2026-04-28,sent,throne-merchant
+,,Paddywax,paddywax.com,hello@paddywax.com,2026-04-28,sent,throne-merchant
+,,Juicy Couture,juicycouture.com,hello@juicycouture.com,2026-04-28,sent,throne-merchant
+,,VI Derm,vipeel.com,hello@vipeel.com,2026-04-28,sent,throne-merchant
+,,Bella Dahl,belladahl.com,hello@belladahl.com,2026-04-28,sent,throne-merchant
+,,Beginning Boutique US,beginningboutique.com,hello@beginningboutique.com,2026-04-28,sent,throne-merchant
+,,TeeFury,teefury.com,hello@teefury.com,2026-04-28,sent,throne-merchant
+,,Bellora Bijoux,bellora-bijoux.com,hello@bellora-bijoux.com,2026-04-28,sent,throne-merchant
+,,Adanola,adanola.com,hello@adanola.com,2026-04-28,sent,throne-merchant
+,,Super Smalls,supersmalls.com,hello@supersmalls.com,2026-04-28,sent,throne-merchant
+,,nixit,nixit.com,hello@nixit.com,2026-04-28,sent,throne-merchant
+,,Tropeaka,tropeaka.com.au,hello@tropeaka.com.au,2026-04-28,sent,throne-merchant
+,,Great Jones,greatjonesgoods.com,hello@greatjonesgoods.com,2026-04-28,sent,throne-merchant
+,,Ohmmm,ohmmmcare.com,hello@ohmmmcare.com,2026-04-28,sent,throne-merchant
+,,Lorals,mylorals.com,hello@mylorals.com,2026-04-28,sent,throne-merchant
+,,curatedbyalexis,curatedbyalexisp.com,hello@curatedbyalexisp.com,2026-04-28,sent,throne-merchant
+,,KNOTWTR,knotwtr.com,hello@knotwtr.com,2026-04-28,sent,throne-merchant
+,,TAFT,taftclothing.com,hello@taftclothing.com,2026-04-28,sent,throne-merchant
+,,Kulani Kinis,kulanikinis.com,hello@kulanikinis.com,2026-04-28,sent,throne-merchant
+,,Sassy Sacha Jewelry,sassysachajewelry.com,hello@sassysachajewelry.com,2026-04-28,sent,throne-merchant
+,,Party of Two,bookpartyoftwo.com,hello@bookpartyoftwo.com,2026-04-28,sent,throne-merchant
+,,Luna Sundara,lunasundara.com,hello@lunasundara.com,2026-04-28,sent,throne-merchant
+,,Kine CBD,getkine.com,hello@getkine.com,2026-04-28,sent,throne-merchant
+,,US Lounge,us.lounge.com,hello@lounge.com,2026-04-28,BOUNCED,throne-merchant
+,,PondHQ,pondhq.shop,hello@pondhq.shop,2026-04-28,BOUNCED,throne-merchant
+,,Negative Underwear,negativeunderwear.com,hello@negativeunderwear.com,2026-04-28,sent,throne-merchant
+,,SimplyFloss,simplyfloss.com,hello@simplyfloss.com,2026-04-28,sent,throne-merchant
+,,Chain Assembly,chainassembly.com,hello@chainassembly.com,2026-04-28,sent,throne-merchant
+,,Matrix Keyboards,matrixkeyboards.com,hello@matrixkeyboards.com,2026-04-28,sent,throne-merchant
+,,Unbound Merino,unboundmerino.com,hello@unboundmerino.com,2026-04-28,sent,throne-merchant
+,,Sunga Life,sungalife.com,hello@sungalife.com,2026-04-28,sent,throne-merchant
+,,AVI-8 Timepieces,avi-8.com,hello@avi-8.com,2026-04-28,sent,throne-merchant
+,,PinkBlush,pinkblushmaternity.com,hello@pinkblushmaternity.com,2026-04-28,sent,throne-merchant
+,,Splendid,splendid.com,hello@splendid.com,2026-04-28,sent,throne-merchant
+,,HALM Straws,halmstraws.com,hello@halmstraws.com,2026-04-28,sent,throne-merchant
+,,Wildfox Couture,wildfox.com,hello@wildfox.com,2026-04-28,sent,throne-merchant
+,,SANDY LIANG,sandyliang.info,hello@sandyliang.info,2026-04-28,sent,throne-merchant
+,,Fantasy Time,fantasytime.com,hello@fantasytime.com,2026-04-28,sent,throne-merchant
+,,CALPAK,calpaktravel.com,hello@calpaktravel.com,2026-04-28,sent,throne-merchant
+,,Oh Polly UK,ohpolly.com,hello@ohpolly.com,2026-04-28,sent,throne-merchant
+,,DIVA US,shopdiva.com,hello@shopdiva.com,2026-04-28,sent,throne-merchant
+,,Game Flavor,gameflavor.com,hello@gameflavor.com,2026-04-28,sent,throne-merchant
+,,Blendtec,blendtec.com,hello@blendtec.com,2026-04-28,sent,throne-merchant
+,,Brahmin,brahmin.com,hello@brahmin.com,2026-04-28,sent,throne-merchant
+,,Lectron EV,ev-lectron.com,hello@ev-lectron.com,2026-04-28,sent,throne-merchant
+,,tuft + paw,tuftnpaw.com,hello@tuftnpaw.com,2026-04-28,sent,throne-merchant
+,,Le Col,lecol.cc,hello@lecol.cc,2026-04-28,sent,throne-merchant
+,,Brisk It,briskitgrills.com,hello@briskitgrills.com,2026-04-28,sent,throne-merchant
+,,Twelveswood Fragrances,twelveswoodfragrances.com,hello@twelveswoodfragrances.com,2026-04-28,sent,throne-merchant
+,,Shop Joe,shopjoe.com,hello@shopjoe.com,2026-04-28,sent,throne-merchant
+,,Lilac St,lilacst.com,hello@lilacst.com,2026-04-28,sent,throne-merchant
+,,LØCI,lociwear.com,hello@lociwear.com,2026-04-28,BOUNCED,throne-merchant
+,,Journee,journeecollection.com,hello@journeecollection.com,2026-04-28,sent,throne-merchant
+,,Prolon Life,prolonlife.com,hello@prolonlife.com,2026-04-28,sent,throne-merchant
+,,The Couture Club,thecoutureclub.com,hello@thecoutureclub.com,2026-04-28,BOUNCED,throne-merchant
+,,Crossrope,crossrope.com,hello@crossrope.com,2026-04-28,sent,throne-merchant
+,,Personal Fav,personalfav.co,hello@personalfav.co,2026-04-28,sent,throne-merchant
+,,Paramount Shop,paramountshop.com,hello@paramountshop.com,2026-04-28,sent,throne-merchant
+,,Nanoleaf,nanoleaf.me,hello@nanoleaf.me,2026-04-28,sent,throne-merchant
+,,Rollors,rollors.com,hello@rollors.com,2026-04-28,BOUNCED,throne-merchant
+,,Impact Dog Crates,impactdogcrates.com,hello@impactdogcrates.com,2026-04-28,BOUNCED,throne-merchant
+,,Twelve South,twelvesouth.com,hello@twelvesouth.com,2026-04-28,sent,throne-merchant
+,,Oscar de la Renta,oscardelarenta.com,hello@oscardelarenta.com,2026-04-28,BOUNCED,throne-merchant
+,,Miansai,miansai.com,hello@miansai.com,2026-04-28,BOUNCED,throne-merchant
+,,TBCo,tbco.com,hello@tbco.com,2026-04-28,sent,throne-merchant
+,,Pepper,peppertheapp.com,hello@peppertheapp.com,2026-04-28,BOUNCED,throne-merchant
+,,VIVO,vivo-us.com,hello@vivo-us.com,2026-04-28,BOUNCED,throne-merchant
+,,Host,homegoods.com,hello@homegoods.com,2026-04-28,BOUNCED,throne-merchant
+,,Rehisk,rehisk.com,hello@rehisk.com,2026-04-28,sent,throne-merchant
+,,ROCKNOT,rocknot.com,hello@rocknot.com,2026-04-28,BOUNCED,throne-merchant
+,,Blue Sky,bluesky.com,hello@bluesky.com,2026-04-28,BOUNCED,throne-merchant
+,,VIEVE,vievebeauty.com,hello@vievebeauty.com,2026-04-28,BOUNCED,throne-merchant
+,,CRAVE,lovecrave.com,hello@lovecrave.com,2026-04-28,BOUNCED,throne-merchant
+,,Flaire & Co,flaireaccessories.com,hello@flaireaccessories.com,2026-04-28,BOUNCED,throne-merchant
+,,M.M.LaFleur,mmlafleur.com,hello@mmlafleur.com,2026-04-28,BOUNCED,throne-merchant
+,,Cou Cou Intimates,coucouintimates.com,hello@coucouintimates.com,2026-04-28,BOUNCED,throne-merchant
+,,Dukiri Apparel,dukiriapparel.com,hello@dukiriapparel.com,2026-04-28,BOUNCED,throne-merchant
+,,Outdoor Gear Exchange,gearx.com,hello@gearx.com,2026-04-28,BOUNCED,throne-merchant
+,,Mache,machecustoms.com,hello@machecustoms.com,2026-04-28,BOUNCED,throne-merchant
+,,Sundry,sundryclothing.com,hello@sundryclothing.com,2026-04-28,BOUNCED,throne-merchant
+,,Vanity Couture,vanitycouture.com,hello@vanitycouture.com,2026-04-28,sent,throne-merchant
+,,Vittoria,vittoria.com,hello@vittoria.com,2026-04-28,BOUNCED,throne-merchant
+,,Welsh Mtn Co,welshmtn.com,hello@welshmtn.com,2026-04-28,BOUNCED,throne-merchant
+,,NEODERMA,neoderma.com,hello@neoderma.com,2026-04-28,BOUNCED,throne-merchant
+,,Gino's Awards,ginosonline.com,hello@ginosonline.com,2026-04-28,BOUNCED,throne-merchant
+,,TruSkin,truskin.com,hello@truskin.com,2026-04-28,BOUNCED,throne-merchant
+,,SOMMER SWIM,sommerswim.com,hello@sommerswim.com,2026-04-28,sent,throne-merchant
+,,SpotOn,spoton.com,hello@spoton.com,2026-04-28,sent,throne-merchant
+,,Newcon Natural,newconatural.ca,hello@newconatural.ca,2026-04-28,BOUNCED,throne-merchant
+,,Milk Makeup,milkmakeup.com,hello@milkmakeup.com,2026-04-28,sent,throne-merchant
+,,M.A.G.Unique,magunique.ca,hello@magunique.ca,2026-04-28,BOUNCED,throne-merchant
+,,Pixi Beauty,pixibeauty.com,hello@pixibeauty.com,2026-04-28,sent,throne-merchant
+,,The Cumin Club,thecuminclub.com,hello@thecuminclub.com,2026-04-28,sent,throne-merchant
+,,OneBlade,onebladeshave.com,hello@onebladeshave.com,2026-04-28,sent,throne-merchant
+,,Sakara,sakara.com,hello@sakara.com,2026-04-28,BOUNCED,throne-merchant
+,,JUNOCO,junoco.com,hello@junoco.com,2026-04-28,BOUNCED,throne-merchant
+,,OffGrid,offgrid.co,hello@offgrid.co,2026-04-28,sent,throne-merchant
+,,Pretti.Cool,pretti.cool,hello@pretti.cool,2026-04-28,BOUNCED,throne-merchant
+,,Olive and June,oliveandjune.com,hello@oliveandjune.com,2026-04-28,sent,throne-merchant
+,,PROMiXX,promixx.com,hello@promixx.com,2026-04-28,BOUNCED,throne-merchant
+,,mypaume,mypaume.com,hello@mypaume.com,2026-04-28,BOUNCED,throne-merchant
+,,mokapuff,mokapuff.carrd.co,hello@mokapuff.carrd.co,2026-04-28,sent,throne-merchant
+,,HomeWetBar,homewetbar.com,hello@homewetbar.com,2026-04-28,BOUNCED,throne-merchant
+,,Honeydrop,honeydrop.com,hello@honeydrop.com,2026-04-28,sent,throne-merchant
+,,Lunya,lunya.co,hello@lunya.co,2026-04-28,sent,throne-merchant
+,,NorthWood Distributing,northwoodcandlesupply.com,hello@northwoodcandlesupply.com,2026-04-28,BOUNCED,throne-merchant
+,,Max and Lily,maxandlily.com,hello@maxandlily.com,2026-04-28,BOUNCED,throne-merchant
+,,Bleak Boutique,bleakboutique.com,hello@bleakboutique.com,2026-04-28,BOUNCED,throne-merchant
+,,Nightfall,nightfallstore.bigcartel.com,hello@nightfallstore.bigcartel.com,2026-04-28,sent,throne-merchant
+,,Flight Fragrances,flightfragrances.com,hello@flightfragrances.com,2026-04-28,sent,throne-merchant
+,,Tong Jerky,tongjerky.com,hello@tongjerky.com,2026-04-28,BOUNCED,throne-merchant
+,,The Blakery,theblakery.co,hello@theblakery.co,2026-04-28,sent,throne-merchant
+,,Stella & Dot,stelladot.com,hello@stelladot.com,2026-04-28,BOUNCED,throne-merchant
+,,Dach Everywhere,dacheverywhere.com,hello@dacheverywhere.com,2026-04-28,BOUNCED,throne-merchant
+,,Chella,chella.com,hello@chella.com,2026-04-28,BOUNCED,throne-merchant
+,,Solbari,solbari.com,hello@solbari.com,2026-04-28,sent,throne-merchant
+,,Soho Social,sohohome.com,hello@sohohome.com,2026-04-28,sent,throne-merchant
+,,F3 Energy,f3energy.com,hello@f3energy.com,2026-04-28,sent,throne-merchant
+,,Montirex,montirex.com,hello@montirex.com,2026-04-28,BOUNCED,throne-merchant
+,,EltaMD,eltamd.com,hello@eltamd.com,2026-04-28,BOUNCED,throne-merchant
+,,LOWA Boots,lowa.com,hello@lowa.com,2026-04-28,BOUNCED,throne-merchant
+,,Vessel Brand,vesselgolf.com,hello@vesselgolf.com,2026-04-28,BOUNCED,throne-merchant
+,,Suzy Shier,suzyshier.com,hello@suzyshier.com,2026-04-28,BOUNCED,throne-merchant
+,,Farfetch US,farfetch.com,hello@farfetch.com,2026-04-28,BOUNCED,throne-merchant
+,,Omocat,omocat-shop.com,hello@omocat-shop.com,2026-04-28,BOUNCED,throne-merchant
+,,Sock Dreams,sockdreams.com,hello@sockdreams.com,2026-04-28,BOUNCED,throne-merchant
+,,Blackbough Swim,blackboughswim.com,hello@blackboughswim.com,2026-04-28,BOUNCED,throne-merchant
+,,Steve Madden US,stevemadden.com,hello@stevemadden.com,2026-04-28,sent,throne-merchant
+,,Sanshee,sanshee.com,hello@sanshee.com,2026-04-28,BOUNCED,throne-merchant
+,,Teepublic,teepublic.com,hello@teepublic.com,2026-04-28,BOUNCED,throne-merchant
+,,Pusheen,shop.pusheen.com,hello@pusheen.com,2026-04-28,BOUNCED,throne-merchant
+,,Toys R Us,toysrus.com,hello@toysrus.com,2026-04-28,BOUNCED,throne-merchant
+,,Princess Polly,princesspolly.com,hello@princesspolly.com,2026-04-28,sent,throne-merchant
+,,BBADTOYSTORE,bigbadtoystore.com,hello@bigbadtoystore.com,2026-04-28,sent,throne-merchant
+,,Vgen,vgen.co,hello@vgen.co,2026-04-28,sent,throne-merchant

@@ -123,20 +123,21 @@ def append_log(row: dict) -> None:
 
 
 def _dedup_key(raw: str) -> str:
-    return normalize_company(raw).strip().lower()
+    return (raw or "").strip().lower()
 
 
 def load_already_sent() -> set[str]:
-    """Companies we've already successfully delivered to. BOUNCED rows are
-    eligible for retry to a different address — the bounce means the prior
-    address was bad, not that we reached the company.
+    """Email addresses we've already sent to (any status). Switched from
+    company-based to email-based after the campaign moved to multi-contact
+    fan-out: we want to avoid double-sending the same person, but happily
+    send to multiple distinct people at the same company.
     """
     if not LOG_CSV.exists():
         return set()
     return {
-        _dedup_key(r.get("company") or "")
+        _dedup_key(r.get("email") or "")
         for r in csv.DictReader(LOG_CSV.open())
-        if (r.get("company") or "").strip() and r.get("verified") != "BOUNCED"
+        if (r.get("email") or "").strip()
     }
 
 
@@ -146,7 +147,7 @@ def main():
         rows = list(csv.DictReader(f))
     already = load_already_sent()
     real = [r for r in rows if r.get("email_source", "").startswith("https://")]
-    targets = [r for r in real if _dedup_key(r.get("company") or "") not in already]
+    targets = [r for r in real if _dedup_key(r.get("email") or "") not in already]
     skipped_dup = len(real) - len(targets)
 
     LOG_DIR.mkdir(exist_ok=True)
@@ -177,7 +178,7 @@ def main():
                 append_log({
                     "name": name_raw,
                     "role": r.get("role", ""),
-                    "company": company_raw,
+                    "company": normalize_company(company_raw),
                     "domain": r.get("domain", ""),
                     "category": r.get("category", ""),
                     "email": email,
