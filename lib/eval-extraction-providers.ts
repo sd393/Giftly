@@ -2,6 +2,7 @@ import 'server-only'
 
 import OpenAI from 'openai'
 
+import { extractAudio } from '@/lib/eval-extraction/audio'
 import { extractKeyframes } from '@/lib/eval-extraction/keyframes'
 import { EXTRACTION_PROMPT } from '@/lib/schemas/eval'
 
@@ -44,7 +45,10 @@ export async function extractFromVideoWithOpenAI(
 ): Promise<unknown> {
   const [keyframes, transcript] = await Promise.all([
     extractKeyframes(videoBlob),
-    transcribeWithWhisper(videoBlob),
+    // Whisper has a 25 MB cap; pass extracted audio (mono 16 kHz mp3
+    // ≈ 30 KB/s) instead of the full video so we work with arbitrary
+    // source sizes (up to the bucket's 500 MB ceiling).
+    extractAudio(videoBlob).then(transcribeAudio),
   ])
 
   const prompt = EXTRACTION_PROMPT.replace(/\{product_name\}/g, ctx.productName)
@@ -87,11 +91,12 @@ export async function extractFromVideoWithOpenAI(
   return parsed
 }
 
-async function transcribeWithWhisper(videoBlob: Blob): Promise<string> {
+async function transcribeAudio(audioBlob: Blob): Promise<string> {
   // OpenAI's File API expects a Web `File`, not a Blob. The mime type
-  // matters for codec detection on the Whisper side.
-  const file = new File([videoBlob], 'eval.mp4', {
-    type: videoBlob.type || 'video/mp4',
+  // matters for codec detection on the Whisper side; we feed mp3 from
+  // `extractAudio` so the filename + type stay consistent.
+  const file = new File([audioBlob], 'eval.mp3', {
+    type: audioBlob.type || 'audio/mpeg',
   })
   const r = await openai().audio.transcriptions.create({
     file,
