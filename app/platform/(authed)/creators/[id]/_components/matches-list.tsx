@@ -17,6 +17,11 @@ type EvalVideo = {
   extraction_status: string
   extraction_error: string | null
   extracted: unknown
+  // Captured pre-record (Phase 7f). Null for legacy rows submitted before
+  // the column existed; the CHECK constraint ensures any non-null value is
+  // 'positive' | 'negative'. Cast at the prop boundary, not here, so this
+  // type stays a faithful reflection of the row shape.
+  creator_stated_sentiment: string | null
   created_at: string
 }
 
@@ -91,6 +96,7 @@ export async function MatchesList({ creatorId }: { creatorId: string }) {
         extraction_status,
         extraction_error,
         extracted,
+        creator_stated_sentiment,
         created_at
       )
     `,
@@ -223,7 +229,15 @@ export async function MatchesList({ creatorId }: { creatorId: string }) {
 
             {match.stage === 'eval_complete' && extracted ? (
               <div className="mt-4 border-t border-line/60 pt-4">
-                <ExtractedEvalView data={extracted} />
+                <ExtractedEvalView
+                  data={extracted}
+                  creatorStatedSentiment={
+                    latestEval?.creator_stated_sentiment === 'positive' ||
+                    latestEval?.creator_stated_sentiment === 'negative'
+                      ? latestEval.creator_stated_sentiment
+                      : null
+                  }
+                />
               </div>
             ) : null}
           </li>
