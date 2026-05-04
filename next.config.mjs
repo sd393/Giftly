@@ -3,6 +3,11 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // @ffmpeg-installer/ffmpeg uses dynamic require() to locate its
+  // platform-specific binary (linux-x64, darwin-arm64, etc). Turbopack
+  // can't statically resolve those, so we have to mark it external and
+  // let Node resolve it at runtime.
+  serverExternalPackages: ['@ffmpeg-installer/ffmpeg'],
   experimental: {
     serverActions: {
       // Platform lives on app.trygiftly.com (via proxy.ts rewrite into
