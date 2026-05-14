@@ -16,12 +16,15 @@ export function BrandSidebar() {
     <aside className="hidden md:flex w-60 shrink-0 border-r border-line/60 bg-white/60 flex-col">
       <div className="px-5 py-5 border-b border-line/60">
         <div className="flex items-center gap-3">
-          <div
-            aria-hidden="true"
-            className="size-9 rounded-md bg-coral/10 flex items-center justify-center font-display text-coral text-[1rem]"
-          >
-            L
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={BRAND.logoUrl}
+            alt=""
+            width={36}
+            height={36}
+            className="size-9 rounded-md object-cover"
+            loading="lazy"
+          />
           <div className="min-w-0">
             <p className="font-display text-[0.95rem] tracking-tight truncate">
               {BRAND.name}

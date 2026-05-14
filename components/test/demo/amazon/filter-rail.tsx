@@ -6,8 +6,8 @@ export function FilterRail() {
           <li className="font-bold">
             <span aria-hidden="true">‹ </span>Beauty &amp; Personal Care
           </li>
-          <li className="pl-3 text-[#007185]">Hair Care</li>
-          <li className="pl-6 font-bold">Shampoo</li>
+          <li className="pl-3 text-[#007185]">Eye Makeup Tools</li>
+          <li className="pl-6 font-bold">Eyelash Curlers</li>
         </ul>
       </Section>
 
@@ -20,25 +20,25 @@ export function FilterRail() {
       <Section title="Brand">
         <Checks
           options={[
-            'ScalpRX',
-            'DermaKlear',
-            'Lumina Pro',
-            'Head & Shoulders',
-            'Nizoral',
-            'Neutrogena',
-            'Selsun Blue',
+            'Tweezerman',
+            'Shiseido',
+            'Bime Beauty',
+            'Revlon',
+            'Grande Cosmetics',
+            'Kevyn Aucoin',
+            'Surratt',
           ]}
         />
       </Section>
 
-      <Section title="Hair Concern">
+      <Section title="Curler Type">
         <Checks
           options={[
-            'Dandruff',
-            'Dry scalp',
-            'Itchiness',
-            'Stress flare-ups',
-            'Sensitivity',
+            'Heated',
+            'Manual / classic',
+            'Hooded-eye fit',
+            'Travel size',
+            'Rechargeable',
           ]}
         />
       </Section>

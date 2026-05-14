@@ -30,7 +30,7 @@ export default function CreatorPage() {
         <Tabs defaultValue="inbox" className="max-w-[860px]">
           <TabsList className="bg-cream-warm/70 border border-line/60">
             <TabsTrigger value="inbox">Inbox</TabsTrigger>
-            <TabsTrigger value="gifts">Active gifts</TabsTrigger>
+            <TabsTrigger value="gifts">Past posts</TabsTrigger>
           </TabsList>
 
           <TabsContent value="inbox" className="mt-6">

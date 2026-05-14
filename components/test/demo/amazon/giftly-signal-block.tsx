@@ -45,11 +45,11 @@ export function GiftlySignalBlock() {
                     : 'text-[#0F1111]')
                 }
               >
-                {p.id === 'lumina-pro'
-                  ? 'Lumina Pro'
-                  : p.id === 'scalprx'
-                    ? 'ScalpRX'
-                    : 'DermaKlear'}
+                {p.id === 'bime-beauty'
+                  ? 'Bime Beauty'
+                  : p.id === 'tweezerman-classic'
+                    ? 'Tweezerman'
+                    : 'Shiseido'}
               </td>
               <td className="py-1 text-right tabular-nums">
                 {Math.round(p.postRate * 1000) / 10}%

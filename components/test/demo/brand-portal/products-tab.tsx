@@ -52,7 +52,7 @@ export function ProductsTab() {
             </div>
             <div className="col-span-2">
               <dt className="text-[0.7rem] uppercase tracking-[0.1em] text-muted-warm">
-                active ingredients
+                key features
               </dt>
               <dd className="mt-1 flex flex-wrap gap-1.5">
                 {PRODUCT.ingredients.map((i) => (

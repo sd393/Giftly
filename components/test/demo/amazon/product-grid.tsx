@@ -26,7 +26,7 @@ export function ProductGrid({ mode }: { mode: RufusMode }) {
         <p className="text-[0.78rem] text-[#565959]">
           1-{ordered.length} of over 6,000 results for{' '}
           <span className="text-[#C7511F] font-medium">
-            &ldquo;dandruff shampoo&rdquo;
+            &ldquo;eyelash curler&rdquo;
           </span>
         </p>
         <h2 className="font-bold text-[1.05rem] mt-0.5 text-[#0F1111]">
@@ -54,7 +54,11 @@ export function ProductGrid({ mode }: { mode: RufusMode }) {
                 scale: { duration: 0.55, ease: 'easeInOut', times: [0, 0.5, 1] },
               }}
             >
-              <ProductCard product={p} highlight={isFeaturedTop} />
+              <ProductCard
+                product={p}
+                highlight={isFeaturedTop}
+                showFlag={mode !== 'with'}
+              />
             </motion.div>
           )
         })}

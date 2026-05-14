@@ -3,6 +3,7 @@
 import { INBOX_OFFERS } from '../lib/mock-data'
 import { usePersistedState } from '../lib/use-persisted-state'
 
+import { NoObligationBanner } from './no-obligation-banner'
 import { OfferCard, type OfferStatus } from './offer-card'
 
 type Responses = Record<string, 'accepted' | 'declined'>
@@ -19,6 +20,10 @@ export function InboxTab() {
 
   return (
     <div className="space-y-6">
+      <div className="rounded-md overflow-hidden border border-coral/40">
+        <NoObligationBanner />
+      </div>
+
       <p className="text-[0.85rem] text-ink-soft max-w-[60ch]">
         Three brands matched you this week. Accept what you&rsquo;d actually
         try; pass on the rest. Either response is useful — the goal is honest

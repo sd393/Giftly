@@ -6,7 +6,7 @@ import { CURRENT_CREATOR } from '../lib/mock-data'
 
 const NAV = [
   { label: 'Inbox', icon: Inbox, active: true },
-  { label: 'Active gifts', icon: Gift, active: true },
+  { label: 'Past posts', icon: Gift, active: true },
   { label: 'History', icon: History, active: false },
   { label: 'Earnings', icon: DollarSign, active: false },
 ]

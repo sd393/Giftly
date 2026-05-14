@@ -66,7 +66,7 @@ export function DeclineForm({
           value={note}
           onChange={(e) => onChangeNote(e.target.value)}
           rows={3}
-          placeholder="What would have made this better? Or what should we know about your hair/scalp?"
+          placeholder="What would have made this better? Or what should we know about your lashes / eye shape?"
           className="mt-2"
         />
       </div>

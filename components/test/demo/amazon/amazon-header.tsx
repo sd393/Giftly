@@ -32,7 +32,7 @@ export function AmazonHeader() {
             </button>
             <input
               type="text"
-              defaultValue="best dandruff shampoo for stress flare-ups"
+              defaultValue="best eyelash curler that holds all day"
               aria-label="Search Amazon"
               className="flex-1 px-3 outline-none text-[0.92rem]"
             />

@@ -3,9 +3,11 @@ import type { AmazonProduct } from '../lib/types'
 export function ProductCard({
   product,
   highlight,
+  showFlag = true,
 }: {
   product: AmazonProduct
   highlight?: boolean
+  showFlag?: boolean
 }) {
   return (
     <article
@@ -13,7 +15,9 @@ export function ProductCard({
         'group bg-white p-3 flex flex-col gap-2 rounded-sm transition-shadow ' +
         (highlight
           ? 'ring-2 ring-[#FF9900] shadow-[0_4px_12px_-2px_rgba(255,153,0,0.35)]'
-          : 'hover:shadow-[0_2px_6px_rgba(15,17,17,0.12)]')
+          : product.flagged && showFlag
+            ? 'ring-2 ring-[#D81B23] shadow-[0_4px_12px_-2px_rgba(216,27,35,0.35)]'
+            : 'hover:shadow-[0_2px_6px_rgba(15,17,17,0.12)]')
       }
     >
       <div className="aspect-square bg-white flex items-center justify-center overflow-hidden">

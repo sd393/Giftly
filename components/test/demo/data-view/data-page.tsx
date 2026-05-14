@@ -7,18 +7,26 @@ import {
   TabsTrigger,
 } from '@/components/ui/tabs'
 
-import { MATCH_ROWS } from '../lib/mock-data'
+import {
+  EYELASH_CURLER_SCHEMA,
+  PER_VIDEO_EXTRACTIONS,
+} from '../lib/mock-data'
 import type { DataViewMode } from '../lib/types'
 import { usePersistedState } from '../lib/use-persisted-state'
 
-import { ProductSummaryView } from './product-summary-view'
-import { RowsView } from './rows-view'
+import { ExtractionsView } from './extractions-view'
+import { MatrixView } from './matrix-view'
+import { SchemaView } from './schema-view'
 
 export default function DataPage() {
   const [mode, setMode] = usePersistedState<DataViewMode>(
     'data:view-mode',
-    'rows'
+    'extractions'
   )
+
+  const topAttrCount = EYELASH_CURLER_SCHEMA.attributes.filter(
+    (a) => a.in_top_schema
+  ).length
 
   return (
     <div className="min-h-screen bg-cream text-ink">
@@ -29,36 +37,36 @@ export default function DataPage() {
               data
             </p>
             <h1 className="mt-1 font-display text-[1.85rem] md:text-[2.25rem] tracking-tight leading-[1.05]">
-              Match outcomes —{' '}
+              Pipeline output —{' '}
               <span className="font-display italic font-light text-coral">
-                Lumina Pro
+                eyelash curlers
               </span>
             </h1>
             <p className="mt-1.5 text-[0.85rem] text-muted-warm">
-              {MATCH_ROWS.length} matches over the last 17 days · post rate
-              81%
+              {topAttrCount} induced attributes ·{' '}
+              {PER_VIDEO_EXTRACTIONS.length} video extractions · schema{' '}
+              {EYELASH_CURLER_SCHEMA.schema_version}
             </p>
           </div>
 
-          <Tabs
-            value={mode}
-            onValueChange={(v) => setMode(v as DataViewMode)}
-          >
+          <Tabs value={mode} onValueChange={(v) => setMode(v as DataViewMode)}>
             <TabsList className="bg-cream-warm/70 border border-line/60">
-              <TabsTrigger value="rows">Match-level rows</TabsTrigger>
-              <TabsTrigger value="product-summary">
-                Product summary
-              </TabsTrigger>
+              <TabsTrigger value="extractions">Extractions</TabsTrigger>
+              <TabsTrigger value="schema">Schema</TabsTrigger>
+              <TabsTrigger value="matrix">Matrix</TabsTrigger>
             </TabsList>
           </Tabs>
         </header>
 
         <Tabs value={mode} onValueChange={(v) => setMode(v as DataViewMode)}>
-          <TabsContent value="rows" className="mt-2">
-            <RowsView />
+          <TabsContent value="extractions" className="mt-2">
+            <ExtractionsView />
           </TabsContent>
-          <TabsContent value="product-summary" className="mt-2">
-            <ProductSummaryView />
+          <TabsContent value="schema" className="mt-2">
+            <SchemaView />
+          </TabsContent>
+          <TabsContent value="matrix" className="mt-2">
+            <MatrixView />
           </TabsContent>
         </Tabs>
       </main>

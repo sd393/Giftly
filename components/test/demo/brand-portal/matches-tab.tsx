@@ -31,7 +31,7 @@ export function MatchesTab() {
       .map<Match>((c) => ({
         id: `match-${c.id}-approved`,
         creatorId: c.id,
-        productId: 'lumina-pro-stress-defense',
+        productId: 'bime-heated-curler',
         stage: 'approved',
         stageLabel: 'Approved → Pending shipment',
         detail: 'Just approved — fulfillment will pick this up next.',

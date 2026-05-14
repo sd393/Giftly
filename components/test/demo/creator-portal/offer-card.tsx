@@ -7,8 +7,6 @@ import { cn } from '@/lib/utils'
 
 import type { Offer } from '../lib/types'
 
-import { NoObligationBanner } from './no-obligation-banner'
-
 export type OfferStatus = 'accepted' | 'declined' | null
 
 export function OfferCard({
@@ -34,8 +32,6 @@ export function OfferCard({
         respondedClass
       )}
     >
-      <NoObligationBanner />
-
       <div className="p-5 md:p-6">
         <div className="flex items-start gap-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -98,14 +94,14 @@ export function OfferCard({
                 variant="coral"
                 onClick={() => onRespond(offer.id, 'accepted')}
               >
-                Accept the gift
+                Like
               </Button>
               <Button
                 size="sm"
                 variant="outline"
                 onClick={() => onRespond(offer.id, 'declined')}
               >
-                Pass on this one
+                Dislike
               </Button>
             </>
           ) : (

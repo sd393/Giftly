@@ -20,7 +20,7 @@ export default function BrandPage() {
             brand portal
           </p>
           <h1 className="font-display text-[1.75rem] tracking-tight mt-1">
-            welcome back, lumina pro
+            welcome back, bime beauty
           </h1>
           <p className="mt-1 text-[0.85rem] text-muted-warm">
             5 new suggested creators · 3 shipments in motion

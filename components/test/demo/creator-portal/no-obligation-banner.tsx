@@ -14,11 +14,11 @@ export function NoObligationBanner() {
       />
       <div className="min-w-0">
         <p className="font-display text-[1.05rem] md:text-[1.15rem] leading-[1.25] tracking-tight">
-          <span className="font-medium">No obligation.</span>{' '}
+          <span className="font-medium">Honest feedback.</span>{' '}
           <span className="font-light italic">
-            If you receive this and don&rsquo;t love it, just tell us why
-          </span>{' '}
-          — that&rsquo;s worth as much to us as a post.
+            Love it? Share it and earn. Not for you? A quick private video
+            helps us send better stuff next time.
+          </span>
         </p>
       </div>
     </div>

@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils'
 const LINKS = [
   { href: '/demo/brand', label: 'brand' },
   { href: '/demo/creator', label: 'creator' },
+  { href: '/demo/pipeline', label: 'pipeline' },
   { href: '/demo/data', label: 'data' },
   { href: '/demo/shopping', label: 'shopping' },
 ]
