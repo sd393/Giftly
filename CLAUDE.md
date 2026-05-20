@@ -35,6 +35,10 @@ Env var required for form submissions: `RESEND_API_KEY`. The `from` address is `
 - **shadcn/ui** (`new-york` style, `neutral` base, Lucide icons) — see `components.json`. Components live in `components/ui/`; add new ones with `pnpm dlx shadcn@latest add <name>` rather than hand-rolling.
 - Path alias `@/*` maps to the project root (see `tsconfig.json`), so imports use `@/components/ui/...`, `@/lib/...`, `@/hooks/...`.
 
+### Experiments
+
+- Standalone experiments (third-party API spikes, agent prototypes, scratch builds) live under **`components/test/experiments/<name>/`** — never at the repo root and never under a top-level `test/`. Each experiment is self-contained with its own `package.json`, `tsconfig.json`, and `node_modules/`; the root `tsconfig.json` excludes `components/test/experiments` so its Node-targeted code doesn't get typechecked against the Next.js DOM config. When adding a new experiment, create the folder under that path and add the same exclude entry if you set up a fresh `tsconfig`.
+
 ### Other notes
 
 - `app/layout.tsx` conditionally mounts `@vercel/analytics` only in production and globally renders `<Toaster position="top-center" />` from sonner.

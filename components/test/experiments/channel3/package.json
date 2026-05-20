@@ -1,0 +1,39 @@
+{
+  "name": "channel3-shopping-agent",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "agent": "tsx src/agent.ts",
+    "dev": "next dev --webpack -p 3030",
+    "build": "next build --webpack",
+    "start": "next start -p 3030",
+    "reviews:seed": "tsx src/reviews/seed.ts",
+    "reviews:build": "tsx src/reviews/build.ts",
+    "reviews:backfill": "tsx src/reviews/backfill.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@channel3/sdk": "^3.2.0",
+    "@tavily/core": "^0.7.3",
+    "dotenv": "^16.4.5",
+    "next": "16.2.0",
+    "openai": "^6.35.0",
+    "react": "^19",
+    "react-dom": "^19",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.13",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
