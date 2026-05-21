@@ -36,3 +36,6 @@ outreach/__pycache__/
 outreach/logs/
 # Gmail reply cache (regenerate with scripts/collect-gmail-replies.py)
 outreach/.gmail-cache/
+outreach-retailers/__pycache__/
+outreach-retailers/logs/
+outreach-retailers/batch.csv

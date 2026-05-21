@@ -43,10 +43,13 @@ Env var required for form submissions: `RESEND_API_KEY`. The `from` address is `
 
 - `app/layout.tsx` conditionally mounts `@vercel/analytics` only in production and globally renders `<Toaster position="top-center" />` from sonner.
 - `next.config.mjs` also sets `images.unoptimized: true`.
-- Two cold-email campaigns live in the repo, separate from the Next.js app:
-  - `outreach/` — DTC brand outreach (Stanford/Dartmouth Student Inquiry pitch). Read `outreach/README.md` and `outreach/OUTREACH.md` first; mirrors sends to the internal Supabase platform via `giftly_api.py`.
+- Five cold-email campaigns live in the repo, separate from the Next.js app:
+  - `outreach/` — DTC brand outreach (Stanford/Dartmouth Student Inquiry pitch). Read `outreach/README.md` and `outreach/OUTREACH.md` first; mirrors sends to the internal Supabase platform via `giftly_api.py`. Has a scrape stage + Haiku domain-resolution subagent.
   - `outreach-agents/` — agentic-commerce shopping-agent outreach (data-infrastructure pitch). Read `outreach-agents/README.md` and `outreach-agents/OUTREACH.md` first. **For live state of this campaign — what's done, what's pending, decisions and overrides — read `outreach-agents/PROGRESS.md`** before kicking off any subagents or pipeline runs. No platform mirror here.
-  - Both share the same `gog`-authed Gmail accounts but otherwise have separate scripts, logs, and dedup state. Don't cross the streams.
+  - `outreach-creators/` — UGC creator outreach (gifted-product pitch). Manual-curated emails, no scrape stage. Read `outreach-creators/README.md` and `outreach-creators/OUTREACH.md`.
+  - `outreach-brands-audit/` — DTC brand outreach for an AI-shopping audit / YC pitch. Manual-curated emails, no scrape stage. Read `outreach-brands-audit/README.md` and `outreach-brands-audit/OUTREACH.md`.
+  - `outreach-retailers/` — mid-size multi-brand retailer outreach (AI shopping / agentic commerce pitch). Manual-curated emails, no scrape stage. Includes a bulk follow-up sender (`send-followups.py`) that threads via `--reply-to-message-id`. Read `outreach-retailers/README.md` and `outreach-retailers/OUTREACH.md`; campaign retrospective in `outreach-retailers/CAMPAIGN.md`.
+  - All five share the same `gog`-authed Gmail accounts but otherwise have separate scripts, logs, and dedup state. Don't cross the streams.
 
 ## Skill routing
 

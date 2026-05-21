@@ -1,0 +1,442 @@
+name,retailer,email,date_sent,verified,notes
+Niki Robinson,Grove Collaborative,niki.robinson@grove.co,2026-05-19,BOUNCED,
+Jennifer Pann,Grove Collaborative,jennifer.pann@grove.co,2026-05-19,sent,followed_up 2026-05-21
+Alexandra Crane,Grove Collaborative,alexandra.crane@grove.co,2026-05-19,BOUNCED,
+Tom Siragusa,Grove Collaborative,tom.siragusa@grove.co,2026-05-19,BOUNCED,
+Jason Buursma,Grove Collaborative,jason.buursma@grove.co,2026-05-19,sent,followed_up 2026-05-21
+Jennie Perry,Grove Collaborative,jennie.perry@grove.co,2026-05-19,BOUNCED,
+Brady Brennan,Grove Collaborative,brady.brennan@grove.co,2026-05-19,sent,followed_up 2026-05-21
+Keith Davey,Grove Collaborative,keith.davey@grove.co,2026-05-19,sent,followed_up 2026-05-21
+Evan Matsumoto,Fleet Feet,evan.matsumoto@fleetfeet.com,2026-05-19,sent,followed_up 2026-05-21
+Jonathan Sipling,Fleet Feet,jonathan.sipling@fleetfeet.com,2026-05-19,sent,followed_up 2026-05-21
+Joey Pointer,Fleet Feet,joey.pointer@fleetfeet.com,2026-05-19,sent,followed_up 2026-05-21
+Jason Jabaut,Fleet Feet,jason.jabaut@fleetfeet.com,2026-05-19,sent,followed_up 2026-05-21
+Amy Diebler,Fleet Feet,amy.diebler@fleetfeet.com,2026-05-19,sent,followed_up 2026-05-21
+Mary Banister,Fleet Feet,mary.banister@fleetfeet.com,2026-05-19,BOUNCED,
+Casey Campbell,Fleet Feet,casey.campbell@fleetfeet.com,2026-05-19,sent,followed_up 2026-05-21
+Carson Sasser,Fleet Feet,carson.sasser@fleetfeet.com,2026-05-19,sent,followed_up 2026-05-21
+Matt Werder,Fleet Feet,matt.werder@fleetfeet.com,2026-05-19,sent,followed_up 2026-05-21
+Stuart Williams,Fleet Feet,stuart.williams@fleetfeet.com,2026-05-19,sent,followed_up 2026-05-21
+,Road Runner Sports,imiller@roadrunnersports.com,2026-05-19,sent,pattern: firstinitial+lastname@; followed_up 2026-05-21
+Finlay Robb,Road Runner Sports,frobb@roadrunnersports.com,2026-05-19,sent,followed_up 2026-05-21
+Sean Peterson,Road Runner Sports,speterson@roadrunnersports.com,2026-05-19,sent,followed_up 2026-05-21
+Stuart Slomberg,Road Runner Sports,sslomberg@roadrunnersports.com,2026-05-19,sent,followed_up 2026-05-21
+Tom Compogiannis,Road Runner Sports,tcompogiannis@roadrunnersports.com,2026-05-19,sent,followed_up 2026-05-21
+Todd Velazquez,Road Runner Sports,tvelazquez@roadrunnersports.com,2026-05-19,sent,followed_up 2026-05-21
+Nicole Loarie,Road Runner Sports,nloarie@roadrunnersports.com,2026-05-19,sent,followed_up 2026-05-21
+Jean Richardson,Road Runner Sports,jrichardson@roadrunnersports.com,2026-05-19,sent,followed_up 2026-05-21
+Erika Poindexter,Road Runner Sports,epoindexter@roadrunnersports.com,2026-05-19,sent,followed_up 2026-05-21
+Travis Burke,Road Runner Sports,tburke@roadrunnersports.com,2026-05-19,sent,followed_up 2026-05-21
+Ryan Rothwell,Road Runner Sports,rrothwell@roadrunnersports.com,2026-05-19,sent,followed_up 2026-05-21
+Michael Foley,Road Runner Sports,mfoley@roadrunnersports.com,2026-05-19,sent,followed_up 2026-05-21
+Debra Christle,Road Runner Sports,dchristle@roadrunnersports.com,2026-05-19,sent,followed_up 2026-05-21
+Joe,Running Warehouse,joe@runningwarehouse.com,2026-05-19,sent,followed_up 2026-05-21
+Michael Scogings,Running Warehouse,michael@runningwarehouse.com,2026-05-19,BOUNCED,
+Drew Sharp,Running Warehouse,drew@runningwarehouse.com,2026-05-19,BOUNCED,
+John Wompey,Fit2Run,john.wompey@fit2run.com,2026-05-19,sent,followed_up 2026-05-21
+Christopher Palumbo,Fit2Run,christopher.palumbo@fit2run.com,2026-05-19,sent,followed_up 2026-05-21
+Alexandria Dougherty,Fit2Run,alexandria.dougherty@fit2run.com,2026-05-19,BOUNCED,
+Jonas Rendeiro,Fit2Run,jonas.rendeiro@fit2run.com,2026-05-19,sent,followed_up 2026-05-21
+Sophie Carlo,Fit2Run,sophie.carlo@fit2run.com,2026-05-19,sent,followed_up 2026-05-21
+Alex Donoughe,Fit2Run,alex.donoughe@fit2run.com,2026-05-19,sent,followed_up 2026-05-21
+Carsyn Schares,Fit2Run,carsyn.schares@fit2run.com,2026-05-19,sent,followed_up 2026-05-21
+Steve Miller,Foot Locker,steve.miller@footlocker.com,2026-05-19,sent,followed_up 2026-05-21
+Mark,The Warehouse Group,mark@thewarehousegroup.co.nz,2026-05-19,sent,followed_up 2026-05-21
+Stefan Knight,The Warehouse Group,stefan@thewarehousegroup.co.nz,2026-05-19,sent,followed_up 2026-05-21
+Carrie Fairley,The Warehouse Group,carrie@thewarehousegroup.co.nz,2026-05-19,sent,followed_up 2026-05-21
+Richard Parker,The Warehouse Group,richard@thewarehousegroup.co.nz,2026-05-19,sent,followed_up 2026-05-21
+Ian Carter,The Warehouse Group,ian@thewarehousegroup.co.nz,2026-05-19,sent,followed_up 2026-05-21
+Mark Anderton,The Warehouse Group,mark.anderton@thewarehousegroup.co.nz,2026-05-19,sent,followed_up 2026-05-21
+Jason Bell,The Warehouse Group,jason@thewarehousegroup.co.nz,2026-05-19,sent,followed_up 2026-05-21
+Shayne Tong,The Warehouse Group,shayne@thewarehousegroup.co.nz,2026-05-19,sent,followed_up 2026-05-21
+Peter Scaturro,Foot Locker,peter.scaturro@footlocker.com,2026-05-19,BOUNCED,
+Brett O'Brien,Foot Locker,brett.obrien@footlocker.com,2026-05-19,sent,followed_up 2026-05-21
+Ann Freeman,Foot Locker,ann.freeman@footlocker.com,2026-05-19,sent,followed_up 2026-05-21
+,REI,kwaldmann@rei.com,2026-05-19,sent,pattern: firstinitial+lastname@; followed_up 2026-05-21
+Mary Laughton,REI,mlaughton@rei.com,2026-05-19,sent,followed_up 2026-05-21
+Paolo Mottola,REI,pmottola@rei.com,2026-05-19,sent,followed_up 2026-05-21
+Abigail Jacobs,REI,ajacobs@rei.com,2026-05-19,sent,followed_up 2026-05-21
+Vivienne Long,REI,vlong@rei.com,2026-05-19,sent,followed_up 2026-05-21
+Eric Artz,REI,eartz@rei.com,2026-05-19,sent,followed_up 2026-05-21
+Shannon Damen,REI,sdamen@rei.com,2026-05-19,sent,followed_up 2026-05-21
+Guillaume Ledieu,REI,gledieu@rei.com,2026-05-19,sent,followed_up 2026-05-21
+Michelle Cutter,REI,mcutter@rei.com,2026-05-19,sent,followed_up 2026-05-21
+Cole,Heartbreak Running,cole@heartbreak.run,2026-05-19,sent,followed_up 2026-05-21
+Dan Fitzgerald,Heartbreak Running,dan@heartbreak.run,2026-05-19,sent,followed_up 2026-05-21
+Max Miggler,Heartbreak Running,max@heartbreak.run,2026-05-19,sent,followed_up 2026-05-21
+Kate Reese,Brooklyn Running Co,katereese@brooklynrunningco.com,2026-05-19,sent,pattern: firstlast@ concatenated; followed_up 2026-05-21
+Scott Seymour,Brooklyn Running Co,scottseymour@brooklynrunningco.com,2026-05-19,BOUNCED,
+Trae,Performance Running,trae@performancerunning.com,2026-05-19,sent,followed_up 2026-05-21
+Jessica Hoepner,Performance Running,jessica@performancerunning.com,2026-05-19,BOUNCED,
+Rebecca,Tortoise and Hare Sports,rebecca@tortoiseandharesports.com,2026-05-19,sent,followed_up 2026-05-21
+Nathan,Tortoise and Hare Sports,nathan@tortoiseandharesports.com,2026-05-19,sent,followed_up 2026-05-21
+Bree,Tortoise and Hare Sports,bree@tortoiseandharesports.com,2026-05-19,sent,followed_up 2026-05-21
+Ben Cooke,Marathon Sports,ben.cooke@marathonsports.com,2026-05-19,sent,followed_up 2026-05-21
+Thomas Hooper,Marathon Sports,thomas.hooper@marathonsports.com,2026-05-19,BOUNCED,
+Peter Gilmore,Marathon Sports,peter.gilmore@marathonsports.com,2026-05-19,sent,followed_up 2026-05-21
+Patrick Gould,Marathon Sports,patrick.gould@marathonsports.com,2026-05-19,sent,followed_up 2026-05-21
+Jessica Moran,Marathon Sports,jessica.moran@marathonsports.com,2026-05-19,sent,followed_up 2026-05-21
+Stephen Infascelli,Marathon Sports,stephen.infascelli@marathonsports.com,2026-05-19,sent,followed_up 2026-05-21
+Lauren,Charm City Run,lauren@charmcityrun.com,2026-05-19,sent,followed_up 2026-05-21
+Tom Mansfield,Charm City Run,tom@charmcityrun.com,2026-05-19,sent,followed_up 2026-05-21
+Karma Quinn,Charm City Run,karma@charmcityrun.com,2026-05-19,sent,followed_up 2026-05-21
+Josh Pickett,Charm City Run,josh@charmcityrun.com,2026-05-19,sent,followed_up 2026-05-21
+Brian Nasuta,Charm City Run,brian@charmcityrun.com,2026-05-19,sent,followed_up 2026-05-21
+Liz P,Philadelphia Runner,lizp@philadelphiarunner.com,2026-05-19,sent,pattern: first+lastinitial@; followed_up 2026-05-21
+Ross Martinson,Philadelphia Runner,rossm@philadelphiarunner.com,2026-05-19,BOUNCED,
+Michael Zabrodski,Philadelphia Runner,michaelz@philadelphiarunner.com,2026-05-19,sent,followed_up 2026-05-21
+Ted,Gearhead Outfitters,ted@gearheadoutfitters.com,2026-05-19,sent,followed_up 2026-05-21
+Megan Gammill,Gearhead Outfitters,megan@gearheadoutfitters.com,2026-05-19,sent,followed_up 2026-05-21
+Jason Foust,Gearhead Outfitters,jason@gearheadoutfitters.com,2026-05-19,sent,followed_up 2026-05-21
+Heath Gammill,Gearhead Outfitters,heath@gearheadoutfitters.com,2026-05-19,sent,followed_up 2026-05-21
+,,jgkohn@rcn.com,2026-05-19,sent,
+,Dartmouth Coop,CFerland@dartmouthcoop.com,2026-05-19,sent,pattern: firstinitial+lastname@; followed_up 2026-05-21
+Jay Benson,Simon Pearce,jay.benson@simonpearce.com,2026-05-19,sent,followed_up 2026-05-21
+Ashleigh Sullivan,Simon Pearce,ashleigh.sullivan@simonpearce.com,2026-05-19,sent,followed_up 2026-05-21
+Sasha Sullivan,Simon Pearce,sasha.sullivan@simonpearce.com,2026-05-19,sent,followed_up 2026-05-21
+Elizabeth Breen,Simon Pearce,elizabeth.breen@simonpearce.com,2026-05-19,BOUNCED,
+Jen Smith,Simon Pearce,jen.smith@simonpearce.com,2026-05-19,sent,followed_up 2026-05-21
+Kristen McEntyre,Simon Pearce,kristen.mcentyre@simonpearce.com,2026-05-19,sent,followed_up 2026-05-21
+Leah Stewart,Simon Pearce,leah.stewart@simonpearce.com,2026-05-19,sent,followed_up 2026-05-21
+Queena,Outdoor Play,queena@outdoorplay.com,2026-05-19,BOUNCED,
+Andrew Owen,Outdoor Play,andrew@outdoorplay.com,2026-05-19,BOUNCED,
+Stacey,Outdoor Play,stacey@outdoorplay.com,2026-05-19,BOUNCED,
+Jason,Outdoor Play,jason@outdoorplay.com,2026-05-19,BOUNCED,
+Erika,Outdoor Play,erika@outdoorplay.com,2026-05-19,BOUNCED,
+Brian,Outdoor Play,brian@outdoorplay.com,2026-05-19,BOUNCED,
+Sarissa,Outdoor Play,sarissa@outdoorplay.com,2026-05-19,BOUNCED,
+Kaleb,Outdoor Play,kaleb@outdoorplay.com,2026-05-19,BOUNCED,
+,Outdoor Play,customerservice@outdoorplay.com,2026-05-19,sent,role address (catch-all for retailer); followed_up 2026-05-21
+Sara,Wilderness Sports,sara@wildernessportsinc.com,2026-05-19,sent,followed_up 2026-05-21
+Sandy,Wilderness Sports,sandy@wildernessportsinc.com,2026-05-19,sent,followed_up 2026-05-21
+Sumit Anand,Academy Sports,sumit.anand@academy.com,2026-05-19,sent,followed_up 2026-05-21
+Joe Condomina,Academy Sports,joe.condomina@academy.com,2026-05-19,sent,followed_up 2026-05-21
+Amyn Gillani,Academy Sports,amyn.gillani@academy.com,2026-05-19,sent,followed_up 2026-05-21
+Matt McCabe,Academy Sports,matt.mccabe@academy.com,2026-05-19,sent,followed_up 2026-05-21
+Brandy Treadway,Academy Sports,brandy.treadway@academy.com,2026-05-19,sent,followed_up 2026-05-21
+Mark Alvarado,Academy Sports,mark.alvarado@academy.com,2026-05-19,sent,followed_up 2026-05-21
+Chadwick Fox,Academy Sports,chadwick.fox@academy.com,2026-05-19,sent,followed_up 2026-05-21
+Bill Ennis,Academy Sports,bill.ennis@academy.com,2026-05-19,sent,followed_up 2026-05-21
+Steve Lawrence,Academy Sports,steve.lawrence@academy.com,2026-05-19,sent,followed_up 2026-05-21
+Eric Friederich,Academy Sports,eric.friederich@academy.com,2026-05-19,sent,followed_up 2026-05-21
+Sam Johnson,Academy Sports,sam.johnson@academy.com,2026-05-19,sent,followed_up 2026-05-21
+Dave Polivy,Tahoe Mountain Sports,dave.polivy@tahoemountainsports.com,2026-05-19,sent,followed_up 2026-05-21
+David Barton,Eastern Mountain Sports,david.barton@ems.com,2026-05-19,sent,followed_up 2026-05-21
+Dave Polivy,Town of Truckee,dpolivy@townoftruckee.gov,2026-05-19,sent,civic/gov address; also at Tahoe Mountain Sports; followed_up 2026-05-21
+Dave Polivy,Tahoe Mountain Sports,dave@tahoemountainsports.com,2026-05-19,sent,followed_up 2026-05-21
+David Barton,Eastern Mountain Sports,dbarton@ems.com,2026-05-19,sent,followed_up 2026-05-21
+David Barton,Eastern Mountain Sports,davebarton@ems.com,2026-05-19,sent,followed_up 2026-05-21
+David Barton,Eastern Mountain Sports,dave.barton@ems.com,2026-05-19,sent,followed_up 2026-05-21
+Ken Mamak,Eastern Mountain Sports,ken.mamak@ems.com,2026-05-19,sent,followed_up 2026-05-21
+Mark Imre,Eastern Mountain Sports,mark.imre@ems.com,2026-05-19,sent,followed_up 2026-05-21
+Emily Silver,Dick's Sporting Goods,emily.silver@dickssportinggoods.com,2026-05-20,sent,
+Lauren Hobart,Dick's Sporting Goods,lauren.hobart@dickssportinggoods.com,2026-05-20,sent,
+Mark Rooks,Dick's Sporting Goods,mark.rooks@dickssportinggoods.com,2026-05-20,sent,
+Tim Poellmann,Dick's Sporting Goods,tim.poellmann@dickssportinggoods.com,2026-05-20,sent,
+Vlad Rak,Dick's Sporting Goods,vlad.rak@dickssportinggoods.com,2026-05-20,sent,
+David Young,Dick's Sporting Goods,david.young@dickssportinggoods.com,2026-05-20,sent,
+Ed Stack,Dick's Sporting Goods,ed.stack@dickssportinggoods.com,2026-05-20,sent,
+Nicholas Mosso,Dick's Sporting Goods,nicholas.mosso@dickssportinggoods.com,2026-05-20,sent,
+Kimberly Bikowski,Dick's Sporting Goods,kimberly.bikowski@dickssportinggoods.com,2026-05-20,sent,
+Tom Hassett,Dick's Sporting Goods,tom.hassett@dickssportinggoods.com,2026-05-20,sent,
+Michael Zell,Dick's Sporting Goods,michael.zell@dickssportinggoods.com,2026-05-20,sent,
+Patrick Daley,Dick's Sporting Goods,patrick.daley@dickssportinggoods.com,2026-05-20,sent,
+Todd Spaletto,Dick's Sporting Goods,todd.spaletto@dickssportinggoods.com,2026-05-20,sent,
+,Etsy,bminor@etsy.com,2026-05-20,sent,pattern: firstinitial+lastname@
+Nicole McTernan,Etsy,nmcternan@etsy.com,2026-05-20,BOUNCED,
+Justin Parker,Etsy,jparker@etsy.com,2026-05-20,sent,
+Allison Wade,Etsy,awade@etsy.com,2026-05-20,sent,
+Robert Kalin,Etsy,rkalin@etsy.com,2026-05-20,BOUNCED,
+Katherine Deck,Etsy,kdeck@etsy.com,2026-05-20,sent,
+Derek Kim,Etsy,dkim@etsy.com,2026-05-20,sent,
+Madison Kiani,Etsy,mkiani@etsy.com,2026-05-20,sent,
+Bridget Strawn,Etsy,bstrawn@etsy.com,2026-05-20,sent,
+Anna Cadwallader,Etsy,acadwallader@etsy.com,2026-05-20,sent,
+Roze Pirvany,Etsy,rpirvany@etsy.com,2026-05-20,sent,
+Maureen Sitterson,Etsy,msitterson@etsy.com,2026-05-20,sent,
+Kruti Goyal,Etsy,kgoyal@etsy.com,2026-05-20,sent,
+Lisa Caputo,Best Buy,lisa.caputo@bestbuy.com,2026-05-20,sent,
+Corie Barry,Best Buy,corie.barry@bestbuy.com,2026-05-20,sent,
+Jason Bonfig,Best Buy,jason.bonfig@bestbuy.com,2026-05-20,sent,
+David Kenny,Best Buy,david.kenny@bestbuy.com,2026-05-20,sent,
+Jeff Haydock,Best Buy,jeff.haydock@bestbuy.com,2026-05-20,sent,
+Luke Motschenbacher,Best Buy,luke.motschenbacher@bestbuy.com,2026-05-20,sent,
+Patrick McGinnis,Best Buy,patrick.mcginnis@bestbuy.com,2026-05-20,sent,
+Frank Bedo,Best Buy,frank.bedo@bestbuy.com,2026-05-20,sent,
+Marie Grable,Best Buy,marie.grable@bestbuy.com,2026-05-20,sent,
+Neal Sample,Best Buy,neal.sample@bestbuy.com,2026-05-20,sent,
+Adam Sand,Best Buy,adam.sand@bestbuy.com,2026-05-20,sent,
+Kannan Swaminathan,Best Buy,kannan.swaminathan@bestbuy.com,2026-05-20,sent,
+Curtis Janicke,Best Buy,curtis.janicke@bestbuy.com,2026-05-20,sent,
+Deniz Anders,Nordstrom,deniz.anders@nordstrom.com,2026-05-20,sent,
+Pete Nordstrom,Nordstrom,pete.nordstrom@nordstrom.com,2026-05-20,sent,
+Miguel Almeida,Nordstrom,miguel.almeida@nordstrom.com,2026-05-20,sent,
+Marie Langhout-Franklin,Nordstrom,marie.langhout-franklin@nordstrom.com,2026-05-20,sent,
+Olivia Kim,Nordstrom,olivia.kim@nordstrom.com,2026-05-20,sent,
+Dan Schoening,Nordstrom,dan.schoening@nordstrom.com,2026-05-20,sent,
+Alexis DePree,Nordstrom,alexis.depree@nordstrom.com,2026-05-20,sent,
+Erik Nordstrom,Nordstrom,erik.nordstrom@nordstrom.com,2026-05-20,sent,
+Adam Drake,Nordstrom,adam.drake@nordstrom.com,2026-05-20,sent,
+Gemma Lionello,Nordstrom,gemma.lionello@nordstrom.com,2026-05-20,sent,
+Jason Morris,Nordstrom,jason.morris@nordstrom.com,2026-05-20,sent,
+Fanya Chandler,Nordstrom,fanya.chandler@nordstrom.com,2026-05-20,sent,
+Jessica Agahi,Nordstrom,jessica.agahi@nordstrom.com,2026-05-20,sent,
+Sharon Otterman,Macy's,sharon.otterman@macys.com,2026-05-20,sent,
+Tony Spring,Macy's,tony.spring@macys.com,2026-05-20,sent,
+Jen Brown,Macy's,jen.brown@macys.com,2026-05-20,sent,
+Max Magni,Macy's,max.magni@macys.com,2026-05-20,sent,
+Nata Dvir,Macy's,nata.dvir@macys.com,2026-05-20,sent,
+Jordan Dabby,Macy's,jordan.dabby@macys.com,2026-05-20,sent,
+Martine Reardon,Macy's,martine.reardon@macys.com,2026-05-20,sent,
+Keith Credendino,Macy's,keith.credendino@macys.com,2026-05-20,sent,
+Tom Edwards,Macy's,tom.edwards@macys.com,2026-05-20,sent,
+Chuck Hansen,Macy's,chuck.hansen@macys.com,2026-05-20,sent,
+Jenny Park,Macy's,jenny.park@macys.com,2026-05-20,sent,
+Katherine Beede,TJX,katherine_beede@tjx.com,2026-05-20,sent,pattern: first_last@
+Emily Trent,TJX,emily_trent@tjx.com,2026-05-20,sent,
+Victoria Shonkoff,TJX,victoria_shonkoff@tjx.com,2026-05-20,sent,
+Cindy Stockwell,TJX,cindy_stockwell@tjx.com,2026-05-20,sent,
+Mark Beyerly,TJX,mark_beyerly@tjx.com,2026-05-20,sent,
+Rugani Tully,TJX,rugani_tully@tjx.com,2026-05-20,sent,
+Christina Lynch,TJX,christina_lynch@tjx.com,2026-05-20,sent,
+Caitlin Kobelski,TJX,caitlin_kobelski@tjx.com,2026-05-20,sent,
+Barry Zelman,TJX,barry_zelman@tjx.com,2026-05-20,sent,
+Paul Bibbo,TJX,paul_bibbo@tjx.com,2026-05-20,sent,
+Doris Hamilton,TJX,doris_hamilton@tjx.com,2026-05-20,sent,
+Jillian Tully,TJX,jillian_tully@tjx.com,2026-05-20,sent,
+Roberto Gutierrez,Backcountry,roberto.gutierrez@backcountry.com,2026-05-20,sent,
+Emily Spears,Backcountry,emily.spears@backcountry.com,2026-05-20,sent,
+Alex Quitiquit,Backcountry,alex.quitiquit@backcountry.com,2026-05-20,sent,
+Lindsey Leonhardi,Backcountry,lindsey.leonhardi@backcountry.com,2026-05-20,sent,
+John Juliana,Backcountry,john.juliana@backcountry.com,2026-05-20,sent,
+Jill Beers,Backcountry,jill.beers@backcountry.com,2026-05-20,sent,
+Joe Torreano,Backcountry,joe.torreano@backcountry.com,2026-05-20,sent,
+Brett Sullivan,Backcountry,brett.sullivan@backcountry.com,2026-05-20,sent,
+Kevin Lenau,Backcountry,kevin.lenau@backcountry.com,2026-05-20,sent,
+Jordan Voloshin,Sur La Table,jordan.voloshin@surlatable.com,2026-05-20,sent,
+Dan Goldman,Sur La Table,dan.goldman@surlatable.com,2026-05-20,sent,
+Elton Graham,Sur La Table,elton.graham@surlatable.com,2026-05-20,sent,
+Kristin Perret,Sur La Table,kristin.perret@surlatable.com,2026-05-20,sent,
+Adam Blank,Sur La Table,adam.blank@surlatable.com,2026-05-20,sent,
+Katie Woodruff,Sur La Table,katie.woodruff@surlatable.com,2026-05-20,sent,
+Duane Fields,Sur La Table,duane.fields@surlatable.com,2026-05-20,sent,
+Kristin Kim,Sur La Table,kristin.kim@surlatable.com,2026-05-20,sent,
+,Crate & Barrel,mbrewer@crateandbarrel.com,2026-05-20,sent,pattern: firstinitial+lastname@
+Janet Hayes,Crate & Barrel,jhayes@crateandbarrel.com,2026-05-20,sent,
+Jason Booth,Crate & Barrel,jbooth@crateandbarrel.com,2026-05-20,sent,
+Amy Eschliman,Crate & Barrel,aeschliman@crateandbarrel.com,2026-05-20,sent,
+Sebastian Brauer,Crate & Barrel,sbrauer@crateandbarrel.com,2026-05-20,sent,
+,Williams-Sonoma,lalber@williams-sonoma.com,2026-05-20,sent,pattern: firstinitial+lastname@
+Abby Teisch,Williams-Sonoma,ateisch@williams-sonoma.com,2026-05-20,sent,
+Felix Carbullido,Williams-Sonoma,fcarbullido@williams-sonoma.com,2026-05-20,sent,
+Jennifer Kellor,Williams-Sonoma,jkellor@williams-sonoma.com,2026-05-20,sent,
+Jean Armstrong,Williams-Sonoma,jarmstrong@williams-sonoma.com,2026-05-20,sent,
+Monica Bhargava,Williams-Sonoma,mbhargava@williams-sonoma.com,2026-05-20,sent,
+Sameer Hassan,Williams-Sonoma,shassan@williams-sonoma.com,2026-05-20,sent,
+Erica McCormick,Williams-Sonoma,emccormick@williams-sonoma.com,2026-05-20,sent,
+Allie Reeves,Williams-Sonoma,areeves@williams-sonoma.com,2026-05-20,sent,
+,Evo,rheard@evo.com,2026-05-20,sent,pattern: firstinitial+lastname@
+Bryce Phillips,Evo,bphillips@evo.com,2026-05-20,sent,
+Tom Gaisser,Evo,tgaisser@evo.com,2026-05-20,sent,
+Allison DeJonghe,Evo,adejonghe@evo.com,2026-05-20,sent,
+Bob Barton,Evo,bbarton@evo.com,2026-05-20,sent,
+Nick Neuman,Evo,nneuman@evo.com,2026-05-20,sent,
+Patrick Mahoney,Evo,pmahoney@evo.com,2026-05-20,sent,
+Nathan Decker,Evo,ndecker@evo.com,2026-05-20,sent,
+,L.L.Bean,nwilkoff@llbean.com,2026-05-20,sent,pattern: firstinitial+lastname@
+Greg Elder,L.L.Bean,gelder@llbean.com,2026-05-20,sent,
+Corey Bouyea,L.L.Bean,cbouyea@llbean.com,2026-05-20,sent,
+Chuck Gannon,L.L.Bean,cgannon@llbean.com,2026-05-20,sent,
+Emily Plumb,L.L.Bean,eplumb@llbean.com,2026-05-20,sent,
+Joseph Rouhana,L.L.Bean,jrouhana@llbean.com,2026-05-20,sent,
+Deborah Yeh,Sephora,deborah.yeh@sephora.com,2026-05-20,sent,
+Anca Marola,Sephora,anca.marola@sephora.com,2026-05-20,sent,
+Carolyn Bojanowski,Sephora,carolyn.bojanowski@sephora.com,2026-05-20,sent,
+Alexandre Meerson,Sephora,alexandre.meerson@sephora.com,2026-05-20,sent,
+Gianni Leone,Sephora,gianni.leone@sephora.com,2026-05-20,sent,
+Caroline Asmussen,Sephora,caroline.asmussen@sephora.com,2026-05-20,sent,
+Claire Bernard,Sephora,claire.bernard@sephora.com,2026-05-20,sent,
+Xia Ding,Sephora,xia.ding@sephora.com,2026-05-20,sent,
+Charlotte Guerpillon,Sephora,charlotte.guerpillon@sephora.com,2026-05-20,sent,
+Vlad Kuznetsov,Sephora,vlad.kuznetsov@sephora.com,2026-05-20,sent,
+Sasha Brown,Sephora,sasha.brown@sephora.com,2026-05-20,sent,
+Nessim Khalfi,Sephora,nessim.khalfi@sephora.com,2026-05-20,sent,
+,Bass Pro Shops,rkhanna@basspro.com,2026-05-20,sent,pattern: firstinitial+lastname@
+Prasanna Singaraju,Bass Pro Shops,psingaraju@basspro.com,2026-05-20,sent,
+Kevin Maliszewski,Bass Pro Shops,kmaliszewski@basspro.com,2026-05-20,sent,
+Will Pruitt,Bass Pro Shops,wpruitt@basspro.com,2026-05-20,sent,
+Dylan Paulsen,Bass Pro Shops,dpaulsen@basspro.com,2026-05-20,sent,
+Eric McCauley,Bass Pro Shops,emccauley@basspro.com,2026-05-20,sent,
+Collin Mellott,Bass Pro Shops,cmellott@basspro.com,2026-05-20,sent,
+Nicole Meyers,Bass Pro Shops,nmeyers@basspro.com,2026-05-20,sent,
+Jamie Sohosky,,jamie_sohosky@hotmail.com,2026-05-20,sent,personal hotmail
+,Bath & Body Works,dheaf@bbwinc.com,2026-05-20,sent,pattern: firstinitial+lastname@bbwinc.com
+Jamie Sohosky,Bath & Body Works,jsohosky@bbwinc.com,2026-05-20,sent,
+Suzi Connor,Bath & Body Works,sconnor@bbwinc.com,2026-05-20,sent,
+Danielle Demko,Bath & Body Works,ddemko@bbwinc.com,2026-05-20,sent,
+Maly Bernstein,Bath & Body Works,mbernstein@bbwinc.com,2026-05-20,sent,
+Thilina Gunasinghe,Bath & Body Works,tgunasinghe@bbwinc.com,2026-05-20,sent,
+Ryan Gellert,Patagonia,ryan.gellert@patagonia.com,2026-05-20,sent,
+Jenna Johnson,Patagonia,jenna.johnson@patagonia.com,2026-05-20,sent,
+Dominic,Worldwide Cyclery,dominic@worldwidecyclery.com,2026-05-20,sent,
+Jeff,Worldwide Cyclery,jeff@worldwidecyclery.com,2026-05-20,sent,
+Trevor Mejia,Worldwide Cyclery,trevor@worldwidecyclery.com,2026-05-20,sent,
+Jared Erickson,Worldwide Cyclery,jared@worldwidecyclery.com,2026-05-20,sent,
+Ira,Excel Sports,ira@excelsports.com,2026-05-20,sent,
+Betsy Koelzer,Excel Sports,betsy@excelsports.com,2026-05-20,sent,
+Andy Lipman,Excel Sports,andy@excelsports.com,2026-05-20,sent,
+Shelvie,BG Indy,shelvie@bgindy.com,2026-05-20,sent,
+Tobias Holsman,BG Indy,tobias@bgindy.com,2026-05-20,BOUNCED,
+Tim Gale,BG Indy,tim@bgindy.com,2026-05-20,BOUNCED,
+Whitney Tabaian,Mike's Bikes,whitney.tabaian@mikesbikes.com,2026-05-20,sent,
+Molly Murrow,Mike's Bikes,molly.murrow@mikesbikes.com,2026-05-20,sent,
+Drew VanTassell,Mike's Bikes,drew.vantassell@mikesbikes.com,2026-05-20,sent,
+Ken Martin,Mike's Bikes,ken.martin@mikesbikes.com,2026-05-20,BOUNCED,
+Dave Kaplan,Mike's Bikes,dave.kaplan@mikesbikes.com,2026-05-20,BOUNCED,
+John Burke,Trek Bikes,john_burke@trekbikes.com,2026-05-20,sent,pattern: first_last@
+Steve Malchow,Trek Bikes,steve_malchow@trekbikes.com,2026-05-20,sent,
+Urs Keller,Trek Bikes,urs_keller@trekbikes.com,2026-05-20,sent,
+Aaron Mock,Trek Bikes,aaron_mock@trekbikes.com,2026-05-20,BOUNCED,
+Steve Novoselac,Trek Bikes,steve_novoselac@trekbikes.com,2026-05-20,sent,
+,Tactics,marcr@tactics.com,2026-05-20,sent,pattern: first+lastinitial@
+Mike Youngman,Tactics,mikey@tactics.com,2026-05-20,sent,
+Kevin Nimick,Tactics,kevinn@tactics.com,2026-05-20,sent,
+,Christy Sports,plabore@christysports.com,2026-05-20,sent,pattern: firstinitial+lastname@
+,Stio,nwaterhouse@stio.com,2026-05-20,sent,pattern: firstinitial+lastname@
+Michael Morrison,Stio,mmorrison@stio.com,2026-05-20,sent,
+Kelly Shuptrine,Stio,kshuptrine@stio.com,2026-05-20,sent,
+Kris Nelson,Stio,knelson@stio.com,2026-05-20,sent,
+Sarah Raff,Stio,sraff@stio.com,2026-05-20,sent,
+Alex Brown,Stio,abrown@stio.com,2026-05-20,sent,
+Evan Torrance,Stio,etorrance@stio.com,2026-05-20,sent,
+Thomas Stimpson,Stio,tstimpson@stio.com,2026-05-20,sent,
+Stirling Cobb,Stio,scobb@stio.com,2026-05-20,sent,
+Kris,Paka Apparel,kris@pakaapparel.com,2026-05-20,sent,
+Matthew Etzler,Paka Apparel,matthew@pakaapparel.com,2026-05-20,sent,
+Laura Rysz,Paka Apparel,laura@pakaapparel.com,2026-05-20,sent,
+Evan Jacobs,Paka Apparel,evan@pakaapparel.com,2026-05-20,sent,
+Matt,Paka Apparel,matt@pakaapparel.com,2026-05-20,sent,alternate to matthew@
+,American Giant,bwinthrop@american-giant.com,2026-05-20,sent,pattern: firstinitial+lastname@
+Lauren Young,American Giant,lyoung@american-giant.com,2026-05-20,sent,
+Arti Agarwal,American Giant,aagarwal@american-giant.com,2026-05-20,sent,
+Miguel McKelvey,American Giant,mmckelvey@american-giant.com,2026-05-20,sent,
+Lori Twomey,American Giant,ltwomey@american-giant.com,2026-05-20,sent,
+Jennifer Tredinnick,American Giant,jtredinnick@american-giant.com,2026-05-20,sent,
+Lauren Young,American Giant,lauren@american-giant.com,2026-05-20,sent,first-name fallback
+Arti Agarwal,American Giant,arti@american-giant.com,2026-05-20,sent,first-name fallback
+Miguel McKelvey,American Giant,miguel@american-giant.com,2026-05-20,sent,first-name fallback
+Lori Twomey,American Giant,lori@american-giant.com,2026-05-20,sent,first-name fallback
+Jennifer Tredinnick,American Giant,jennifer@american-giant.com,2026-05-20,sent,first-name fallback
+Christian Castellani,Paka Apparel,christian@pakaapparel.com,2026-05-20,sent,
+Josh,Baltini,josh@baltini.com,2026-05-20,sent,
+Vincent Moiras,Baltini,vincent@baltini.com,2026-05-20,sent,
+Lukvi,Baltini,lukvi@baltini.com,2026-05-20,BOUNCED,
+Marcus,Portland Gear,marcus@portlandgear.com,2026-05-20,sent,
+Eli Abramovitz,Portland Gear,eli@portlandgear.com,2026-05-20,sent,
+Zack Dean,Portland Gear,zack@portlandgear.com,2026-05-20,sent,
+Elliot Lofts,Portland Gear,elliot@portlandgear.com,2026-05-20,sent,
+Daniel Yacey,Nespresso,daniel.yacey@nespresso.com,2026-05-20,sent,
+Ilan,Chameleon Collective,ilan@chameleoncollective.com,2026-05-20,sent,
+Katy,Bombas,katy@bombas.com,2026-05-20,sent,
+,Paradis Sport,sarah@paradissport.com,2026-05-20,sent,subject: Referred by Roy Schmidt
+,Birdie and Claire,julie@birdieandclaire.com,2026-05-20,sent,subject: Referred by Roy Schmidt
+,Perfect DD,akim@perfectdd.com,2026-05-20,sent,subject: Referred by Roy Schmidt
+,Jilly Bing,elenor@jillybing.com,2026-05-20,sent,subject: Referred by Roy Schmidt
+,Tea Lady BK,care@tealadybk.com,2026-05-20,sent,
+Cari,Brown Kind,cari@brownkind.com,2026-05-20,sent,
+Lani Jaimes,The North Face,lani_jaimes@thenorthface.com,2026-05-20,sent,pattern: first_last@
+Lani Jaimes,,lani.jaimes@gmail.com,2026-05-20,sent,personal gmail
+Chris,Rare Candy,chris@rarecandy.com,2026-05-20,sent,
+Zia Wigder,,zia_wigder@yahoo.com,2026-05-20,sent,personal yahoo
+Robert Birge,easyJet,robert.birge@easyjet.com,2026-05-20,sent,
+Alessandra Sales,Dr Squatch,alessandra.sales@drsquatch.com,2026-05-20,sent,
+,eBay,cpougnier@ebay.com,2026-05-20,sent,pattern: firstinitial+lastname@
+Maureen Murphy,Nike,maureen.murphy@nike.com,2026-05-20,sent,
+,PacSun,mmedina@pacsun.com,2026-05-20,sent,pattern: firstinitial+lastname@
+,ALC,nicoleg@alcltd.com,2026-05-20,sent,pattern: first+lastinitial@
+Valerie Tomasello,ALC,valeriet@alcltd.com,2026-05-20,BOUNCED,
+Valerie Tomasello,,vltomasello@yahoo.com,2026-05-20,sent,personal yahoo
+,Movado Group,tlim@movadogroup.com,2026-05-20,sent,pattern: firstinitial+lastname@
+Alicia Reich,Movado Group,areich@movadogroup.com,2026-05-20,sent,
+Margot Grinberg,Movado Group,mgrinberg@movadogroup.com,2026-05-20,sent,
+Stephanie Smith,VF Corp,stephanie_smith3@vfc.com,2026-05-20,sent,pattern: first_last@ (with digit disambiguator)
+Stephanie Smith,,smiths412@gmail.com,2026-05-20,sent,personal gmail
+,ONE/SIZE Beauty,spassig@onesizebeauty.com,2026-05-20,sent,pattern: firstinitial+lastname@
+Sam Passig,,sam_passig@yahoo.com,2026-05-20,sent,personal yahoo
+Shefali Murdia,Movado Group,smurdia@movadogroup.com,2026-05-20,sent,
+,,chezcohen@mac.com,2026-05-20,sent,personal mac/icloud
+Eran Cohen,SJK,eran.cohen@sjk.com,2026-05-20,sent,
+,Fabletics,cnogueira@fabletics.com,2026-05-20,sent,pattern: firstinitial+lastname@
+Jeana Gragnani,Fabletics,jgragnani@fabletics.com,2026-05-20,sent,
+Daniel Archer,Ritual,daniel.archer@ritual.com,2026-05-20,sent,
+Jen Mann,Ritual,jen.mann@ritual.com,2026-05-20,sent,
+Cheyenne Farrell,Fabletics,cfarrell@fabletics.com,2026-05-20,sent,
+Annie Claypool,Skims,annie.claypool@skims.com,2026-05-20,sent,
+Jennifer Somer,ALC,jennifers@alcltd.com,2026-05-20,sent,
+,Buck Mason,skoehn@buckmason.com,2026-05-20,sent,pattern: firstinitial+lastname@
+Christopher Tate,Buck Mason,ctate@buckmason.com,2026-05-20,sent,
+Kyle Fitzgibbons,Buck Mason,kfitzgibbons@buckmason.com,2026-05-20,sent,
+Joe Amodei,Buck Mason,jamodei@buckmason.com,2026-05-20,sent,
+Lili,Leset,lili@leset.com,2026-05-20,sent,
+Lili Chemla,,lilichemla@gmail.com,2026-05-20,sent,personal gmail
+Katherine Newcomb,PacSun,knewcomb@pacsun.com,2026-05-20,sent,
+Jordi,Pedidos,jordi@pedidos.com.mx,2026-05-20,sent,
+,L'Oreal,dbooker@us.loreal.com,2026-05-21,sent,pattern: firstinitial+lastname@us.loreal.com
+Derrick Booker,L'Oreal,derrick.booker@loreal.com,2026-05-21,sent,alternate to dbooker@us.loreal.com
+Derrick Booker,,bookerdl@gmail.com,2026-05-21,sent,personal gmail (L'Oreal contact)
+Bartosz Szmit,L'Oreal,bartosz.szmit@loreal.com,2026-05-21,sent,
+Laura Azaria,L'Oreal,laura.azaria@loreal.com,2026-05-21,sent,
+Gali Lev,L'Oreal,gali.lev@loreal.com,2026-05-21,sent,
+Gabriela Millon,L'Oreal,gabriela.millon@loreal.com,2026-05-21,sent,
+Mandy Hon,L'Oreal,mandy.hon@loreal.com,2026-05-21,sent,
+Victoria Ayerza,L'Oreal,victoria.ayerza@loreal.com,2026-05-21,sent,
+Elena Khodunova,L'Oreal,elena.khodunova@loreal.com,2026-05-21,sent,
+Camille Kroely,L'Oreal,camille.kroely@loreal.com,2026-05-21,sent,
+Dragana Andjic,L'Oreal,dragana.andjic@loreal.com,2026-05-21,sent,
+Maria Berdun,L'Oreal,maria.berdun@loreal.com,2026-05-21,sent,
+Laila Alper,L'Oreal,laila.alper@loreal.com,2026-05-21,sent,
+Nataliya Chichkova,L'Oreal,nataliya.chichkova@loreal.com,2026-05-21,sent,
+Eileen Zong,L'Oreal,eileen.zong@loreal.com,2026-05-21,sent,
+Megan Goussen,L'Oreal,megan.goussen@loreal.com,2026-05-21,sent,
+Soha Seifeddine,L'Oreal,soha.seifeddine@loreal.com,2026-05-21,sent,
+Han Wen,L'Oreal,han.wen@loreal.com,2026-05-21,sent,
+Ariana Parasco,L'Oreal,ariana.parasco@loreal.com,2026-05-21,sent,
+Tina Fair,L'Oreal,tina.fair@loreal.com,2026-05-21,sent,
+Amy Whang,L'Oreal,amy.whang@loreal.com,2026-05-21,sent,
+Ellen Jaskiewicz,L'Oreal,ellen.jaskiewicz@loreal.com,2026-05-21,sent,
+Asmita Dubey,L'Oreal,asmita.dubey@loreal.com,2026-05-21,sent,
+Eden Benton,L'Oreal,eden.benton@loreal.com,2026-05-21,sent,
+David Greenberg,L'Oreal,david.greenberg@loreal.com,2026-05-21,sent,
+Thomas Vince,L'Oreal,thomas.vince@loreal.com,2026-05-21,sent,
+Nicolas Hieronimus,L'Oreal,nicolas.hieronimus@loreal.com,2026-05-21,sent,
+Kim Dirckx,L'Oreal,kim.dirckx@loreal.com,2026-05-21,sent,
+Barbara Lavernos,L'Oreal,barbara.lavernos@loreal.com,2026-05-21,sent,
+Visna Lim,L'Oreal,visna.lim@loreal.com,2026-05-21,sent,
+Othman Bennis,L'Oreal,othman.bennis@loreal.com,2026-05-21,sent,
+Isabelle Lafont,L'Oreal,isabelle.lafont@loreal.com,2026-05-21,sent,
+Jaime Sansierra,L'Oreal,jaime.sansierra@loreal.com,2026-05-21,sent,
+Alexandra Bolten,L'Oreal,alexandra.bolten@loreal.com,2026-05-21,sent,
+Myralda Derks,L'Oreal,myralda.derks@loreal.com,2026-05-21,sent,
+Alexis Jean-Baptiste,L'Oreal,alexis.jean-baptiste@loreal.com,2026-05-21,sent,
+Jean-Paul Paoli,L'Oreal,jean-paul.paoli@loreal.com,2026-05-21,sent,
+Varun Verma,L'Oreal,varun.verma@loreal.com,2026-05-21,sent,
+Andreea Lachapelle,L'Oreal,andreea.lachapelle@loreal.com,2026-05-21,sent,
+Marcelo Goes,L'Oreal,marcelo.goes@loreal.com,2026-05-21,sent,
+Nathalie Gerschtein,Haleon,nathalie.x.gerschtein@haleon.com,2026-05-21,sent,
+Tamara Rogers,Haleon,tamara.rogers@haleon.com,2026-05-21,sent,
+Brian McNamara,Haleon,brian.mcnamara@haleon.com,2026-05-21,sent,
+Filippo Lanzi,Haleon,filippo.lanzi@haleon.com,2026-05-21,sent,
+Bjorn Timelin,Haleon,bjorn.timelin@haleon.com,2026-05-21,sent,
+Kedar Lele,Haleon,kedar.lele@haleon.com,2026-05-21,sent,
+,FIT (Fashion Institute of Technology),obrienbudneyj@fitnyc.edu,2026-05-21,sent,
+Fabien Comby,L'Oreal,fabien.comby@loreal.com,2026-05-21,sent,
+Kelsie LoPelletier,Moon Juice,kelsie.lopelletier@moonjuice.com,2026-05-21,sent,
+Federico Troiani,Moon Juice,federico.troiani@moonjuice.com,2026-05-21,sent,
+Amanda Bacon,Moon Juice,amanda.bacon@moonjuice.com,2026-05-21,sent,
+Allison Bernstein,Moon Juice,allison.bernstein@moonjuice.com,2026-05-21,sent,
+Meghan Sawyer,Moon Juice,meghan.sawyer@moonjuice.com,2026-05-21,sent,
+Alessandro Tieghi,Moon Juice,alessandro.tieghi@moonjuice.com,2026-05-21,sent,
+Shivika Sinha,Love Wellness,shivikasinha@lovewellness.com,2026-05-21,sent,pattern: firstlast@
+Maryam Tantawy,Love Wellness,maryamtantawy@lovewellness.com,2026-05-21,sent,
+McKay Elliott,Love Wellness,mckayelliott@lovewellness.com,2026-05-21,sent,
+Olivia Hollis,Love Wellness,oliviahollis@lovewellness.com,2026-05-21,sent,
