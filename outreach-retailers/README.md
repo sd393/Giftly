@@ -105,8 +105,27 @@ GOG_KEYRING_PASSWORD=... python3 send-followups.py             # actually send
    so Gmail threads it into the original conversation and re-CCs the team.
 6. Appends `followed_up <date>` to the `notes` column for each target.
 
-Day-1 outcome: 107 follow-ups sent on 2026-05-21, 0 failures. See
-`CAMPAIGN.md` for the full retrospective.
+Outcomes so far:
+- Day 1 follow-up (2026-05-21): 107 sends covering 2026-05-19 sends, 0 failures.
+- Day 2 follow-up (2026-05-22): 230 sends covering 2026-05-20 sends, 0 failures.
+
+See `CAMPAIGN.md` for the full retrospective including per-retailer
+email patterns, template evolution, and one-off override examples.
+
+## Template substitution
+
+`BODY_TMPL` and `BODY_HTML_TMPL` use `{name}` and `{company}`
+placeholders. `render_body(name, company)` (in `send-batch.py`) does
+the substitution with safe fallbacks:
+
+- Empty `name` → greeting collapses to `Hi,`
+- Empty `company` → defaults to `your company`
+- First word of `name` is used as the greeting first-name
+
+`send_one(email, *, dry_run, name="", company="")` accepts the
+substitution kwargs. The batch loop pulls them from the input CSV's
+`name` and `retailer` (or `brand`) columns. For paste-and-send flows,
+pass them explicitly when calling `send_one` directly.
 
 ## How Claude should drive this
 

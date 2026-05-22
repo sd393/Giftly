@@ -44,20 +44,27 @@ merchandising (eBay-shape), pre-revenue or hobby retailers.
 ## Email format
 
 - **Subject** (exact, no variations): `Stanford Student Question - thoughts on AI retail tools`
-- **Body** (no substitutions — body is fixed in `send-batch.py`):
+- **Body** (uses `{name}` and `{company}` substitution — see `render_body` in `send-batch.py`):
 
   ```
-  Hi,
+  Hi {first-name},
 
-  We're Stanford/Dartmouth students helping specialty retailers take advantage of AI shopping.
+  We're Stanford/Dartmouth students curious how {company} is thinking about AI, given 50 million people now shop with ChatGPT daily.
 
-  We're working with brands valued over $300M+ and leading shopping agent platforms.
+  Would you be open to a quick 10-minute call?
 
-  Happy to send a short report we compiled on your catalog.
+  If not, we would appreciate even a one-sentence response with your thoughts on how retailers are improving their visibility with AI.
 
   Thanks,
   Armaan
   ```
+
+  Empty-value fallbacks:
+  - Missing name → greeting collapses to `Hi,`
+  - Missing company → `your company`
+
+  The first word of `name` is used as the greeting first-name. If the
+  source has `"Mary Laughton"`, the greeting is `Hi Mary,`.
 
 ### Follow-up template (second touch)
 
@@ -84,10 +91,11 @@ Armaan
   sent for clients that prefer it; both must stay in sync).
 - No em dashes, no exclamation marks, no buzzwords, no flattery — same
   hygiene as the other campaigns.
-- Greeting is `Hi,` with no name interpolation, even if the input CSV
-  has a `name` or `retailer` column. Reason: a misspelled or wrong-cased
-  name reads worse than no name. Names/retailers are kept in the log
-  for follow-up bookkeeping, not the body.
+- Greeting interpolates the first-name when available (`Hi Mary,`) and
+  the body interpolates the retailer/company name. If either is missing,
+  the empty-value fallback kicks in (no name → `Hi,`; no company →
+  `your company`). The earlier "no substitutions" rule was retired
+  2026-05-21 when this template version landed.
 - **Every send CCs** the teammates listed in `CC_RECIPIENTS` in
   `send-batch.py` (currently Samarjit, Ethan, Shamit). Update that
   constant if the team changes; don't make CC per-batch.
@@ -112,7 +120,8 @@ email,retailer,name,notes
 - `retailer` — preserved in the log; useful for follow-up bookkeeping.
   `brand` is also accepted as a fallback column name so a CSV reused
   from the brand-audit campaign flows through unchanged.
-- `name` — preserved in the log; not used in body.
+- `name` — preserved in the log AND used in body greeting via
+  substitution (`Hi Mary,`). First word is taken as the first-name.
 - `notes` — preserved in the log; freeform context.
 
 Extra columns flow through to the log untouched.
@@ -156,6 +165,40 @@ Per-row detail lands in `logs/send-<batch-stem>.log` and
   before kicking off the batch — don't silently let it run. The script
   will skip duplicates against the log but does not validate format.
 
+## One-off send overrides
+
+When a single send needs a different subject or body (referral pitch,
+Dartmouth-only framing for a specific recipient, etc.) without editing
+the file template, override the module constants in-memory inside the
+inline Python wrapper:
+
+```python
+import importlib.util
+from pathlib import Path
+ROOT = Path('/home/armaan/Documents/Giftly/outreach-retailers')
+spec = importlib.util.spec_from_file_location('s', ROOT / 'send-batch.py')
+m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+
+# Override before calling send_one. The file is untouched.
+m.SUBJECT_TMPL = 'Dartmouth Student Inquiry - Referred by Roy Schmidt'
+# Optionally also m.BODY_TMPL = "..." and m.BODY_HTML_TMPL = "..."
+
+ok, info, body, ext_id = m.send_one(
+    'recipient@example.com', dry_run=False,
+    name='Jane Doe', company='Example Co',
+)
+```
+
+Each `python3` invocation is a fresh interpreter, so the override only
+applies to that single batch. Examples in this campaign:
+
+- 4 Roy-Schmidt-referral sends on 2026-05-20 (subject-only override).
+- 1 Dartmouth-only send to `kathryn@aillea.com` on 2026-05-21 (subject
+  + body override).
+
+Tag overridden rows in `notes` so `send-followups.py` knows to skip
+them (it already checks for `roy schmidt` in notes).
+
 ## Sending accounts
 
 Reuse the same `gog`-authed accounts as the other campaigns:
@@ -181,9 +224,10 @@ inboxes too — coordinate before changing the list.
   lowercase email. The other campaign logs live separately, so
   cross-campaign dedup is manual if it matters — and it might, since a
   retailer that's also a DTC brand could appear in both lists.
-- **Subject and body live in `send-batch.py`.** Body is a literal
-  string with no substitutions — do not introduce `{retailer}` or
-  `{name}` interpolation without changing the playbook.
+- **Subject and body live in `send-batch.py`.** Body uses `{name}` and
+  `{company}` substitution via `render_body()`. Empty values fall back
+  gracefully (`Hi,` and `your company`). Don't add new placeholders
+  without updating both the body templates and `render_body()`.
 - **Bounces are owned by `process-bounces.py`** — don't retry or
   hand-edit the `verified` column.
 - **No fallback / pattern-guessed addresses.** This campaign has no

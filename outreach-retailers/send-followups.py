@@ -163,8 +163,8 @@ def main():
     print(f'[3/4] real_replies={len(real_repliers)} auto_replies={len(auto_repliers)}',
           file=sys.stderr)
 
-    # 4. Build target list from CSV — only 2026-05-19 sends, exclude Roy Schmidt referrals
-    TARGET_DATE = '2026-05-19'
+    # 4. Build target list from CSV — only TARGET_DATE sends, exclude Roy Schmidt referrals
+    TARGET_DATE = '2026-05-20'
     rows = list(csv.DictReader(LOG.open()))
     targets = []  # list of (csv_row, sent_meta)
     skip_reasons = {'wrong_date': 0, 'roy_schmidt': 0, 'bounced': 0,

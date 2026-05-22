@@ -42,23 +42,41 @@ CC_RECIPIENTS = (
 )
 
 SUBJECT_TMPL = "Stanford Student Question - thoughts on AI retail tools"
-BODY_TMPL = """Hi,
 
-We're Stanford/Dartmouth students helping specialty retailers take advantage of AI shopping.
+# Body uses {name} and {company} placeholders, filled by render_body().
+# Fallbacks: missing name -> "Hi,"; missing company -> "your company".
+BODY_TMPL = """Hi{name_suffix},
 
-We're working with brands valued over $300M+ and leading shopping agent platforms.
+We're Stanford/Dartmouth students curious how {company} is thinking about AI, given 50 million people now shop with ChatGPT daily.
 
-Happy to send a short report we compiled on your catalog.
+Would you be open to a quick 10-minute call?
+
+If not, we would appreciate even a one-sentence response with your thoughts on how retailers are improving their visibility with AI.
 
 Thanks,
 Armaan
 """
-BODY_HTML_TMPL = """<p>Hi,</p>
-<p>We're Stanford/Dartmouth students helping specialty retailers take advantage of AI shopping.</p>
-<p>We're working with brands valued over $300M+ and leading shopping agent platforms.</p>
-<p>Happy to send a short report we compiled on your catalog.</p>
+BODY_HTML_TMPL = """<p style="margin-top:0">Hi{name_suffix},</p>
+<p>We're Stanford/Dartmouth students curious how {company} is thinking about AI, given 50 million people now shop with ChatGPT daily.</p>
+<p>Would you be open to a quick 10-minute call?</p>
+<p>If not, we would appreciate even a one-sentence response with your thoughts on how retailers are improving their visibility with AI.</p>
 <p>Thanks,<br>Armaan</p>
 """
+
+
+def render_body(name: str = "", company: str = "") -> tuple[str, str]:
+    """Return (plain, html) bodies with {name}/{company} substituted.
+
+    - Empty name -> greeting collapses to 'Hi,' (no trailing space).
+    - Empty company -> 'your company'.
+    """
+    first = (name or "").strip().split()[0] if (name or "").strip() else ""
+    name_suffix = f" {first}" if first else ""
+    co = (company or "").strip() or "your company"
+    return (
+        BODY_TMPL.format(name_suffix=name_suffix, company=co),
+        BODY_HTML_TMPL.format(name_suffix=name_suffix, company=co),
+    )
 
 # Follow-up template for second-touch outreach. Use the ORIGINAL subject line
 # the recipient received (so gmail threads it) — not a new subject.
@@ -82,17 +100,27 @@ def _dedup_key(raw: str) -> str:
     return (raw or "").strip().lower()
 
 
-def send_one(email: str, *, dry_run: bool) -> tuple[bool, str, str, str | None]:
-    """Send one email via gog. Returns (ok, info, body, external_id)."""
+def send_one(
+    email: str,
+    *,
+    dry_run: bool,
+    name: str = "",
+    company: str = "",
+) -> tuple[bool, str, str, str | None]:
+    """Send one email via gog. Returns (ok, info, body, external_id).
+
+    `name` and `company` populate the body's {name}/{company} placeholders.
+    Empty values fall back gracefully (see render_body).
+    """
     subject = SUBJECT_TMPL
-    body = BODY_TMPL
+    body, body_html = render_body(name=name, company=company)
     cmd = [
         "gog", "--account", ACCOUNT, "gmail", "send",
         "--to", email,
         "--cc", ",".join(CC_RECIPIENTS),
         "--subject", subject,
         "--body", body,
-        "--body-html", BODY_HTML_TMPL,
+        "--body-html", body_html,
     ]
     if dry_run:
         cmd.append("--dry-run")
@@ -198,7 +226,9 @@ def main():
         email = r["email"].strip()
         name_raw = r.get("name") or ""
         retailer_raw = r.get("retailer") or r.get("brand") or ""
-        ok, info, body, external_id = send_one(email, dry_run=dry)
+        ok, info, body, external_id = send_one(
+            email, dry_run=dry, name=name_raw, company=retailer_raw,
+        )
         status = "OK " if ok else "FAIL"
         id_tag = f" id={external_id}" if external_id else ""
         label = retailer_raw or name_raw or "-"
