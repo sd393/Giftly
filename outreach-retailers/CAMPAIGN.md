@@ -127,31 +127,33 @@ For the paste-and-send rhythm, Claude calls `send_one` directly with
 
 ## Email pattern prevalence (across all 606 sends)
 
-Computed by classifying each `outreach-log.csv` row from its `name` and
-`email` local-part. Bounced rows are still counted (the pattern was
-observed at send time, regardless of whether the recipient existed).
-Minor variants (hyphens preserved, short-form first names, middle
-initials) are rolled into their parent bucket.
+Computed by classifying each `outreach-log.csv` row by name + email
+local-part, with `notes`-column fallback for rows where the name was
+missing in the log (~35 rows from inline paste-and-send). Bounced rows
+are still counted — the pattern was observed at send time regardless of
+whether the recipient existed. Minor variants (hyphens preserved,
+short-form first names, middle initials) are rolled into their parent
+bucket.
 
 | Rank | Pattern | Sends | Share | Examples |
 | --- | --- | --- | --- | --- |
-| 1 | `first.last@` | 261 | 43% | Nordstrom, Sephora, Patagonia, Space NK, END., Mr Porter, THG, Violet Grey, L'Oreal, Haleon, Kosas, Moon Juice, LovelySkin, Macy's, Best Buy, Backcountry, Sur La Table, Marathon Sports, Mike's Bikes, Fleet Feet, Grove, Foot Locker, Fit2Run, Academy Sports, Dick's Sporting Goods, Tahoe Mountain Sports, EMS (short-form first name), Simon Pearce, Nespresso, Ritual, Nike, Dr Squatch, easyJet |
-| 2 | `firstinitial+lastname@` | 130 | 21% | Etsy, REI, Crate & Barrel, Williams-Sonoma, Evo, L.L.Bean, Bass Pro Shops, Bath & Body Works, Stio, Christy Sports, ALC, Movado Group, ONE/SIZE Beauty, Fabletics, PacSun, Buck Mason, Pinterest, Bluemercury, The Honest Company, Ulta, eBay, Dartmouth Coop, Road Runner Sports, American Giant, Kate Spade, URBN, us.loreal.com subdomain |
-| 3 | first-name only @ | 118 | 19% | The Detox Market, Stag Provisions, Canoe Club, Standard & Strange, Proper Fools, YoungLA, Running Warehouse, Heartbreak Running, Charm City Run, Wilderness Sports, Tortoise & Hare, Gearhead Outfitters, Worldwide Cyclery, Excel Sports, BG Indy, Paka Apparel, Baltini, Portland Gear, Leset, Beauty Heroes, Beautylish, Nutrafol, Dr. Bronner's, The Warehouse Group, Performance Running |
-| 4 | unknown (name missing in log) | 30 | 5% | — paste-and-send rows where only an email was provided |
-| 5 | `first_last@` (underscore) | 19 | 3% | TJX, Trek Bikes, VF Corp (with digit suffix for dupes) |
-| 6 | personal-domain (gmail/yahoo/etc) | 12 | 2% | one-off recipient personal accounts |
-| 7 | `lastname+firstinitial@` (reversed!) | 9 | 1.5% | **Orvis** (`perkinss@`, `beanr@`, `feelyc@`) |
-| 8 | `first+lastinitial@` | 8 | 1.3% | Tactics, Philadelphia Runner, ALC |
-| 9 | `firstinitial.lastname@` (dot, single-letter prefix) | 8 | 1.3% | **Gymshark** (`n.mack@`, `b.francis@`) |
-| 10 | `firstlast@` (concat, no separator) | 7 | 1.2% | Brooklyn Running Co, Love Wellness |
-| 11 | role address (`careers@`/`customerservice@`) | 2 | 0.3% | Mohawk General Store, Outdoor Play fallback |
+| 1 | `first.last@` | 262 | 43.2% | Nordstrom, Sephora, Patagonia, Space NK, END., Mr Porter, THG, Violet Grey, L'Oreal (incl. middle-initial `first.x.last@`), Haleon, Kosas, Moon Juice, LovelySkin, Macy's, Best Buy, Backcountry, Sur La Table, Marathon Sports, Mike's Bikes, Fleet Feet, Grove, Foot Locker, Fit2Run, Academy Sports, Dick's, Tahoe Mountain Sports, EMS (short-form first name: `dave.barton@`), Simon Pearce, Nespresso, Ritual, Nike, Dr Squatch, easyJet, hyphenated last names preserved (Nordstrom) |
+| 2 | `firstinitial+lastname@` | 151 | 24.9% | Etsy, REI, Crate & Barrel, Williams-Sonoma, Evo, L.L.Bean, Bass Pro Shops, Bath & Body Works (`bbwinc.com`), Stio, Christy Sports, Movado Group, ONE/SIZE Beauty, Fabletics, PacSun, Buck Mason, Pinterest, Bluemercury, The Honest Company, Ulta (hyphens preserved: `abayer-thomas@`), eBay, Dartmouth Coop, Road Runner Sports, American Giant, Kate Spade, URBN, us.loreal.com subdomain |
+| 3 | first-name only @ | 123 | 20.3% | The Detox Market, Stag Provisions, Canoe Club, Standard & Strange, Proper Fools, YoungLA, Running Warehouse, Heartbreak Running, Charm City Run, Wilderness Sports, Tortoise & Hare, Gearhead Outfitters, Worldwide Cyclery, Excel Sports, BG Indy, Paka Apparel, Baltini, Portland Gear, Leset, Beauty Heroes, Beautylish, Nutrafol, Dr. Bronner's, The Warehouse Group, Performance Running, 4 Roy-Schmidt referrals (Paradis Sport, Birdie & Claire, Perfect DD, Jilly Bing), simon@solely.com |
+| 4 | `first_last@` (underscore) | 19 | 3.1% | TJX, Trek Bikes, VF Corp (with digit suffix for dupes: `first_last1@`) |
+| 5 | personal-domain (gmail/yahoo/mac/rcn) | 12 | 2.0% | one-off recipient personal accounts (lilygarfield@gmail.com, chezcohen@mac.com, etc.) |
+| 6 | `firstname+lastinitial@` | 10 | 1.7% | Tactics, Philadelphia Runner, ALC |
+| 7 | `lastname+firstinitial@` (REVERSED!) | 10 | 1.7% | **Orvis** (`perkinss@`, `beanr@`, `feelyc@`, …); FIT (`obrienbudneyj@fitnyc.edu`) |
+| 8 | `firstinitial.lastname@` (dot, single-letter prefix) | 8 | 1.3% | **Gymshark** (`n.mack@`, `b.francis@`) |
+| 9 | `firstlast@` (concat, no separator) | 8 | 1.3% | Brooklyn Running Co, Love Wellness, EMS short-form (`davebarton@`) |
+| 10 | role address (`careers@`/`customerservice@`/`care@`) | 3 | 0.5% | Mohawk General Store, Outdoor Play fallback, Tea Lady BK |
 
 **Takeaway:** `first.last@` + `firstinitial+lastname@` + first-name-only
-together cover 83% of all sends. When pasting a name + retailer with no
-explicit email, default to `first.last@` unless the retailer's pattern
-is already documented below — that captures the modal case and degrades
-gracefully (most bounces come from name accuracy, not pattern choice).
+together cover **88%** of all sends. When pasting a name + retailer with
+no explicit email, default to `first.last@` unless the retailer's
+pattern is already documented below — that captures the modal case and
+degrades gracefully (most bounces come from name accuracy, not pattern
+choice).
 
 ## Per-retailer email pattern discoveries
 
