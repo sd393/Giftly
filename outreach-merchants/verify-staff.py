@@ -349,11 +349,11 @@ def main():
         stats["people_verified"] += 1
 
         # Apply locked pattern to remaining people.
-        # Trust the pattern by default — only probe TRICKY names (hyphens,
-        # apostrophes, 3-word names, non-Latin chars, short all-caps tokens).
-        # This dramatically cuts SMTP probe load (less bot-detection risk)
-        # and trusts that Workspace/Outlook admins pre-create aliases per
-        # the brand convention.
+        # Per-person SMTP probe REQUIRED — pattern uniformity is NOT
+        # reliable even at honest-MX brands. Jake Galtere at Naturium
+        # bounced on 2026-05-23 because jake@ doesn't exist even though
+        # susan@ does (the founder gets short alias, the CMO doesn't).
+        # Trust-the-pattern caused a real send to bounce; never again.
         for c in contacts:
             if c.get("name") == first_row["name"]:
                 continue
@@ -363,28 +363,22 @@ def main():
             em = build_email(pattern, c["name"], domain)
             if not em or em in sibling:
                 continue
-            tricky = is_tricky_name(c["name"])
-            if tricky:
-                probes += 1
-                verdict, msg = verify_one(host, em)
-                tag = "OK " if verdict == "VALID" else "skip"
-                log(f"  [{tag}/probed-tricky] {em:<40} ({c['name']}, {c.get('title','')[:30]}) {msg[:50]}")
-                if verdict != "VALID":
-                    continue
-                source = "smtp_probed_tricky"
-                time.sleep(PROBE_SLEEP)
-            else:
-                log(f"  [trust] {em:<40} ({c['name']}, {c.get('title','')[:30]}) — clean name, locked pattern")
-                source = "pattern_trusted_clean"
+            probes += 1
+            verdict, msg = verify_one(host, em)
+            tag = "OK " if verdict == "VALID" else "skip"
+            log(f"  [{tag}] {em:<40} ({c['name']}, {c.get('title','')[:30]}) {msg[:50]}")
+            if verdict != "VALID":
+                continue
             verified.append({
                 "email": em, "name": c["name"],
                 "title": c.get("title", ""),
                 "brand": brand, "domain": domain,
                 "pattern": pattern,
-                "source": source,
+                "source": "smtp_per_person_probed",
                 "notes": f"mx={host}",
             })
             stats["people_verified"] += 1
+            time.sleep(PROBE_SLEEP)
 
         time.sleep(DOMAIN_SLEEP)
 

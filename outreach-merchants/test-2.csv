@@ -1,0 +1,3 @@
+email,name,title,brand,domain,pattern,source,notes
+susan@naturium.com,Susan Yara,Founder at NATURIUM,Naturium,naturium.com,first,smtp_pattern_discovery,first to verify; mx=naturium-com.mail.protection.outlook.com
+jake@naturium.com,Jake Galtere,"CMO, Naturium",Naturium,naturium.com,first,pattern_trusted_clean,mx=naturium-com.mail.protection.outlook.com
