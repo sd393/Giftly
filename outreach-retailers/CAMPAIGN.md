@@ -15,8 +15,8 @@ one-off overrides that are not obvious from the scripts alone.
 
 | Metric | Count |
 | --- | --- |
-| Total sends logged | 543 |
-| Unique retailers / orgs touched | ~100 |
+| Total sends logged | 606 |
+| Unique retailers / orgs touched | ~115 |
 | Bounces (DSN-confirmed, marked `BOUNCED`) | 52 |
 | Bulk follow-ups sent on 2026-05-21 (covering 2026-05-19 sends) | 107 |
 | Bulk follow-ups sent on 2026-05-22 (covering 2026-05-20 sends) | 230 |
@@ -29,7 +29,7 @@ Per-day breakdown (approximate, from `outreach-log.csv` `date_sent`):
 | 2026-05-19 | 130 |
 | 2026-05-20 | 252 |
 | 2026-05-21 | 149 |
-| 2026-05-22 | 12 (so far) |
+| 2026-05-22 | 75 |
 
 Bounce rate ≈ 10%, dominated by Outdoor Play (8 + 9 pattern-hunt sends,
 all rejected — see story below) and out-of-date contacts at Glossier,
@@ -220,6 +220,19 @@ data point for the pattern table.
 | Gymshark | `firstinitial.lastname@gymshark.com` (dot, single-letter prefix) | unusual format |
 | YoungLA | first-name only @youngla.com | clean |
 | Aillea | first-name only @aillea.com | single Dartmouth-only one-off send (see overrides) |
+| The Detox Market | first-name only @thedetoxmarket.com | clean across 7 sends |
+| Solely | `firstinitial+lastname@solely.com` (also first-name accepted: `simon@`) | mixed pattern; both formats used |
+| Cosbar | unclear — tried first-name (`lily@`) and `firstinitial+lastname` (`lgarfield@`); also sent to personal Gmail | inconclusive, monitor for bounces |
+| The Hut Group (THG) | `first.last@thehutgroup.com` | clean |
+| Space NK | `first.last@spacenk.com` | hyphenated last names collapse (`charlton-jones` → `charltonjones`) |
+| Proper Fools | first-name only @properfools.com | single send |
+| Canoe Club | first-name only @shopcanoeclub.com | clean |
+| Stag Provisions | first-name only @stagprovisions.com | clean |
+| Mohawk General Store | role-only address (`careers@`) used | no per-person discovery yet |
+| Standard & Strange | first-name only @standardandstrange.com | clean |
+| END. (End Clothing) | `first.last@endclothing.com` | clean |
+| Orvis | `lastname+firstinitial@orvis.com` (reversed!) | unusual reversed format (`perkinss@` for Simon Perkins) |
+| Mr Porter | `first.last@mrporter.com` | single send |
 
 ## The Outdoor Play story
 
@@ -328,6 +341,36 @@ count looks right, then send for real. The CSV's `notes` column gains a
 double-follow-ups if the script is re-run with the same `TARGET_DATE`
 (the gmail message ID still resolves correctly, but the operator can
 filter visually).
+
+## Day 3 sends (2026-05-22)
+
+63 paste-and-send rows covering 15 new retailers (above the YoungLA /
+Gymshark wrap-up from earlier in the day). Largest pushes: Space NK (13),
+Orvis (9), The Detox Market (7), END. (6), Solely (6), THG (4), Canoe
+Club (4), Stag Provisions (4). All sent via the inline `send_one()`
+helper.
+
+**Log-update gap surfaced here.** `send_one()` does not write to
+`outreach-log.csv` on its own — only `main()` (the batch loop) calls
+`append_log()`. Sixty-three paste-and-send rows had to be backfilled
+into the CSV from this conversation's gmail message IDs after the fact.
+Future work: have `send_one` optionally append to the log when called
+from the paste-and-send path so reconciliation isn't manual.
+
+Pattern discoveries this day:
+
+- **Orvis uses `lastname+firstinitial@`** — reversed from the more
+  common `firstinitial+lastname` convention. Confirmed by one
+  operator-supplied address (`perkinss@orvis.com` for Simon Perkins);
+  the rest of the day's Orvis sends followed the same shape.
+- **Space NK** collapses hyphens in last names (Simpson-Scott →
+  `simpsonscott`, Charlton-Jones → `charltonjones`).
+- **Solely** is mixed — both `firstinitial+lastname@` (operator
+  example: `jcbertini@`) and bare first-name (`simon@`) were used.
+  Likely both formats are valid aliases, but the operator
+  didn't confirm.
+- **Cosbar** never resolved cleanly — both `lily@` and `lgarfield@`
+  went out plus a personal Gmail; needs bounce-sweep confirmation.
 
 ## What's pending
 
