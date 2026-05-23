@@ -39,3 +39,11 @@ outreach/.gmail-cache/
 outreach-retailers/__pycache__/
 outreach-retailers/logs/
 outreach-retailers/batch.csv
+outreach-merchants/__pycache__/
+outreach-merchants/logs/
+outreach-merchants/.env
+outreach-merchants/candidates.csv
+outreach-merchants/contacts.csv
+outreach-merchants/verified.csv
+outreach-merchants/.cache/
+.gstack/
