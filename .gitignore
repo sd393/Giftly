@@ -47,3 +47,4 @@ outreach-merchants/contacts.csv
 outreach-merchants/verified.csv
 outreach-merchants/.cache/
 .gstack/
+outreach-merchants/.dedup-domains.txt

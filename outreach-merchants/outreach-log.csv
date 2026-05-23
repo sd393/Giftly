@@ -1,0 +1,6 @@
+name,brand,email,date_sent,verified,notes
+John Masters,John Masters Organics,john.masters@johnmasters.com,2026-05-22,sent,first to verify; mx=johnmasters-com.mail.protection.outlook.com
+Jana Blankenship,Captain Blankenship,jana.blankenship@captainblankenship.com,2026-05-22,BOUNCED,catchall post-bounce: 550 account does not exist
+Boris Oak,EVOLVh,boris.oak@evolvh.com,2026-05-22,sent,first to verify; mx=smtp.google.com
+Anastasia Bezrukova,Minori Beauty,anastasia.bezrukova@minoribeauty.com,2026-05-22,BOUNCED,catchall post-bounce: 550 account does not exist
+Andrea Danielson,Eco Lips,andrea.danielson@ecolips.com,2026-05-22,BOUNCED,catchall post-bounce: 550 account does not exist

@@ -1,0 +1,500 @@
+brand,domain,category,source
+Forge & Foster,forgeandfoster.com,accessories,google-confirmed
+Bala,shopbala.com,activewear,google-confirmed
+Bandier,carbon38.com,activewear,google-corrected
+Carbon38,carbon38.com,activewear,google-confirmed
+Girlfriend Collective,girlfriend.com,activewear,google-confirmed
+Onzie,onzie.com,activewear,google-confirmed
+PE Nation,pe-nation.com,activewear,google-confirmed
+Satisfy Running,satisfyrunning.com,activewear,google-confirmed
+Senita Athletics,senitaathletics.com,activewear,google-confirmed
+Splits59,splits59.com,activewear,google-confirmed
+Sweaty Betty,sweatybetty.com,activewear,google-confirmed
+Tracksmith,tracksmith.com,activewear,google-confirmed
+Year of Ours,yearofours.com,activewear,google-confirmed
+Free Label,freelabel.com,apparel,google-confirmed
+A Day's March,adaysmarch.com,apparel-men,google-confirmed
+Adsum,adsumnyc.com,apparel-men,google-confirmed
+Aime Leon Dore,aimeleondore.com,apparel-men,google-confirmed
+Awake NY,awakenyclothing.com,apparel-men,google-corrected
+Bedwin,bedwintokyo.com,apparel-men,google-corrected
+Flint and Tinder,huckberry.com,apparel-men,google-confirmed
+Frank And Oak,frankandoak.com,apparel-men,google-confirmed
+Indochino,indochino.com,apparel-men,google-confirmed
+Mack Weldon,mackweldon.com,apparel-men,google-confirmed
+Norse Projects,norseprojects.com,apparel-men,google-confirmed
+Public Rec,nobullproject.com,apparel-men,google-corrected
+Rhone,rhone.com,apparel-men,google-confirmed
+True Classic,trueclassictees.com,apparel-men,google-corrected
+Vuori,vuoriclothing.com,apparel-men,google-confirmed
+Wax London,waxlondon.com,apparel-men,google-confirmed
+Wings + Horns,wingsandhorns.com,apparel-men,manual-review-needed
+Birdwell Beach Britches,birdwell.com,apparel-outdoor,google-confirmed
+Captain Fin,captainfin.com,apparel-outdoor,google-confirmed
+Florence Marine X,florencemarinex.com,apparel-outdoor,google-confirmed
+Indyeva,indyeva.com,apparel-outdoor,google-confirmed
+Mollusk Surf,mollusksurfshop.com,apparel-outdoor,google-confirmed
+Prana,prana.com,apparel-outdoor,google-confirmed
+Roark,roark.com,apparel-outdoor,google-confirmed
+Salty Crew,salty-crew.com,apparel-outdoor,google-corrected
+Sundek,sundek.us,apparel-outdoor,google-confirmed
+Vissla,vissla.com,apparel-outdoor,google-confirmed
+Hanros,hanro.com,apparel-sleepwear,google-corrected
+Lake Pajamas,lakepajamas.com,apparel-sleepwear,google-confirmed
+Plum Pretty Sugar,plumprettysugar.com,apparel-sleepwear,google-confirmed
+Sant and Abel,santandabel.com,apparel-sleepwear,google-confirmed
+Sleeper,sleeper.com,apparel-sleepwear,google-corrected
+Feetures,feetures.com,apparel-socks,google-confirmed
+Happy Socks,happysocks.com,apparel-socks,google-confirmed
+Smartwool,smartwool.com,apparel-socks,google-confirmed
+Stance,stance.com,apparel-socks,google-confirmed
+Andie Swim,andieswim.com,apparel-swim,google-confirmed
+Bond-eye,bond-eye.com,apparel-swim,google-confirmed
+Frankies Bikinis,frankiesbikinis.com,apparel-swim,google-confirmed
+Hunza G,hunzag.com,apparel-swim,google-confirmed
+Onia,onia.com,apparel-swim,google-confirmed
+Summersalt,summersalt.com,apparel-swim,google-confirmed
+Vitamin A,vitaminaswim.com,apparel-swim,manual-review-needed
+Everlane,everlane.com,apparel-unisex,google-confirmed
+Pact,wearpact.com,apparel-unisex,google-confirmed
+Reiss,reiss.com,apparel-unisex,google-confirmed
+Stussy,stussy.com,apparel-unisex,google-confirmed
+Cuyana,cuyana.com,apparel-women,google-confirmed
+Eileen Fisher,eileenfisher.com,apparel-women,google-confirmed
+Ganni,ganni.com,apparel-women,google-confirmed
+La Ligne,lalignenyc.com,apparel-women,google-confirmed
+Maje,maje.com,apparel-women,google-confirmed
+Mara Hoffman,marahoffman.com,apparel-women,google-confirmed
+Misha Nonoo,mishanonoo.com,apparel-women,manual-review-needed
+Naadam,naadam.co,apparel-women,google-confirmed
+Quince,quince.com,apparel-women,google-corrected
+Reformation,thereformation.com,apparel-women,google-confirmed
+Saint Art New York,saintartnewyork.com,apparel-women,google-corrected
+Sandro,sandro-paris.com,apparel-women,google-confirmed
+Sea New York,sea-ny.com,apparel-women,google-corrected
+Sezane,sezane.com,apparel-women,google-confirmed
+Spell,spell.co,apparel-women,google-confirmed
+The Frankie Shop,thefrankieshop.com,apparel-women,google-confirmed
+Vince,vince.com,apparel-women,google-confirmed
+Pipette,pipettebaby.com,baby,google-confirmed
+Tubby Todd,tubbytodd.com,baby,google-confirmed
+Goumi Kids,goumikids.com,baby-apparel,google-confirmed
+Hanna Andersson,hannaandersson.com,baby-apparel,google-confirmed
+Magnetic Me,magneticme.com,baby-apparel,google-confirmed
+Monica + Andy,monicaandandy.com,baby-apparel,google-confirmed
+Olive + Page,oliveandpage.com,baby-apparel,google-confirmed
+Posh Peanut,poshpeanut.com,baby-apparel,google-confirmed
+Bobbie,hibobbie.com,baby-food,google-confirmed
+Babyletto,babyletto.com,baby-furniture,google-confirmed
+Crane USA,crane-usa.com,baby-gear,google-corrected
+Doona,doona.com,baby-gear,google-confirmed
+Frida,frida.com,baby-gear,google-confirmed
+The Tot,thetot.com,baby-marketplace,google-confirmed
+Aden + Anais,halosleep.com,baby-textiles,google-corrected
+Pehr,pehr.com,baby-textiles,google-corrected
+Lovevery,lovevery.com,baby-toys,google-confirmed
+Away,awaytravel.com,bags-travel,google-confirmed
+Bellroy,bellroy.com,bags-travel,google-confirmed
+Knack,knack.com,bags-travel,google-corrected
+Paravel,paravelco.com,bags-travel,google-corrected
+Roam,withroam.com,bags-travel,google-corrected
+Tortuga,tortugabackpacks.com,bags-travel,manual-review-needed
+Polene,polene-paris.com,bags-women,google-confirmed
+Senreve,senreve.com,bags-women,google-confirmed
+Strathberry,strathberry.com,bags-women,google-confirmed
+PMG Beauty,patmcgrath.com,beauty,google-corrected
+Maelys Cosmetics,maelyscosmetics.com,beauty-bodycare,google-corrected
+Necessaire,necessaire.com,beauty-bodycare,google-confirmed
+Soft Services,softservices.com,beauty-bodycare,google-confirmed
+Aquis,aquissolutions.com,beauty-hair,google-corrected
+Briogeo,briogeohair.com,beauty-hair,google-confirmed
+Color Wow,colorwowhair.com,beauty-hair,google-confirmed
+Crown Affair,crownaffair.com,beauty-hair,google-confirmed
+Daub & Design,daubanddesign.com,beauty-hair,google-confirmed
+DPHUE,dphue.com,beauty-hair,google-confirmed
+Drybar,drybar.com,beauty-hair,google-corrected
+Eva NYC,eva-nyc.com,beauty-hair,google-corrected
+Function of Beauty,functionofbeauty.com,beauty-hair,google-confirmed
+Hally Hair,hallyhair.com,beauty-hair,google-confirmed
+K18,k18hair.com,beauty-hair,google-confirmed
+Madison Reed,madison-reed.com,beauty-hair,google-confirmed
+Mielle Organics,mielleorganics.com,beauty-hair,google-confirmed
+Sienna Naturals,siennanaturals.com,beauty-hair,google-confirmed
+Slip,slip.com,beauty-hair-accessories,google-confirmed
+Glamnetic,glamnetic.com,beauty-lashes,google-confirmed
+House of Lashes,houseoflashes.com,beauty-lashes,google-confirmed
+Lash Star,lashstarbeauty.com,beauty-lashes,google-confirmed
+Velour Lashes,velourbeauty.com,beauty-lashes,google-confirmed
+Charlotte Tilbury,charlottetilbury.com,beauty-makeup,google-confirmed
+ColourPop,colourpop.com,beauty-makeup,google-confirmed
+ILIA,iliabeauty.com,beauty-makeup,google-confirmed
+Item Beauty,itembeauty.com,beauty-makeup,manual-review-needed
+Lawless Beauty,lawlessbeauty.com,beauty-makeup,google-confirmed
+Nudestix,nudestix.com,beauty-makeup,google-confirmed
+Patrick Ta,patrickta.com,beauty-makeup,google-confirmed
+Pyt Beauty,pytbeauty.com,beauty-makeup,manual-review-needed
+Saie,saiehello.com,beauty-makeup,google-confirmed
+Tarte,tartecosmetics.com,beauty-makeup,google-confirmed
+The Lip Bar,thelipbar.com,beauty-makeup,google-confirmed
+Westman Atelier,westman-atelier.com,beauty-makeup,google-confirmed
+Oars + Alps,oarsandalps.com,beauty-mens-skincare,google-confirmed
+Riley Rose,rileyrose.com,beauty-multi,manual-review-needed
+Acure,acure.com,beauty-skincare,google-confirmed
+Augustinus Bader,augustinusbader.com,beauty-skincare,google-confirmed
+Beauty Pie,beautypie.com,beauty-skincare,google-confirmed
+Belif,lgbeauty.com,beauty-skincare,google-corrected
+Bliss,blissvillagestoreanddeli.com,beauty-skincare,google-corrected
+Bubble Skincare,hellobubble.com,beauty-skincare,google-corrected
+Hero Cosmetics,herocosmetics.us,beauty-skincare,google-confirmed
+Holifrog,holifrog.com,beauty-skincare,google-confirmed
+Naturium,naturium.com,beauty-skincare,google-confirmed
+Selfless by Hyram,selflessbyhyram.com,beauty-skincare,google-confirmed
+Summer Fridays,summerfridays.com,beauty-skincare,google-confirmed
+Tatcha,tatcha.com,beauty-skincare,google-confirmed
+The Outset,theoutset.com,beauty-skincare,google-confirmed
+Topicals,mytopicals.com,beauty-skincare,google-corrected
+Tower 28,tower28beauty.com,beauty-skincare,google-confirmed
+Tula,babytula.com,beauty-skincare,google-corrected
+Youth To The People,youthtothepeople.com,beauty-skincare,google-confirmed
+Bask Suncare,basksuncare.com,beauty-suncare,google-confirmed
+Bondi Sands,bondisands.com,beauty-suncare,google-confirmed
+Coola,coola.com,beauty-suncare,google-confirmed
+Brio,brioitalian.com,beauty-tools,google-corrected
+Foreo,foreo.com,beauty-tools,google-confirmed
+GHD,ghd.com,beauty-tools,google-corrected
+LightStim,lightstim.com,beauty-tools,google-confirmed
+NuFace,mynuface.com,beauty-tools,google-confirmed
+T3 Micro,t3micro.com,beauty-tools,google-confirmed
+Aplos,eataplos.com,beverage,google-corrected
+Athletic Brewing,athleticbrewing.com,beverage,google-confirmed
+Best Day Brewing,bestdaybrewing.com,beverage,google-confirmed
+Bevvy,bevvy.co,beverage,google-corrected
+Cure Hydration,curehydration.com,beverage,google-confirmed
+De Soi,drinkdesoi.com,beverage,google-confirmed
+Ghia,drinkghia.com,beverage,google-confirmed
+Hint,drinkhint.com,beverage,google-confirmed
+Kin Euphorics,kineuphorics.com,beverage,google-confirmed
+Liquid Death,liquiddeath.com,beverage,google-confirmed
+Poppi,drinkpoppi.com,beverage,google-confirmed
+Recess,takearecess.com,beverage,google-confirmed
+Seedlip,seedlipdrinks.com,beverage,google-confirmed
+Spindrift,drinkspindrift.com,beverage,google-confirmed
+Surely,drinksurely.com,beverage,google-corrected
+Talea Beer,taleabeer.com,beverage,google-confirmed
+Yerba Madre,yerbamadre.com,beverage,google-corrected
+Bellocq,bellocqtea.com,beverage-tea,google-corrected
+Bigelow Tea,bigelowtea.com,beverage-tea,google-confirmed
+Pique Tea,piquelife.com,beverage-tea,google-confirmed
+Pukka Herbs,pukkaherbs.com,beverage-tea,google-confirmed
+Republic of Tea,republicoftea.com,beverage-tea,google-confirmed
+Tea Forte,teaforte.com,beverage-tea,google-confirmed
+Vahdam Teas,vahdam.com,beverage-tea,google-confirmed
+Yogi Tea,yogi-life.com,beverage-tea,google-corrected
+Bkr,finance.yahoo.com,beverage-ware,google-corrected
+Bottlekeeper,bottlekeeper.com,beverage-ware,manual-review-needed
+Corkcicle,corkcicle.com,beverage-ware,google-confirmed
+LARQ,livelarq.com,beverage-ware,google-confirmed
+Memobottle,memobottle.com,beverage-ware,google-confirmed
+Owala,owalalife.com,beverage-ware,google-confirmed
+S'well,swell.com,beverage-ware,google-confirmed
+Otherland,otherland.com,candles,google-confirmed
+Trudon,trudon.com,candles,google-confirmed
+Voluspa,voluspa.com,candles,google-confirmed
+Atlas Coffee Club,atlascoffeeclub.com,coffee,google-confirmed
+Bean Box,beanbox.com,coffee,google-confirmed
+Cometeer,cometeer.com,coffee,google-confirmed
+Driftaway Coffee,driftaway.coffee,coffee,google-confirmed
+Trade Coffee,drinktrade.com,coffee,google-confirmed
+Castelli,castelli-cycling.com,cycling,google-confirmed
+MAAP,maap.cc,cycling,google-confirmed
+Pas Normal Studios,pasnormalstudios.com,cycling,google-confirmed
+Rapha,rapha.cc,cycling,google-confirmed
+Ace & Tate,aceandtate.com,eyewear,google-confirmed
+EyeBuyDirect,eyebuydirect.com,eyewear,google-confirmed
+Felix Gray,felixgray.com,eyewear,google-corrected
+Pair Eyewear,paireyewear.com,eyewear,google-confirmed
+Polite Society,politesociety.com,eyewear,google-corrected
+Quay,quay.com,eyewear,google-corrected
+Vooglam,vooglam.com,eyewear,google-confirmed
+Warby Parker,warbyparker.com,eyewear,google-confirmed
+Yun,avatar.fandom.com,eyewear,google-corrected
+Zenni,zennioptical.com,eyewear,google-confirmed
+Farmgirl Flowers,farmgirlflowers.com,flowers,google-confirmed
+The Bouqs,bouqs.com,flowers,google-confirmed
+UrbanStems,urbanstems.com,flowers,google-confirmed
+Magic Spoon,magicspoon.com,food-cereal,google-confirmed
+Goldbelly,goldbelly.com,food-marketplace,google-confirmed
+Daily Harvest,daily-harvest.com,food-meal,google-confirmed
+Hungryroot,hungryroot.com,food-meal,google-confirmed
+Imperfect Foods,imperfectfoods.com,food-meal,google-confirmed
+Misfits Market,misfitsmarket.com,food-meal,google-confirmed
+Splendid Spoon,splendidspoon.com,food-meal,google-confirmed
+Sun Basket,sunbasket.com,food-meal,google-confirmed
+Bonafide Provisions,bonafideprovisions.com,food-pantry,google-confirmed
+Eat Banza,eatbanza.com,food-pantry,google-confirmed
+Fancy Sprinkles,fancysprinkles.com,food-pantry,google-confirmed
+Goodles,goodles.com,food-pantry,google-confirmed
+Kettle & Fire,kettleandfire.com,food-pantry,google-confirmed
+Necessary Foods,briana-thomas.com,food-pantry,google-corrected
+Thrive Market,thrivemarket.com,food-pantry,google-confirmed
+88 Acres,88acres.com,food-snacks,google-confirmed
+Bobo's,eatbobos.com,food-snacks,google-confirmed
+Catalina Crunch,catalinacrunch.com,food-snacks,google-confirmed
+Daily Crunch,dailycrunchsnacks.com,food-snacks,google-confirmed
+Hu Kitchen,hukitchen.com,food-snacks,google-confirmed
+Mid-Day Squares,middaysquares.com,food-snacks,google-confirmed
+Pipcorn,pipsnacks.com,food-snacks,google-confirmed
+RXBAR,rxbar.com,food-snacks,google-confirmed
+Siete Foods,sietefoods.com,food-snacks,google-confirmed
+Smart Sweets,smartsweets.com,food-snacks,google-confirmed
+Birdies,birdies.com,footwear,google-confirmed
+Cariuma,cariuma.com,footwear,google-confirmed
+Heyday Footwear,heydayfootwear.com,footwear,manual-review-needed
+Nisolo,nisolo.com,footwear,google-confirmed
+Olukai,olukai.com,footwear,google-confirmed
+On Running,on.com,footwear,google-confirmed
+Rothy's,rothys.com,footwear,google-confirmed
+Sam Edelman,samedelman.com,footwear,google-confirmed
+Saysh,saysh.com,footwear,google-confirmed
+Tecovas,tecovas.com,footwear,google-confirmed
+Tropicfeel,tropicfeel.com,footwear,google-confirmed
+Veja,veja-store.com,footwear,google-confirmed
+Vessi,vessi.com,footwear,google-confirmed
+Vivaia,vivaia.com,footwear,google-confirmed
+Wolf & Shepherd,wolfandshepherd.com,footwear,google-confirmed
+Apotheke,apothekeco.com,fragrance,google-corrected
+Dossier,dossier.co,fragrance,google-confirmed
+DS & Durga,dsanddurga.com,fragrance,google-confirmed
+Henry Rose,henryrose.com,fragrance,google-confirmed
+Heretic,hereticparfum.com,fragrance,manual-review-needed
+Olfactif,olfactif.com,fragrance,google-confirmed
+Replica,maisonmargiela-fragrances.us,fragrance,google-corrected
+Boll & Branch,bollandbranch.com,home-bedding,google-confirmed
+Buffy,buffy.co,home-bedding,manual-review-needed
+Frette,frette.com,home-bedding,google-confirmed
+Sferra,sferra.com,home-bedding,google-confirmed
+Snowe,snowehome.com,home-bedding,google-confirmed
+Sunday Citizen,sundaycitizen.co,home-bedding,google-confirmed
+Artifact Uprising,artifactuprising.com,home-decor,google-confirmed
+Framebridge,framebridge.com,home-decor,google-confirmed
+Made,madeblanks.com,home-decor,google-corrected
+Society6,society6.com,home-decor,google-confirmed
+Studio McGee,studio-mcgee.com,home-decor,google-confirmed
+The Citizenry,the-citizenry.com,home-decor,google-confirmed
+Tnoc,usanca.army.mil,home-decor,google-corrected
+Albany Park,albanypark.com,home-furniture,google-confirmed
+Apt2B,furniture.com,home-furniture,google-corrected
+Article,article.com,home-furniture,google-confirmed
+Articolo,articolostudios.com,home-furniture,google-corrected
+Burrow,burrow.com,home-furniture,google-confirmed
+Castlery,castlery.com,home-furniture,google-confirmed
+Cb2,cb2.com,home-furniture,google-confirmed
+DwellStudio,dwellstudio.com,home-furniture,google-confirmed
+Floyd,floydhome.com,home-furniture,google-confirmed
+Industry West,industrywest.com,home-furniture,google-confirmed
+Inside Weather,insideweather.com,home-furniture,google-confirmed
+Joybird,joybird.com,home-furniture,manual-review-needed
+Lulu and Georgia,luluandgeorgia.com,home-furniture,google-confirmed
+Maiden Home,maidenhome.com,home-furniture,google-confirmed
+Sabai,sabai.design,home-furniture,google-confirmed
+Schoolhouse,schoolhouse.world,home-furniture,google-corrected
+Songmics Home,songmics.com,home-furniture,google-corrected
+Caraway,carawayhome.com,home-kitchen,google-confirmed
+Cooks Standard,cooksstandard.com,home-kitchen,google-confirmed
+Fellow,fellowproducts.com,home-kitchen,google-confirmed
+Field Company,fieldcompany.com,home-kitchen,google-confirmed
+GreenPan,greenpan.us,home-kitchen,google-confirmed
+Hedley & Bennett,hedleyandbennett.com,home-kitchen,google-confirmed
+Hexclad,hexclad.com,home-kitchen,google-confirmed
+Made In,madeincookware.com,home-kitchen,google-confirmed
+Misen,misen.com,home-kitchen,google-confirmed
+Our Place,fromourplace.com,home-kitchen,google-confirmed
+Smithey Ironware,smithey.com,home-kitchen,google-confirmed
+Stargazer Cast Iron,stargazercastiron.com,home-kitchen,google-confirmed
+Allswell,walmart.com,home-mattress,google-corrected
+Layla,laylasleep.com,home-mattress,manual-review-needed
+Nectar,nectarsleep.com,home-mattress,google-confirmed
+Saatva,saatva.com,home-mattress,google-confirmed
+Tuft & Needle,tuftandneedle.com,home-mattress,google-confirmed
+Brightland,brightland.co,home-pantry,google-confirmed
+Diaspora Co,diasporaco.com,home-pantry,google-confirmed
+Fishwife,eatfishwife.com,home-pantry,google-confirmed
+Graza,graza.co,home-pantry,google-confirmed
+Maman,mamannyc.com,home-pantry,google-corrected
+Omsom,omsom.com,home-pantry,google-confirmed
+Public Goods,publicgoods.com,home-pantry,google-confirmed
+BedJet,bedjet.com,home-sleep-tech,google-confirmed
+Chilisleep,sleep.me,home-sleep-tech,google-corrected
+Eight Sleep,eightsleep.com,home-sleep-tech,google-confirmed
+Hatch,hatch.co,home-sleep-tech,google-confirmed
+Open Spaces,openspacessports.com,home-storage,google-corrected
+Yamazaki Home,theyamazakihome.com,home-storage,google-corrected
+Bellesa,bellesa.co,intimate-wellness,google-corrected
+Dame,damenewyork.com,intimate-wellness,google-corrected
+Lelo,lelo.com,intimate-wellness,google-confirmed
+Lula Mae,lulamaenyc.com,intimate-wellness,google-corrected
+Maude,getmaude.com,intimate-wellness,manual-review-needed
+Adore Me,adoreme.com,intimates,google-confirmed
+Boody,boody.com,intimates,google-confirmed
+Cuup,shopcuup.com,intimates,google-confirmed
+Knix,knix.com,intimates,google-confirmed
+Lively,lively.com,intimates,google-corrected
+MeUndies,meundies.com,intimates,google-confirmed
+Naja,naja.co,intimates,google-confirmed
+Parade,patch.com,intimates,google-corrected
+Pepper,wearpepper.com,intimates,manual-review-needed
+Saxx Underwear,saxxunderwear.com,intimates,google-confirmed
+ThirdLove,thirdlove.com,intimates,google-confirmed
+Tommy John,baseball-reference.com,intimates,google-corrected
+Anissa Kermiche,anissakermiche.com,jewelry,manual-review-needed
+Aurate,auratenewyork.com,jewelry,google-confirmed
+Aurelie Bidermann,aureliebidermann.com,jewelry,google-confirmed
+Catbird,catbirdnyc.com,jewelry,google-confirmed
+Mejuri,mejuri.com,jewelry,google-confirmed
+Missoma,missoma.com,jewelry,google-confirmed
+Monica Vinader,monicavinader.com,jewelry,google-confirmed
+Sophie Buhai,sophiebuhai.com,jewelry,google-confirmed
+Stone & Strand,stoneandstrand.com,jewelry,google-confirmed
+With Clarity,withclarity.com,jewelry,google-confirmed
+Janie and Jack,janieandjack.com,kids-apparel,google-confirmed
+Petite Plume,petite-plume.com,kids-apparel,google-confirmed
+Primary,primary.com,kids-apparel,google-confirmed
+Tea Collection,teacollection.com,kids-apparel,google-confirmed
+Maisonette,maisonette.com,kids-marketplace,google-confirmed
+Loog Guitars,loogguitars.com,kids-music,google-confirmed
+Yoto Player,us.yotoplay.com,kids-tech,google-confirmed
+Camp,camp.com,kids-toys,manual-review-needed
+Hape,toys.hape.com,kids-toys,google-corrected
+Maileg,mailegusa.com,kids-toys,google-corrected
+Manhattan Toy,manhattantoy.com,kids-toys,google-confirmed
+Autonomous,autonomous.ai,office,google-confirmed
+Flexispot,flexispot.com,office,google-confirmed
+Fully,merriam-webster.com,office,google-corrected
+Inbox Zero,inboxzerodesks.com,office,manual-review-needed
+Uplift Desk,upliftdesk.com,office,google-confirmed
+Vari,vari.com,office,google-confirmed
+Bite,bitetoothpastebits.com,oral-care,google-confirmed
+Burst,burstoralcare.com,oral-care,google-confirmed
+Crest Whitening,crest.com,oral-care,manual-review-needed
+Hello Products,hello-products.com,oral-care,google-confirmed
+Marvis,marvis.com,oral-care,google-corrected
+Quip,quip.com,oral-care,google-corrected
+Tend,hellotend.com,oral-care,google-confirmed
+Coalatree,coalatree.com,outdoor-apparel,google-confirmed
+Cotopaxi,cotopaxi.com,outdoor-apparel,google-confirmed
+KUHL,kuhl.com,outdoor-apparel,google-confirmed
+Tentree,tentree.com,outdoor-apparel,google-confirmed
+BioLite,bioliteenergy.com,outdoor-gear,google-confirmed
+Black Diamond,blackdiamondequipment.com,outdoor-gear,google-confirmed
+BougeRV,bougerv.com,outdoor-gear,google-confirmed
+EcoFlow,ecoflow.com,outdoor-gear,google-confirmed
+Goal Zero,goalzero.com,outdoor-gear,google-confirmed
+NNormal,nnormal.com,outdoor-gear,google-confirmed
+Solo Stove,solostove.com,outdoor-gear,google-confirmed
+Thule,thule.com,outdoor-gear,google-confirmed
+Yakima,yakima.com,outdoor-gear,google-confirmed
+Aisle,discover.gotoaisle.com,period-care,google-corrected
+August,itsaugust.co,period-care,google-confirmed
+Cora,cora.com,period-care,google-corrected
+Lola,lolablankets.com,period-care,google-corrected
+Modibodi,modibodi.com,period-care,google-confirmed
+Rael,getrael.com,period-care,google-confirmed
+Thinx,thinx.com,period-care,google-confirmed
+Boie,boieusa.com,personal-care,google-confirmed
+By Humankind,byhumankind.com,personal-care,google-confirmed
+Lume,lumedeodorant.com,personal-care,google-confirmed
+Marlowe,marlowe.com,personal-care,manual-review-needed
+Megababe,megababebeauty.com,personal-care,google-corrected
+Native,nativecos.com,personal-care,google-confirmed
+Schmidt's Naturals,schmidts.com,personal-care,google-confirmed
+The Honey Pot,thehoneypot.co,personal-care,google-confirmed
+Tom's of Maine,tomsofmaine.com,personal-care,google-confirmed
+Bevel,bevel.health,personal-care-mens,google-corrected
+Bark,bark.co,pet,google-confirmed
+Fable Pets,fablepets.com,pet,google-confirmed
+Wild One,wildone.com,pet,google-confirmed
+Bocce's Bakery,boccesbakery.com,pet-food,google-confirmed
+Maev,meetmaev.com,pet-food,google-corrected
+Open Farm,openfarmpet.com,pet-food,google-confirmed
+Spot & Tango,spotandtango.com,pet-food,google-confirmed
+Sundays for Dogs,sundaysfordogs.com,pet-food,google-confirmed
+The Farmer's Dog,thefarmersdog.com,pet-food,google-confirmed
+Wild Earth,wildearth.org,pet-food,google-corrected
+Bloomscape,bloomscape.com,plants,google-confirmed
+Burpee,burpee.com,plants,google-confirmed
+Eden Brothers,edenbrothers.com,plants,google-confirmed
+Greenery NYC,greenerynyc.com,plants,google-confirmed
+Lula's Garden,lulasgarden.com,plants,google-confirmed
+Modern Sprout,modernsprout.com,plants,google-confirmed
+Haus,gohaus.com,spirits,google-corrected
+Mr Black,mrblack.co,spirits,google-confirmed
+Appointed,appointed.co,stationery,google-confirmed
+Baronfig,baronfig.com,stationery,google-confirmed
+Greetabl,greetabl.com,stationery,google-confirmed
+Papier,papier.com,stationery,google-confirmed
+Postable,postable.com,stationery,google-confirmed
+Public Supply,ebay.com,stationery,google-corrected
+Rifle Paper Co,riflepaperco.com,stationery,google-confirmed
+Studio Carta,studiocartashop.com,stationery,google-corrected
+Bloom Nutrition,bloomnu.com,supplements,google-confirmed
+Care/of,takecareof.com,supplements,manual-review-needed
+Cymbiotika,cymbiotika.com,supplements,google-confirmed
+Drip Drop,dripdrop.com,supplements,google-confirmed
+Equip Foods,equipfoods.com,supplements,google-confirmed
+Goli,goli.com,supplements,google-confirmed
+Heart & Soil,heartandsoil.co,supplements,google-confirmed
+HUM Nutrition,humnutrition.com,supplements,google-confirmed
+Just Thrive,justthrivehealth.com,supplements,google-confirmed
+Liquid IV,liquid-iv.com,supplements,google-confirmed
+LMNT,drinklmnt.com,supplements,google-confirmed
+NOW Foods,nowfoods.com,supplements,google-confirmed
+Olly,olly.com,supplements,google-confirmed
+Onnit,onnit.com,supplements,google-confirmed
+Persona Nutrition,personanutrition.com,supplements,google-confirmed
+Quest Nutrition,questnutrition.com,supplements,google-confirmed
+Seed Health,seed.com,supplements,google-confirmed
+Symprove,symprove.com,supplements,google-confirmed
+Casetify,casetify.com,tech-accessories,google-confirmed
+Loop Earplugs,loopearplugs.com,tech-accessories,google-confirmed
+Lume Cube,lumecube.com,tech-accessories,google-confirmed
+Native Union,nativeunion.com,tech-accessories,google-confirmed
+Nomad,nomadgoods.com,tech-accessories,google-confirmed
+Peak Design,peakdesign.com,tech-accessories,google-confirmed
+Bremont,bremont.com,watches,google-confirmed
+Christopher Ward,christopherward.com,watches,google-confirmed
+Farer,farer.com,watches,google-confirmed
+Filippo Loreti,filippoloretiwatches.com,watches,google-corrected
+Greenwood Watches,visitorwatchco.com,watches,google-corrected
+MVMT,mvmt.com,watches,google-confirmed
+Nordgreen,nordgreen.com,watches,google-confirmed
+Shinola,shinola.com,watches,google-confirmed
+William Wood,williamwoods.edu,watches,google-corrected
+Endel,endel.io,wellness-app,google-confirmed
+Dipsea,dipseastories.com,wellness-audio,google-confirmed
+Bulletproof,bulletproof.com,wellness-coffee,google-confirmed
+Future,jambase.com,wellness-fitness,google-corrected
+Hydrow,hydrow.com,wellness-fitness,google-confirmed
+Ladder,joinladder.com,wellness-fitness,google-corrected
+Lit Method,litmethod.com,wellness-fitness,google-confirmed
+Mirror,ikea.com,wellness-fitness,google-corrected
+Solidcore,solidcore.co,wellness-fitness,google-confirmed
+Tonal,tonal.com,wellness-fitness,google-confirmed
+Y7 Studio,y7-studio.com,wellness-fitness,google-confirmed
+Hims,hims.com,wellness-mens,google-corrected
+Keeps,keeps.com,wellness-mens,google-confirmed
+Roman,roman.com,wellness-mens,google-corrected
+Parsley Health,parsleyhealth.com,wellness-multi,google-confirmed
+Hyperice,hyperice.com,wellness-recovery,google-confirmed
+Sunlighten,sunlighten.com,wellness-recovery,google-confirmed
+Theragun,therabody.com,wellness-recovery,google-confirmed
+Beam,shopbeam.com,wellness-supplements,google-corrected
+Hers,forhers.com,wellness-womens,google-confirmed
+Maven Clinic,mavenclinic.com,wellness-womens,google-confirmed
+Modern Fertility,modernfertility.com,wellness-womens,google-confirmed
+Avaline,drinkavaline.com,wine,google-confirmed
+Bright Cellars,winc.com,wine,google-corrected
+Firstleaf,firstleaf.com,wine,google-confirmed
+Naked Wines,nakedwines.com,wine,google-confirmed
+SOMM,somm.tv,wine,manual-review-needed
+Usual Wines,usualwines.com,wine,google-confirmed
+Vinebox,vinebox.com,wine,google-corrected
