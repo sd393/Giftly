@@ -562,10 +562,12 @@ Step 1 of verify (above) detects catchall and drops the brand.
 ### Scripts
 - `source-publicwww.py` — PublicWWW-based brand discovery via gstack browse (legacy for indie batches)
 - `verify-domain.py` — Google top-organic per-brand domain verification
-- `discover-staff.py` — LinkedIn /company/<slug>/people/ scraper via /connect-chrome headed Chromium
-- `verify-staff.py` — SMTP RCPT TO with pattern-locking + prefer-shortest-alias + tricky-name probe + role-block + sibling-dedup
+- **`discover-staff-linkedin.py`** — ACTIVE: LinkedIn `/company/<slug>/people/?keywords=<kw>` scraper via /connect-chrome headed Chromium. Includes `assert_headed_or_die` preflight + every-10-brands mid-run recheck, `derive_company_slug` heuristic before Google fallback, crash-safe per-brand incremental write to contacts.csv, per-call `_browse` timeout handling.
+- `discover-staff.py` — legacy: scrapes the brand's own /pages/about etc. Indie brands hide leadership so recall was ~30%. Superseded by discover-staff-linkedin.py for midsize.
+- `verify-staff.py` — SMTP RCPT TO with pattern-locking + prefer-shortest-alias + per-person probe + 89 role-block + sibling-dedup + headed-mode preflight
 - `smtp-verify.py` — older single-purpose SMTP verifier (superseded by verify-staff.py)
 - `check-gmail-touched.py` — per-domain gmail dedup query against both authed accounts
+- **`sweep-all-brands.py`** — multi-batch orchestrator. Splits N-brand input into 6 batches, runs discover-staff-linkedin → verify-staff per batch, 30-min cooldown between batches (anti-bot), per-stage timeouts, headed-preflight per batch, master `sweep-state/verified-all.csv` + `per-brand-findings.csv` outputs. `--start-batch N` for resume after crash.
 - `send-batch.py` — v5 template send with CCs, jitter, log append
 - `process-bounces.py` — DSN sweep + log mark
 - `run-campaign.sh` — orchestrator (source → discover → verify → send → bounce-sweep)
@@ -576,11 +578,19 @@ Step 1 of verify (above) detects catchall and drops the brand.
 - `midsize-500-verified.csv` — Google verification raw results, brand+domain_guess+domain_google+match+top_url+category+notes
 - `midsize-500-clean.csv` — final cleaned list with corrections applied, 499 rows (Dyne dropped)
 - `cold-call-list.csv` — subagent output, 228 indie brand websites (separate artifact, not for midsize flow)
-- `trimmed.csv` — per-batch input to discover-staff (brand+domain rows the operator approves for processing)
-- `contacts.csv` — discover-staff output (domain+brand+name+title+source_url+notes)
-- `verified.csv` — verify-staff output (email+name+title+brand+domain+pattern+source+notes)
+- `trimmed.csv` — per-batch input to discover-staff (brand+domain rows the operator approves for processing). Rewritten each batch.
+- `contacts.csv` — discover-staff output (domain+brand+name+title+source_url+notes). Rewritten each run; crash-safe incremental append per brand.
+- `verified.csv` — verify-staff output (email+name+title+brand+domain+pattern+source+notes). Rewritten each verify run.
 - `outreach-log.csv` — canonical send log (name+brand+email+date_sent+verified+notes), append-only
 - `demo-one.csv` — one-brand test input (e.g. Caraway demo for staff discovery)
+- **`sweep-state/`** — multi-batch sweep artifacts (gitignored), populated by `sweep-all-brands.py`:
+  - `sweep-state/sweep.log` — append-only run log with per-batch timestamps
+  - `sweep-state/batch-NN/trimmed.csv` — per-batch input snapshot
+  - `sweep-state/batch-NN/contacts.csv` — per-batch discovery output snapshot
+  - `sweep-state/batch-NN/verified.csv` — per-batch verifier output snapshot
+  - `sweep-state/batch-NN/batch.log` — per-batch stdout from discover + verify subcommands
+  - `sweep-state/verified-all.csv` — master aggregate of every verified email across batches (append-only)
+  - `sweep-state/per-brand-findings.csv` — one row per brand: batch, brand, domain, contacts_found, verified_count, status (ok|no_pattern_or_ip_blocked|linkedin_lookup_failed)
 
 ### Documentation
 - `OUTREACH.md` — this playbook
@@ -645,6 +655,63 @@ Never drop it.
 ### 8. Outreach send friction (`feedback_outreach_send_friction.md`)
 In manual-paste flow, just send. Don't confirm guessed emails or flag dupes.
 
+### 9. Apollo free tier locked (`reference_apollo_free_tier.md`)
+Apollo's free API only exposes `/organizations/enrich` (org metadata).
+Both `/people/match` and `/mixed_people/search` return `API_INACCESSIBLE`.
+Need paid ($49/mo Basic) to use Apollo for email discovery. SMTP RCPT TO
+remains the primary verification path.
+
+### 10. SMTP IP-block on Outlook EOP (`feedback_smtp_ip_block.md`)
+Outlook EOP (`mail.protection.outlook.com`) IP-blocks after ~10-15 RCPT TO
+probes from one IP. Returns `550 5.7.1 Service unavailable, Client host
+blocked` — indistinguishable from a real "mailbox doesn't exist" 550.
+2026-05-23: probed Naturium ~12 times, every subsequent probe returned
+5.7.1 including `susan@naturium.com` (which had verified earlier and
+actually delivered a real send). Mitigation: cap probes per MX, pace
+queries, treat 5.7.1 as INCONCLUSIVE not INVALID, trust pre-existing
+delivery evidence when re-verifying.
+
+### 11. Pattern uniformity is NOT reliable (Jake Galtere bounce, 2026-05-23)
+Trust-the-pattern logic (only probing the discovery person, trusting locked
+pattern for everyone else) bounces when admins don't pre-create aliases for
+all employees. Caraway pre-creates `first@`, `first.last@`, `flast@` for
+every employee → trust-the-pattern works. Naturium only pre-creates `first@`
+for the founder (`susan@`) but not for the CMO (`jake@`) → trust-the-pattern
+bounces. **Always probe every extrapolated address per person**, not just
+tricky names. Per-person SMTP probe is the floor.
+
+### 12. Headed browser silently dies, daemon falls back to headless
+Repeatedly observed 2026-05-23/24: the GStack Browser Chromium window dies
+(laptop sleeps, user closes window, Chromium crashes) and the `browse`
+daemon auto-restarts in `Mode: launched` (headless). Every subsequent
+LinkedIn page redirects to `/authwall/` and every Google search hits
+captcha — but `_browse` calls return success with empty data. Without a
+preflight check, downstream scripts silently burn through inputs producing
+0 results. **Fix**: every script that hits the browser must call
+`assert_headed_or_die()` at startup AND every N items in a long loop. If
+the daemon is in `Mode: launched`, bail loudly and tell the operator to
+run `/connect-chrome` + log in.
+
+### 13. Single-call timeout kills the whole script
+The `_browse` subprocess wrapper raised `subprocess.TimeoutExpired` on any
+laggy js call (~30s default). One stuck call crashed the entire discovery
+mid-run, losing all prior work (because contacts.csv was only written at
+the end). 2026-05-24 we lost 18 brands of work this way on brand 19/50.
+**Fix**: catch `TimeoutExpired` and return `(-1, "")` so the caller skips
+the brand/keyword and continues. Plus write contacts.csv incrementally per
+brand so a crash preserves everything done so far.
+
+### 14. Linter quietly reverts safety patches
+2026-05-24: editor linter reverted three different safety patches to
+`discover-staff-linkedin.py` (preflight, derived-slug heuristic, timeout
+handling) WITHOUT removing the on-disk reference to them. Background runs
+that started right before the linter wipe had the patches in-memory and
+ran correctly; the next launches from disk silently lost the safety nets.
+**Fix**: after any non-trivial edit to a script in this directory, run a
+syntax + import check (`python3 -c "...spec_from_file_location..."`) AND
+grep for the named functions you just added. If they're missing, re-apply.
+Commit immediately after re-applying so the safe version is in git.
+
 ### Other bugs caught and fixed this session
 - `lstrip("www.")` strips chars not strings, corrupts `wearpact.com` to
   `earpact.com`. Use `removeprefix("www.")`.
@@ -654,36 +721,101 @@ In manual-paste flow, just send. Don't confirm guessed emails or flag dupes.
 - `re.IGNORECASE` flag corrupted name character class — `[A-Z]` matched
   lowercase letters under IGNORECASE in Python re. Switched to inline
   `(?i:...)` for verbs only, kept name char-class case-sensitive.
+- DictWriter raised on extra keys when reading midsize-500-clean.csv
+  (`category`, `source`) into the sweep orchestrator. Fixed by passing
+  `extrasaction="ignore"` to DictWriter constructor.
 
 ---
 
-## CURRENT STATE (2026-05-23)
+## RUN HISTORY (2026-05-22 → 2026-05-24)
+
+| When | Stage | Input | Result | Notes |
+|---|---|---|---|---|
+| 2026-05-22 | Caraway demo | 14 LinkedIn-found people | **14 verified** | All `first@` aliases; prefer-shortest picked `jordan@` over `jordan.nathan@` |
+| 2026-05-22 | First 5-send test | 5 verified | **2 delivered / 3 bounced** | Catchall post-bounce (Captain Blankenship, Minori, Eco Lips). Triggered hard rule: catchall=skip always. |
+| 2026-05-23 | 25-brand batch (test) | 25 indie skincare/clean | **29 verified** (after Susan-readd) | Indie band; verify-staff yield ~1.2/brand |
+| 2026-05-23 | Naturium send (test) | 2 verified | **1 delivered (Susan) / 1 bounced (Jake)** | Pattern uniformity is unreliable — Susan had `susan@` alias, Jake didn't have `jake@`. Triggered new rule: probe every person, not just discovery. |
+| 2026-05-23 | Overnight sweep batch 1/6 | 79 midsize brands | **5 verified** | Headed browser alive; ran clean |
+| 2026-05-23/24 | Overnight sweep batches 2-5 | 79 brands × 4 batches | **0 verified each** | Headed browser died between batches 1 and 2. Daemon fell back to headless. Google captcha'd every search. Sweep burned 316 brands silently. Triggered new rule: preflight + mid-run headed-mode check. |
+| 2026-05-24 morning | 50-brand babysat attempt | 50 brands | **4 verified** | Crashed at brand 19/50 on a stuck `$B js` call. Lost the 18 prior brands of work. Triggered new rule: timeout-safe `_browse` + incremental contacts.csv write. |
+| 2026-05-24 | Same 50-brand, retry | 50 brands (14 reach discovery) | **4 verified** | Google captcha hit at brand 15. 36 brands returned NO_LINKEDIN_SLUG_FOUND. Triggered new rule: derive slug from brand+domain heuristic before falling back to Google. |
+| 2026-05-24 | 36-brand retry w/ derived-slug | 36 brands | **17 verified** | Big win. Briogeo (5), Crown Affair (4), DPHUE (4), Strathberry (3), Senreve (1). Most brands hit LinkedIn directly via slugified-brand-name without needing Google. |
+
+**Cumulative verified emails ready for outreach: ~55**
+- `verified.csv` (the 29 from 25-brand test + Susan)
+- `sweep-state/verified-all.csv` (26 from the 3 sweep batches)
+- Minus the 2 already sent to Naturium (susan@ delivered, jake@ bounced)
+
+---
+
+## CURRENT STATE (2026-05-24)
 
 ### Pipeline status
 - ✅ 499-brand midsize list (Google-domain-verified, 391 confirmed + 86
   corrected + 22 manual-review accepted as-is)
 - ✅ Domain-verifier built and run
-- ✅ Discover-staff using LinkedIn company People tab via `/connect-chrome`
-- ✅ Verify-staff with prefer-shortest pattern + tricky-name probe + 89
-  role-block + sibling-dedup
+- ✅ Discover-staff-linkedin.py active with preflight + derived-slug +
+  incremental writes + per-call timeout handling
+- ✅ Verify-staff with prefer-shortest pattern + **per-person probe (not
+  just tricky)** + 89 role-block + sibling-dedup
 - ✅ Per-domain gmail-touched dedup utility
 - ✅ Send pipeline (v5 template, CCs)
 - ✅ Bounce sweep
+- ✅ Sweep orchestrator (`sweep-all-brands.py`) with batched runs +
+  per-batch headed preflight + master output aggregation
+- 🚧 Browser flakiness is the dominant practical bottleneck: Chromium
+  window dies repeatedly, requires re-`/connect-chrome` + re-login
 
-### Caraway Home (demo run completed)
-- Domain confirmed: `carawayhome.com` (Google + Wayback + jordan@ SMTP probe)
-- 14 senior named contacts identified via LinkedIn company People tab
-  + keyword search (director, vp, head, chief, marketing, growth, brand,
-  product, ecommerce)
-- Pattern locked at `first` (jordan@) via prefer-shortest
-- 14/14 verified including KoL Unger (probed as tricky, kol@ exists)
-- Gmail-dedup applied: `hello@carawayhome.com` excluded (operator's April 2026
-  outreach to Caraway)
-- `verified.csv` ready to send
+### What's been actually sent (live, real human inboxes)
+| Date | Recipient | Brand | Outcome |
+|---|---|---|---|
+| 2026-05-22 | john.masters@johnmasters.com | John Masters Organics | sent |
+| 2026-05-22 | jana.blankenship@captainblankenship.com | Captain Blankenship | BOUNCED (catchall) |
+| 2026-05-22 | boris.oak@evolvh.com | EVOLVh | sent |
+| 2026-05-22 | anastasia.bezrukova@minoribeauty.com | Minori Beauty | BOUNCED (catchall) |
+| 2026-05-22 | andrea.danielson@ecolips.com | Eco Lips | BOUNCED (catchall) |
+| 2026-05-23 | susan@naturium.com | Naturium | sent |
+| 2026-05-23 | jake@naturium.com | Naturium | BOUNCED (pattern non-uniformity) |
+
+Net: 3 delivered, 4 bounced across two test rounds before the safety
+rules were tightened. Outreach-log.csv has all 7 rows with statuses.
+
+### Verified pool ready for Tuesday send
+- ~29 named contacts in `verified.csv` (25-brand test surfaced these; all
+  SMTP-deliverable, all senior+relevant)
+- ~26 named contacts in `sweep-state/verified-all.csv` (batches 1+2+retry)
+- After de-dup, **~52-55 unique verified senior emails** across ~25-30
+  midsize brands
+
+### Brands that produced verified contacts (rough count)
+From 25-brand test: Heart & Soil (3), Equip Foods (2), LMNT (1), Magic
+Spoon (1), Mid-Day Squares (2), Athletic Brewing (2), Goldbelly (3),
+Cuyana (2), Mack Weldon (1), Tracksmith (2), Cariuma (1), Mejuri (1),
+Made In (2), Rhone (4), Liquid Death (1), Naturium (1).
+
+From sweeps: A Day's March (3), Awake NY (1), Free Label (1), Bellroy
+(2), Frida (1), Pehr (1), Briogeo (5), Crown Affair (4), DPHUE (4),
+Strathberry (3), Senreve (1).
+
+### What still doesn't work / known limits
+- 30 of 36 retry brands still got 0 contacts even with derived-slug —
+  LinkedIn slug doesn't match brand-name heuristic for them, AND Google
+  fallback hit captcha. Could add second-pass with `<slugified>-inc` or
+  `<domain-stem>` variants, but yield is diminishing.
+- ~36% of midsize brands run on catchall MX (Workspace default) → skip
+  per the hard rule, no way around without paid Apollo.
+- ~36% of honest-MX brands have non-standard patterns we can't guess
+  even after probing all 13 candidates.
+- Browser keeps dying — laptop sleep, user-closes-window, Chromium crash.
+  Preflight catches it loudly now but can't prevent it.
 
 ### Tasks open
-- Send the 14 Caraway emails (pending operator go-ahead)
-- Apply the same playbook to brand #2 from the 499-brand list
+- Tuesday: send to the ~52-55 verified pool. Pace at ~30-50/day to stay
+  under Gmail's soft outbound limits.
+- Optionally: re-run the sweep across the remaining ~420 brands using
+  the now-patched discover-staff-linkedin.py + sweep-all-brands.py.
+  Expected yield ~30-50 more verified at ~4-6 hours wall time IF browser
+  doesn't die.
 
 ### Sending account
 - Default: `armaan.priyadarshan.29@dartmouth.edu` (Workspace, MX = Google)
@@ -697,3 +829,10 @@ Exhausted for the month (50 verifications and 25 searches across endpoints,
 all share the same monthly bucket on free tier). Pipeline does NOT depend on
 Hunter — SMTP verification via the operator's own machine (port 25 open) is
 the primary verification method. Hunter is a backup, currently dormant.
+
+### Apollo.io quota
+Free tier locks `/people/match` and `/mixed_people/search` (both endpoints
+needed for email discovery). Only `/organizations/enrich` works (org
+metadata, no emails). Upgrade to $49/mo Basic = 500 person credits/mo
+would let us replace SMTP probing with one Apollo call per brand and
+skip the catchall/pattern-non-uniformity failure modes entirely.

@@ -109,8 +109,99 @@ def headline_mentions_brand(headline: str, brand: str) -> bool:
 
 
 def _browse(*args: str, timeout: int = 30) -> tuple[int, str]:
-    r = subprocess.run([BROWSE_BIN, *args], capture_output=True, text=True, timeout=timeout)
-    return r.returncode, r.stdout
+    """Returns (rc, stdout). On timeout/exception returns (-1, '') so a
+    single laggy js call doesn't kill the whole script — caller skips
+    the brand/keyword and continues. Pre-2026-05-24 this function raised
+    TimeoutExpired and crashed the run on brand 19/50."""
+    try:
+        r = subprocess.run([BROWSE_BIN, *args], capture_output=True, text=True, timeout=timeout)
+        return r.returncode, r.stdout
+    except (subprocess.TimeoutExpired, Exception):
+        return -1, ""
+
+
+def assert_headed_or_die(stage: str = "preflight") -> None:
+    """Bail if the browse daemon isn't headed OR the LinkedIn session is dead.
+    Without this guard the script silently burns brands hitting LinkedIn's
+    authwall. Happened repeatedly 2026-05-23/24."""
+    rc, out = _browse("status", timeout=10)
+    if rc != 0 or "Mode: headed" not in out:
+        print(
+            f"\n!!! ABORT ({stage}): browser is not headed. "
+            f"Daemon status:\n{(out or '').strip()}\n"
+            f"Run /connect-chrome and log into LinkedIn, then retry.",
+            flush=True,
+        )
+        sys.exit(2)
+    _browse("goto", "https://www.linkedin.com/feed/", timeout=15)
+    time.sleep(2)
+    rc, out = _browse(
+        "js",
+        "document.body.innerText.includes('Sign in') && "
+        "!document.body.innerText.includes('Sign in to view')",
+        timeout=10,
+    )
+    if "true" in (out or "").lower():
+        print(
+            f"\n!!! ABORT ({stage}): browser is headed but LinkedIn shows "
+            f"the sign-in page. Log into LinkedIn in the Chromium window, "
+            f"then retry.",
+            flush=True,
+        )
+        sys.exit(2)
+
+
+def _slugify(s: str) -> str:
+    """Lowercase + LinkedIn-style slug."""
+    return re.sub(r"[^a-z0-9]+", "-", (s or "").lower()).strip("-")
+
+
+def _try_linkedin_slug_direct(slug: str) -> bool:
+    """Hit linkedin.com/company/<slug>/ — True if it loads a real page
+    (not /unavailable/)."""
+    _browse("goto", f"https://www.linkedin.com/company/{slug}/")
+    time.sleep(2.5)
+    rc, out = _browse("url")
+    if rc != 0:
+        return False
+    url = (out or "").strip()
+    url = re.sub(r"^---.*?\n", "", url, flags=re.DOTALL).strip()
+    return f"/company/{slug}/" in url and "/unavailable/" not in url
+
+
+def derive_company_slug(brand: str, domain: str, log) -> str | None:
+    """Try heuristic slugs directly on LinkedIn before falling back to Google
+    (which captcha's after ~14 sequential searches). Most brands derive
+    cleanly: 'Crane USA' -> crane-usa, 'Briogeo' -> briogeo, etc."""
+    domain_stem = domain.split(".", 1)[0].lower()
+    candidates = [
+        _slugify(brand),
+        domain_stem,
+        _slugify(brand) + "-home",
+        _slugify(brand) + "-inc",
+        _slugify(brand) + "-co",
+    ]
+    seen = set()
+    for c in candidates:
+        if not c or c in seen:
+            continue
+        seen.add(c)
+        if _try_linkedin_slug_direct(c):
+            return c
+        time.sleep(1.5)
+    return None
+
+
+def find_company_slug(brand: str, domain: str, log) -> str | None:
+    """Composite: try derived heuristics first, fall back to Google search."""
+    s = derive_company_slug(brand, domain, log)
+    if s:
+        log(f"slug = {s} (derived)")
+        return s
+    s = google_find_company_slug(brand, log)
+    if s:
+        log(f"slug = {s} (google)")
+    return s
 
 
 def google_find_company_slug(brand: str, log) -> str | None:
@@ -203,19 +294,30 @@ def main():
     if args.limit:
         brands = brands[:args.limit]
     print(f"discovering staff via LinkedIn for {len(brands)} brands", flush=True)
+    assert_headed_or_die("preflight")
 
+    # Incremental write: open output now, append per brand so a crash mid-run
+    # preserves everything done so far (vs writing once at end → lose all).
+    fieldnames = ["domain", "brand", "name", "title", "source_url", "notes"]
+    out_f = open(args.output, "w", newline="")
+    out_w = csv.DictWriter(out_f, fieldnames=fieldnames)
+    out_w.writeheader()
+    out_f.flush()
     all_contacts = []
     for i, b in enumerate(brands, 1):
+        # Re-verify headed+auth every 10 brands so we don't grind silently
+        # for 30 minutes after the browser dies mid-run.
+        if i > 1 and i % 10 == 1:
+            assert_headed_or_die(f"mid-run check at brand {i}")
         brand_name = b["brand"]
         domain = b["domain"]
         def log(msg):
             print(f"  [{i:>2}/{len(brands)}] {brand_name}: {msg}", flush=True)
 
-        slug = google_find_company_slug(brand_name, log)
+        slug = find_company_slug(brand_name, domain, log)
         if not slug:
             log("NO_LINKEDIN_SLUG_FOUND, skipping")
             continue
-        log(f"slug = {slug}")
 
         # Across all keywords, dedupe by LinkedIn profile slug
         per_brand: dict[str, dict] = {}  # slug -> contact row
@@ -240,15 +342,15 @@ def main():
                 kept += 1
             log(f"  kw={kw}: {len(cards)} cards, {kept} kept")
         log(f"-> {len(per_brand)} unique senior+relevant contacts")
+        # Append THIS brand's contacts immediately (crash-safe)
+        for row in per_brand.values():
+            out_w.writerow(row)
+        out_f.flush()
         all_contacts.extend(per_brand.values())
         if i < len(brands):
             time.sleep(SLEEP_BETWEEN_BRANDS)
 
-    with open(args.output, "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=[
-            "domain", "brand", "name", "title", "source_url", "notes",
-        ])
-        w.writeheader(); w.writerows(all_contacts)
+    out_f.close()
     print(f"\nwrote {len(all_contacts)} rows to {args.output}")
 
 
