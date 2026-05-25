@@ -150,9 +150,20 @@ def classify_domain(domain: str) -> dict:
     return {"status": "UNREACHABLE", "mx": host, "note": f"sentinel {code} {msg[:60]}"}
 
 
+def _ascii_normalize(s: str) -> str:
+    """Strip accents: 'Hervé' → 'herve', 'Polène' → 'polene'.
+    Required because smtplib refuses non-ASCII local-parts (RFC 2821).
+    Without this, build_email returns 'hervé@example.com' and rcpt
+    crashes with UnicodeEncodeError. NFKD decomposition + drop combining
+    marks (Mn category)."""
+    import unicodedata
+    nfkd = unicodedata.normalize("NFKD", s or "")
+    return "".join(c for c in nfkd if unicodedata.category(c) != "Mn")
+
+
 def build_email(pattern: str, name: str, domain: str) -> str | None:
     """Return the email address for a pattern name + person name + domain."""
-    parts = [p for p in (name or "").strip().split() if p]
+    parts = [p for p in _ascii_normalize(name or "").strip().split() if p]
     if not parts:
         return None
     first = parts[0].lower()
