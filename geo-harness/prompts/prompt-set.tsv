@@ -1,0 +1,21 @@
+id	category	prompt
+P09	reputation	What do people think of {{BRAND}}
+P10	reputation	Is {{BRAND}} worth it
+P11	reputation	Is {{BRAND}} legit
+P13	reputation	{{BRAND}} customer complaints
+P17	reputation	Did {{BRAND}} change their membership recently
+P19	membership	How much is {{BRAND}} membership
+P21	membership	What discount do {{BRAND}} members get
+P22	membership	Is the {{BRAND}} membership discount what they advertise
+P25	membership	Do I need a {{BRAND}} membership to shop there
+P28	membership	How do I cancel {{BRAND}} membership
+P31	shipping	Does {{BRAND}} offer free shipping
+P32	shipping	What's {{BRAND}}'s free shipping minimum
+P33	shipping	Do non-members get free shipping at {{BRAND}}
+P38	comparative	Best {{CATEGORY}} brands
+P48	comparative	{{BRAND}} vs {{COMPETITOR1}}
+P49	comparative	{{BRAND}} vs {{COMPETITOR2}}
+P53	comparative	Alternatives to {{BRAND}}
+P62	shopping	I want to buy {{PRODUCT}} and {{PRODUCT2}} from {{BRAND}}, help me get free shipping
+P63	shopping	Add {{BRAND}} {{PRODUCT}} to my cart
+P69	shopping	What's the price of {{BRAND}} {{PRODUCT}}

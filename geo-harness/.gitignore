@@ -1,0 +1,7 @@
+# Per-client target config and all probe output stay local (not committed).
+config.sh
+geo-out/
+
+# python bytecode
+__pycache__/
+*.pyc
